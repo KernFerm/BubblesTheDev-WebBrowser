@@ -1,9 +1,9 @@
 # 🖥️ BubblesTheDev Web Browser
 
-## Installer Package – Version 0.0.22
+## Installer Package – Version 0.0.24
 
 **Installer File:**
-`BubblesTheDev_Web_Browser_Installer_0.0.22.exe`
+`BubblesTheDev_Web_Browser_Installer_0.0.24.exe`
 
 **Author:** BubblesTheDev
 **Platform:** Windows 10 / 11 (x64 & x86)
@@ -43,7 +43,7 @@ Version 0.0.18 introduces improved navigation handling, custom installer icon su
 1. Double-click:
 
    ```
-   BubblesTheDev_Web_Browser_Installer_0.0.22.exe
+   BubblesTheDev_Web_Browser_Installer_0.0.24.exe
    ```
 
 2. Choose your installation directory.
