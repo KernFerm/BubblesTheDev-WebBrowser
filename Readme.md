@@ -111,9 +111,6 @@ Current update process is manual:
 
 ## 🛠 Troubleshooting
 
-**Installer uses default Electron icon:**
-Ensure the file `build/icon.ico` exists and contains multiple icon sizes (16x16, 32x32, 48x48, 256x256).
-
 **Application does not launch:**
 Reinstall the browser and ensure Windows Defender or antivirus software is not blocking the executable.
 
