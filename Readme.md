@@ -130,3 +130,6 @@ All Rights Reserved.
 
 BubblesTheDev
 2026
+
+
+# RELEASES [get the web browser here](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases/tag/BubblesTheDevWebBrowser)
