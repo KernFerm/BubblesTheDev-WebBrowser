@@ -1,9 +1,9 @@
 # 🖥️ BubblesTheDev Web Browser
 
-## Installer Package – Version 0.0.18
+## Installer Package – Version 0.0.22
 
 **Installer File:**
-`BubblesTheDev_Web_Browser_Installer_0.0.18.exe`
+`BubblesTheDev_Web_Browser_Installer_0.0.22.exe`
 
 **Author:** BubblesTheDev
 **Platform:** Windows 10 / 11 (x64 & x86)
@@ -43,7 +43,7 @@ Version 0.0.18 introduces improved navigation handling, custom installer icon su
 1. Double-click:
 
    ```
-   BubblesTheDev_Web_Browser_Installer_0.0.18.exe
+   BubblesTheDev_Web_Browser_Installer_0.0.22.exe
    ```
 
 2. Choose your installation directory.
@@ -124,94 +124,113 @@ All Rights Reserved.
 
 # BubblesTheDev Proprietary Software License Agreement
 
-Copyright © 2026 BubblesTheDev
+Copyright © 2026 BubblesTheDev.
 All Rights Reserved.
 
 ---
 
-## 1. Ownership
+## 1. Ownership and Intellectual Property
 
-This software, including all source code, compiled binaries, installer packages, assets, designs, trademarks, and documentation ("Software"), is the exclusive intellectual property of BubblesTheDev.
+The BubblesTheDev Web Browser, including but not limited to all source code, object code, compiled binaries, installer packages, architecture, design elements, user interface components, graphics, trademarks, service marks, trade dress, documentation, and all related materials (collectively, the "Software"), are and shall remain the sole and exclusive property of BubblesTheDev.
 
-No ownership rights are transferred to the user under this license.
+This Agreement does not convey to you any ownership interest in the Software. All rights not expressly granted herein are reserved by BubblesTheDev.
 
 ---
 
-## 2. License Grant
+## 2. Grant of License
 
-Subject to the terms of this Agreement, BubblesTheDev grants you a limited, non-exclusive, non-transferable, revocable license to:
+Subject to your compliance with the terms and conditions of this Agreement, BubblesTheDev hereby grants you a limited, non-exclusive, non-transferable, non-sublicensable, and revocable license to install and use the Software solely for lawful personal or internal business purposes on compatible Windows operating systems.
 
-* Install and use the Software on Windows devices for personal or internal business use.
-
-This license does not grant any rights to the source code or to modify the Software.
+No rights are granted to access, modify, or use the source code of the Software.
 
 ---
 
 ## 3. Restrictions
 
-You may NOT:
+You shall not, directly or indirectly:
 
-* Reverse engineer, decompile, or disassemble the Software.
-* Modify, adapt, or create derivative works based on the Software.
-* Redistribute, sublicense, rent, lease, or sell the Software.
-* Remove or alter any copyright or proprietary notices.
-* Use the Software for unlawful purposes.
+* Reverse engineer, decompile, disassemble, or otherwise attempt to derive the source code of the Software.
+* Modify, adapt, translate, or create derivative works based upon the Software.
+* Distribute, sublicense, lease, rent, lend, sell, or otherwise transfer the Software to any third party without prior written consent.
+* Remove, alter, or obscure any proprietary notices or labels.
+* Use the Software in violation of any applicable local, state, federal, or international law.
 
----
-
-## 4. Distribution
-
-The installer file may not be redistributed without explicit written permission from BubblesTheDev.
-
-Official distribution channels will be designated by BubblesTheDev.
+Any unauthorized use shall constitute a material breach of this Agreement.
 
 ---
 
-## 5. Updates
+## 4. Distribution and Redistribution
 
-Updates may be provided at the discretion of BubblesTheDev. This license applies to all future versions unless explicitly stated otherwise.
+The installer package and any associated files may not be copied, mirrored, redistributed, or hosted on third-party platforms without the prior express written authorization of BubblesTheDev.
 
----
-
-## 6. Termination
-
-This license is effective until terminated.
-
-It will automatically terminate if you fail to comply with any term of this Agreement. Upon termination, you must uninstall and delete all copies of the Software.
+Official distribution channels shall be determined solely by BubblesTheDev.
 
 ---
 
-## 7. Disclaimer of Warranty
+## 5. Updates and Modifications
 
-The Software is provided "AS IS", without warranty of any kind, express or implied, including but not limited to:
+BubblesTheDev reserves the right, at its sole discretion, to modify, update, suspend, or discontinue the Software at any time without prior notice.
 
-* Merchantability
-* Fitness for a particular purpose
-* Non-infringement
+Any updates or new versions provided shall be subject to the terms of this Agreement unless accompanied by a separate license agreement.
 
-BubblesTheDev does not guarantee that the Software will be error-free or uninterrupted.
+---
+
+## 6. Term and Termination
+
+This License Agreement is effective upon installation or use of the Software and shall remain in effect until terminated.
+
+This Agreement will automatically terminate without notice if you fail to comply with any provision herein. Upon termination, you must immediately cease all use of the Software and delete or uninstall all copies in your possession or control.
+
+---
+
+## 7. Disclaimer of Warranties
+
+THE SOFTWARE IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTY OF ANY KIND, WHETHER EXPRESS, IMPLIED, STATUTORY, OR OTHERWISE.
+
+TO THE MAXIMUM EXTENT PERMITTED BY LAW, BUBBLESTHEDEV DISCLAIMS ALL WARRANTIES, INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND NON-INFRINGEMENT.
+
+BUBBLESTHEDEV DOES NOT WARRANT THAT THE SOFTWARE WILL BE UNINTERRUPTED, ERROR-FREE, OR FREE OF HARMFUL COMPONENTS.
 
 ---
 
 ## 8. Limitation of Liability
 
-In no event shall BubblesTheDev be liable for any damages arising from the use or inability to use the Software, including but not limited to direct, indirect, incidental, or consequential damages.
+TO THE MAXIMUM EXTENT PERMITTED BY LAW, IN NO EVENT SHALL BUBBLESTHEDEV BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, EXEMPLARY, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF PROFITS, LOSS OF DATA, LOSS OF BUSINESS OPPORTUNITIES, OR BUSINESS INTERRUPTION, ARISING OUT OF OR RELATED TO THE USE OR INABILITY TO USE THE SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+
+IN NO EVENT SHALL THE TOTAL LIABILITY OF BUBBLESTHEDEV EXCEED THE AMOUNT PAID BY YOU, IF ANY, FOR THE SOFTWARE.
 
 ---
 
-## 9. Governing Law
+## 9. Governing Law and Venue
 
-This Agreement shall be governed by and interpreted in accordance with the laws of the United States.
+This Agreement shall be governed by, construed, and enforced in accordance with the laws of the State of Michigan, United States, without regard to its conflict of law principles.
 
----
+Any dispute, claim, or controversy arising out of or relating to this Agreement or the Software shall be brought exclusively in the state or federal courts located within the State of Michigan.
 
-## 10. Entire Agreement
-
-This Agreement constitutes the entire agreement between you and BubblesTheDev regarding the Software and supersedes all prior agreements.
+You hereby irrevocably consent to the personal jurisdiction and venue of such courts and waive any objection based on improper venue or forum non conveniens.
 
 ---
 
-By installing or using this Software, you agree to the terms of this License Agreement.
+## 10. Injunctive Relief
+
+You acknowledge that any unauthorized use, reproduction, or distribution of the Software may cause irreparable harm to BubblesTheDev for which monetary damages would be inadequate. Accordingly, BubblesTheDev shall be entitled to seek injunctive or equitable relief, in addition to any other remedies available at law or in equity.
+
+---
+
+## 11. Severability
+
+If any provision of this Agreement is held to be invalid or unenforceable, the remaining provisions shall remain in full force and effect.
+
+---
+
+## 12. Entire Agreement
+
+This Agreement constitutes the entire understanding between you and BubblesTheDev regarding the Software and supersedes all prior or contemporaneous agreements, communications, or understandings, whether written or oral.
+
+---
+
+BY INSTALLING OR USING THE SOFTWARE, YOU ACKNOWLEDGE THAT YOU HAVE READ, UNDERSTOOD, AND AGREE TO BE BOUND BY THE TERMS OF THIS AGREEMENT.
+
 
 
 ---
