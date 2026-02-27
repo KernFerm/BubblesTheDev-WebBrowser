@@ -16,7 +16,7 @@
 BubblesTheDev Web Browser is a lightweight, modern desktop web browser built with Electron.
 This installer package allows you to install the browser on Windows with optional desktop and Start Menu shortcuts.
 
-Version 0.0.18 introduces improved navigation handling, custom installer icon support, and enhanced stability for modern websites.
+Version 0.0.24
 
 ---
 
