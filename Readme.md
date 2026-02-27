@@ -80,10 +80,31 @@ C:\Users\<YourUsername>\AppData\Local\Programs\BubblesTheDev Web Browser
 
 ## 🔐 Security Configuration
 
-* `contextIsolation` enabled
-* `nodeIntegration` disabled
-* Remote module disabled
-* Separate session support for incognito windows
+This release includes the following Electron security settings:
+
+- `contextIsolation`: enabled
+- `nodeIntegration`: disabled
+- Remote module disabled
+- Separate session handling for incognito windows
+- No auto-updater service
+- No crash reporter initialized
+- No telemetry endpoints configured
+
+---
+
+
+## 🔒 Privacy Notice
+
+This application:
+
+- Does not collect personal data
+- Does not transmit telemetry
+- Does not include analytics services
+- Does not connect to BubblesTheDev-owned servers
+- Does not include AI, machine learning, or remote inference systems
+
+Network traffic occurs only when the user initiates browsing activity.
+
 
 ---
 
