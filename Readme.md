@@ -2,6 +2,8 @@
 
 ## Installer Package – Version 0.0.24
 
+updating
+
 **Installer File:**
 `BubblesTheDev_Web_Browser_Installer_0.0.24.exe`
 
