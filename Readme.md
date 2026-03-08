@@ -1,24 +1,22 @@
 # 🖥️ BubblesTheDev Web Browser
 
-## Installer Package – Version 0.0.24
-
-updating
+## Installer Package – Version 0.0.35
 
 **Installer File:**
-`BubblesTheDev_Web_Browser_Installer_0.0.24.exe`
+`BubblesTheDev Web Browser_Installer_0.0.35.exe`
 
-**Author:** BubblesTheDev
-**Platform:** Windows 10 / 11 (x64 & x86)
+**Author:** BubblesTheDev  
+**Platform:** Windows 10 / 11 (x64)  
 **Engine:** Chromium (Electron 40)
 
 ---
 
 ## 🚀 Overview
 
-BubblesTheDev Web Browser is a lightweight, modern desktop web browser built with Electron.
-This installer package allows you to install the browser on Windows with optional desktop and Start Menu shortcuts.
+BubblesTheDev Web Browser is a desktop web browser built with Electron and a BrowserView-based tab runtime.
+This installer package installs the browser on Windows with optional desktop and Start Menu shortcuts.
 
-Version 0.0.24
+Release version: `0.0.35`
 
 ---
 
@@ -32,11 +30,12 @@ Version 0.0.24
 * 🖨 Print support
 * 💾 Save Page As functionality
 * 📥 Download tracking
-* 🧠 Built-in Task Manager (tab process viewer)
+* 🧠 Built-in Task Manager for tab processes
 * 🧩 User-Agent switching
 * 🏠 Custom homepage support
 * 🎨 Dark mode toggle
-* 🖥 Custom desktop and Start Menu shortcuts
+* 🖥 Desktop and Start Menu shortcuts
+* 🧾 Exportable diagnostics and local crash logging
 
 ---
 
@@ -45,18 +44,12 @@ Version 0.0.24
 1. Double-click:
 
    ```
-   BubblesTheDev_Web_Browser_Installer_0.0.24.exe
+   BubblesTheDev Web Browser_Installer_0.0.35.exe
    ```
 
 2. Choose your installation directory.
-
-3. Select optional components:
-
-   * Desktop Shortcut
-   * Start Menu Shortcut
-
+3. Select optional shortcuts if desired.
 4. Click **Install**.
-
 5. Launch the browser after installation completes.
 
 ---
@@ -73,10 +66,10 @@ C:\Users\<YourUsername>\AppData\Local\Programs\BubblesTheDev Web Browser
 
 ## 🖥 System Requirements
 
-* Windows 10 or Windows 11
-* 4GB RAM minimum
-* ~300MB free disk space
-* x64 or x86 architecture
+* Windows 11
+* 4 GB RAM minimum
+* ~300 MB free disk space
+* x64 architecture
 
 ---
 
@@ -86,40 +79,56 @@ This release includes the following Electron security settings:
 
 - `contextIsolation`: enabled
 - `nodeIntegration`: disabled
-- Remote module disabled
+- `sandbox`: enabled for renderer and helper windows
 - Separate session handling for incognito windows
-- No auto-updater service
-- No crash reporter initialized
+- Restricted permission handling
+- BrowserView-based tab runtime instead of renderer-managed `webviewTag`
 - No telemetry endpoints configured
+- No auto-updater service configured
 
 ---
 
+## 🧾 Diagnostics And Crash Reports
+
+This release includes local diagnostics logging for runtime failures and renderer/tab process exits.
+
+Users can export a diagnostics report from:
+
+`Tools > Export Diagnostics Report`
+
+Diagnostics are stored locally on the user machine and are not transmitted automatically.
+
+**Support email for crash reports:**
+`bubblesthedevwebbrowsersupport@fnbubbles420.org`
+
+When reporting a problem, attach the exported diagnostics JSON file to the support email.
+
+---
 
 ## 🔒 Privacy Notice
 
 This application:
 
-- Does not collect personal data
-- Does not transmit telemetry
+- Does not collect personal data automatically
+- Does not transmit telemetry automatically
 - Does not include analytics services
-- Does not connect to BubblesTheDev-owned servers
+- Does not connect to BubblesTheDev-owned servers for diagnostics upload
 - Does not include AI, machine learning, or remote inference systems
 
-Network traffic occurs only when the user initiates browsing activity.
-
+Network traffic occurs only when the user initiates browsing activity or visits websites.
 
 ---
 
 ## ⚠️ SmartScreen Notice
 
-Because this application is not currently code-signed, Windows SmartScreen may display a warning.
+If this application is distributed without trusted code signing, Windows SmartScreen may display a warning.
 
 If prompted:
 
 1. Click **More Info**
 2. Select **Run Anyway**
 
-Future versions may include code signing support.
+Using a trusted code-signing certificate is recommended for public distribution.
 
 ---
 
@@ -127,32 +136,42 @@ Future versions may include code signing support.
 
 Current update process is manual:
 
-1. Uninstall the previous version (optional but recommended)
-2. Install the newer version using the latest installer
+1. Close the existing browser instance.
+2. Install the newer version using the latest installer.
+3. Replace the previous installation if prompted.
 
 ---
 
 ## 🛠 Troubleshooting
 
-**Application does not launch:**
-Reinstall the browser and ensure Windows Defender or antivirus software is not blocking the executable.
+**Application does not launch:**  
+Reinstall the browser and ensure Windows Defender or other antivirus software is not blocking the executable.
+
+**A page or tab crashes:**  
+Reopen the browser, export a diagnostics report from the Tools menu, and email it to support.
+
+**Installer is blocked by Windows:**  
+Use the SmartScreen steps above, or install a signed release build when available.
 
 ---
 
 ## 📜 License
 
-Proprietary – BubblesTheDev
+Proprietary – BubblesTheDev  
 All Rights Reserved.
 
-
-# Read [License file and data collection](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/LICENSE)
+Read the license and data collection details here:  
+[License file and data collection](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/LICENSE)
 
 ---
 
 ## 💙 Built By
 
-BubblesTheDev
+BubblesTheDev  
 2026
 
+---
 
-# RELEASES [get the web browser here](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases/tag/BubblesTheDevWebBrowser)
+## RELEASES
+
+[Get the web browser here](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases/tag/BubblesTheDevWebBrowser)
