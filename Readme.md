@@ -174,4 +174,4 @@ BubblesTheDev
 
 ## RELEASES
 
-[Get the web browser here](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases/tag/BubblesTheDevWebBrowser)
+[Get the web browser here](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases/tag/0035-Installer-Version-webbrowser)
