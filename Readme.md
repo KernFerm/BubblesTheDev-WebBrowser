@@ -6,7 +6,7 @@
 `BubblesTheDev Web Browser_Installer_0.0.35.exe`
 
 **Author:** BubblesTheDev  
-**Platform:** Windows 10 / 11 (x64)  
+**Platform:** Windows 11 (x64)  
 **Engine:** Chromium (Electron 40)
 
 ---
