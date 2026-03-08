@@ -119,6 +119,56 @@ Network traffic occurs only when the user initiates browsing activity or visits 
 
 ---
 
+## 🔎 Privacy Proof
+
+The application stores browser data and diagnostics locally under the Electron user data folder, and diagnostics are exported only when the user manually chooses to save them.
+
+```js
+function getDataPath() {
+   return path.join(app.getPath('userData'), 'browser_data.json');
+}
+
+function getDiagnosticsDir() {
+   return path.join(app.getPath('userData'), 'diagnostics');
+}
+
+function ensureDiagnosticsDir() {
+   const dirPath = getDiagnosticsDir();
+   fs.mkdirSync(dirPath, { recursive: true });
+   return dirPath;
+}
+
+function exportDiagnosticsReport() {
+   const snapshot = buildDiagnosticsSnapshot();
+   const stamp = new Date().toISOString().replace(/[:.]/g, '-');
+   const defaultPath = path.join(ensureDiagnosticsDir(), `diagnostics-${stamp}.json`);
+
+   return dialog.showSaveDialog({
+      title: 'Export Diagnostics Report',
+      defaultPath,
+      filters: [{ name: 'JSON', extensions: ['json'] }]
+   }).then((result) => {
+      if (result.canceled || !result.filePath) return { ok: false, canceled: true };
+
+      fs.writeFileSync(result.filePath, JSON.stringify(snapshot, null, 2), 'utf8');
+      return { ok: true, filePath: result.filePath };
+   });
+}
+```
+
+Application code scan summary:
+
+The application source was scanned for common telemetry, analytics, diagnostics upload, updater, and AI-related hooks, including patterns such as `fetch`, `XMLHttpRequest`, `WebSocket`, `navigator.sendBeacon`, `crashReporter`, `autoUpdater`, analytics SDK names, and common AI client references.
+
+- No telemetry implementation found in application source
+- No analytics SDK or tracking hooks found in application source
+- No automatic diagnostics upload path found in application source
+- No AI, machine learning, or remote inference implementation found in application source
+
+Browser features such as history, bookmarks, homepage settings, and local diagnostics are stored on the user's device to support browser functionality and are not automatically transmitted.
+
+---
+
 ## ⚠️ SmartScreen Notice
 
 If this application is distributed without trusted code signing, Windows SmartScreen may display a warning.
