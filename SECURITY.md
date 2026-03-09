@@ -12,8 +12,8 @@ Security updates are typically provided for the most recent release versions of 
 
 | Version        | Supported                 |
 | -------------- | ------------------------- |
-| Latest Release | ✔ Supported               |
-| Older Releases | ⚠ May not receive updates |
+| 0.0.35 | ✔ Supported               |
+| Older Releases | NOT SUPPORTED |
 
 Users are encouraged to always run the **latest available version** of the browser to ensure they receive security improvements and bug fixes.
 
@@ -27,7 +27,7 @@ If you discover a security vulnerability in the project, please report it respon
 
 Instead, please report the issue privately using the following method:
 
-**Email:** [security@fnbubbles420.org](mailto:security@fnbubbles420.org)
+**Email:** [securitygithubissue@fnbubbles420.org](mailto:securitygithubissue@fnbubbles420.org)
 
 When reporting a vulnerability, please include:
 
