@@ -11,6 +11,8 @@
 
 [Download BubblesTheDev - Web Browser](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases/download/0035-bubblesthedev-webbrowser/BubblesTheDev.Web.Browser_Installer_0.0.35.exe)
 
+[Browser-Privacy-Comparison](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/Browser-Privacy-Comparison.md)
+
 ---
 
 ## 🚀 Overview
