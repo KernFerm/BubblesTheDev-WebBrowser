@@ -9,6 +9,8 @@
 **Platform:** Windows 11 (x64)  
 **Engine:** Chromium (Electron 40)
 
+[Download BubblesTheDev - Web Browser](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases/download/0035-bubblesthedev-webbrowser/BubblesTheDev.Web.Browser_Installer_0.0.35.exe)
+
 ---
 
 ## 🚀 Overview
