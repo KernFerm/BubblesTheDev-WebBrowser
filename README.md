@@ -10,7 +10,7 @@
 **Engine:** Chromium (Electron 40)
 
 
-[Download BubblesTheDev - Web Browser](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases/tag/0050-Installer-Version-webbrowser)
+[Download BubblesTheDev - Web Browser](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases/download/0050-bubblesthedev-webbrowser/BubblesTheDev.Web.Browser_Installer_0.0.50.exe)
 
 [Browser-Privacy-Comparison](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/Browser-Privacy-Comparison.md)
 
