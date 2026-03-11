@@ -1,15 +1,16 @@
 # 🖥️ BubblesTheDev Web Browser
 
-## Installer Package – Version 0.0.35
+## Installer Package – Version 0.0.50
 
 **Installer File:**
-`BubblesTheDev Web Browser_Installer_0.0.35.exe`
+`BubblesTheDev Web Browser Setup 0.0.50.exe`
 
 **Author:** BubblesTheDev  
 **Platform:** Windows 11 (x64)  
 **Engine:** Chromium (Electron 40)
 
-[Download BubblesTheDev - Web Browser](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases/download/0035-bubblesthedev-webbrowser/BubblesTheDev.Web.Browser_Installer_0.0.35.exe)
+
+[Download BubblesTheDev - Web Browser](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases/download/0035-bubblesthedev-webbrowser/BubblesTheDev.Web.Browser_Installer_0.0.50.exe)
 
 [Browser-Privacy-Comparison](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/Browser-Privacy-Comparison.md)
 
@@ -22,7 +23,7 @@
 BubblesTheDev Web Browser is a desktop web browser built with Electron and a BrowserView-based tab runtime.
 This installer package installs the browser on Windows with optional desktop and Start Menu shortcuts.
 
-Release version: `0.0.35`
+Release version: `0.0.50`
 
 ---
 
@@ -36,6 +37,8 @@ Release version: `0.0.35`
 * 🖨 Print support
 * 💾 Save Page As functionality
 * 📥 Download tracking
+* 🛡 Download protection with risky file warnings and Windows Defender scan integration
+* 🧹 Clear recent downloads button in the Downloads window
 * 🧠 Built-in Task Manager for tab processes
 * 🧩 User-Agent switching
 * 🏠 Custom homepage support
@@ -50,7 +53,7 @@ Release version: `0.0.35`
 1. Double-click:
 
    ```
-   BubblesTheDev Web Browser_Installer_0.0.35.exe
+   BubblesTheDev Web Browser Setup 0.0.50.exe
    ```
 
 2. Choose your installation directory.
@@ -86,6 +89,7 @@ This release includes the following Electron security settings:
 - `contextIsolation`: enabled
 - `nodeIntegration`: disabled
 - `sandbox`: enabled for renderer and helper windows
+- Download protection flags high-risk file types and can run Windows Defender scans after downloads complete
 - Separate session handling for incognito windows
 - Restricted permission handling
 - BrowserView-based tab runtime instead of renderer-managed `webviewTag`
@@ -142,7 +146,7 @@ function ensureDiagnosticsDir() {
    const dirPath = getDiagnosticsDir();
    fs.mkdirSync(dirPath, { recursive: true });
    return dirPath;
-} 
+}
 
 function exportDiagnosticsReport() {
    const snapshot = buildDiagnosticsSnapshot();
@@ -230,4 +234,4 @@ BubblesTheDev
 
 ## RELEASES
 
-[Get the web browser here](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases/tag/0035-Installer-Version-webbrowser)
+[Get the web browser here](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases/tag/0050-Installer-Version-webbrowser)
