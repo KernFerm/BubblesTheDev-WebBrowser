@@ -142,7 +142,7 @@ function ensureDiagnosticsDir() {
    const dirPath = getDiagnosticsDir();
    fs.mkdirSync(dirPath, { recursive: true });
    return dirPath;
-}
+} 
 
 function exportDiagnosticsReport() {
    const snapshot = buildDiagnosticsSnapshot();
