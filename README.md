@@ -10,7 +10,7 @@
 **Engine:** Chromium (Electron 40)
 
 
-[Download BubblesTheDev - Web Browser](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases/download/0035-bubblesthedev-webbrowser/BubblesTheDev.Web.Browser_Installer_0.0.50.exe)
+[Download BubblesTheDev - Web Browser](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases/tag/0050-Installer-Version-webbrowser)
 
 [Browser-Privacy-Comparison](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/Browser-Privacy-Comparison.md)
 
@@ -60,6 +60,8 @@ Release version: `0.0.50`
 3. Select optional shortcuts if desired.
 4. Click **Install**.
 5. Launch the browser after installation completes.
+
+If you already have version `0.0.35` installed, open `Start > Settings > Apps`, find `BubblesTheDev Web Browser 0.0.35`, and click `Uninstall` before installing version `0.0.50`.
 
 ---
 
@@ -197,8 +199,8 @@ Using a trusted code-signing certificate is recommended for public distribution.
 Current update process is manual:
 
 1. Close the existing browser instance.
-2. Install the newer version using the latest installer.
-3. Replace the previous installation if prompted.
+2. If version `0.0.35` is installed, open `Start > Settings > Apps`, find `BubblesTheDev Web Browser 0.0.35`, and click `Uninstall`.
+3. Install the newer version using the latest installer.
 
 ---
 
