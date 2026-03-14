@@ -5,9 +5,9 @@
 **Installer File:**
 `BubblesTheDev Web Browser_Installer_0.1.5.exe`
 
-**Author:** BubblesTheDev  
-**Platform:** Windows 11 (x64)  
-**Engine:** Chromium (Electron 40)
+> **Author:** BubblesTheDev  
+> **Platform:** Windows 11 (x64)  
+> **Engine:** Chromium (Electron 40)
 
 ### [Download BubblesTheDev Web Browser](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 
