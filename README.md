@@ -9,13 +9,13 @@
 **Platform:** Windows 11 (x64)  
 **Engine:** Chromium (Electron 40)
 
-[Download BubblesTheDev Web Browser](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
+### [Download BubblesTheDev Web Browser](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 
-[Browser-Privacy-Comparison](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/Browser-Privacy-Comparison.md)
+### [Browser-Privacy-Comparison](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/Browser-Privacy-Comparison.md)
 
-[Data-Collection-and-Privacy-Notice](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/Data-Collection-and-Privacy-Notice.md)
+### [Data-Collection-and-Privacy-Notice](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/Data-Collection-and-Privacy-Notice.md)
 
-[Architecture](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/ARCHITECTURE.md)
+### [Architecture](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/ARCHITECTURE.md)
 
 ---
 
