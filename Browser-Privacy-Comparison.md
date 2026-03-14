@@ -2,149 +2,77 @@
 
 ## Browser Privacy Comparison
 
-This document explains how **BubblesTheDev Web Browser** approaches privacy and how its design differs from many common browsers.
+This document explains how BubblesTheDev Web Browser approaches privacy and how its design differs from many mainstream browsers.
 
-The goal is to provide a **clear, accurate, and transparent explanation** of the browser’s privacy model without misrepresenting how Chromium or other browsers operate.
+The goal is accuracy, not marketing language. This browser avoids first-party telemetry and automatic diagnostics upload, but it still performs normal web traffic and optional search-provider traffic when the user uses built-in browsing and search features.
 
----
+## Comparison Table
 
-# Browser Privacy Comparison
+| Feature | BubblesTheDev Web Browser | Google Chrome | Microsoft Edge | Brave | Firefox |
+| --- | --- | --- | --- | --- | --- |
+| First-party telemetry | Not implemented | Yes | Yes | Limited | Limited |
+| Analytics SDKs in app code | None | Yes | Yes | None | Limited |
+| Automatic diagnostics upload | No | Yes | Yes | Limited | Limited |
+| Local browser data storage | Yes | Yes | Yes | Yes | Yes |
+| Cloud sync requirement | None | Optional | Optional | Optional | Optional |
+| Built-in AI account features | None | Present in ecosystem | Present in ecosystem | Limited | Limited |
+| Search-provider requests from built-in home page | Yes, when user searches in Bubbles | Yes | Yes | Yes | Yes |
+| Local-only music library scan | Yes, explicit opt-in | N/A | N/A | N/A | N/A |
 
-| Feature                      | BubblesTheDev Web Browser                 | Google Chrome          | Microsoft Edge             | Brave           | Firefox             |
-| ---------------------------- | ----------------------------------------- | ---------------------- | -------------------------- | --------------- | ------------------- |
-| Telemetry Collection         | None implemented                          | Yes                    | Yes                        | Limited         | Limited             |
-| Analytics SDKs               | None                                      | Yes                    | Yes                        | None            | Limited             |
-| Automatic Diagnostic Uploads | No                                        | Yes                    | Yes                        | Limited         | Limited             |
-| User Data Storage            | Local Device Only                         | Local + Cloud Services | Local + Microsoft Services | Mostly Local    | Mostly Local        |
-| AI Integration               | None built into browser                   | Google AI services     | Copilot integration        | Limited         | Limited             |
-| Remote Data Transmission     | None by default beyond normal web traffic | Yes                    | Yes                        | Limited         | Limited             |
-| Privacy Philosophy           | Privacy-First                             | Data-Driven            | Ecosystem Integration      | Privacy-Focused | Open-Source Privacy |
-| Background Services          | Minimal                                   | Many                   | Many                       | Moderate        | Moderate            |
-| Tracking Protection          | User Controlled                           | Limited                | Limited                    | Strong          | Strong              |
+## Local-First Behavior
 
----
+BubblesTheDev Web Browser stores browser data locally in the Electron `userData` directory.
 
-# Memory Usage Comparison
-
-Example testing scenario using typical browsing activity.
-
-| Browser                       | Idle Memory | 5 Tabs Open      |
-| ----------------------------- | ----------- | ---------------- |
-| **BubblesTheDev Web Browser** | ~150 MB     | ~905 MB          |
-| Google Chrome                 | ~350–500 MB | ~1.2–1.8 GB      |
-| Microsoft Edge                | ~300–450 MB | ~1.0–1.6 GB      |
-| Brave                         | ~250–400 MB | ~1.0–1.4 GB      |
-| Firefox                       | ~250–350 MB | ~900 MB – 1.3 GB |
-
-These numbers may vary depending on:
-
-* hardware
-* extensions
-* websites being loaded
-* operating system behavior
-
-They are included as **general performance examples**, not guaranteed measurements.
-
----
-
-# Data Handling Philosophy
-
-BubblesTheDev Web Browser follows a **local-first privacy architecture**.
-
-Browser data such as:
+Examples:
 
 * history
 * bookmarks
-* homepage settings
-* diagnostic reports
+* homepage setting
+* optional Music Player setting
+* optional exported diagnostics reports
 
-are stored **only on the user's local device** using the Electron `userData` directory.
+The application does not automatically upload this information.
 
-No automatic telemetry systems or analytics reporting pipelines are included in the application.
+## What Still Uses The Network
 
-Diagnostic reports can be **exported manually by the user** and saved locally as JSON files if needed.
+This browser is not an offline-only product. Network traffic still occurs when the user does one of the following:
 
-No automatic upload occurs.
+* opens websites
+* signs into websites
+* loads page assets
+* uses external search engines directly
+* uses Bubbles Search Engine on `bubbles://home`
 
----
+The Bubbles page can contact DuckDuckGo and Google endpoints in the background to render results and suggestions after the user submits a search.
 
-# Privacy Architecture Summary
+## Music Player Privacy Model
 
-| Category                  | Behavior           |
-| ------------------------- | ------------------ |
-| Telemetry                 | Not implemented    |
-| Analytics SDKs            | Not implemented    |
-| Automatic crash reporting | Not implemented    |
-| Diagnostic reports        | Manual export only |
-| User data location        | Local device       |
-| Cloud synchronization     | Not implemented    |
+The Music Player is local-only.
 
----
+* It is disabled by default.
+* No folder scan starts until the user explicitly agrees in the Music Player UI.
+* It scans only the local folder the user selected.
+* Playback uses local files only.
 
-# Security Model
+## Security And Privacy Model
 
-The browser follows a **minimal-surface design philosophy**.
+The browser uses Electron with Chromium sandboxing and process isolation, while avoiding first-party telemetry frameworks and automatic background reporting.
 
 Key characteristics:
 
-* No telemetry frameworks
-* No analytics SDK integrations
-* No background diagnostic uploads
-* No cloud account requirement
+* sandboxed renderers and helper windows
+* `contextIsolation` enabled
+* `nodeIntegration` disabled in renderers
+* no automatic diagnostics upload
+* no first-party analytics pipeline
 
-Chromium sandboxing and process isolation are still used to protect tab processes and help limit the impact of malicious web content.
+## Summary
 
----
+BubblesTheDev Web Browser aims for a local-first privacy posture:
 
-# Local Data Flow
+* browser settings and history stay on-device
+* diagnostics stay local unless the user exports them
+* music library access requires explicit consent
+* search and browsing still create normal traffic to the services the user chooses to use
 
-Typical runtime behavior:
-
-1. User launches the browser
-2. Chromium engine loads
-3. Session data is written locally to the Electron `userData` directory
-4. Optional diagnostic snapshot can be generated locally
-5. Diagnostic reports are exported only if the user chooses a save location
-
-At no point is this information automatically transmitted to external servers.
-
----
-
-# Comparison vs Default Chromium Telemetry
-
-Chromium (the open-source engine used by many browsers) contains **optional telemetry and diagnostic capabilities** that downstream browser projects may choose to enable or disable.
-
-Many commercial Chromium-based browsers enable additional services such as:
-
-* usage metrics collection
-* crash report uploads
-* analytics integrations
-* experiment frameworks
-* cloud service integrations
-
-BubblesTheDev Web Browser intentionally avoids enabling these systems.
-
-| Component                    | Default Chromium Capability  | BubblesTheDev Web Browser                  |
-| ---------------------------- | ---------------------------- | ------------------------------------------ |
-| Usage Metrics Reporting      | Available in Chromium        | Not implemented                            |
-| Crash Report Upload          | Available in Chromium        | Manual export only                         |
-| Background Telemetry Systems | Available in Chromium builds | Not implemented or enabled in this project |
-| Analytics SDK Integrations   | Possible via vendor services | Not implemented                            |
-| Remote Experiment Frameworks | Often enabled by vendors     | Not implemented                            |
-| AI / Cloud Service Hooks     | Optional integrations        | No cloud-based AI services integrated      |
-
-This configuration keeps browser behavior predictable and avoids silent background reporting systems often present in commercial Chromium-based browsers.
-
----
-
-# Project Philosophy
-
-BubblesTheDev Web Browser is designed around a simple principle:
-
-**Users should control their own data.**
-
-The browser intentionally avoids background telemetry systems, analytics frameworks, and automatic diagnostic uploads. All browsing data remains under the user’s control on their local device unless they explicitly choose to export it.
-
----
-
-Developed by **BubblesTheDev**
+Developed by BubblesTheDev
