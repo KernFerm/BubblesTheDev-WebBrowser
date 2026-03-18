@@ -178,7 +178,8 @@ If prompted:
 1. Click **More Info**
 2. Select **Run Anyway**
 
-Using a trusted code-signing certificate is recommended for public distribution.
+- > web browser will get signed in 2 updates from now
+- *4:36am - 2026/03/18*
 
 ---
 
