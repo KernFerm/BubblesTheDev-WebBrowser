@@ -1,23 +1,41 @@
 # 🖥️ BubblesTheDev Web Browser
 
-## Installer Package – Version 0.1.5
+## 🚀 Privacy-First Desktop Web Browser (Electron + Chromium)
 
-**Installer File:**
+A lightweight desktop browser built for users who want **control, transparency, and zero hidden tracking**.
+
+- ❌ No telemetry
+- ❌ No analytics tracking
+- 💾 Local-only data storage
+- 🛡 Built-in security protections
+- ⚡ Fast, minimal, and user-focused
+
+---
+
+## 📥 Download Latest Version
+
+👉 [Download BubblesTheDev Web Browser](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
+
+---
+
+## 📊 Transparency & Documentation
+
+- 🔎 [Browser Privacy Comparison](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/Browser-Privacy-Comparison.md)
+- 🔐 [Data Collection & Privacy Notice](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/Data-Collection-and-Privacy-Notice.md)
+- 🏗 [Architecture Overview](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/ARCHITECTURE.md)
+- 🔄 [Browser Updates](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/UPDATES.md)
+
+---
+
+## 📦 Installer Information
+
+**Version:** 0.1.5  
+**Installer File:**  
 `BubblesTheDev Web Browser_Installer_0.1.5.exe`
 
 > **Author:** BubblesTheDev  
 > **Platform:** Windows 11 (x64)  
 > **Engine:** Chromium (Electron 40)
-
-### [Download BubblesTheDev Web Browser](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
-
-### [Browser-Privacy-Comparison](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/Browser-Privacy-Comparison.md)
-
-### [Data-Collection-and-Privacy-Notice](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/Data-Collection-and-Privacy-Notice.md)
-
-### [Architecture](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/ARCHITECTURE.md)
-
-### [Browser Updates](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/UPDATES.md)
 
 ---
 
