@@ -136,11 +136,3 @@ This changelog reconstructs the project history from version `0.0.24` through `0
 
 - Diagnostics helper formatting issues
 - Login-flow handling around popup-based authentication
-
-## Source Basis
-
-This file was reconstructed from:
-
-- the repository compare history for `0.0.24 -> 0.0.35`, `0.0.35 -> 0.0.50`, and `0.0.50 -> 0.1.5`
-- the in-repo `release.md` for version `0.1.5`
-- the repository's tagged README and documentation diffs
