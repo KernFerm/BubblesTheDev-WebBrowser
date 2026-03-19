@@ -2,6 +2,8 @@
 
 ## 🚀 Privacy-First Desktop Web Browser (Electron + Chromium)
 
+> Built for privacy, transparency, and user control — not data collection.
+
 A lightweight desktop browser built for users who want **control, transparency, and zero hidden tracking**.
 
 - ❌ No telemetry
