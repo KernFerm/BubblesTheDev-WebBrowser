@@ -24,6 +24,10 @@ This changelog reconstructs the project history from version `0.0.24` through `0
 - CPU usage optimization is planned to reduce background and active-tab overhead as much as possible during normal browsing.
 - Memory optimization is planned to push average browser memory use below the current baseline while keeping stability and feature support intact.
 
+### Compression
+
+- use max compression for local storage
+
 ## Version Range Summary
 
 - Start version: `0.0.24`
