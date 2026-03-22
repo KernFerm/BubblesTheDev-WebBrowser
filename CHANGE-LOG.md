@@ -28,6 +28,10 @@ This changelog reconstructs the project history from version `0.0.24` through `0
 
 - use max compression for local storage
 
+### Encryption 
+
+- add Military Grade Encryption 
+
 ## Version Range Summary
 
 - Start version: `0.0.24`
