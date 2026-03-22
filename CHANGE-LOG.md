@@ -30,7 +30,10 @@ This changelog reconstructs the project history from version `0.0.24` through `0
 
 ### Encryption 
 
-- add Military Grade Encryption 
+- Secure storage for browser data
+- Encrypt sensitive local files
+- OS-backed credential storage
+- Secure export system (logs/diagnostics)
 
 ## Version Range Summary
 
