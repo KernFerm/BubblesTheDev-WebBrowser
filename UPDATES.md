@@ -6,5 +6,5 @@
 
 ---
 
-- New Version *coming soon*: `0.4.0` 
+- New Version *coming soon*: `0.6.3` 
 - Current Version: `0.1.5` released ( wont be supported after new updated version )
