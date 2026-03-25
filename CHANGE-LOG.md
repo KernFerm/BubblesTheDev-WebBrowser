@@ -2,7 +2,7 @@
 
 This changelog reconstructs the project history from version `0.0.24` through `0.1.5` using the repository's tagged compare data, release notes, and versioned README changes.
 
-## 0.5.5 Planned
+## 0.6.3 Planned
 
 ### Added
 
