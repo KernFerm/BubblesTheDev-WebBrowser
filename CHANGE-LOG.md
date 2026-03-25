@@ -2,38 +2,101 @@
 
 This changelog reconstructs the project history from version `0.0.24` through `0.1.5` using the repository's tagged compare data, release notes, and versioned README changes.
 
-## 0.4.0 Planned
+## 0.5.5 Planned
 
 ### Added
 
 - Bookmark bar support is planned for quick access to saved sites from the main browser UI.
 - Chrome-style right-click tab actions are planned, including creating a new tab from the tab area context menu.
 - Split-view browsing is planned so two pages can be viewed side by side in the same browser window.
+- Flexible installation support is planned, allowing users to install the browser anywhere on their system, including internal drives, USB flash drives, external HDDs, and SSDs.
+- Ad blocker verification system is planned, including:
+  - Real-time status indicator
+  - Blocked ads/trackers counter per page
+  - Diagnostic/test capability
+- Site permissions system is planned similar to modern browsers, including per-site controls for:
+  - Camera
+  - Microphone
+  - Notifications
+  - Location
+  - Pop-ups
+  - Clipboard access
+  - Automatic downloads
+- Bubbles Search Engine upgrade is planned:
+  - Google backend integration (where applicable)
+  - Google autocomplete/suggestions
+  - DuckDuckGo and additional search providers
+  - Ability to switch or aggregate providers
+  - Homepage displays search results directly (no forced redirect)
+- Private browsing IP protection is planned:
+  - Hide the user's IP address while browsing in incognito/private mode
+  - Ensure no session persistence or local tracking in private mode
+
+---
+
+### Privacy & Data Protection
+
+- BubblesTheDev Web Browser is designed to keep browser data local to the user's device unless the user chooses to visit external websites or use external web services.
+- The application does not include built-in telemetry, analytics SDKs, automatic crash upload services, cloud synchronization, or AI monitoring systems.
+
+Specifically:
+
+- No telemetry services are embedded in the application.
+- No background analytics services are executed.
+- No behavioral tracking mechanisms are included by the application itself.
+- No advertising identifiers are generated or transmitted by the application itself.
+- No cloud-based synchronization features are implemented.
+- No automatic diagnostics upload path is implemented.
+- Local browser data such as history, bookmarks, homepage settings, and optional Music Player settings is stored on the user's device in the Electron `userData` directory.
+
+---
 
 ### Updated
 
 - Download protection is planned to move beyond Windows Defender-only scanning and support multiple antivirus providers or scanner integrations.
 - Full-screen behavior is planned to be revised so `F11` cleanly toggles full-screen on and off.
+- Installer system is planned to support user-defined install locations instead of forcing a default path.
+
+---
 
 ### Fixed
 
 - A full-screen usability fix is planned so the browser can still be closed reliably while in full-screen mode.
+- Additional safeguards are planned to ensure `Alt + F4` and window controls always function correctly in all states.
+
+---
 
 ### Performance
 
 - CPU usage optimization is planned to reduce background and active-tab overhead as much as possible during normal browsing.
 - Memory optimization is planned to push average browser memory use below the current baseline while keeping stability and feature support intact.
 
+---
+
 ### Compression
 
-- use max compression for local storage
+- Maximum compression is planned for local storage, including cached data and stored settings, while maintaining performance.
+
+---
 
 ### Encryption 
 
-- Secure storage for browser data
-- Encrypt sensitive local files
-- OS-backed credential storage
-- Secure export system (logs/diagnostics)
+- Secure storage for browser data is planned.
+- Encryption for sensitive local files is planned.
+- OS-backed credential storage is planned.
+- Secure export system (logs/diagnostics) is planned to prevent sensitive data exposure.
+
+---
+
+### Planned (Future Version 0.8.3)
+
+- VPN integration will be introduced in version `0.8.3`, including support for:
+  - NordVPN
+  - ExpressVPN
+  - ProtonVPN
+  - Custom VPN configuration files supported by ProtonVPN
+
+---
 
 ## Version Range Summary
 
@@ -42,6 +105,7 @@ This changelog reconstructs the project history from version `0.0.24` through `0
 - End version: `0.1.5`
 
 ## 0.0.24 -> 0.0.35
+...
 
 ### Added
 
