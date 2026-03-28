@@ -4,13 +4,13 @@
 
 > Built for privacy, transparency, and user control — not data collection.
 
-A lightweight desktop browser built for users who want **control, transparency, and zero hidden tracking**.
+A lightweight desktop browser designed for users who want **control, clarity, and zero hidden tracking**.
 
-- ❌ No telemetry
-- ❌ No analytics tracking
-- 💾 Local-only data storage
-- 🛡 Built-in security protections
-- ⚡ Fast, minimal, and user-focused
+* ❌ No telemetry
+* ❌ No analytics tracking
+* 💾 Local-only data storage
+* 🛡 Built-in security protections
+* ⚡ Fast, minimal, and user-focused
 
 ---
 
@@ -22,79 +22,102 @@ A lightweight desktop browser built for users who want **control, transparency, 
 
 ## 📊 Transparency & Documentation
 
-- 🔎 [Browser Privacy Comparison](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/Browser-Privacy-Comparison.md)
-- 🔐 [Data Collection & Privacy Notice](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/Data-Collection-and-Privacy-Notice.md)
-- 🏗 [Architecture Overview](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/ARCHITECTURE.md)
-- 🔄 [Browser Updates](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/UPDATES.md)
+* 🔎 [Browser Privacy Comparison](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/Browser-Privacy-Comparison.md)
+* 🔐 [Data Collection & Privacy Notice](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/Data-Collection-and-Privacy-Notice.md)
+* 🏗 [Architecture Overview](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/ARCHITECTURE.md)
+* 🔄 [Browser Updates](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/UPDATES.md)
 
 ---
 
 ## 📦 Installer Information
 
-**Version:** 0.1.5  
-**Installer File:**  
+**Version:** 0.1.5
+**Installer File:**
 `BubblesTheDev Web Browser_Installer_0.1.5.exe`
 
-> **Author:** BubblesTheDev  
-> **Platform:** Windows 11 (x64)  
+> **Author:** BubblesTheDev
+> **Platform:** Windows 11 (x64)
 > **Engine:** Chromium (Electron 40)
 
 ---
 
 ## 🚀 Overview
 
-BubblesTheDev Web Browser is a desktop web browser built with Electron and a BrowserView-based tab runtime.
+BubblesTheDev Web Browser is a lightweight desktop browser focused on **privacy, control, and transparency**.
 
-Version `0.1.5` includes the Bubbles Search Engine default home page, improved popup login support for modern websites, live ad and tracker counters, bookmark-safe Clear Data behavior, and a local-only Music Player that requires explicit opt-in before scanning any folder.
+It is designed to give users a clean browsing experience without hidden tracking or background data collection.
 
-This installer package installs the browser on Windows with optional desktop and Start Menu shortcuts.
+Version `0.1.5` includes:
+
+* Bubbles Search Engine default homepage
+* Improved login popup support for modern websites
+* Live ad and tracker counters
+* Bookmark-safe Clear Data behavior
+* Local-only Music Player with explicit user permission
+
+---
+
+## 🎯 Why This Browser
+
+* No hidden tracking systems
+* No background data collection
+* Full control over your data
+* Transparent behavior by design
+* Built for users, not data harvesting
 
 ---
 
 ## ✨ Features
 
-* 🗂 Multi-tab browsing with a BrowserView-based tab runtime
-* 🏠 Bubbles Search Engine default home page at `bubbles://home`
-* 🌐 Direct URL browsing and plain-text search from the same address bar
-* 🔎 Search results enriched in the background with DuckDuckGo results and Google suggestions
-* 🚫 Ad and tracker blocking with live counters on the Bubbles page
-* 🔐 Improved popup login compatibility for sites such as Google, Twitch, and Facebook
+* 🗂 Multi-tab browsing
+* 🏠 Bubbles Search Engine (`bubbles://home`)
+* 🌐 Combined URL + search bar
+* 🔎 Enhanced search (DuckDuckGo + Google suggestions)
+* 🚫 Ad and tracker blocking with live counters
+* 🔐 Improved login compatibility (Google, Twitch, Facebook)
 * ⭐ Bookmarks system
 * 📜 History tracking
-* 🕶 Incognito window support
+* 🕶 Incognito mode
 * 🖨 Print support
-* 💾 Save Page As functionality
-* 📥 Download tracking with recent-download management
-* 🛡 Download protection with risky file warnings and Windows Defender scan integration
-* 🧠 Built-in Task Manager for tab processes
+* 💾 Save Page As
+* 📥 Download manager
+* 🛡 Download protection + Defender scan integration
+* 🧠 Built-in Task Manager
 * 🧩 User-Agent switching
-* 🏠 Custom homepage support
-* 🎵 Local-only Music Player with explicit opt-in before folder scans
-* ⌨️ Edit menu and keyboard shortcut guide for common browser actions
-* 🧾 Exportable diagnostics and local crash logging
+* 🏠 Custom homepage
+* 🎵 Local-only Music Player
+* ⌨️ Keyboard shortcuts + edit menu
+* 🧾 Exportable diagnostics
+
+---
+
+## 🖼 Interface Preview
+
+*(Add screenshots here — this will significantly increase user engagement)*
 
 ---
 
 ## 📦 Installation Instructions
 
-1. Double-click:
+1. Run:
 
-   ```
-   BubblesTheDev Web Browser_Installer_0.1.5.exe
-   ```
+```
+BubblesTheDev Web Browser_Installer_0.1.5.exe
+```
 
-2. Choose your installation directory.
-3. Select optional shortcuts if desired.
-4. Click **Install**.
-5. Launch the browser after installation completes.
+2. Choose install location
+3. Select shortcuts
+4. Click Install
+5. Launch browser
 
-If you already have an older version installed, open `Start > Settings > Apps`, find `BubblesTheDev Web Browser`, uninstall the older version, and then install version `0.1.5`.
+To update:
+
+* uninstall old version
+* install latest release
 
 ---
 
 ## 📁 Default Installation Path
-
-If no custom location is selected:
 
 ```
 C:\Users\<YourUsername>\AppData\Local\Programs\BubblesTheDev Web Browser
@@ -106,53 +129,49 @@ C:\Users\<YourUsername>\AppData\Local\Programs\BubblesTheDev Web Browser
 
 * Windows 11
 * 4 GB RAM minimum
-* ~300 MB free disk space
-* x64 architecture
+* ~300 MB disk space
+* x64 system
 
 ---
 
 ## 🔐 Security Configuration
 
-This release includes the following Electron security settings and browser protections:
-
-- `contextIsolation`: enabled
-- `nodeIntegration`: disabled
-- `sandbox`: enabled for renderer and helper windows
-- BrowserView-based tab runtime instead of renderer-managed `webviewTag`
-- Separate session handling for incognito windows
-- Restricted permission handling
-- Download protection flags high-risk file types and can run Windows Defender scans after downloads complete
-- Ad and tracker request filtering
-- No telemetry endpoints configured
-- No auto-updater service configured
+* `contextIsolation`: enabled
+* `nodeIntegration`: disabled
+* `sandbox`: enabled
+* BrowserView tab system
+* Incognito session separation
+* Restricted permissions
+* Download protection + Defender integration
+* Ad/tracker filtering
+* No telemetry endpoints
+* No auto-updater
 
 ---
 
 ## 🎵 Music Player
 
-The Music Player is local-only and off by default.
-
-- No music folder is scanned until the user explicitly agrees inside the Music Player window
-- The user can scan the default Music folder or choose another local folder
-- Playback uses local files only
-- Music library data is not uploaded or shared by the app
+* Disabled by default
+* Requires explicit user permission
+* Local files only
+* No data upload
 
 ---
 
-## 🧾 Diagnostics And Crash Reports
+## 🧾 Diagnostics
 
-This release includes local diagnostics logging for runtime failures and renderer or tab process exits.
+* Local crash logging
+* Manual export only
+* No automatic transmission
 
-Users can export a diagnostics report from:
+Export via:
 
-`Tools > Export Diagnostics Report`
+```
+Tools > Export Diagnostics Report
+```
 
-Diagnostics are stored locally on the user machine and are not transmitted automatically.
-
-**Support email for crash reports:**
+Support email:
 `bubblesthedevwebbrowsersupport@fnbubbles420.org`
-
-When reporting a problem, attach the exported diagnostics JSON file to the support email.
 
 ---
 
@@ -160,22 +179,18 @@ When reporting a problem, attach the exported diagnostics JSON file to the suppo
 
 This application:
 
-- Does not collect personal data automatically
-- Does not transmit telemetry automatically
-- Does not include analytics services
-- Does not connect to BubblesTheDev-owned servers for diagnostics upload
-- Does not include AI, machine learning, or remote inference systems
-- Stores browser data locally on the user's device
+* Does not collect personal data automatically
+* Does not transmit telemetry
+* Does not include analytics
+* Does not upload diagnostics
+* Does not use AI/cloud tracking systems
+* Stores all data locally
 
-Network traffic occurs when the user browses websites or uses built-in search features.
-
-When the user runs a search from `bubbles://home`, the browser may contact DuckDuckGo and Google endpoints in the background to assemble the Bubbles search experience.
+Network traffic only occurs when browsing or using search features.
 
 ---
 
 ## 🔎 Privacy Proof
-
-The application stores browser data and diagnostics locally under the Electron user data folder, and diagnostics are exported only when the user manually chooses to save them.
 
 ```js
 function getDataPath() {
@@ -187,68 +202,55 @@ function getDiagnosticsDir() {
 }
 ```
 
-Browser features such as history, bookmarks, homepage settings, Music Player settings, and local diagnostics are stored on the user's device to support browser functionality and are not automatically transmitted.
+All data remains local unless explicitly exported by the user.
 
 ---
 
 ## ⚠️ SmartScreen Notice
 
-If this application is distributed without trusted code signing, Windows SmartScreen may display a warning.
+Unsigned builds may trigger SmartScreen.
 
 If prompted:
 
-1. Click **More Info**
-2. Select **Run Anyway**
+1. Click "More Info"
+2. Click "Run Anyway"
 
-- > web browser will get signed in 2 updates from now
-- *4:36am - 2026/03/18*
+A code-signed release is planned for a future update.
 
 ---
 
 ## 🔄 Updating
 
-Current update process is manual:
+Manual update process:
 
-1. Close the existing browser instance.
-2. Open `Start > Settings > Apps`.
-3. Find `BubblesTheDev Web Browser` and uninstall the older version if needed.
-4. Install the newer version using the latest installer.
+1. Close browser
+2. Uninstall old version
+3. Install latest version
 
 ---
 
 ## 🛠 Troubleshooting
 
-**Application does not launch:**  
-Reinstall the browser and ensure Windows Defender or other antivirus software is not blocking the executable.
-
-**A page or tab crashes:**  
-Reopen the browser, export a diagnostics report from the Tools menu, and email it to support.
-
-**A login popup does not appear:**  
-Update to the latest release, because current builds include popup-window handling needed by many sign-in flows.
-
-**Installer is blocked by Windows:**  
-Use the SmartScreen steps above, or install a signed release build when available.
+**App won’t launch:** reinstall and check antivirus
+**Crash:** export diagnostics and email support
+**Login popup issues:** update browser
+**Installer blocked:** follow SmartScreen steps
 
 ---
 
 ## 📜 License
 
-Proprietary – BubblesTheDev  
-All Rights Reserved.
-
-Read the license and data collection details here:  
-[License file and data collection](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/LICENSE)
+Proprietary – All Rights Reserved
 
 ---
 
 ## 💙 Built By
 
-BubblesTheDev  
+BubblesTheDev
 2026
 
 ---
 
 ## RELEASES
 
-[Get the web browser here](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
+👉 [Get the web browser here](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
