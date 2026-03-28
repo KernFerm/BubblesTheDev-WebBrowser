@@ -231,10 +231,10 @@ Manual update process:
 
 ## 🛠 Troubleshooting
 
-**App won’t launch:** reinstall and check antivirus
-**Crash:** export diagnostics and email support
-**Login popup issues:** update browser
-**Installer blocked:** follow SmartScreen steps
+- **App won’t launch:** reinstall and check antivirus
+- **Crash:** export diagnostics and email support
+- **Login popup issues:** update browser
+- **Installer blocked:** follow SmartScreen steps
 
 ---
 
