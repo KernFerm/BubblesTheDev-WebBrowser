@@ -29,28 +29,6 @@ This changelog reconstructs the project history from version `0.0.24` through `0
 - Hidden BrowserView tabs now opt into background throttling so inactive pages use less CPU and memory pressure during normal browsing.
 - Background tabs can now be put to sleep automatically under memory pressure, and the Task Manager can manually sleep or wake eligible tabs.
 
-## 0.4.0 Planned
-
-### Added
-
-- Bookmark bar support is planned for quick access to saved sites from the main browser UI.
-- Chrome-style right-click tab actions are planned, including creating a new tab from the tab area context menu.
-- Split-view browsing is planned so two pages can be viewed side by side in the same browser window.
-
-### Updated
-
-- Download protection is planned to move beyond Windows Defender-only scanning and support multiple antivirus providers or scanner integrations.
-- Full-screen behavior is planned to be revised so `F11` cleanly toggles full-screen on and off.
-
-### Fixed
-
-- A full-screen usability fix is planned so the browser can still be closed reliably while in full-screen mode.
-
-### Performance
-
-- CPU usage optimization is planned to reduce background and active-tab overhead as much as possible during normal browsing.
-- Memory optimization is planned to push average browser memory use below the current baseline while keeping stability and feature support intact.
-
 ## Version Range Summary
 
 - Start version: `0.0.24`
