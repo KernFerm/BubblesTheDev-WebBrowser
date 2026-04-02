@@ -32,11 +32,13 @@ The main process lives in `browser-runtime.js` and is responsible for:
 * BrowserWindow creation
 * BrowserView tab creation and navigation
 * session setup and request interception
-* local persistence in `browser_data.json`
+* secure local persistence in a compressed browser data store
 * downloads and diagnostics windows
 * task manager window
 * local Music Player window
 * app menu and shortcut/help dialogs
+* split-view shell state, bookmark bar state, and site permission policy state
+* background tab suspension under memory pressure
 
 ## Window Model
 
@@ -73,7 +75,9 @@ The main process provides the Bubbles state and search payloads through IPC.
 The search path can use:
 
 * DuckDuckGo result and instant-answer data
-* Google suggestion data
+* Google result parsing and suggestion data
+
+The internal Bubbles page renders those provider results directly on the page instead of redirecting users away from the bundled home/search surface.
 
 That provider traffic occurs only after the user performs a search from the Bubbles page.
 
@@ -89,10 +93,29 @@ Current persisted fields include:
 * history
 * bookmarks
 * Music Player opt-in and chosen folder
+* per-site permission settings
+
+Persisted browser state is compressed before it is written to disk. When Electron safe storage is available, the compressed payload is also encrypted with OS-backed protection.
 
 ### Diagnostics
 
-Diagnostics are generated locally and can be exported manually by the user. No automatic upload path is implemented.
+Diagnostics are generated locally and can be exported manually by the user as encrypted report files. No automatic upload path is implemented.
+
+The browser shell also exposes a runtime checks panel backed by the same diagnostics snapshot so users can validate active security storage, enabled download scan providers, ad-block counters, executable path, and current performance state without leaving the app.
+
+### Download protection
+
+Download protection runs through a modular provider chain. The current Windows path combines:
+
+* Windows Defender CLI scanning when available
+* Authenticode signature verification for executable or script-like file types
+* browser-side heuristics and protected open-file gating
+
+The providers run independently so one unavailable provider does not disable the entire protection flow.
+
+### Memory safeguards
+
+Inactive BrowserView tabs already use background throttling. The runtime now adds a second layer that can suspend hidden tabs under sustained tab-count or working-set pressure, then restore them automatically when the user returns to them.
 
 ### Music Player
 
