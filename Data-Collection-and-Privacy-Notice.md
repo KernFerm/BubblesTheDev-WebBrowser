@@ -1,8 +1,10 @@
-Data Collection and Privacy Notice
+# Data Collection and Privacy Notice
 
-BubblesTheDev Web Browser is designed to keep browser data local to the user's device unless the user chooses to visit external websites or use external web services.
+This notice reflects the current privacy posture of BubblesTheDev Web Browser.
 
-The application does not include built-in telemetry, analytics SDKs, automatic crash upload services, cloud synchronization, or AI monitoring systems.
+BubblesTheDev Web Browser is designed to keep browser data local to the user's device unless the user chooses to browse external websites, use external search providers, download files, or export diagnostics manually.
+
+The application does not include built-in telemetry, analytics SDKs, automatic crash upload services, cloud synchronization, auto-updater endpoints, or AI monitoring systems.
 
 Specifically:
 
@@ -12,27 +14,71 @@ Specifically:
 * No advertising identifiers are generated or transmitted by the application itself.
 * No cloud-based synchronization features are implemented.
 * No automatic diagnostics upload path is implemented.
+* No first-party BubblesTheDev tracking server is contacted for analytics or data collection purposes.
 
-Local browser data such as history, bookmarks, homepage settings, and optional Music Player settings is stored on the user's device in the Electron `userData` directory.
+## Local Browser Data
+
+Browser data is stored on the user's device in the Electron `userData` directory.
+
+Current persisted data includes:
+
+* homepage settings
+* browsing history
+* bookmarks
+* bookmark bar visibility
+* per-site permission settings
+* optional Music Player opt-in state and chosen folder
+* cached search results and suggestions used by the internal home/search page
+
+The persisted browser-state payload is compressed before being written to disk. When Electron safe storage is available, that payload is also protected with OS-backed encryption. If OS-backed protection is unavailable, the runtime can fall back to credential-backed AES-GCM protection when available. If neither protection path is available, the payload is still stored locally in compressed form.
+
+The application does not automatically upload this browser-state data.
+
+## Diagnostics And Runtime Checks
+
+Diagnostics are generated locally.
+
+Current behavior:
+
+* runtime diagnostic entries are written to a local diagnostics directory
+* users can manually export an encrypted `.bdiag` diagnostics report
+* no automatic diagnostics upload path is implemented
+* the runtime checks panel shows local status for storage protection and other on-device runtime state
+
+Diagnostic data remains on-device unless the user explicitly chooses to export it.
+
+## Network Activity
+
+This browser is not offline-only. Outbound network traffic still occurs when the user does one of the following:
+
+* opens websites or web apps
+* signs into websites
+* loads page assets such as images, scripts, fonts, and media
+* downloads files
+* uses external search engines directly
+* uses search from `bubbles://home`
+
+When the user performs a search from `bubbles://home`, the application may contact DuckDuckGo and Google endpoints to assemble results, related searches, and suggestions on that internal page.
+
+## Music Player Privacy
 
 The Music Player is local-only and off by default.
 
 * No music folder is scanned until the user explicitly agrees inside the Music Player window.
 * The user can choose the default Music folder or another local folder.
+* Playback uses local files only.
 * The application does not upload or share the user's music files.
 
-The browser still makes normal outbound network requests when the user browses the web.
+## Summary
 
-Examples:
+BubblesTheDev Web Browser is intentionally designed without built-in surveillance, telemetry, analytics, automatic remote reporting, cloud sync, or a first-party auto-update service.
 
-* Opening websites and web apps
-* Loading page assets such as images, scripts, fonts, and media
-* Using search from `bubbles://home`
+The privacy model is local-first:
 
-When the user runs a search from `bubbles://home`, the application may contact DuckDuckGo and Google endpoints in the background to assemble the search experience shown on that internal page.
+* browser settings, history, bookmarks, permissions, and search cache stay on-device
+* persisted browser state is compressed locally and protected when an available encryption path exists
+* diagnostics stay local unless the user exports them
+* music library access requires explicit consent before any scan begins
+* browsing, downloads, and built-in search still create normal traffic to the websites and providers the user chooses to use
 
-The application does not establish outbound connections to BubblesTheDev-controlled servers for tracking or data collection purposes.
-
-BubblesTheDev values user privacy and has intentionally designed this software without built-in surveillance, telemetry, analytics, or automatic remote reporting components.
-
-Any future feature that would materially change this privacy posture should be disclosed in updated privacy and release documentation.
+Any future feature that materially changes this privacy posture should be disclosed in updated privacy and release documentation.
