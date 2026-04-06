@@ -1,9 +1,9 @@
 # 🖥️ BubblesTheDev Web Browser
 
-## Installer Package – Version 0.6.3
+## Installer Package – Version 0.6.5
 
 **Installer File:**
-`BubblesTheDev Web Browser_Installer_0.6.3.exe`
+`BubblesTheDev Web Browser_Installer_0.6.5.exe`
 
 **Author:** BubblesTheDev  
 **Platform:** Windows 11 (x64)  
@@ -23,7 +23,7 @@
 
 BubblesTheDev Web Browser is a desktop web browser built with Electron and a BrowserView-based tab runtime.
 
-Version `0.6.3` adds a bookmark bar, Chrome-style tab context actions, split-view browsing, per-site permission controls, modular download protection, on-page search provider switching, fullscreen reliability fixes, secure compressed local persistence, sleeping background tabs, and an in-app runtime checks panel.
+Version `0.6.5` adds a bookmark bar, Chrome-style tab context actions, split-view browsing, per-site permission controls, modular download protection, on-page search provider switching, fullscreen reliability fixes, secure compressed local persistence, sleeping background tabs, and an in-app runtime checks panel.
 
 This installer package installs the browser on Windows with optional desktop and Start Menu shortcuts.
 
@@ -63,7 +63,7 @@ This installer package installs the browser on Windows with optional desktop and
 1. Double-click:
 
    ```
-   BubblesTheDev Web Browser_Installer_0.6.3.exe
+   BubblesTheDev Web Browser_Installer_0.6.5.exe
    ```
 
 2. Choose your installation directory.
@@ -71,7 +71,7 @@ This installer package installs the browser on Windows with optional desktop and
 4. Click **Install**.
 5. Launch the browser after installation completes.
 
-If you already have an older version installed, open `Start > Settings > Apps`, find `BubblesTheDev Web Browser`, uninstall the older version, and then install version `0.6.3`.
+If you already have an older version installed, open `Start > Settings > Apps`, find `BubblesTheDev Web Browser`, uninstall the older version, and then install version `0.6.5`.
 
 ---
 
