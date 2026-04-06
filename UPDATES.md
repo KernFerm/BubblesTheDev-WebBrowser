@@ -6,7 +6,7 @@
 
 ---
 
-- > Version 0.6.3 out now
+- > Version 0.6.5 out now
 - > older versions not supported
 
 
