@@ -1,9 +1,9 @@
 # 🖥️ BubblesTheDev Web Browser
 
-## Installer Package – Version 0.6.5
+## Installer Package – Version 1.0.6
 
 **Installer File:**
-`BubblesTheDev Web Browser_Installer_0.6.5.exe`
+`BubblesTheDev Web Browser_Installer_1.0.6.exe`
 
 **Author:** BubblesTheDev  
 **Platform:** Windows 11 (x64)  
@@ -23,7 +23,7 @@
 
 BubblesTheDev Web Browser is a desktop web browser built with Electron and a BrowserView-based tab runtime.
 
-Version `0.6.5` adds a bookmark bar, Chrome-style tab context actions, split-view browsing, per-site permission controls, modular download protection, on-page search provider switching, fullscreen reliability fixes, secure compressed local persistence, sleeping background tabs, and an in-app runtime checks panel.
+Version `1.0.6` includes the encrypted saved-password vault, consent-gated bookmark and extension import, VPN tooling, managed updater flow, installer-time auto-update opt-in registration, runtime checks, download protection, and the broader BrowserView-based browser shell improvements already in the current release line.
 
 This installer package installs the browser on Windows with optional desktop and Start Menu shortcuts.
 
@@ -37,8 +37,13 @@ This installer package installs the browser on Windows with optional desktop and
 * 🔎 Search results enriched in the background with DuckDuckGo results and Google suggestions
 * 🚫 Ad and tracker blocking with live counters on the Bubbles page
 * 🔐 Improved popup login compatibility for sites such as Google, Twitch, and Facebook
-* ⭐ Bookmarks system
+* ⭐ Bookmarks system with consent-gated import from Chrome, Edge, Brave, Opera, or a manual bookmark file
 * 📌 Bookmark bar with removable saved-page chips
+* 🔑 Encrypted saved-password vault with manual add, remove, and reveal actions
+* 🔐 Strong password generation on supported password forms and from the passwords panel
+* 🧩 Chromium extension import support for Edge, Chrome, Brave, and Opera
+* 🛜 VPN manager with installed-client detection for NordVPN, ExpressVPN, ProtonVPN, and WireGuard
+* 🌍 Browser-session IPv4 and IPv6 public IP testing in the VPN panel
 * 📜 History tracking
 * 🪟 Split-view browsing with a draggable divider
 * 🧭 Per-site permissions for camera, microphone, notifications, location, popups, clipboard, automatic downloads, and fullscreen
@@ -63,7 +68,7 @@ This installer package installs the browser on Windows with optional desktop and
 1. Double-click:
 
    ```
-   BubblesTheDev Web Browser_Installer_0.6.5.exe
+   BubblesTheDev Web Browser_Installer_1.0.6.exe
    ```
 
 2. Choose your installation directory.
@@ -71,7 +76,7 @@ This installer package installs the browser on Windows with optional desktop and
 4. Click **Install**.
 5. Launch the browser after installation completes.
 
-If you already have an older version installed, open `Start > Settings > Apps`, find `BubblesTheDev Web Browser`, uninstall the older version, and then install version `0.6.5`.
+If you already have an older version installed, open `Start > Settings > Apps`, find `BubblesTheDev Web Browser`, uninstall the older version, and then install version `1.0.6`.
 
 ---
 
@@ -107,7 +112,9 @@ This release includes the following Electron security settings and browser prote
 - Download protection runs through modular scanner providers and can block or withhold risky files from in-app execution
 - Ad and tracker request filtering
 - No telemetry endpoints configured
-- No auto-updater service configured
+- No built-in silent auto-updater service
+- Installer offers `Automatic updates` or `Manual updates only`, with an optional owner-run managed update server for installs that opt into automatic updates
+- Installer-time auto-update registration can notify the owner-run update server immediately after setup when `Automatic updates` is selected
 
 ---
 
@@ -150,6 +157,8 @@ This application:
 - Does not include AI, machine learning, or remote inference systems
 - Stores browser data locally on the user's device in compressed form, with OS-backed encryption when available
 
+If the installer build is configured with an update server and the user selects `Automatic updates` during install, the installer can send a minimal update registration to an owner-run update server immediately after setup. The browser can also request the latest published release metadata from that server and download the published installer. The registration is limited to update-management fields such as install ID, version, install path, host name, platform, architecture, last-seen time, and source IP as seen by that server. It does not include browsing history, bookmarks, saved passwords, page content, or diagnostics.
+
 Network traffic occurs when the user browses websites or uses built-in search features.
 
 When the user runs a search from `bubbles://home`, the browser may contact DuckDuckGo and Google endpoints in the background to assemble the Bubbles search experience.
@@ -170,7 +179,7 @@ function getDiagnosticsDir() {
 }
 ```
 
-Browser features such as history, bookmarks, site permission settings, homepage settings, Music Player settings, and local diagnostics are stored on the user's device to support browser functionality and are not automatically transmitted.
+Browser features such as history, bookmarks, site permission settings, homepage settings, Music Player settings, and local diagnostics are stored on the user's device to support browser functionality and are not automatically transmitted. The separate optional managed-update flow, when enabled for an `Automatic updates` install, sends only limited update-management fields and can fetch the latest published release metadata plus the installer package.
 
 ---
 
@@ -189,12 +198,17 @@ Using a trusted code-signing certificate is recommended for public distribution.
 
 ## 🔄 Updating
 
-Current update process is manual:
+Current installer builds support two update modes:
 
-1. Close the existing browser instance.
-2. Open `Start > Settings > Apps`.
-3. Find `BubblesTheDev Web Browser` and uninstall the older version if needed.
-4. Install the newer version using the latest installer.
+1. `Manual updates only`: close the existing browser, remove the older version if needed from `Start > Settings > Apps`, and install the newer version from the GitHub releases page.
+2. `Automatic updates`: the installer records that choice locally, can send an opt-in registration right after setup, and the browser can check in to an owner-run update server, fetch the latest published release, download the installer, and launch it on the user's PC if that build was configured for it.
+
+Important:
+
+- The browser does not include a built-in silent updater client.
+- The updater is managed through the owner-run dashboard and published installer URL.
+- Dashboard access, release publishing, and the client list are restricted to the owner machine by default.
+- The browser still launches the installer as a normal Windows installer step; it is not a silent patch-in-place mechanism.
 
 Uninstall behavior for installers built from the current source:
 
