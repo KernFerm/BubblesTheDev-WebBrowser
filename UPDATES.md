@@ -6,17 +6,6 @@
 
 ---
 
-- > Version 0.6.5 out now
+- > Version `1.0.6` out now
 - > older versions not supported
-
-
----
-
-> Coming soon to version 0.8.2
-> - vpn support coming 
-> - import bookmark bar from other browsers
-> - extension import
-> - enhance bubbles search engine 
-> - save passwords 
-> - add save bookmarks to local when end user updates browser version
 
