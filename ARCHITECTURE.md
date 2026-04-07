@@ -4,6 +4,8 @@
 
 This document explains the high-level architecture of BubblesTheDev Web Browser and how the main runtime pieces interact.
 
+Current release documentation target: version `1.0.6`.
+
 ## Design Goals
 
 The project is built around a few core goals:
@@ -39,6 +41,7 @@ The main process lives in `browser-runtime.js` and is responsible for:
 * app menu and shortcut/help dialogs
 * split-view shell state, bookmark bar state, and site permission policy state
 * background tab suspension under memory pressure
+* installer update-mode registration, owner-run update-server check-in, and managed release checks for opted-in installs
 
 ## Window Model
 
@@ -92,10 +95,27 @@ Current persisted fields include:
 * homepage
 * history
 * bookmarks
+* saved passwords in a separate encrypted password vault with on-demand reveal
+* imported extension records for Chromium-based browser extensions loaded into the main session
+* imported ProtonVPN WireGuard profile metadata
 * Music Player opt-in and chosen folder
 * per-site permission settings
 
+Separate from the main browser-state store, installer builds can also use `%APPDATA%\BubblesTheDev Web Browser\update-preferences.ini` to record whether the install selected `Automatic updates` or `Manual updates only`.
+
 Persisted browser state is compressed before it is written to disk. When Electron safe storage is available, the compressed payload is also encrypted with OS-backed protection.
+
+Saved passwords are stored separately from the main browser data file. Each password value is encrypted before it is written to disk, and the password vault file is also wrapped in the same encrypted persistence envelope.
+
+Extension imports and imported ProtonVPN config metadata are stored in the same local browser data store so they can be restored when the browser starts again.
+
+If the build enables the owner-run update server flow and the install selected `Automatic updates`, startup can send a minimal registration payload to that server, query the latest published release, download the installer, and launch it. The registration payload is limited to update-management fields and is separate from the encrypted browser-state store.
+
+### Extensions and VPN integration
+
+The browser can scan common Chromium browser profile folders on Windows and import existing unpacked extension folders from Edge, Chrome, Brave, and Opera into the persistent main Electron session.
+
+The browser also detects installed VPN clients for NordVPN, ExpressVPN, ProtonVPN, and WireGuard. A VPN manager panel can validate and import ProtonVPN WireGuard `.conf` files for local reuse, while installed VPN applications can be launched from the browser shell.
 
 ### Diagnostics
 
