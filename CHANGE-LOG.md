@@ -2,6 +2,41 @@
 
 This changelog reconstructs the project history from version `0.0.24` through `0.1.5` using the repository's tagged compare data, release notes, and versioned README changes.
 
+## 1.0.6
+
+### Added
+
+- Installer-time auto-update check-in was added so installs that choose `Automatic updates` can register with the owner-run update server immediately after setup.
+
+### Updated
+
+- The package version was advanced to `1.0.6`.
+- Current release documentation and installer-facing version references were updated to `1.0.6`.
+- The managed update server now separates end-user client access from owner-only dashboard and release-management actions.
+
+## 0.9.23
+
+### Added
+
+- Encrypted saved-password storage was added with manual add, reveal, remove, and strong-password generation flows.
+- Bookmark import was expanded to supported Chromium browser paths plus manual bookmark-file import.
+- Separate consent gating was added for browser bookmark-path scanning and manual bookmark-file access.
+- Chromium extension import support was added for Edge, Chrome, Brave, and Opera profile folders.
+- VPN tooling was added for installed-client detection, Proton `.conf` validation/import, and browser-session IP checks.
+- Installer update-mode selection was added for `Automatic updates` and `Manual updates only`, along with an owner-run managed updater that can register opted-in installs, publish the latest release, and let clients download and launch that installer.
+
+### Updated
+
+- Release, README, privacy, and architecture documentation were refreshed for version `0.9.23`.
+- Update documentation was revised to describe the owner-run managed updater, published release flow, and the limited fields it collects.
+- Browser persistence behavior was updated so uninstall no longer deletes app data by default.
+- Startup logging was reduced so blocked tracker noise and low-level Chromium network spam do not flood the terminal.
+
+### Fixed
+
+- Bookmark import consent rules now apply correctly to both browser-path scanning and manual bookmark-file browsing.
+- VPN `.conf` scanning was tightened so there is no automatic common-folder scan path.
+
 ## 0.6.3
 
 ### Added
