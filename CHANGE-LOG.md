@@ -2,8 +2,6 @@
 
 This changelog reconstructs the project history from version `0.0.24` through `0.1.5` using the repository's tagged compare data, release notes, and versioned README changes.
 
-## 1.0.6
-
 ## 1.0.8
 
 ### Updated
