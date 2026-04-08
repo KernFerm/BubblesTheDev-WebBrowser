@@ -2,9 +2,9 @@
 
 ## Browser Privacy Comparison
 
-This document reflects the current privacy posture of BubblesTheDev Web Browser version `0.6.3`.
+This document reflects the current privacy posture of BubblesTheDev Web Browser version `1.0.8`.
 
-The goal is accuracy, not marketing language. The browser does not implement first-party telemetry, analytics SDKs, cloud sync, auto-updater endpoints, or automatic diagnostics upload. It does, however, make normal network requests when the user browses the web or uses built-in search features.
+The goal is accuracy, not marketing language. The browser does not implement first-party telemetry, analytics SDKs, cloud sync, a built-in silent auto-updater client, or automatic diagnostics upload. It does, however, make normal network requests when the user browses the web, uses built-in search features, or uses the optional managed updater flow.
 
 ## High-Level Comparison
 
@@ -16,7 +16,7 @@ This table is intentionally high-level. Mainstream browsers change over time, bu
 | Analytics SDKs in app code | None | Yes | Yes | Limited | Limited |
 | Automatic diagnostics upload | No | Yes | Yes | Limited | Limited |
 | Cloud sync requirement | None | Optional | Optional | Optional | Optional |
-| Auto-updater service | Not implemented | Present | Present | Present | Present |
+| Auto-updater service | No built-in silent updater; optional owner-run managed updater for opted-in installs | Present | Present | Present | Present |
 | Local browser data storage | Yes | Yes | Yes | Yes | Yes |
 | Local persistence protection | Brotli-compressed, with OS-backed or credential-backed encryption when available | Yes | Yes | Yes | Yes |
 | Manual encrypted diagnostics export | Yes | Varies | Varies | Varies | Varies |
@@ -34,6 +34,10 @@ Current persisted data includes:
 * homepage setting
 * browsing history
 * bookmarks
+* bookmark-import consent choices at runtime
+* saved password metadata and encrypted password vault entries
+* imported Chromium extension metadata
+* imported ProtonVPN WireGuard profile metadata
 * bookmark bar visibility
 * Music Player opt-in state and chosen folder
 * per-site permission settings
@@ -42,6 +46,8 @@ Current persisted data includes:
 The persisted browser-state payload is compressed before it is written to disk. When Electron safe storage is available, that payload is also protected with OS-backed encryption. If that is unavailable, the runtime falls back to credential-backed AES-GCM protection when possible.
 
 The application does not automatically upload this browser-state data.
+
+Installer builds can optionally be configured with an owner-run update server. In that case, installs that explicitly choose `Automatic updates` can send a minimal update-registration record containing install-management fields such as install ID, app version, install path, host name, platform, architecture, last-seen time, and the IP address seen by that server. They can also request the latest published release metadata and download the published installer package. This does not include browsing history, bookmarks, saved passwords, or page contents.
 
 ## Diagnostics And Runtime Checks
 
@@ -95,7 +101,8 @@ Current characteristics:
 * no automatic diagnostics upload
 * no first-party analytics pipeline
 * no cloud sync service
-* no auto-updater service
+* no built-in silent auto-updater service
+* optional owner-run managed updater only for installs that explicitly opt into `Automatic updates`
 
 ## Summary
 
@@ -105,6 +112,7 @@ BubblesTheDev Web Browser currently aims for a local-first privacy posture:
 * persisted state is compressed and protected locally
 * diagnostics stay local unless the user exports them
 * music library access requires explicit consent before any scan begins
+* bookmark import and VPN profile scanning require explicit user consent before local file access begins
 * browsing and built-in search still create normal traffic to the websites and search providers the user chooses to use
 
 Developed by BubblesTheDev
