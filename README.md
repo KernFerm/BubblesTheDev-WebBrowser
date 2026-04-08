@@ -1,9 +1,9 @@
 # 🖥️ BubblesTheDev Web Browser
 
-## Installer Package – Version 1.0.6
+## Installer Package – Version 1.0.8
 
 **Installer File:**
-`BubblesTheDev Web Browser_Installer_1.0.6.exe`
+`BubblesTheDev Web Browser_Installer_1.0.8.exe`
 
 **Author:** BubblesTheDev  
 **Platform:** Windows 11 (x64)  
@@ -23,7 +23,7 @@
 
 BubblesTheDev Web Browser is a desktop web browser built with Electron and a BrowserView-based tab runtime.
 
-Version `1.0.6` includes the encrypted saved-password vault, consent-gated bookmark and extension import, VPN tooling, managed updater flow, installer-time auto-update opt-in registration, runtime checks, download protection, and the broader BrowserView-based browser shell improvements already in the current release line.
+Version `1.0.8` includes the encrypted saved-password vault, consent-gated bookmark and extension import, VPN tooling, managed updater flow, installer-time auto-update opt-in registration, runtime checks, download protection, and the broader BrowserView-based browser shell improvements already in the current release line.
 
 This installer package installs the browser on Windows with optional desktop and Start Menu shortcuts.
 
@@ -68,7 +68,7 @@ This installer package installs the browser on Windows with optional desktop and
 1. Double-click:
 
    ```
-   BubblesTheDev Web Browser_Installer_1.0.6.exe
+   BubblesTheDev Web Browser_Installer_1.0.8.exe
    ```
 
 2. Choose your installation directory.
@@ -76,7 +76,7 @@ This installer package installs the browser on Windows with optional desktop and
 4. Click **Install**.
 5. Launch the browser after installation completes.
 
-If you already have an older version installed, open `Start > Settings > Apps`, find `BubblesTheDev Web Browser`, uninstall the older version, and then install version `1.0.6`.
+If you already have an older version installed, open `Start > Settings > Apps`, find `BubblesTheDev Web Browser`, uninstall the older version, and then install version `1.0.8`.
 
 ---
 
