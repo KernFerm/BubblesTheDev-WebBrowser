@@ -12,7 +12,7 @@ Security updates are typically provided for the most recent release versions of 
 
 | Version        | Supported                 |
 | -------------- | ------------------------- |
-| 0.6.5 | ✔ Supported               |
+| 1.0.8 | ✔ Supported               |
 | Older Releases | NOT SUPPORTED |
 
 Users are encouraged to always run the **latest available version** of the browser to ensure they receive security improvements and bug fixes.
