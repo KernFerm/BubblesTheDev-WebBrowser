@@ -4,7 +4,7 @@
 
 This document explains the high-level architecture of BubblesTheDev Web Browser and how the main runtime pieces interact.
 
-Current release documentation target: version `1.0.6`.
+Current release documentation target: version `1.0.8`.
 
 ## Design Goals
 
@@ -109,7 +109,7 @@ Saved passwords are stored separately from the main browser data file. Each pass
 
 Extension imports and imported ProtonVPN config metadata are stored in the same local browser data store so they can be restored when the browser starts again.
 
-If the build enables the owner-run update server flow and the install selected `Automatic updates`, startup can send a minimal registration payload to that server, query the latest published release, download the installer, and launch it. The registration payload is limited to update-management fields and is separate from the encrypted browser-state store.
+If the build enables the owner-run update server flow and the install selected `Automatic updates`, startup can send a minimal registration payload to that server, query the latest published release, download the installer, and launch it. The current managed-update path also includes a pre-install confirmation dialog, a dedicated download-progress window with percentage and ETA feedback, and a manual fallback path that points the user to the downloaded installer folder if automatic launch fails. The registration payload is limited to update-management fields and is separate from the encrypted browser-state store.
 
 ### Extensions and VPN integration
 
