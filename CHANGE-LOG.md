@@ -4,6 +4,15 @@ This changelog reconstructs the project history from version `0.0.24` through `0
 
 ## 1.0.6
 
+## 1.0.8
+
+### Updated
+
+- The package version was advanced to `1.0.8`.
+- Current release documentation and installer-facing version references were updated to `1.0.8`.
+
+## 1.0.6
+
 ### Added
 
 - Installer-time auto-update check-in was added so installs that choose `Automatic updates` can register with the owner-run update server immediately after setup.
