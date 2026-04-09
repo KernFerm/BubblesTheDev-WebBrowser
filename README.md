@@ -2,6 +2,8 @@
 
 ## Installer Package – Version 1.0.8
 
+> please make sure to star the repo. thank you :)
+
 **Installer File:**
 `BubblesTheDev Web Browser_Installer_1.0.8.exe`
 
