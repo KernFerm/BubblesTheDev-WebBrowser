@@ -11,11 +11,11 @@
 **Platform:** Windows 11 (x64)  
 **Engine:** Chromium (Electron 40)
 
-## 📥 Downloads
+## 📥 Version 1.0.9 Downloads
 
-![Download Count](https://img.shields.io/github/downloads/KernFerm/BubblesTheDev-WebBrowser/total?style=for-the-badge&color=blue)
+![v1.0.9 Downloads](https://img.shields.io/github/downloads/KernFerm/BubblesTheDev-WebBrowser/V109-BubblesTheDev-WebBrowser/total?style=for-the-badge&color=green)
 
-[Download BubblesTheDev Web Browser](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
+[Download Version 1.0.9](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases/tag/V109-BubblesTheDev-WebBrowser)
 
 ---
 
