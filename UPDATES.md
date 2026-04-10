@@ -6,7 +6,6 @@
 
 ---
 
-- > Version `1.0.8` out now
+- > Version `1.0.9` out now
 - > older versions not supported
 
-installer currently unavailable. getting updated  
