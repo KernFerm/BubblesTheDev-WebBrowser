@@ -9,3 +9,5 @@
 - > Version `1.0.9` out now
 - > older versions not supported
 
+> next update:
+> fix the history, bookmarks, from being deleted when updating to newer version of browser
