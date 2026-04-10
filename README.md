@@ -13,7 +13,7 @@
 
 ## 📥 Version 1.0.9 Downloads
 
-![v1.0.9 Downloads](https://img.shields.io/github/downloads/KernFerm/BubblesTheDev-WebBrowser/V109-BubblesTheDev-WebBrowser/total?style=for-the-badge&color=green)
+![v1.0.9 Downloads](https://img.shields.io/github/downloads/KernFerm/BubblesTheDev-WebBrowser/V109-BubblesTheDev-WebBrowser/total?style=for-the-badge&color=blue)
 
 [Download Version 1.0.9](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases/tag/V109-BubblesTheDev-WebBrowser)
 
