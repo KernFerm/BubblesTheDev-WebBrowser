@@ -13,7 +13,7 @@
 
 ## 📥 Version 1.0.10 Downloads
 
-- ![v1.0.10](https://img.shields.io/github/downloads/KernFerm/BubblesTheDev-WebBrowser/V1010-fix-some-update-connection/BubblesTheDev.Web.Browser_Installer_1.0.10.exe?style=for-the-badge&color=blue)
+![Downloads](https://img.shields.io/github/downloads/KernFerm/BubblesTheDev-WebBrowser/V1010-fix-some-update-connection/BubblesTheDev.Web.Browser_Installer_1.0.10.exe?style=for-the-badge&color=blue&label=Downloads%20(v1.0.10))
 
 [Download Version 1.0.10](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases/tag/V1010-fix-some-update-connection)
 
