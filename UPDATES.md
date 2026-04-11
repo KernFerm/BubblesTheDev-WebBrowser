@@ -6,7 +6,7 @@
 
 ---
 
-- > Version `1.0.9` out now
+- > Version `1.0.10` out now
 - > older versions not supported
 
 > next update:
