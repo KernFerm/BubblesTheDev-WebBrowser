@@ -14,7 +14,7 @@
 
 ## 📥 Version 1.0.1-0.3 Downloads
 
-![Downloads](https://img.shields.io/github/downloads/KernFerm/BubblesTheDev-WebBrowser/V1010-fix-some-update-connection/BubblesTheDev Web Browser_Installer_1.0.1-0.3.exe?style=for-the-badge&color=blue&label=Downloads%20(v1.0.1-0.1))
+![Downloads](https://img.shields.io/github/downloads/KernFerm/BubblesTheDev-WebBrowser/BubblesTheDev Web Browser_Installer_1.0.1-0.3.exe?style=for-the-badge&color=blue&label=Downloads%20(v1.0.1-0.1))
 
 [Download Version 1.0.1-0.3](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases/tag/V10103-Security-Update-BubblesTheDevWebBrowser)
 
