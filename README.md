@@ -14,7 +14,7 @@
 
 ## 📥 Version 1.0.1-0.3 Downloads
 
-[Version 1.0.1-0.3](https:example.com)
+[Version 1.0.1-0.3](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases/download/V10103-Security-Update-BubblesTheDevWebBrowser/BubblesTheDev.Web.Browser_Installer_1.0.1-0.3.exe)
 
 [Download Version 1.0.1-0.3](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases/tag/V10103-Security-Update-BubblesTheDevWebBrowser)
 
