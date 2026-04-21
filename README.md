@@ -30,6 +30,37 @@
 
 ---
 
+## 🚀 Upcoming Update – Version `1.0.12`
+
+We’re improving reliability, control, and privacy in this release.
+
+### 🔧 What’s Changing
+
+* Fix for incomplete uninstall issues (no more ghost installs)
+* Full support for custom install locations
+* Smarter update system with automatic retry logic
+* Manual “Check for Updates” option added
+
+### 🔄 Update System
+
+* Automatic updates enabled by default
+* Failed updates retry automatically
+* Update checks run again when the browser launches
+* Users are always in control of installing updates
+
+### 🔒 Privacy First
+
+* Browser data stays on your device
+* No tracking or data collection during updates
+* Option to keep or remove data during uninstall
+
+### 💡 Why This Matters
+
+This update ensures a cleaner install/uninstall process, more reliable updates, and full transparency for users.
+
+
+---
+
 ## 🚀 Overview
 
 BubblesTheDev Web Browser is a desktop web browser built with Electron and a BrowserView-based tab runtime.
