@@ -16,7 +16,7 @@
 
 [Version 1.0.1-0.5](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases/download/V10103-Security-Update-BubblesTheDevWebBrowser/BubblesTheDev.Web.Browser_Installer_1.0.1-0.5.exe)
 
-[Download Version 1.0.1-0.3](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases/tag/V10105-BubblesTheDev-Web-Browser_Installer)
+[Download Version 1.0.1-0.3](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases/tag/V10105-SecurityUpdates-BubblesTheDev-Web-Browser_Installer)
 
 ---
 
