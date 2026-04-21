@@ -1,22 +1,22 @@
 # 🖥️ BubblesTheDev Web Browser
 
-## Installer Package – Version 1.0.1-0.3
+## Installer Package – Version 1.0.1-0.5
 
 > please make sure to star the repo. thank you :)
 
 **Installer File:**
-`BubblesTheDev Web Browser_Installer_1.0.1-0.3`
+`BubblesTheDev Web Browser_Installer_1.0.1-0.5`
 > Security Updates
 
 **Author:** BubblesTheDev  
 **Platform:** Windows 11 (x64)  
 **Engine:** Chromium (Electron 40)
 
-## 📥 Version 1.0.1-0.3 Downloads
+## 📥 Version 1.0.1-0.5 Downloads
 
-[Version 1.0.1-0.3](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases/download/V10103-Security-Update-BubblesTheDevWebBrowser/BubblesTheDev.Web.Browser_Installer_1.0.1-0.3.exe)
+[Version 1.0.1-0.5](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases/download/V10103-Security-Update-BubblesTheDevWebBrowser/BubblesTheDev.Web.Browser_Installer_1.0.1-0.5.exe)
 
-[Download Version 1.0.1-0.3](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases/tag/V10103-Security-Update-BubblesTheDevWebBrowser)
+[Download Version 1.0.1-0.3](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases/tag/V10105-BubblesTheDev-Web-Browser_Installer)
 
 ---
 
@@ -34,7 +34,7 @@
 
 BubblesTheDev Web Browser is a desktop web browser built with Electron and a BrowserView-based tab runtime.
 
-Version `1.0.1-0.3` includes the encrypted saved-password vault, consent-gated bookmark and extension import, VPN tooling, managed updater flow, installer-time auto-update opt-in registration, runtime checks, download protection, and the broader BrowserView-based browser shell improvements already in the current release line.
+Version `1.0.1-0.5` includes the encrypted saved-password vault, consent-gated bookmark and extension import, VPN tooling, managed updater flow, installer-time auto-update opt-in registration, runtime checks, download protection, and the broader BrowserView-based browser shell improvements already in the current release line.
 
 This installer package installs the browser on Windows with optional desktop and Start Menu shortcuts.
 
@@ -79,7 +79,7 @@ This installer package installs the browser on Windows with optional desktop and
 1. Double-click:
 
    ```
-   BubblesTheDev Web Browser_Installer_1.0.1-0.3.exe
+   BubblesTheDev Web Browser_Installer_1.0.1-0.5.exe
    ```
 
 2. Choose your installation directory.
@@ -87,7 +87,7 @@ This installer package installs the browser on Windows with optional desktop and
 4. Click **Install**.
 5. Launch the browser after installation completes.
 
-If you already have an older version installed, open `Start > Settings > Apps`, find `BubblesTheDev Web Browser`, uninstall the older version, and then install version `1.0.1-0.3`.
+If you already have an older version installed, open `Start > Settings > Apps`, find `BubblesTheDev Web Browser`, uninstall the older version, and then install version `1.0.1-0.5`.
 
 
 > during uninstall if it leaves a ghost file that is fine it isnt broken , new install will write over that version.
