@@ -1,6 +1,9 @@
 # Changelog
 
-This changelog reconstructs the project history from version `0.0.24` through `1.0.1-0.3` using the repository's tagged compare data, release notes, and versioned README changes.
+This changelog reconstructs the project history from version `0.0.24` through `1.0.1-0.10` using the repository's tagged compare data, release notes, and versioned README changes.
+
+# 1.0.1-0.10
+- Security Update Dependency
 
 # 1.0.1-0.7
 - Security Update Dependency
