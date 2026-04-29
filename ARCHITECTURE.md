@@ -6,7 +6,7 @@ This document explains the high-level architecture of BubblesTheDev Web Browser 
 
 Current release documentation target: version `1.0.1-0.10`.
 
-> Currently Dependency Updates till `V-1.0.12.
+> Currently Dependency Updates till `V-1.0.12`.
 
 ## Design Goals
 
