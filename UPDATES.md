@@ -6,7 +6,8 @@
 
 ---
 
-- > Version `1.0.1-0.5` out now
+- > Version `1.0.1-0.10` out now
+  > Dependeny Updates till `1.0.12`
 - > older versions not supported
 
 
