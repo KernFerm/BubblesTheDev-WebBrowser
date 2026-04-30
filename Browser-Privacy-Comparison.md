@@ -2,7 +2,7 @@
 
 ## Browser Privacy Comparison
 
-This document reflects the current privacy posture of BubblesTheDev Web Browser version `1.0.1-0.10`.
+This document reflects the current privacy posture of BubblesTheDev Web Browser version `1.0.15`.
 
 The goal is accuracy, not marketing language. The browser does not implement first-party telemetry, analytics SDKs, cloud sync, a built-in silent auto-updater client, or automatic diagnostics upload. It does, however, make normal network requests when the user browses the web, uses built-in search features, or uses the optional managed updater flow.
 
@@ -47,7 +47,7 @@ The persisted browser-state payload is compressed before it is written to disk. 
 
 The application does not automatically upload this browser-state data.
 
-Installer builds can optionally be configured with an owner-run update server. In that case, installs that explicitly choose `Automatic updates` can send a minimal update-registration record containing install-management fields such as install ID, app version, install path, host name, platform, architecture, last-seen time, and the IP address seen by that server. They can also request the latest published release metadata and download the published installer package. This does not include browsing history, bookmarks, saved passwords, or page contents.
+Installer builds can optionally be configured with an owner-run update server. In that case, installs that use `Automatic updates` can send a minimal update-registration record containing install-management fields such as install ID, app version, install path, install root, install drive type, host name, platform, architecture, last-seen time, and the IP address seen by that server. They can also request the latest published release metadata and download the published installer package. This does not include browsing history, bookmarks, saved passwords, or page contents.
 
 ## Diagnostics And Runtime Checks
 
@@ -104,15 +104,19 @@ Current characteristics:
 * no built-in silent auto-updater service
 * optional owner-run managed updater only for installs that explicitly opt into `Automatic updates`
 
+## Uninstall Privacy Model
+
+Uninstall behavior is also local-first.
+
+Current uninstall behavior:
+
+* the installed app files are removed
+* the user can choose which local data categories should be removed or kept
+* current removable categories include browser profile data, saved passwords, diagnostics reports, and local update preferences
+* if a category is left unchecked, that data remains on the device for a future reinstall or update
+* uninstall cleanup also removes stale uninstall metadata and re-checks leftovers before showing a warning
+
 ## Summary
 
 BubblesTheDev Web Browser currently aims for a local-first privacy posture:
 
-* browser settings, history, bookmarks, permissions, and search cache stay on-device
-* persisted state is compressed and protected locally
-* diagnostics stay local unless the user exports them
-* music library access requires explicit consent before any scan begins
-* bookmark import and VPN profile scanning require explicit user consent before local file access begins
-* browsing and built-in search still create normal traffic to the websites and search providers the user chooses to use
-
-Developed by BubblesTheDev
