@@ -1,8 +1,8 @@
 # Data Collection and Privacy Notice
 
-This notice reflects the current privacy posture of BubblesTheDev Web Browser version `1.0.9`.
+This notice reflects the current privacy posture of BubblesTheDev Web Browser version `1.0.15`.
 
-BubblesTheDev Web Browser is designed to keep browser data local to the user's device unless the user chooses to browse external websites, use external search providers, download files, or export diagnostics manually.
+BubblesTheDev Web Browser is designed to keep browser data local to the user's device unless the user chooses to browse external websites, use external search providers, download files, export diagnostics manually, or opt into managed update checks.
 
 The application does not include built-in telemetry, analytics SDKs, automatic crash upload services, cloud synchronization, a built-in silent auto-updater client, or AI monitoring systems.
 
@@ -16,7 +16,7 @@ Specifically:
 * No automatic diagnostics upload path is implemented.
 * No first-party BubblesTheDev tracking server is contacted for analytics or data collection purposes.
 
-Installer builds can optionally be configured with an owner-run update server for installs that explicitly select `Automatic updates` during setup. That managed-update flow is separate from telemetry and is limited to update-management fields, release metadata requests, and installer downloads, not browsing data.
+Installer builds can optionally be configured with an owner-run update server. That managed-update flow is separate from telemetry and is limited to update-management fields, release metadata requests, and installer downloads, not browsing data.
 
 ## Local Browser Data
 
@@ -27,8 +27,9 @@ Current persisted data includes:
 * homepage settings
 * browsing history
 * bookmarks
-* saved passwords if the user submits a password form in the standard browsing profile
-* imported extension metadata for extensions the user chooses to load from other browsers
+* bookmark-import consent choices at runtime
+* saved password metadata and encrypted password vault entries
+* imported Chromium extension metadata for extensions the user chooses to load
 * imported ProtonVPN profile metadata for valid `.conf` files the user chooses to add
 * bookmark bar visibility
 * per-site permission settings
@@ -41,10 +42,12 @@ The application does not automatically upload this browser-state data.
 
 ## Optional Managed Update Flow
 
+Installer builds now present `Automatic updates` and `Manual updates only` during setup, with `Automatic updates` selected by default. The managed-update flow is still opt-in at install time because the user can switch that selection before setup completes, and normal manual-update installs remain supported.
+
 If all of the following are true:
 
 * the installer build was configured with an update server
-* the end user selected `Automatic updates` during install
+* the installed update mode is `Automatic updates`
 * the installer or browser can reach that configured server
 
 the installer or browser may send a minimal update-registration record to the owner-run update server, request the latest published release metadata from that server, and download the installer URL published for that release.
@@ -55,6 +58,8 @@ That record is limited to:
 * selected update mode
 * app version
 * install directory
+* install root
+* install drive type
 * device host name
 * platform
 * architecture
@@ -79,6 +84,25 @@ Current behavior:
 * the runtime checks panel shows local status for storage protection and other on-device runtime state
 
 Diagnostic data remains on-device unless the user explicitly chooses to export it.
+
+## Uninstall And Data Retention
+
+The uninstaller always removes the installed application files. It can also remove local data by category when the user chooses to do so.
+
+Current removable categories include:
+
+* browser profile data
+* saved passwords
+* diagnostics reports
+* local update preferences
+
+If a category is left unchecked during uninstall, that data remains on the device for a future reinstall or update.
+
+Uninstall cleanup also:
+
+* targets tracked custom install paths
+* removes stale uninstall metadata and registry ghosts
+* re-checks reported leftover paths before showing a warning, which reduces false leftover alerts
 
 ## Network Activity
 
@@ -112,7 +136,7 @@ The privacy model is local-first:
 * persisted browser state is compressed locally and protected when an available encryption path exists
 * diagnostics stay local unless the user exports them
 * music library access requires explicit consent before any scan begins
-* optional managed updates apply only to installs that explicitly choose `Automatic updates`, and that flow is limited to update-management fields, release metadata checks, and installer downloads
+* optional managed updates apply only to installs using `Automatic updates`, and that flow is limited to update-management fields, release metadata checks, and installer downloads
 * browsing, downloads, and built-in search still create normal traffic to the websites and providers the user chooses to use
 
 Any future feature that materially changes this privacy posture should be disclosed in updated privacy and release documentation.
