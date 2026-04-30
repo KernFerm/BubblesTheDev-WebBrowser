@@ -4,9 +4,7 @@
 
 This document explains the high-level architecture of BubblesTheDev Web Browser and how the main runtime pieces interact.
 
-Current release documentation target: version `1.0.1-0.10`.
-
-> Currently Dependency Updates till `V-1.0.12`.
+Current release documentation target: version `1.0.15`.
 
 ## Design Goals
 
@@ -43,7 +41,7 @@ The main process lives in `browser-runtime.js` and is responsible for:
 * app menu and shortcut/help dialogs
 * split-view shell state, bookmark bar state, and site permission policy state
 * background tab suspension under memory pressure
-* installer update-mode registration, owner-run update-server check-in, and managed release checks for opted-in installs
+* installer update-mode registration, install-path tracking, owner-run update-server check-in, and managed release checks
 
 ## Window Model
 
@@ -103,7 +101,13 @@ Current persisted fields include:
 * Music Player opt-in and chosen folder
 * per-site permission settings
 
-Separate from the main browser-state store, installer builds can also use `%APPDATA%\BubblesTheDev Web Browser\update-preferences.ini` to record whether the install selected `Automatic updates` or `Manual updates only`.
+Separate from the main browser-state store, installer builds can also use `%APPDATA%\BubblesTheDev Web Browser\update-preferences.ini` to record installer-managed update metadata such as:
+
+* whether the install selected `Automatic updates` or `Manual updates only`
+* the tracked install directory
+* the install drive root
+* the detected install drive type
+* the local install ID used by the managed update flow
 
 Persisted browser state is compressed before it is written to disk. When Electron safe storage is available, the compressed payload is also encrypted with OS-backed protection.
 
@@ -111,7 +115,36 @@ Saved passwords are stored separately from the main browser data file. Each pass
 
 Extension imports and imported ProtonVPN config metadata are stored in the same local browser data store so they can be restored when the browser starts again.
 
-If the build enables the owner-run update server flow and the install selected `Automatic updates`, startup can send a minimal registration payload to that server, query the latest published release, download the installer, and launch it. The current managed-update path also includes a pre-install confirmation dialog, a dedicated download-progress window with percentage and ETA feedback, and a manual fallback path that points the user to the downloaded installer folder if automatic launch fails. The registration payload is limited to update-management fields and is separate from the encrypted browser-state store.
+If the build enables the owner-run update server flow, the runtime can query the latest published release metadata and present update status to the user through the app menu's manual `Check for Updates` entry. Installs that selected `Automatic updates` can also register with the owner-run update server at startup, poll for newer releases, download the installer, and launch it. The current managed-update path includes installed-versus-available version feedback, a pre-install confirmation dialog, a dedicated download-progress window with percentage and ETA feedback, and a manual fallback path that points the user to the downloaded installer folder if automatic launch fails. The registration payload is limited to update-management fields and is separate from the encrypted browser-state store.
+
+### Installer and uninstall model
+
+Installer builds are configured through `electron-builder` with NSIS and a custom include script in `build/installer.nsh`.
+
+That installer layer currently handles:
+
+* custom install directory selection
+* writable-path validation before install continues
+* explicit support messaging for external HDDs, external SSDs, and USB flash drives
+* registry-backed tracking of install location metadata used by update and uninstall flows
+* optional installer-time update-server registration for `Automatic updates`
+
+The uninstall layer uses a generated PowerShell cleanup script plus final NSIS cleanup passes to:
+
+* remove the tracked install directory, including custom install paths
+* clean stale uninstall metadata and tracked registry keys
+* kill running browser processes before cleanup
+* verify whether leftovers remain after cleanup
+* re-check reported leftovers at the end so warning dialogs only reflect paths that still exist
+
+During uninstall, the user is now prompted to choose which local data categories should also be removed. The current choices are:
+
+* browser profile data, which includes history, bookmarks, homepage, permissions, and the main browser-state store
+* saved passwords
+* diagnostics reports
+* local update preferences
+
+If a category is left unchecked, uninstall removes the installed app files and install metadata while leaving that local data in place for a future reinstall or update.
 
 ### Extensions and VPN integration
 
