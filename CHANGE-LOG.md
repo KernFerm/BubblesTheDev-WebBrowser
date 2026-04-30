@@ -1,6 +1,26 @@
 # Changelog
 
-This changelog reconstructs the project history from version `0.0.24` through `1.0.1-0.10` using the repository's tagged compare data, release notes, and versioned README changes.
+This changelog reconstructs the project history from version `0.0.24` through `1.0.13` using the repository's tagged compare data, release notes, versioned README changes, and current installer/update work.
+
+## 1.0.13
+
+### Added
+
+- A manual `Check for Updates` menu entry was added so users can trigger update checks on demand and see clearer version/status feedback.
+- Custom install locations now explicitly support external HDDs, external SSDs, and USB flash drives with writable-path validation during setup.
+- Uninstall now prompts the user to choose whether local browser data should be removed or kept for a future reinstall or update.
+
+### Updated
+
+- The package version was advanced to `1.0.13`.
+- Current release documentation and installer-facing version references were updated to `1.0.13`.
+- Installer metadata tracking was expanded to record install root and drive-type details for custom install paths.
+- Update preference persistence now keeps custom install-path metadata in sync after launch.
+
+### Fixed
+
+- Uninstall cleanup now better targets tracked custom install directories instead of relying only on default locations.
+- Ghost-install cleanup was improved by removing stale install metadata and validating remaining leftovers after uninstall.
 
 # 1.0.1-0.10
 - Security Update Dependency
