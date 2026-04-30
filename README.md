@@ -1,6 +1,6 @@
-# BubblesTheDev Web Browser
+# 🖥️ BubblesTheDev Web Browser
 
-## Installer Package - Version 1.0.15
+## 📦 Installer Package - Version 1.0.15
 
 Desktop web browser for Windows built with Electron and a BrowserView-based tab runtime.
 
@@ -16,7 +16,7 @@ Author: `BubblesTheDev`
 Platform: `Windows 11 (x64)`  
 Engine: `Electron 41` / Chromium
 
-## Overview
+## 🚀 Overview
 
 Version `1.0.15` includes:
 
@@ -29,33 +29,33 @@ Version `1.0.15` includes:
 - improved custom install-path tracking and external-drive install support
 - uninstall cleanup improvements with per-category data removal options
 
-## Features
+## ✨ Features
 
-- Multi-tab browsing with a BrowserView-based tab runtime
-- Default home page at `bubbles://home`
-- Unified address bar for direct URLs and search
-- Background-enriched search using DuckDuckGo and Google sources
-- Ad and tracker blocking
-- Popup login compatibility improvements
-- Bookmark bar and bookmark import
-- Encrypted saved-password vault
-- Strong password generation
-- Chromium extension import
-- VPN manager and public IPv4/IPv6 session checks
-- History tracking
-- Split-view browsing
-- Per-site permissions
-- Incognito windows
-- Print support
-- Save Page As support
-- Download tracking and protected file handling
-- Built-in Task Manager
-- Sleeping background tabs
-- Custom homepage support
-- Local-only Music Player
-- Diagnostics export and runtime checks
+- 🗂 Multi-tab browsing with a BrowserView-based tab runtime
+- 🏠 Default home page at `bubbles://home`
+- 🌐 Unified address bar for direct URLs and search
+- 🔎 Background-enriched search using DuckDuckGo and Google sources
+- 🚫 Ad and tracker blocking
+- 🔐 Popup login compatibility improvements
+- ⭐ Bookmark bar and bookmark import
+- 🔑 Encrypted saved-password vault
+- 🔒 Strong password generation
+- 🧩 Chromium extension import
+- 🛜 VPN manager and public IPv4/IPv6 session checks
+- 🕘 History tracking
+- 🪟 Split-view browsing
+- 🧭 Per-site permissions
+- 🕶 Incognito windows
+- 🖨 Print support
+- 💾 Save Page As support
+- 📥 Download tracking and protected file handling
+- 🧠 Built-in Task Manager
+- 🌙 Sleeping background tabs
+- 🏡 Custom homepage support
+- 🎵 Local-only Music Player
+- 🧾 Diagnostics export and runtime checks
 
-## Installation
+## 📦 Installation
 
 1. Run:
 
@@ -77,7 +77,7 @@ The installer supports:
 
 `Automatic updates` is selected by default during install.
 
-## Upgrading From An Older Version
+## 🔄 Upgrading From An Older Version
 
 If an older version is already installed and you are upgrading manually:
 
@@ -90,7 +90,7 @@ If an older version is already installed and you are upgrading manually:
 
 During managed-update installs, the installer may remove the previous app version first and then continue with the new install.
 
-## Update Modes
+## 🔁 Update Modes
 
 Current installer builds support two update modes:
 
@@ -105,7 +105,7 @@ Important notes:
 - Managed updates still launch a normal installer.
 - The app menu includes `Check for Updates` for user-triggered update checks.
 
-## Uninstall Behavior
+## 🧹 Uninstall Behavior
 
 The uninstaller removes the installed app files and can also remove local data by category.
 
@@ -125,7 +125,7 @@ Uninstall cleanup also:
 - removes stale uninstall metadata and registry ghosts
 - re-checks reported leftovers at the end to reduce false warning dialogs
 
-## Default Installation Path
+## 📁 Default Installation Path
 
 If no custom path is selected, the default install location is typically:
 
@@ -133,14 +133,14 @@ If no custom path is selected, the default install location is typically:
 C:\Users\<YourUsername>\AppData\Local\Programs\BubblesTheDev Web Browser
 ```
 
-## System Requirements
+## 🖥 System Requirements
 
 - Windows 11
 - x64 architecture
 - 4 GB RAM minimum
 - Around 300 MB free disk space
 
-## Security Configuration
+## 🔐 Security Configuration
 
 Current security-sensitive defaults include:
 
@@ -154,7 +154,7 @@ Current security-sensitive defaults include:
 - ad and tracker filtering
 - no telemetry endpoints configured
 
-## Music Player
+## 🎵 Music Player
 
 The Music Player is local-only and off by default.
 
@@ -162,7 +162,7 @@ The Music Player is local-only and off by default.
 - The user can scan the default Music folder or another local folder.
 - Playback uses local files only.
 
-## Diagnostics And Crash Reports
+## 🧾 Diagnostics And Crash Reports
 
 Users can export a diagnostics report from:
 
@@ -174,7 +174,7 @@ Support email:
 
 `bubblesthedevwebbrowsersupport@fnbubbles420.org`
 
-## Privacy Notice
+## 🔒 Privacy Notice
 
 This application:
 
@@ -185,7 +185,7 @@ This application:
 
 If the installer build is configured with an update server and the install uses `Automatic updates`, the installer and browser can send limited update-management fields such as install ID, install path, version, platform, and last-seen time. This does not include browsing history, bookmarks, saved passwords, page content, or diagnostics.
 
-## SmartScreen Notice
+## ⚠️ SmartScreen Notice
 
 This build is currently unsigned, so Windows SmartScreen may warn before launch.
 
@@ -194,17 +194,17 @@ If prompted:
 1. Click `More Info`
 2. Click `Run Anyway`
 
-## Documentation
+## 📄 Documentation
 
 - [Browser-Privacy-Comparison](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/Browser-Privacy-Comparison.md)
 - [Data-Collection-and-Privacy-Notice](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/Data-Collection-and-Privacy-Notice.md)
 - [Architecture](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/ARCHITECTURE.md)
 
-## License
+## 📜 License
 
 Proprietary - BubblesTheDev  
 All Rights Reserved.
 
-## Releases
+## 💙 Releases
 
 [Get the web browser here](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
