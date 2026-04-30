@@ -1,301 +1,210 @@
-# 🖥️ BubblesTheDev Web Browser
+# BubblesTheDev Web Browser
 
-## Installer Package – Version 1.0.1-0.10
+## Installer Package - Version 1.0.15
 
-> please make sure to star the repo. thank you :)
+Desktop web browser for Windows built with Electron and a BrowserView-based tab runtime.
 
-**Installer File:**
-`BubblesTheDev Web Browser_Installer_1.0.1-0.10`
-> Security Updates
+Installer file:
 
-**Author:** BubblesTheDev  
-**Platform:** Windows 11 (x64)  
-**Engine:** Chromium (Electron 40)
+`BubblesTheDev Web Browser_Installer_1.0.15.exe`
 
-## 📥 Version 1.0.1-0.10 Downloads
+SHA256:
 
-[Version 1.0.1-0.10](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases/tag/V101010-Security-Update)
+`A88CC563D3C2A2A5D176FD28488463B86A4460127296583637CD83C6FF0C18B7`
 
-[Download Version 1.0.1-0.10](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases/download/V101010-Security-Update/BubblesTheDev.Web.Browser_Installer_1.0.1-0.10.exe)
+Author: `BubblesTheDev`  
+Platform: `Windows 11 (x64)`  
+Engine: `Electron 41` / Chromium
 
+## Overview
 
----
+Version `1.0.15` includes:
 
-## 📄 Documentation
+- encrypted saved-password storage with reveal, add, remove, and strong-password generation flows
+- bookmark import from supported Chromium browsers plus manual bookmark-file import
+- Chromium extension import support
+- VPN tooling for NordVPN, ExpressVPN, ProtonVPN, and WireGuard
+- managed update support with `Automatic updates` enabled by default during install
+- manual `Check for Updates` from the app menu
+- improved custom install-path tracking and external-drive install support
+- uninstall cleanup improvements with per-category data removal options
 
-[Browser-Privacy-Comparison](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/Browser-Privacy-Comparison.md)
+## Features
 
-[Data-Collection-and-Privacy-Notice](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/Data-Collection-and-Privacy-Notice.md)
+- Multi-tab browsing with a BrowserView-based tab runtime
+- Default home page at `bubbles://home`
+- Unified address bar for direct URLs and search
+- Background-enriched search using DuckDuckGo and Google sources
+- Ad and tracker blocking
+- Popup login compatibility improvements
+- Bookmark bar and bookmark import
+- Encrypted saved-password vault
+- Strong password generation
+- Chromium extension import
+- VPN manager and public IPv4/IPv6 session checks
+- History tracking
+- Split-view browsing
+- Per-site permissions
+- Incognito windows
+- Print support
+- Save Page As support
+- Download tracking and protected file handling
+- Built-in Task Manager
+- Sleeping background tabs
+- Custom homepage support
+- Local-only Music Player
+- Diagnostics export and runtime checks
 
-[Architecture](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/ARCHITECTURE.md)
+## Installation
 
----
+1. Run:
 
-## 🚀 Upcoming Update – Version `1.0.12`
-
-We’re improving reliability, control, and privacy in this release.
-
-### 🔧 What’s Changing
-
-* Fix for incomplete uninstall issues (no more ghost installs)
-* Full support for custom install locations
-* Smarter update system with automatic retry logic
-* Manual “Check for Updates” option added
-
-### 🔄 Update System
-
-* Automatic updates enabled by default
-* Failed updates retry automatically
-* Update checks run again when the browser launches
-* Users are always in control of installing updates
-
-### 🔒 Privacy First
-
-* Browser data stays on your device
-* No tracking or data collection during updates
-* Option to keep or remove data during uninstall
-
-### 💡 Why This Matters
-
-This update ensures a cleaner install/uninstall process, more reliable updates, and full transparency for users.
-
-
----
-
-## 🚀 Overview
-
-BubblesTheDev Web Browser is a desktop web browser built with Electron and a BrowserView-based tab runtime.
-
-Version `1.0.1-0.10` includes the encrypted saved-password vault, consent-gated bookmark and extension import, VPN tooling, managed updater flow, installer-time auto-update opt-in registration, runtime checks, download protection, and the broader BrowserView-based browser shell improvements already in the current release line.
-
-This installer package installs the browser on Windows with optional desktop and Start Menu shortcuts.
-
----
-
-## ✨ Features
-
-* 🗂 Multi-tab browsing with a BrowserView-based tab runtime
-* 🏠 Bubbles Search Engine default home page at `bubbles://home`
-* 🌐 Direct URL browsing and plain-text search from the same address bar
-* 🔎 Search results enriched in the background with DuckDuckGo results and Google suggestions
-* 🚫 Ad and tracker blocking with live counters on the Bubbles page
-* 🔐 Improved popup login compatibility for sites such as Google, Twitch, and Facebook
-* ⭐ Bookmarks system with consent-gated import from Chrome, Edge, Brave, Opera, or a manual bookmark file
-* 📌 Bookmark bar with removable saved-page chips
-* 🔑 Encrypted saved-password vault with manual add, remove, and reveal actions
-* 🔐 Strong password generation on supported password forms and from the passwords panel
-* 🧩 Chromium extension import support for Edge, Chrome, Brave, and Opera
-* 🛜 VPN manager with installed-client detection for NordVPN, ExpressVPN, ProtonVPN, and WireGuard
-* 🌍 Browser-session IPv4 and IPv6 public IP testing in the VPN panel
-* 📜 History tracking
-* 🪟 Split-view browsing with a draggable divider
-* 🧭 Per-site permissions for camera, microphone, notifications, location, popups, clipboard, automatic downloads, and fullscreen
-* 🕶 Incognito window support
-* 🖨 Print support
-* 💾 Save Page As functionality
-* 📥 Download tracking with recent-download management
-* 🛡 Modular download protection with provider fallback, Authenticode verification, and protected open-file gating
-* 🧠 Built-in Task Manager for tab processes
-* 🌙 Sleeping background tabs with manual sleep/wake controls in Task Manager
-* 🧩 User-Agent switching
-* 🏠 Custom homepage support
-* 🎵 Local-only Music Player with explicit opt-in before folder scans
-* ⌨️ Edit menu and keyboard shortcut guide for common browser actions
-* 🧾 Encrypted diagnostics export and local crash logging
-* ✅ Runtime checks panel for ad blocking, download providers, encrypted storage, and performance status
-
----
-
-## 📦 Installation Instructions
-
-1. Double-click:
-
-   ```
-   BubblesTheDev Web Browser_Installer_1.0.1-0.10.exe
+   ```text
+   BubblesTheDev Web Browser_Installer_1.0.15.exe
    ```
 
-2. Choose your installation directory.
-3. Select optional shortcuts if desired.
-4. Click **Install**.
-5. Launch the browser after installation completes.
+2. Choose an install directory.
+3. Select whether you want `Automatic updates` or `Manual updates only`.
+4. Complete installation and launch the browser.
 
-If you already have an older version installed, open `Start > Settings > Apps`, find `BubblesTheDev Web Browser`, uninstall the older version, and then install version `1.0.1-0.10`.
+The installer supports:
 
+- default install locations
+- custom install locations
+- external HDD installs
+- external SSD installs
+- USB flash-drive installs
 
-> during uninstall if it leaves a ghost file that is fine it isnt broken , new install will write over that version.
----
+`Automatic updates` is selected by default during install.
 
-## 📁 Default Installation Path
+## Upgrading From An Older Version
 
-If no custom location is selected:
+If an older version is already installed and you are upgrading manually:
 
-```
+1. Close `BubblesTheDev Web Browser`.
+2. Open `Start > Settings > Apps > Installed apps`.
+3. Find `BubblesTheDev Web Browser`.
+4. Click the `...` menu and choose `Uninstall`.
+5. Choose which local data categories should be removed or kept.
+6. Run the new installer after uninstall finishes.
+
+During managed-update installs, the installer may remove the previous app version first and then continue with the new install.
+
+## Update Modes
+
+Current installer builds support two update modes:
+
+1. `Manual updates only`
+   Close the browser, uninstall the older version if needed, and install the newer release manually from GitHub.
+2. `Automatic updates`
+   The installer records that choice locally, can register the install with the configured owner-run update server, and the browser can check, download, and launch the published installer for newer releases.
+
+Important notes:
+
+- The browser does not use a built-in silent patcher.
+- Managed updates still launch a normal installer.
+- The app menu includes `Check for Updates` for user-triggered update checks.
+
+## Uninstall Behavior
+
+The uninstaller removes the installed app files and can also remove local data by category.
+
+Current uninstall choices include:
+
+- browser profile data
+  This includes history, bookmarks, homepage, permissions, and main browser-state data.
+- saved passwords
+- diagnostics reports
+- local update preferences
+
+If a category is left unchecked, that data is preserved for a future reinstall or update.
+
+Uninstall cleanup also:
+
+- targets tracked custom install paths
+- removes stale uninstall metadata and registry ghosts
+- re-checks reported leftovers at the end to reduce false warning dialogs
+
+## Default Installation Path
+
+If no custom path is selected, the default install location is typically:
+
+```text
 C:\Users\<YourUsername>\AppData\Local\Programs\BubblesTheDev Web Browser
 ```
 
----
+## System Requirements
 
-## 🖥 System Requirements
+- Windows 11
+- x64 architecture
+- 4 GB RAM minimum
+- Around 300 MB free disk space
 
-* Windows 11
-* 4 GB RAM minimum
-* ~300 MB free disk space
-* x64 architecture
+## Security Configuration
 
----
+Current security-sensitive defaults include:
 
-## 🔐 Security Configuration
+- `contextIsolation: true`
+- `nodeIntegration: false`
+- renderer sandbox enabled
+- BrowserView-based runtime instead of renderer-managed `webviewTag`
+- separate session handling for incognito windows
+- restricted permission handling
+- modular download protection
+- ad and tracker filtering
+- no telemetry endpoints configured
 
-This release includes the following Electron security settings and browser protections:
-
-- `contextIsolation`: enabled
-- `nodeIntegration`: disabled
-- `sandbox`: enabled for renderer and helper windows
-- BrowserView-based tab runtime instead of renderer-managed `webviewTag`
-- Separate session handling for incognito windows
-- Restricted permission handling
-- Download protection runs through modular scanner providers and can block or withhold risky files from in-app execution
-- Ad and tracker request filtering
-- No telemetry endpoints configured
-- No built-in silent auto-updater service
-- Installer offers `Automatic updates` or `Manual updates only`, with an optional owner-run managed update server for installs that opt into automatic updates
-- Installer-time auto-update registration can notify the owner-run update server immediately after setup when `Automatic updates` is selected
-
----
-
-## 🎵 Music Player
+## Music Player
 
 The Music Player is local-only and off by default.
 
-- No music folder is scanned until the user explicitly agrees inside the Music Player window
-- The user can scan the default Music folder or choose another local folder
-- Playback uses local files only
-- Music library data is not uploaded or shared by the app
+- No music folder is scanned until the user explicitly agrees.
+- The user can scan the default Music folder or another local folder.
+- Playback uses local files only.
 
----
-
-## 🧾 Diagnostics And Crash Reports
-
-This release includes local diagnostics logging for runtime failures and renderer or tab process exits.
+## Diagnostics And Crash Reports
 
 Users can export a diagnostics report from:
 
 `Tools > Export Diagnostics Report`
 
-Diagnostics are stored locally on the user machine and are not transmitted automatically. Exported diagnostics reports are encrypted before they are written to disk.
+Diagnostics are stored locally and are not transmitted automatically. Exported diagnostics reports are encrypted before being written to disk.
 
-**Support email for crash reports:**
+Support email:
+
 `bubblesthedevwebbrowsersupport@fnbubbles420.org`
 
-When reporting a problem, attach the exported encrypted diagnostics file to the support email.
-
----
-
-## 🔒 Privacy Notice
+## Privacy Notice
 
 This application:
 
-- Does not collect personal data automatically
-- Does not transmit telemetry automatically
-- Does not include analytics services
-- Does not connect to BubblesTheDev-owned servers for diagnostics upload
-- Does not include AI, machine learning, or remote inference systems
-- Stores browser data locally on the user's device in compressed form, with OS-backed encryption when available
+- does not collect personal data automatically
+- does not transmit telemetry automatically
+- does not include analytics services
+- stores browser data locally on the device
 
-If the installer build is configured with an update server and the user selects `Automatic updates` during install, the installer can send a minimal update registration to an owner-run update server immediately after setup. The browser can also request the latest published release metadata from that server and download the published installer. The registration is limited to update-management fields such as install ID, version, install path, host name, platform, architecture, last-seen time, and source IP as seen by that server. It does not include browsing history, bookmarks, saved passwords, page content, or diagnostics.
+If the installer build is configured with an update server and the install uses `Automatic updates`, the installer and browser can send limited update-management fields such as install ID, install path, version, platform, and last-seen time. This does not include browsing history, bookmarks, saved passwords, page content, or diagnostics.
 
-Network traffic occurs when the user browses websites or uses built-in search features.
+## SmartScreen Notice
 
-When the user runs a search from `bubbles://home`, the browser may contact DuckDuckGo and Google endpoints in the background to assemble the Bubbles search experience.
-
----
-
-## 🔎 Privacy Proof
-
-The application stores browser data and diagnostics locally under the Electron user data folder, and diagnostics are exported only when the user manually chooses to save them.
-
-```js
-function getDataPath() {
-   return path.join(app.getPath('userData'), 'browser_data.bin');
-}
-
-function getDiagnosticsDir() {
-   return path.join(app.getPath('userData'), 'diagnostics');
-}
-```
-
-Browser features such as history, bookmarks, site permission settings, homepage settings, Music Player settings, and local diagnostics are stored on the user's device to support browser functionality and are not automatically transmitted. The separate optional managed-update flow, when enabled for an `Automatic updates` install, sends only limited update-management fields and can fetch the latest published release metadata plus the installer package.
-
----
-
-## ⚠️ SmartScreen Notice
-
-If this application is distributed without trusted code signing, Windows SmartScreen may display a warning.
+This build is currently unsigned, so Windows SmartScreen may warn before launch.
 
 If prompted:
 
-1. Click **More Info**
-2. Select **Run Anyway**
+1. Click `More Info`
+2. Click `Run Anyway`
 
-Using a trusted code-signing certificate is recommended for public distribution.
+## Documentation
 
----
+- [Browser-Privacy-Comparison](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/Browser-Privacy-Comparison.md)
+- [Data-Collection-and-Privacy-Notice](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/Data-Collection-and-Privacy-Notice.md)
+- [Architecture](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/ARCHITECTURE.md)
 
-## 🔄 Updating
+## License
 
-Current installer builds support two update modes:
-
-1. `Manual updates only`: close the existing browser, remove the older version if needed from `Start > Settings > Apps`, and install the newer version from the GitHub releases page.
-2. `Automatic updates`: the installer records that choice locally, can send an opt-in registration right after setup, and the browser can check in to an owner-run update server, fetch the latest published release, download the installer, and launch it on the user's PC if that build was configured for it.
-
-Important:
-
-- The browser does not include a built-in silent updater client.
-- The updater is managed through the owner-run dashboard and published installer URL.
-- Dashboard access, release publishing, and the client list are restricted to the owner machine by default.
-- The browser still launches the installer as a normal Windows installer step; it is not a silent patch-in-place mechanism.
-
-Uninstall behavior for installers built from the current source:
-
-- The uninstaller removes the selected install directory.
-- The uninstaller also removes local browser data directories created under the current Windows user profile.
-- If files remain after uninstall, the usual cause is that the browser or one of its helper processes was still running during removal.
-
----
-
-## 🛠 Troubleshooting
-
-**Application does not launch:**  
-Reinstall the browser and ensure Windows Defender or other antivirus software is not blocking the executable.
-
-**A page or tab crashes:**  
-Reopen the browser, export a diagnostics report from the Tools menu, and email it to support.
-
-**A login popup does not appear:**  
-Update to the latest release, because current builds include popup-window handling needed by many sign-in flows.
-
-**Installer is blocked by Windows:**  
-Use the SmartScreen steps above, or install a signed release build when available.
-
----
-
-## 📜 License
-
-Proprietary – BubblesTheDev  
+Proprietary - BubblesTheDev  
 All Rights Reserved.
 
-Read the license and data collection details here:  
-[License file and data collection](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/LICENSE)
-
----
-
-## 💙 Built By
-
-BubblesTheDev  
-2026
-
----
-
-## RELEASES
+## Releases
 
 [Get the web browser here](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
