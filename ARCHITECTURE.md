@@ -4,7 +4,7 @@
 
 This document explains the high-level architecture of BubblesTheDev Web Browser and how the main runtime pieces interact.
 
-Current release documentation target: version `1.0.15`.
+Current release documentation target: version `1.0.17`.
 
 ## Design Goals
 
