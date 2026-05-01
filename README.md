@@ -1,16 +1,16 @@
 # 🖥️ BubblesTheDev Web Browser
 
-## 📦 Installer Package - Version 1.0.15
+## 📦 Installer Package - Version 1.0.17
 
 Desktop web browser for Windows built with Electron and a BrowserView-based tab runtime.
 
 Installer file:
 
-`BubblesTheDev Web Browser_Installer_1.0.15.exe`
+`BubblesTheDev Web Browser_Installer_1.0.17.exe`
 
 SHA256:
 
-`A88CC563D3C2A2A5D176FD28488463B86A4460127296583637CD83C6FF0C18B7`
+`4331F112F8148DEF1CD5C3945551418CA0FBAADBDD6FA8F73EB5263E7A10468E`
 
 Author: `BubblesTheDev`  
 Platform: `Windows 11 (x64)`  
@@ -18,7 +18,7 @@ Engine: `Electron 41` / Chromium
 
 ## 🚀 Overview
 
-Version `1.0.15` includes:
+Version `1.0.17` includes:
 
 - encrypted saved-password storage with reveal, add, remove, and strong-password generation flows
 - bookmark import from supported Chromium browsers plus manual bookmark-file import
@@ -60,7 +60,7 @@ Version `1.0.15` includes:
 1. Run:
 
    ```text
-   BubblesTheDev Web Browser_Installer_1.0.15.exe
+   BubblesTheDev Web Browser_Installer_1.0.17.exe
    ```
 
 2. Choose an install directory.
