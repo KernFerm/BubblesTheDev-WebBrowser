@@ -2,7 +2,7 @@
 
 ## Browser Privacy Comparison
 
-This document reflects the current privacy posture of BubblesTheDev Web Browser version `1.0.15`.
+This document reflects the current privacy posture of BubblesTheDev Web Browser version `1.0.17`.
 
 The goal is accuracy, not marketing language. The browser does not implement first-party telemetry, analytics SDKs, cloud sync, a built-in silent auto-updater client, or automatic diagnostics upload. It does, however, make normal network requests when the user browses the web, uses built-in search features, or uses the optional managed updater flow.
 
