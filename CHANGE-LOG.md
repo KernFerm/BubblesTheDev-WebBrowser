@@ -2,6 +2,69 @@
 
 This changelog reconstructs the project history from version `0.0.24` through `1.0.13` using the repository's tagged compare data, release notes, versioned README changes, and current installer/update work.
 
+# 1.0.17
+- Dependency Security Update
+
+  ## Highlights
+
+- Encrypted saved-password vault with on-demand reveal, manual add and remove controls, and strong-password generation
+- Bookmark import from Edge, Chrome, Brave, Opera, or a user-chosen bookmark file with explicit consent gating for path scans and manual file access
+- Chromium extension import support for Edge, Chrome, Brave, and Opera profile folders plus manual folder import
+- VPN manager support for NordVPN, ExpressVPN, ProtonVPN, and WireGuard with Proton `.conf` validation and import
+- Browser-session public IP testing with separate IPv4 and IPv6 checks in the VPN panel
+- Installer update-mode choice with `Automatic updates` and `Manual updates only`, plus an owner-run managed update server flow for installs that opt into automatic updates
+- Installer-time opt-in registration so `Automatic updates` installs can notify the update server immediately after setup
+- Manual `Check for Updates` entry in the app menu with clearer version and status feedback
+- Improved uninstall flow with custom install-path tracking, external-drive install support, and better cleanup of stale install metadata
+- Uninstall options that let users choose which local data categories should be removed or kept
+- Existing browser shell features remain in place, including bookmark bar, split-view browsing, site permissions, ad blocking, download protection, sleepable tabs, and runtime diagnostics
+
+## What's New In 1.0.17
+
+- Password capture from supported login forms now stores encrypted entries locally and keeps passwords hidden until the user explicitly reveals them.
+- The browser can suggest strong passwords both from the passwords panel and on supported password forms.
+- Bookmark import now separates consent for browser-path scanning and manual bookmark-file browsing.
+- Extension import scans supported Chromium profile locations and restores imported extensions into the persistent main session.
+- VPN integration now includes installed-client detection, external app launch shortcuts, local Proton profile import, and browser network refresh support.
+- Public IP testing now surfaces both IPv4 and IPv6 results so users can verify whether the browser session is going through the expected network path.
+- Installer builds can now record whether the user selected `Automatic updates` or `Manual updates only`, register auto-update installs with an owner-run update server immediately after setup, and fetch/download the latest published installer from that server flow.
+- The update server now restricts dashboard access, client-list access, and release publishing to the owner machine by default.
+- Users can now manually run `Check for Updates` from the app menu and see installed-versus-available version feedback.
+- Custom install locations now better support external HDDs, external SSDs, and USB flash drives.
+- Uninstall now cleans up tracked custom install paths more reliably, lets users choose which local data categories to remove, and suppresses false leftover warnings when cleanup finishes successfully.
+- `Automatic updates` is now the default installer selection, while `Manual updates only` remains available as an opt-out choice.
+
+# 1.0.15 
+
+## Highlights
+
+- Encrypted saved-password vault with on-demand reveal, manual add and remove controls, and strong-password generation
+- Bookmark import from Edge, Chrome, Brave, Opera, or a user-chosen bookmark file with explicit consent gating for path scans and manual file access
+- Chromium extension import support for Edge, Chrome, Brave, and Opera profile folders plus manual folder import
+- VPN manager support for NordVPN, ExpressVPN, ProtonVPN, and WireGuard with Proton `.conf` validation and import
+- Browser-session public IP testing with separate IPv4 and IPv6 checks in the VPN panel
+- Installer update-mode choice with `Automatic updates` and `Manual updates only`, plus an owner-run managed update server flow for installs that opt into automatic updates
+- Installer-time opt-in registration so `Automatic updates` installs can notify the update server immediately after setup
+- Manual `Check for Updates` entry in the app menu with clearer version and status feedback
+- Improved uninstall flow with custom install-path tracking, external-drive install support, and better cleanup of stale install metadata
+- Uninstall options that let users choose which local data categories should be removed or kept
+- Existing browser shell features remain in place, including bookmark bar, split-view browsing, site permissions, ad blocking, download protection, sleepable tabs, and runtime diagnostics
+
+## What's New In 1.0.15
+
+- Password capture from supported login forms now stores encrypted entries locally and keeps passwords hidden until the user explicitly reveals them.
+- The browser can suggest strong passwords both from the passwords panel and on supported password forms.
+- Bookmark import now separates consent for browser-path scanning and manual bookmark-file browsing.
+- Extension import scans supported Chromium profile locations and restores imported extensions into the persistent main session.
+- VPN integration now includes installed-client detection, external app launch shortcuts, local Proton profile import, and browser network refresh support.
+- Public IP testing now surfaces both IPv4 and IPv6 results so users can verify whether the browser session is going through the expected network path.
+- Installer builds can now record whether the user selected `Automatic updates` or `Manual updates only`, register auto-update installs with an owner-run update server immediately after setup, and fetch/download the latest published installer from that server flow.
+- The update server now restricts dashboard access, client-list access, and release publishing to the owner machine by default.
+- Users can now manually run `Check for Updates` from the app menu and see installed-versus-available version feedback.
+- Custom install locations now better support external HDDs, external SSDs, and USB flash drives.
+- Uninstall now cleans up tracked custom install paths more reliably, lets users choose which local data categories to remove, and suppresses false leftover warnings when cleanup finishes successfully.
+- `Automatic updates` is now the default installer selection, while `Manual updates only` remains available as an opt-out choice.
+
 ## 1.0.13
 
 ### Added
