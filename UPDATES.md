@@ -6,6 +6,6 @@
 
 ---
 
-- > Version `1.0.15` out now
+- > Version `1.0.17` out now
 
 - > older versions not supported
