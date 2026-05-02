@@ -13,7 +13,7 @@
 
 # 1.0.25
 
-> releasing sunday `00:00`
+> **releasing sunday `00:00`**
 ```
 # BubblesTheDev - WebBrowser: 1.0.25
 
