@@ -1,6 +1,52 @@
 # Changelog
 
-This changelog reconstructs the project history from version `0.0.24` through `1.0.13` using the repository's tagged compare data, release notes, versioned README changes, and current installer/update work.
+This changelog reconstructs the project history from version `0.0.24` through `1.0.25` using the repository's tagged compare data, release notes, versioned README changes, and current installer/update work.
+
+## Unreleased
+
+### Added
+
+- The shell theme menu now supports multiple muted built-in color themes: `Graphite`, `Slate Blue`, `Forest Ash`, and `Mocha`.
+- A persistent toolbar-visibility state was added so users can hide the main shortcut row while keeping the address bar and quick-access `»` menu available.
+- Keyboard shortcuts were added for `Toggle Bookmark Bar` (`Ctrl+Shift+B`) and `Toggle Toolbar` (`Ctrl+Alt+T`), and the shortcut guide was updated to match.
+
+### Updated
+
+- The `Bookmarks` and `»` toolbar menus now use native popup menus instead of in-page dropdown overlays.
+- The toolbar layout was refined so hidden-toolbar mode still keeps the omnibox accessible and the quick-access menu visible.
+- The `Theme` app menu was expanded from a single dark-mode toggle into a muted multi-theme selector with `Ctrl+Shift+D` cycling between themes.
+- `ARCHITECTURE.md` and `Browser-Privacy-Comparison.md` were updated to document the current shell state, theme behavior, updater validation, and extension/password hardening paths.
+
+### Security
+
+- Managed updates now fail closed unless both the release metadata URL and installer URL use `https:` and the published release includes a valid SHA-256 hash for installer verification before launch.
+- Imported extensions now load without local file access, reject symlinked folders, require Manifest V2 or V3 structure, and warn the user before importing extensions with broad or higher-risk permissions.
+- Password save and reveal flows are now restricted to secure contexts such as `https:` pages and local loopback development hosts.
+- The renderer-side CSP was tightened with explicit `object-src 'none'`, `base-uri 'none'`, `frame-ancestors 'none'`, and narrower resource directives.
+- Several renderer UI paths were cleaned up to reduce unnecessary `innerHTML` usage in favor of direct DOM construction.
+
+### Dependency Audit
+
+- A local `npm audit` pass reported `0` known vulnerabilities in the current dependency tree.
+
+## 1.0.25
+
+### Updated
+
+- The package version was advanced to `1.0.25`.
+- Release and README documentation were updated to match the `1.0.25` installer package name and current feature set.
+- Download handling was refined so files from trusted sources such as GitHub can complete more reliably while browser security protections remain in place.
+- The page context menu and tab context menu were refined toward a cleaner Chromium-style workflow.
+- Passkey and WebAuthn sign-in compatibility for supported websites was improved.
+- Install-path handling was updated so external-drive installs can move install-linked browser data off `C:` and onto the selected external drive.
+
+### Performance
+
+- Memory usage was reduced on streaming-heavy sites such as Twitch and Kick to improve responsiveness and stability.
+
+### Notes
+
+- `Automatic updates` remains the default installer selection, while `Manual updates only` remains available.
 
 # 1.0.17
 - Dependency Security Update
