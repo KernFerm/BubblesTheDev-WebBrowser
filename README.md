@@ -6,11 +6,11 @@ A Windows web browser built for people who want everyday browsing features, stro
 
 Installer file name:
 
-`BubblesTheDev Web Browser_Installer_1.0.25.exe`
+`BubblesTheDev Web Browser_Installer_1.0.27.exe`
 
 SHA256:
 
-`7366b1bc7d8e563472752ee787758047d49226942ac32c27bce92c90bea90353`
+`9f4ccd87403d6656ef347599914ca2a08ba3e9d0ef8cce14c1bb1b8154299e41`
 
 Author: `BubblesTheDev`  
 Platform: `Windows 11 (x64)`  
@@ -18,7 +18,7 @@ Engine: `Electron 41` / Chromium
 
 ## 🚀 Overview
 
-Version `1.0.25` includes improvements such as:
+Version `1.0.27` includes improvements such as:
 
 - 🧠 lower memory use on streaming-heavy sites such as Twitch and Kick
 - 📥 more reliable downloads from trusted sources such as GitHub
@@ -81,7 +81,7 @@ Version `1.0.25` includes improvements such as:
 1. Run:
 
    ```text
-   BubblesTheDev Web Browser_Installer_1.0.25.exe
+   BubblesTheDev Web Browser_Installer_1.0.27.exe
    ```
 
 2. Choose where you want to install the browser.
