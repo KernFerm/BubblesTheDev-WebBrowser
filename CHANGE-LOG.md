@@ -1,161 +1,341 @@
-# Data Collection and Privacy Notice
+# Changelog
 
-This notice reflects the current privacy posture of BubblesTheDev Web Browser version `1.0.25`.
+This changelog reconstructs the project history from version `0.0.24` through `1.0.25` using the repository's tagged compare data, release notes, versioned README changes, and current installer/update work.
 
-BubblesTheDev Web Browser is designed to keep browser data local to the user's device unless the user chooses to browse external websites, use external search providers, download files, export diagnostics manually, or opt into managed update checks.
+## Unreleased
 
-The application does not include built-in telemetry, analytics SDKs, automatic crash upload services, cloud synchronization, a built-in silent auto-updater client, or AI monitoring systems.
+### Added
 
-Specifically:
+- The shell theme menu now supports multiple muted built-in color themes: `Graphite`, `Slate Blue`, `Forest Ash`, and `Mocha`.
+- A persistent toolbar-visibility state was added so users can hide the main shortcut row while keeping the address bar and quick-access `»` menu available.
+- Keyboard shortcuts were added for `Toggle Bookmark Bar` (`Ctrl+Shift+B`) and `Toggle Toolbar` (`Ctrl+Alt+T`), and the shortcut guide was updated to match.
 
-* No telemetry services are embedded in the application.
-* No background analytics services are executed.
-* No behavioral tracking mechanisms are included by the application itself.
-* No advertising identifiers are generated or transmitted by the application itself.
-* No cloud-based synchronization features are implemented.
-* No automatic diagnostics upload path is implemented.
-* No first-party BubblesTheDev tracking server is contacted for analytics or data collection purposes.
+### Updated
 
-Installer builds can optionally be configured with an owner-run update server. That managed-update flow is separate from telemetry and is limited to update-management fields, release metadata requests, and installer downloads, not browsing data.
+- The `Bookmarks` and `»` toolbar menus now use native popup menus instead of in-page dropdown overlays.
+- The toolbar layout was refined so hidden-toolbar mode still keeps the omnibox accessible and the quick-access menu visible.
+- The `Theme` app menu was expanded from a single dark-mode toggle into a muted multi-theme selector with `Ctrl+Shift+D` cycling between themes.
+- `ARCHITECTURE.md` and `Browser-Privacy-Comparison.md` were updated to document the current shell state, theme behavior, updater validation, and extension/password hardening paths.
 
-Version `1.0.25` also includes browser-behavior updates around lower memory usage on streaming-heavy sites, cleaner Chromium-style menus, improved trusted-source download handling, passkey compatibility, and external-drive install handling. Those changes do not add first-party telemetry or analytics collection to the browser.
+### Security
 
-## Local Browser Data
+- Managed updates now fail closed unless both the release metadata URL and installer URL use `https:` and the published release includes a valid SHA-256 hash for installer verification before launch.
+- Imported extensions now load without local file access, reject symlinked folders, require Manifest V2 or V3 structure, and warn the user before importing extensions with broad or higher-risk permissions.
+- Password save and reveal flows are now restricted to secure contexts such as `https:` pages and local loopback development hosts.
+- The renderer-side CSP was tightened with explicit `object-src 'none'`, `base-uri 'none'`, `frame-ancestors 'none'`, and narrower resource directives.
+- Several renderer UI paths were cleaned up to reduce unnecessary `innerHTML` usage in favor of direct DOM construction.
 
-Browser data is stored on the user's device in the Electron `userData` directory.
+### Dependency Audit
 
-Current persisted data includes:
+- A local `npm audit` pass reported `0` known vulnerabilities in the current dependency tree.
 
-* homepage settings
-* browsing history
-* bookmarks
-* bookmark-import consent choices at runtime
-* saved password metadata and encrypted password vault entries
-* imported Chromium extension metadata for extensions the user chooses to load
-* imported ProtonVPN profile metadata for valid `.conf` files the user chooses to add
-* toolbar visibility
-* bookmark bar visibility
-* selected shell theme
-* per-site permission settings
-* optional Music Player opt-in state and chosen folder
-* cached search results and suggestions used by the internal home/search page
-* install-linked path metadata used to track custom or external-drive installs and related local update preferences
+## 1.0.25
 
-The persisted browser-state payload is compressed before being written to disk. When Electron safe storage is available, that payload is also protected with OS-backed encryption. If OS-backed protection is unavailable, the runtime can fall back to credential-backed AES-GCM protection when available. If neither protection path is available, the payload is still stored locally in compressed form.
+### Updated
 
-The application does not automatically upload this browser-state data.
+- The package version was advanced to `1.0.25`.
+- Release and README documentation were updated to match the `1.0.25` installer package name and current feature set.
+- Download handling was refined so files from trusted sources such as GitHub can complete more reliably while browser security protections remain in place.
+- The page context menu and tab context menu were refined toward a cleaner Chromium-style workflow.
+- Passkey and WebAuthn sign-in compatibility for supported websites was improved.
+- Install-path handling was updated so external-drive installs can move install-linked browser data off `C:` and onto the selected external drive.
 
-## Optional Managed Update Flow
+### Performance
 
-Installer builds now present `Automatic updates` and `Manual updates only` during setup, with `Automatic updates` selected by default. The managed-update flow is still opt-in at install time because the user can switch that selection before setup completes, and normal manual-update installs remain supported.
+- Memory usage was reduced on streaming-heavy sites such as Twitch and Kick to improve responsiveness and stability.
 
-If all of the following are true:
+### Notes
 
-* the installer build was configured with an update server
-* the installed update mode is `Automatic updates`
-* the installer or browser can reach that configured server
+- `Automatic updates` remains the default installer selection, while `Manual updates only` remains available.
 
-the installer or browser may send a minimal update-registration record to the owner-run update server, request the latest published release metadata from that server, and download the installer URL published for that release.
+# 1.0.17
+- Dependency Security Update
 
-The managed-update path now rejects non-HTTPS release metadata or installer URLs and requires a valid published SHA-256 hash before the downloaded installer is launched.
+  ## Highlights
 
-That record is limited to:
+- Encrypted saved-password vault with on-demand reveal, manual add and remove controls, and strong-password generation
+- Bookmark import from Edge, Chrome, Brave, Opera, or a user-chosen bookmark file with explicit consent gating for path scans and manual file access
+- Chromium extension import support for Edge, Chrome, Brave, and Opera profile folders plus manual folder import
+- VPN manager support for NordVPN, ExpressVPN, ProtonVPN, and WireGuard with Proton `.conf` validation and import
+- Browser-session public IP testing with separate IPv4 and IPv6 checks in the VPN panel
+- Installer update-mode choice with `Automatic updates` and `Manual updates only`, plus an owner-run managed update server flow for installs that opt into automatic updates
+- Installer-time opt-in registration so `Automatic updates` installs can notify the update server immediately after setup
+- Manual `Check for Updates` entry in the app menu with clearer version and status feedback
+- Improved uninstall flow with custom install-path tracking, external-drive install support, and better cleanup of stale install metadata
+- Uninstall options that let users choose which local data categories should be removed or kept
+- Existing browser shell features remain in place, including bookmark bar, split-view browsing, site permissions, ad blocking, download protection, sleepable tabs, and runtime diagnostics
 
-* install ID
-* selected update mode
-* app version
-* install directory
-* install root
-* install drive type
-* device host name
-* platform
-* architecture
-* last-seen timestamp
-* source IP address as observed by the update server
+## What's New In 1.0.17
 
-This optional managed-update flow does not include browsing history, bookmarks, saved passwords, search queries, page content, imported files, or diagnostics contents.
+- Password capture from supported login forms now stores encrypted entries locally and keeps passwords hidden until the user explicitly reveals them.
+- The browser can suggest strong passwords both from the passwords panel and on supported password forms.
+- Bookmark import now separates consent for browser-path scanning and manual bookmark-file browsing.
+- Extension import scans supported Chromium profile locations and restores imported extensions into the persistent main session.
+- VPN integration now includes installed-client detection, external app launch shortcuts, local Proton profile import, and browser network refresh support.
+- Public IP testing now surfaces both IPv4 and IPv6 results so users can verify whether the browser session is going through the expected network path.
+- Installer builds can now record whether the user selected `Automatic updates` or `Manual updates only`, register auto-update installs with an owner-run update server immediately after setup, and fetch/download the latest published installer from that server flow.
+- The update server now restricts dashboard access, client-list access, and release publishing to the owner machine by default.
+- Users can now manually run `Check for Updates` from the app menu and see installed-versus-available version feedback.
+- Custom install locations now better support external HDDs, external SSDs, and USB flash drives.
+- Uninstall now cleans up tracked custom install paths more reliably, lets users choose which local data categories to remove, and suppresses false leftover warnings when cleanup finishes successfully.
+- `Automatic updates` is now the default installer selection, while `Manual updates only` remains available as an opt-out choice.
 
-Owner-only update-server actions such as dashboard access, viewing the full client list, and publishing releases are restricted to the server owner machine by default and are not exposed as normal end-user browser actions.
+# 1.0.15 
 
-If the published installer URL points to a third-party host such as GitHub releases, that download host will see a normal installer download request in the same way it would for any direct browser download.
+## Highlights
 
-## Diagnostics And Runtime Checks
+- Encrypted saved-password vault with on-demand reveal, manual add and remove controls, and strong-password generation
+- Bookmark import from Edge, Chrome, Brave, Opera, or a user-chosen bookmark file with explicit consent gating for path scans and manual file access
+- Chromium extension import support for Edge, Chrome, Brave, and Opera profile folders plus manual folder import
+- VPN manager support for NordVPN, ExpressVPN, ProtonVPN, and WireGuard with Proton `.conf` validation and import
+- Browser-session public IP testing with separate IPv4 and IPv6 checks in the VPN panel
+- Installer update-mode choice with `Automatic updates` and `Manual updates only`, plus an owner-run managed update server flow for installs that opt into automatic updates
+- Installer-time opt-in registration so `Automatic updates` installs can notify the update server immediately after setup
+- Manual `Check for Updates` entry in the app menu with clearer version and status feedback
+- Improved uninstall flow with custom install-path tracking, external-drive install support, and better cleanup of stale install metadata
+- Uninstall options that let users choose which local data categories should be removed or kept
+- Existing browser shell features remain in place, including bookmark bar, split-view browsing, site permissions, ad blocking, download protection, sleepable tabs, and runtime diagnostics
 
-Diagnostics are generated locally.
+## What's New In 1.0.15
 
-Current behavior:
+- Password capture from supported login forms now stores encrypted entries locally and keeps passwords hidden until the user explicitly reveals them.
+- The browser can suggest strong passwords both from the passwords panel and on supported password forms.
+- Bookmark import now separates consent for browser-path scanning and manual bookmark-file browsing.
+- Extension import scans supported Chromium profile locations and restores imported extensions into the persistent main session.
+- VPN integration now includes installed-client detection, external app launch shortcuts, local Proton profile import, and browser network refresh support.
+- Public IP testing now surfaces both IPv4 and IPv6 results so users can verify whether the browser session is going through the expected network path.
+- Installer builds can now record whether the user selected `Automatic updates` or `Manual updates only`, register auto-update installs with an owner-run update server immediately after setup, and fetch/download the latest published installer from that server flow.
+- The update server now restricts dashboard access, client-list access, and release publishing to the owner machine by default.
+- Users can now manually run `Check for Updates` from the app menu and see installed-versus-available version feedback.
+- Custom install locations now better support external HDDs, external SSDs, and USB flash drives.
+- Uninstall now cleans up tracked custom install paths more reliably, lets users choose which local data categories to remove, and suppresses false leftover warnings when cleanup finishes successfully.
+- `Automatic updates` is now the default installer selection, while `Manual updates only` remains available as an opt-out choice.
 
-* runtime diagnostic entries are written to a local diagnostics directory
-* users can manually export an encrypted `.bdiag` diagnostics report
-* no automatic diagnostics upload path is implemented
-* the runtime checks panel shows local status for storage protection and other on-device runtime state
+## 1.0.13
 
-Diagnostic data remains on-device unless the user explicitly chooses to export it.
+### Added
 
-## Uninstall And Data Retention
+- A manual `Check for Updates` menu entry was added so users can trigger update checks on demand and see clearer version/status feedback.
+- Custom install locations now explicitly support external HDDs, external SSDs, and USB flash drives with writable-path validation during setup.
+- Uninstall now prompts the user to choose whether local browser data should be removed or kept for a future reinstall or update.
 
-The uninstaller always removes the installed application files. It can also remove local data by category when the user chooses to do so.
+### Updated
 
-Current removable categories include:
+- The package version was advanced to `1.0.13`.
+- Current release documentation and installer-facing version references were updated to `1.0.13`.
+- Installer metadata tracking was expanded to record install root and drive-type details for custom install paths.
+- Update preference persistence now keeps custom install-path metadata in sync after launch.
 
-* browser profile data
-* saved passwords
-* diagnostics reports
-* local update preferences
+### Fixed
 
-If a category is left unchecked during uninstall, that data remains on the device for a future reinstall or update.
+- Uninstall cleanup now better targets tracked custom install directories instead of relying only on default locations.
+- Ghost-install cleanup was improved by removing stale install metadata and validating remaining leftovers after uninstall.
 
-Uninstall cleanup also:
+# 1.0.1-0.10
+- Security Update Dependency
 
-* targets tracked custom install paths
-* removes stale uninstall metadata and registry ghosts
-* re-checks reported leftover paths before showing a warning, which reduces false leftover alerts
+# 1.0.1-0.7
+- Security Update Dependency
 
-If the browser is installed on an external drive instead of `C:`, install-linked browser data and related install-path tracking can follow that selected external location instead of staying only on the main system drive.
+# 1.0.1-0.5
+- Security Update Dependency
 
-## Network Activity
+# 1.0.1-0.3
+- Security Update Dependency
 
-This browser is not offline-only. Outbound network traffic still occurs when the user does one of the following:
+# 1.0.10-01
+- Security Update Dependency
 
-* opens websites or web apps
-* signs into websites
-* loads page assets such as images, scripts, fonts, and media
-* downloads files
-* uses external search engines directly
-* uses search from `bubbles://home`
-* uses websites that request passkey or WebAuthn authentication through the platform browser flow
+## 1.0.10
+- Security Update Dependency
+- minor updates
 
-When the user performs a search from `bubbles://home`, the application may contact DuckDuckGo and Google endpoints to assemble results, related searches, and suggestions on that internal page.
+## 1.0.8
 
-When the user downloads files, the browser may perform normal download-related handling such as trusted-source checks, protection-provider checks, destination selection, and local save operations. That behavior is separate from telemetry and is part of the browser's on-device download protection and file-handling flow.
+### Updated
 
-When the user signs in with a passkey on a supported website, the authentication request is between the user, the operating system or authenticator, and that website's login flow. The browser's role is compatibility and secure-context support; it does not create a separate first-party passkey cloud service.
+- The package version was advanced to `1.0.8`.
+- Current release documentation and installer-facing version references were updated to `1.0.8`.
 
-Saved-password capture and reveal flows are limited to secure contexts such as `https:` pages and local loopback development hosts. The browser does not intentionally offer those flows to arbitrary insecure pages.
+## 1.0.6
 
-## Music Player Privacy
+### Added
 
-The Music Player is local-only and off by default.
+- Installer-time auto-update check-in was added so installs that choose `Automatic updates` can register with the owner-run update server immediately after setup.
 
-* No music folder is scanned until the user explicitly agrees inside the Music Player window.
-* The user can choose the default Music folder or another local folder.
-* Playback uses local files only.
-* The application does not upload or share the user's music files.
+### Updated
 
-## Summary
+- The package version was advanced to `1.0.6`.
+- Current release documentation and installer-facing version references were updated to `1.0.6`.
+- The managed update server now separates end-user client access from owner-only dashboard and release-management actions.
 
-BubblesTheDev Web Browser is intentionally designed without built-in surveillance, telemetry, analytics, automatic remote reporting, cloud sync, or a built-in silent first-party auto-update client.
+## 0.9.23
 
-The privacy model is local-first:
+### Added
 
-* browser settings, history, bookmarks, passwords, imported extension metadata, VPN profile metadata, permissions, and search cache stay on-device
-* toolbar visibility, bookmark bar visibility, and the selected shell theme stay on-device
-* install-linked path metadata for custom or external-drive installs stays on-device except for the limited managed-update fields described above when `Automatic updates` is enabled
-* persisted browser state is compressed locally and protected when an available encryption path exists
-* diagnostics stay local unless the user exports them
-* music library access requires explicit consent before any scan begins
-* optional managed updates apply only to installs using `Automatic updates`, and that flow is limited to update-management fields, release metadata checks, and installer downloads
-* imported extensions require explicit user action, load without local file access, and may show extra warnings for higher-risk permission requests
-* browsing, downloads, and built-in search still create normal traffic to the websites and providers the user chooses to use
+- Encrypted saved-password storage was added with manual add, reveal, remove, and strong-password generation flows.
+- Bookmark import was expanded to supported Chromium browser paths plus manual bookmark-file import.
+- Separate consent gating was added for browser bookmark-path scanning and manual bookmark-file access.
+- Chromium extension import support was added for Edge, Chrome, Brave, and Opera profile folders.
+- VPN tooling was added for installed-client detection, Proton `.conf` validation/import, and browser-session IP checks.
+- Installer update-mode selection was added for `Automatic updates` and `Manual updates only`, along with an owner-run managed updater that can register opted-in installs, publish the latest release, and let clients download and launch that installer.
 
-Any future feature that materially changes this privacy posture should be disclosed in updated privacy and release documentation.
+### Updated
+
+- Release, README, privacy, and architecture documentation were refreshed for version `0.9.23`.
+- Update documentation was revised to describe the owner-run managed updater, published release flow, and the limited fields it collects.
+- Browser persistence behavior was updated so uninstall no longer deletes app data by default.
+- Startup logging was reduced so blocked tracker noise and low-level Chromium network spam do not flood the terminal.
+
+### Fixed
+
+- Bookmark import consent rules now apply correctly to both browser-path scanning and manual bookmark-file browsing.
+- VPN `.conf` scanning was tightened so there is no automatic common-folder scan path.
+
+## 0.6.3
+
+### Added
+
+- Bookmark bar support was added to the main browser shell with persistent saved-page chips, one-click navigation, and inline removal.
+- Chrome-style tab context actions were added for new tab, duplicate tab, close tab, and split-view replacement.
+- Split-view browsing was added so two BrowserView tabs can be displayed side-by-side with a draggable divider.
+- Site permission controls were added from the address bar shell for camera, microphone, notifications, location, popups, clipboard, automatic downloads, and fullscreen.
+- The Bubbles home page now keeps provider results on-page while switching between Bubbles, Google-backed, and DuckDuckGo-backed result sources.
+
+### Updated
+
+- Download protection now runs through a modular provider chain with fallback behavior, including Windows Defender, Authenticode signature checks, and browser heuristics.
+- Ad-block diagnostics now show loaded-rule status and per-page blocked counters in addition to the existing Bubbles home verification page.
+- Full-screen handling now uses a clean `F11` toggle path plus an in-shell exit control.
+- Local browser state and exported diagnostics now use compressed persisted payloads, with OS-backed encryption when available.
+- A runtime checks panel was added to the browser shell so users can inspect security, download protection, ad blocking, executable path, and performance state in-app.
+
+### Fixed
+
+- Full-screen exit reliability was improved so the window can still be closed or exited cleanly while full-screen is active.
+
+### Performance
+
+- Hidden BrowserView tabs now opt into background throttling so inactive pages use less CPU and memory pressure during normal browsing.
+- Background tabs can now be put to sleep automatically under memory pressure, and the Task Manager can manually sleep or wake eligible tabs.
+
+## Version Range Summary
+
+- Start version: `0.0.24`
+- Intermediate milestones found in repository history: `0.0.35`, `0.0.50`
+- End version: `0.1.5`
+
+## 0.0.24 -> 0.0.35
+
+### Added
+
+- Exportable diagnostics and local crash logging were introduced.
+- A documented crash-report workflow was added through `Tools > Export Diagnostics Report` with a support email contact.
+- `Data-Collection-and-Privacy-Notice.md` was added to formalize the browser's no-telemetry and no-analytics position.
+
+### Updated
+
+- The installer package advanced from `0.0.24` to `0.0.35` with updated package naming and install instructions.
+- The project README was rewritten around a BrowserView-based tab runtime instead of a generic lightweight-browser description.
+- System requirements were tightened toward Windows 11 x64 packaging.
+- Security documentation was expanded to call out sandboxing, `contextIsolation`, disabled `nodeIntegration`, incognito session separation, restricted permissions, and no auto-updater endpoints.
+
+### Changed
+
+- Feature wording was cleaned up for task manager behavior, shortcuts, and packaging details.
+- Manual update guidance was clarified for installer-based upgrades.
+
+### Notes
+
+- An `info` status file was introduced as a simple project update marker.
+
+## 0.0.35 -> 0.0.50
+
+### Added
+
+- Download protection for risky file types was added, including optional Windows Defender scan integration after downloads complete.
+- A clear recent downloads action was added to the Downloads window.
+- `ARCHITECTURE.md` was added to document runtime design, Electron process structure, local storage, diagnostics, and security model.
+- `Browser-Privacy-Comparison.md` was added to explain privacy posture versus mainstream browsers.
+- `SECURITY.md` was added with vulnerability reporting guidance and support policy.
+- A privacy-proof section was added to the README to show that diagnostics and browser data remain local unless exported manually.
+
+### Updated
+
+- The main README was renamed from `Readme.md` to `README.md`.
+- Installer naming changed to the `0.0.50` setup package format.
+- Install and update instructions were revised to explicitly remove `0.0.35` before installing `0.0.50`.
+- Privacy and data-collection documentation links were added to the README.
+
+### Fixed
+
+- A formatting issue in the diagnostics directory helper (`ensureDiagnosticsDir`) was corrected.
+
+### Notes
+
+- The temporary `info` file was renamed to `UPDATES`.
+- The repository became much more documentation-driven in this release, especially around privacy, security, and architecture.
+
+## 0.0.50 -> 0.1.5
+
+### Added
+
+- `bubbles://home` became the default home page.
+- Bubbles Search Engine support was added, with background DuckDuckGo results and Google suggestions.
+- Direct URLs and bare domains remained separate from search input in the address bar.
+- Live home-page counters were added for ads blocked, trackers blocked, bookmarks saved, and history count.
+- Ad and tracker request filtering was expanded, including YouTube-focused blocking behavior.
+- Popup-based login compatibility was improved for sign-in flows used by sites such as Google, Twitch, and Facebook.
+- A local-only Music Player window was added with explicit user opt-in before any folder scan begins.
+- Edit menu roles and a shortcut/help guide were added for common browser actions.
+
+### Updated
+
+- Download management messaging was updated to reflect recent-download management.
+- The architecture documentation was rewritten around the real runtime shape: `browser-runtime.js`, BrowserView tabs, helper windows, popup auth windows, Bubbles home page IPC, and Music Player state.
+- The privacy comparison document was revised to better distinguish local-first behavior from normal web traffic and search-provider traffic.
+- The data collection notice was expanded to document local storage for history, bookmarks, homepage settings, and Music Player settings.
+- Update instructions were generalized to uninstall any older installed version before installing `0.1.5`.
+
+### Changed
+
+- The project README shifted from a general browser package description to a release overview centered on search, privacy, popup auth compatibility, and local-only media features.
+- Security documentation now calls out ad and tracker filtering as part of the browser protection model.
+- Privacy language was refined to explicitly state that the browser avoids first-party telemetry while still making normal website and search-provider requests when the user initiates those actions.
+
+### Notes
+
+- The official `0.1.5` release notes describe this release as the point where the browser's identity moved from a general Electron browser package to a branded Bubbles search-and-privacy focused desktop browser.
+
+## Overall Changes From 0.0.24 To 0.1.5
+
+### Added Across The Range
+
+- Exportable diagnostics and local crash logging
+- Download protection with Windows Defender integration
+- Privacy, architecture, and security documentation
+- Bubbles Search Engine and default internal home page
+- Ad and tracker filtering with live counters
+- Popup login compatibility improvements
+- Local-only Music Player with explicit opt-in
+- Edit menu roles and shortcut/help coverage
+
+### Updated Across The Range
+
+- Installer naming, packaging language, and upgrade instructions
+- System requirement messaging toward Windows 11 x64
+- README and release documentation quality and depth
+- Privacy disclosures to better reflect actual app behavior
+
+### Fixed Across The Range
+
+- Diagnostics helper formatting issues
+- Login-flow handling around popup-based authentication
+
+## Source Basis
+
+This file was reconstructed from:
+
+- the repository compare history for `0.0.24 -> 0.0.35`, `0.0.35 -> 0.0.50`, and `0.0.50 -> 0.1.5`
+- the in-repo `release.md` for version `0.1.5`
+- the repository's tagged README and documentation diffs
