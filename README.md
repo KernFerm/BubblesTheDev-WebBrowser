@@ -1,6 +1,6 @@
 # 🖥️ BubblesTheDev Web Browser
 
-## 📦 Installer Package - Version 1.0.25
+## 📦 Installer Package - Version 1.0.27
 
 A Windows web browser built for people who want everyday browsing features, strong privacy defaults, and more control over their browser data.
 
