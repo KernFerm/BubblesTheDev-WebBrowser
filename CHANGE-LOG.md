@@ -1,8 +1,8 @@
 # Changelog
 
-This changelog reconstructs the project history from version `0.0.24` through `1.0.25` using the repository's tagged compare data, release notes, versioned README changes, and current installer/update work.
+This changelog reconstructs the project history from version `0.0.24` through `1.0.27` using the repository's tagged compare data, release notes, versioned README changes, and current installer/update work.
 
-## Unreleased
+## 1.0.27
 
 ### Added
 
