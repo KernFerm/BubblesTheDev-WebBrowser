@@ -6,7 +6,7 @@
 
 ---
 
-- > Version `1.0.25` out now
+- > Version `1.0.27` out now
 
 - > older versions not supported
 
