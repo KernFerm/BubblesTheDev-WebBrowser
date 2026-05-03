@@ -1,6 +1,6 @@
 # Data Collection and Privacy Notice
 
-This notice reflects the current privacy posture of BubblesTheDev Web Browser version `1.0.17`.
+This notice reflects the current privacy posture of BubblesTheDev Web Browser version `1.0.25`.
 
 BubblesTheDev Web Browser is designed to keep browser data local to the user's device unless the user chooses to browse external websites, use external search providers, download files, export diagnostics manually, or opt into managed update checks.
 
@@ -18,6 +18,8 @@ Specifically:
 
 Installer builds can optionally be configured with an owner-run update server. That managed-update flow is separate from telemetry and is limited to update-management fields, release metadata requests, and installer downloads, not browsing data.
 
+Version `1.0.25` also includes browser-behavior updates around lower memory usage on streaming-heavy sites, cleaner Chromium-style menus, improved trusted-source download handling, passkey compatibility, and external-drive install handling. Those changes do not add first-party telemetry or analytics collection to the browser.
+
 ## Local Browser Data
 
 Browser data is stored on the user's device in the Electron `userData` directory.
@@ -31,10 +33,13 @@ Current persisted data includes:
 * saved password metadata and encrypted password vault entries
 * imported Chromium extension metadata for extensions the user chooses to load
 * imported ProtonVPN profile metadata for valid `.conf` files the user chooses to add
+* toolbar visibility
 * bookmark bar visibility
+* selected shell theme
 * per-site permission settings
 * optional Music Player opt-in state and chosen folder
 * cached search results and suggestions used by the internal home/search page
+* install-linked path metadata used to track custom or external-drive installs and related local update preferences
 
 The persisted browser-state payload is compressed before being written to disk. When Electron safe storage is available, that payload is also protected with OS-backed encryption. If OS-backed protection is unavailable, the runtime can fall back to credential-backed AES-GCM protection when available. If neither protection path is available, the payload is still stored locally in compressed form.
 
@@ -51,6 +56,8 @@ If all of the following are true:
 * the installer or browser can reach that configured server
 
 the installer or browser may send a minimal update-registration record to the owner-run update server, request the latest published release metadata from that server, and download the installer URL published for that release.
+
+The managed-update path now rejects non-HTTPS release metadata or installer URLs and requires a valid published SHA-256 hash before the downloaded installer is launched.
 
 That record is limited to:
 
@@ -104,6 +111,8 @@ Uninstall cleanup also:
 * removes stale uninstall metadata and registry ghosts
 * re-checks reported leftover paths before showing a warning, which reduces false leftover alerts
 
+If the browser is installed on an external drive instead of `C:`, install-linked browser data and related install-path tracking can follow that selected external location instead of staying only on the main system drive.
+
 ## Network Activity
 
 This browser is not offline-only. Outbound network traffic still occurs when the user does one of the following:
@@ -114,8 +123,15 @@ This browser is not offline-only. Outbound network traffic still occurs when the
 * downloads files
 * uses external search engines directly
 * uses search from `bubbles://home`
+* uses websites that request passkey or WebAuthn authentication through the platform browser flow
 
 When the user performs a search from `bubbles://home`, the application may contact DuckDuckGo and Google endpoints to assemble results, related searches, and suggestions on that internal page.
+
+When the user downloads files, the browser may perform normal download-related handling such as trusted-source checks, protection-provider checks, destination selection, and local save operations. That behavior is separate from telemetry and is part of the browser's on-device download protection and file-handling flow.
+
+When the user signs in with a passkey on a supported website, the authentication request is between the user, the operating system or authenticator, and that website's login flow. The browser's role is compatibility and secure-context support; it does not create a separate first-party passkey cloud service.
+
+Saved-password capture and reveal flows are limited to secure contexts such as `https:` pages and local loopback development hosts. The browser does not intentionally offer those flows to arbitrary insecure pages.
 
 ## Music Player Privacy
 
@@ -133,10 +149,13 @@ BubblesTheDev Web Browser is intentionally designed without built-in surveillanc
 The privacy model is local-first:
 
 * browser settings, history, bookmarks, passwords, imported extension metadata, VPN profile metadata, permissions, and search cache stay on-device
+* toolbar visibility, bookmark bar visibility, and the selected shell theme stay on-device
+* install-linked path metadata for custom or external-drive installs stays on-device except for the limited managed-update fields described above when `Automatic updates` is enabled
 * persisted browser state is compressed locally and protected when an available encryption path exists
 * diagnostics stay local unless the user exports them
 * music library access requires explicit consent before any scan begins
 * optional managed updates apply only to installs using `Automatic updates`, and that flow is limited to update-management fields, release metadata checks, and installer downloads
+* imported extensions require explicit user action, load without local file access, and may show extra warnings for higher-risk permission requests
 * browsing, downloads, and built-in search still create normal traffic to the websites and providers the user chooses to use
 
 Any future feature that materially changes this privacy posture should be disclosed in updated privacy and release documentation.
