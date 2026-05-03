@@ -1,16 +1,16 @@
 # 🖥️ BubblesTheDev Web Browser
 
-## 📦 Installer Package - Version 1.0.17
+## 📦 Installer Package - Version 1.0.25
 
-Desktop web browser for Windows built with Electron and a BrowserView-based tab runtime.
+A Windows web browser built for people who want everyday browsing features, strong privacy defaults, and more control over their browser data.
 
-Installer file:
+Installer file name:
 
-`BubblesTheDev Web Browser_Installer_1.0.17.exe`
+`BubblesTheDev Web Browser_Installer_1.0.25.exe`
 
 SHA256:
 
-`4331F112F8148DEF1CD5C3945551418CA0FBAADBDD6FA8F73EB5263E7A10468E`
+`DFEBCEAF9FC97C0F1D1A6068594DF8F7D0F363390F07B8B05BBBCE75AF347B42`
 
 Author: `BubblesTheDev`  
 Platform: `Windows 11 (x64)`  
@@ -18,54 +18,75 @@ Engine: `Electron 41` / Chromium
 
 ## 🚀 Overview
 
-Version `1.0.17` includes:
+Version `1.0.25` includes improvements such as:
 
-- encrypted saved-password storage with reveal, add, remove, and strong-password generation flows
-- bookmark import from supported Chromium browsers plus manual bookmark-file import
-- Chromium extension import support
-- VPN tooling for NordVPN, ExpressVPN, ProtonVPN, and WireGuard
-- managed update support with `Automatic updates` enabled by default during install
-- manual `Check for Updates` from the app menu
-- improved custom install-path tracking and external-drive install support
-- uninstall cleanup improvements with per-category data removal options
+- 🧠 lower memory use on streaming-heavy sites such as Twitch and Kick
+- 📥 more reliable downloads from trusted sources such as GitHub
+- 🖱️ cleaner right-click and tab menus
+- 🎨 muted built-in themes
+- 🧭 toolbar hide/show controls with quick access still available
+- 🔐 passkey sign-in support for websites that use it
+- 🔑 saved-password tools with reveal, add, remove, and strong-password generation
+- ⭐ bookmark import from supported Chromium browsers plus manual bookmark-file import
+- 🧩 Chromium extension import support
+- 🛜 VPN tools for NordVPN, ExpressVPN, ProtonVPN, and WireGuard
+- 🔄 managed update support with `Automatic updates` enabled by default during install
+- 🆙 manual `Check for Updates` from the app menu
+- 💾 improved custom install-path tracking and external-drive install support
+- 🧹 uninstall cleanup improvements with per-category data removal options
 
-## ✨ Features
+## ✨ Top Features
 
-- 🗂 Multi-tab browsing with a BrowserView-based tab runtime
-- 🏠 Default home page at `bubbles://home`
-- 🌐 Unified address bar for direct URLs and search
-- 🔎 Background-enriched search using DuckDuckGo and Google sources
-- 🚫 Ad and tracker blocking
-- 🔐 Popup login compatibility improvements
-- ⭐ Bookmark bar and bookmark import
-- 🔑 Encrypted saved-password vault
-- 🔒 Strong password generation
+- 🗂️ multi-tab browsing
+- 🌐 one address bar for websites and search
+- 🚫 ad and tracker blocking
+- 🔐 passkey sign-in support for compatible websites
+- ⭐ bookmark bar and bookmark import
+- 🎨 multiple muted shell themes
+- 🔑 encrypted saved-password vault
 - 🧩 Chromium extension import
 - 🛜 VPN manager and public IPv4/IPv6 session checks
-- 🕘 History tracking
-- 🪟 Split-view browsing
-- 🧭 Per-site permissions
-- 🕶 Incognito windows
-- 🖨 Print support
+- 🪟 split-view browsing
+- 🕶️ incognito windows
+- 📥 safer downloads from trusted sources
+- 🌙 sleeping background tabs to help save memory
+- 🎵 local-only Music Player
+- 🖱️ modern right-click page menu and tab context menu
+
+## ⚙️ More Features
+
+- 🧭 toolbar hide/show controls with quick-access menu
+- 🏠 built-in home page at `bubbles://home`
+- 🔎 search results powered with DuckDuckGo and Google sources
+- 🔐 strong password generation
+- 🕘 history tracking
+- ⚙️ per-site permissions
+- 🖨️ print support
 - 💾 Save Page As support
-- 📥 Download tracking and protected file handling
-- 🧠 Built-in Task Manager
-- 🌙 Sleeping background tabs
-- 🏡 Custom homepage support
-- 🎵 Local-only Music Player
-- 🧾 Diagnostics export and runtime checks
+- 🧠 built-in Task Manager
+- 🏡 custom homepage support
+- 🧾 diagnostics export and runtime checks
+- 🔄 manual `Check for Updates`
+- 🔁 automatic updates or manual updates mode selection
+- 📂 downloads window and progress tracking
+- 📌 tab pinning and mute controls
+- 🪄 move tabs to a new window more easily
+
+## 📥 How To Get The Browser
+
+- [Click here to get the latest version of the browser](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 
 ## 📦 Installation
 
 1. Run:
 
    ```text
-   BubblesTheDev Web Browser_Installer_1.0.17.exe
+   BubblesTheDev Web Browser_Installer_1.0.25.exe
    ```
 
-2. Choose an install directory.
+2. Choose where you want to install the browser.
 3. Select whether you want `Automatic updates` or `Manual updates only`.
-4. Complete installation and launch the browser.
+4. Finish setup and launch the browser.
 
 The installer supports:
 
@@ -74,6 +95,8 @@ The installer supports:
 - external HDD installs
 - external SSD installs
 - USB flash-drive installs
+
+If you install the browser on an external drive instead of `C:`, install-linked browser data can automatically move to that external drive as part of setup.
 
 `Automatic updates` is selected by default during install.
 
@@ -88,22 +111,24 @@ If an older version is already installed and you are upgrading manually:
 5. Choose which local data categories should be removed or kept.
 6. Run the new installer after uninstall finishes.
 
-During managed-update installs, the installer may remove the previous app version first and then continue with the new install.
+If you use the managed update flow, the installer may remove the older app version first and then continue with the new install.
 
 ## 🔁 Update Modes
 
 Current installer builds support two update modes:
 
-1. `Manual updates only`
-   Close the browser, uninstall the older version if needed, and install the newer release manually from GitHub.
-2. `Automatic updates`
-   The installer records that choice locally, can register the install with the configured owner-run update server, and the browser can check, download, and launch the published installer for newer releases.
+1. `Manual updates only`  
+   You update the browser yourself by downloading the newest release and installing it manually.
+2. `Automatic updates`  
+   The browser can check for newer releases, download the published installer, and help launch the update flow for you.
 
 Important notes:
 
-- The browser does not use a built-in silent patcher.
-- Managed updates still launch a normal installer.
-- The app menu includes `Check for Updates` for user-triggered update checks.
+- The browser does not update itself silently in the background.
+- Managed updates still use a normal installer.
+- Update downloads are checked before they are launched.
+- The app menu includes `Check for Updates` if you want to check manually.
+- `Automatic updates` is selected by default during install, but `Manual updates only` remains available.
 
 ## 🧹 Uninstall Behavior
 
@@ -111,19 +136,21 @@ The uninstaller removes the installed app files and can also remove local data b
 
 Current uninstall choices include:
 
-- browser profile data
+- browser profile data  
   This includes history, bookmarks, homepage, permissions, and main browser-state data.
 - saved passwords
 - diagnostics reports
 - local update preferences
 
-If a category is left unchecked, that data is preserved for a future reinstall or update.
+If a category is left unchecked, that data stays on your device for a future reinstall or update.
 
 Uninstall cleanup also:
 
 - targets tracked custom install paths
 - removes stale uninstall metadata and registry ghosts
 - re-checks reported leftovers at the end to reduce false warning dialogs
+
+If the browser was installed to an external drive, the main browser profile data can follow that external install location instead of staying on the system drive.
 
 ## 📁 Default Installation Path
 
@@ -133,34 +160,32 @@ If no custom path is selected, the default install location is typically:
 C:\Users\<YourUsername>\AppData\Local\Programs\BubblesTheDev Web Browser
 ```
 
-## 🖥 System Requirements
+## 🖥️ System Requirements
 
 - Windows 11
 - x64 architecture
 - 4 GB RAM minimum
-- Around 300 MB free disk space
+- around 300 MB free disk space
 
-## 🔐 Security Configuration
+## 🔐 Privacy And Security
 
-Current security-sensitive defaults include:
+The browser is built with privacy and security in mind:
 
-- `contextIsolation: true`
-- `nodeIntegration: false`
-- renderer sandbox enabled
-- BrowserView-based runtime instead of renderer-managed `webviewTag`
-- separate session handling for incognito windows
-- restricted permission handling
-- modular download protection
-- ad and tracker filtering
-- no telemetry endpoints configured
+- 🔒 browsing protections are turned on by default
+- 🚫 ads and trackers are filtered
+- 📥 downloads get extra safety checks
+- 🕶️ incognito uses a separate session
+- 🔑 password save and reveal tools are limited to secure pages
+- 🧩 imported extensions are treated carefully and risky ones show extra warnings
+- 📡 no built-in telemetry endpoints are configured
 
 ## 🎵 Music Player
 
 The Music Player is local-only and off by default.
 
-- No music folder is scanned until the user explicitly agrees.
-- The user can scan the default Music folder or another local folder.
-- Playback uses local files only.
+- no music folder is scanned until the user explicitly agrees
+- the user can scan the default Music folder or another local folder
+- playback uses local files only
 
 ## 🧾 Diagnostics And Crash Reports
 
@@ -179,11 +204,13 @@ Support email:
 This application:
 
 - does not collect personal data automatically
-- does not transmit telemetry automatically
+- does not send telemetry automatically
 - does not include analytics services
-- stores browser data locally on the device
+- stores browser data locally on your device
 
-If the installer build is configured with an update server and the install uses `Automatic updates`, the installer and browser can send limited update-management fields such as install ID, install path, version, platform, and last-seen time. This does not include browsing history, bookmarks, saved passwords, page content, or diagnostics.
+If the installer build is configured with an update server and the install uses `Automatic updates`, the installer and browser can send a small amount of update-related information such as install ID, install path, version, platform, and last-seen time. This does not include your browsing history, bookmarks, saved passwords, page content, or diagnostics.
+
+Saved-password capture and reveal behavior is limited to secure pages such as `https:` websites and local development hosts.
 
 ## ⚠️ SmartScreen Notice
 
@@ -194,11 +221,12 @@ If prompted:
 1. Click `More Info`
 2. Click `Run Anyway`
 
-## 📄 Documentation
+## 📚 Documentation
 
 - [Browser-Privacy-Comparison](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/Browser-Privacy-Comparison.md)
 - [Data-Collection-and-Privacy-Notice](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/Data-Collection-and-Privacy-Notice.md)
 - [Architecture](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/ARCHITECTURE.md)
+- [Changelog](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/CHANGELOG.md)
 
 ## 📜 License
 
