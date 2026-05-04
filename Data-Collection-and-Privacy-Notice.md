@@ -18,7 +18,7 @@ Specifically:
 
 Installer builds can optionally be configured with an owner-run update server. That managed-update flow is separate from telemetry and is limited to update-management fields, release metadata requests, and installer downloads, not browsing data.
 
-Version `1.0.25` also includes browser-behavior updates around lower memory usage on streaming-heavy sites, cleaner Chromium-style menus, improved trusted-source download handling, passkey compatibility, and external-drive install handling. Those changes do not add first-party telemetry or analytics collection to the browser.
+Version `1.0.27` also includes browser-behavior updates around lower memory usage on streaming-heavy sites, cleaner Chromium-style menus, improved trusted-source download handling, passkey compatibility, and external-drive install handling. Those changes do not add first-party telemetry or analytics collection to the browser.
 
 ## Local Browser Data
 
