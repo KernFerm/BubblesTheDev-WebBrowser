@@ -13,7 +13,7 @@ The project is built around a few core goals:
 * local-first data storage
 * predictable browser behavior
 * Electron security best practices
-* minimal first-party background services
+* minimal built-in background services
 * simple, maintainable feature wiring
 
 ## Core Stack
