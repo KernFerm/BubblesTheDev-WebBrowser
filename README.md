@@ -1,3 +1,7 @@
+- > **Please Star the Project, I would greatly appreciate it. I was thinking about how everyone hates how other browsers are.**
+- > **Privacy & User Control**
+
+
 # 🖥️ BubblesTheDev Web Browser
 
 ## 📦 Installer Package - Version 1.0.27
