@@ -20,12 +20,25 @@ This table is intentionally high-level. Mainstream browsers change over time, bu
 | Local browser data storage | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
 | Local persistence protection | Brotli-compressed, with OS-backed or credential-backed encryption when available | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
 | Manual encrypted diagnostics export | Yes | Varies | Varies | Varies | Varies | Varies | Varies | Varies |
+| Browser-data import from other browsers | Yes, explicit user action and consent | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
 | Per-site permission controls | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
 | Ad and tracker filtering built in | Yes | Limited | Limited | Yes | Limited | Yes | Yes | Yes |
+| Private or incognito session mode | Yes, separate incognito session handling | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
 | Search-provider requests from built-in home/search page | Yes, after user search on `bubbles://home` | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
 | Passkey and WebAuthn compatibility | Yes, through Chromium/Electron site support | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
+| Browser VPN or VPN integration feature | Local VPN manager, installed-client detection, and ProtonVPN WireGuard profile import | Not documented as a built-in browser VPN feature | Built-in Edge Secure Network VPN | Built-in paid Brave Firewall + VPN | Separate Mozilla VPN service and Firefox extension support | Not documented as a built-in browser VPN feature | Built-in Opera VPN | Built-in Proton VPN integration |
 | External-drive install-linked data tracking | Yes | Varies | Varies | Varies | Varies | Varies | Varies | Varies |
 | Local-only music library scan | Yes, explicit opt-in | N/A | N/A | N/A | N/A | N/A | N/A | N/A |
+
+Additional notes for the new comparison columns:
+
+* `Safari` is shown with OS-managed updating because Safari updates are tied to Apple operating-system updates.
+* `Opera` is shown with optional sync and limited first-party data processing because Opera documents account-based sync and optional data sharing choices.
+* `Vivaldi` is shown with optional sync and limited first-party data processing because Vivaldi documents both optional encrypted sync and a browser privacy policy with limited browser-generated server messages.
+* `Browser-data import from other browsers` refers to browser features for importing bookmarks or related local browser data from another browser or exported file.
+* `Private or incognito session mode` refers to built-in private browsing modes intended to limit what is stored locally after the private session ends.
+* `Browser VPN or VPN integration feature` is intentionally broad. It includes built-in browser VPNs, first-party browser-integrated VPN partnerships, or local VPN-management features exposed by the browser itself.
+
 
 Additional notes for the new comparison columns:
 
