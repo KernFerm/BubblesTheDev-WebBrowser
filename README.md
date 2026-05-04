@@ -16,6 +16,14 @@ Author: `BubblesTheDev`
 Platform: `Windows 11 (x64)`  
 Engine: `Electron 41` / Chromium
 
+## 📚 Documentation
+
+- [Browser-Privacy-Comparison](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/Browser-Privacy-Comparison.md)
+- [Data-Collection-and-Privacy-Notice](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/Data-Collection-and-Privacy-Notice.md)
+- [Architecture](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/ARCHITECTURE.md)
+- [Changelog](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/CHANGELOG.md)
+- [Security](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/SECURITY.md)
+
 ## 🚀 Overview
 
 Version `1.0.27` includes improvements such as:
@@ -220,13 +228,6 @@ If prompted:
 
 1. Click `More Info`
 2. Click `Run Anyway`
-
-## 📚 Documentation
-
-- [Browser-Privacy-Comparison](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/Browser-Privacy-Comparison.md)
-- [Data-Collection-and-Privacy-Notice](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/Data-Collection-and-Privacy-Notice.md)
-- [Architecture](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/ARCHITECTURE.md)
-- [Changelog](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/CHANGELOG.md)
 
 ## 📜 License
 
