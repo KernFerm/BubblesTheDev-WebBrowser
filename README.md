@@ -83,7 +83,7 @@ Version `1.0.27` includes improvements such as:
 
 ## 📥 How To Get The Browser
 
-- [Click here to get the latest version of the browser](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
+- [**DOWNLOAD** Click here to get the latest version of the browser](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases/download/V1027-BubblesTheDev-WebBrowser/BubblesTheDev.Web.Browser_Installer_1.0.27.exe)
 
 ## 📦 Installation
 
