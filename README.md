@@ -17,7 +17,7 @@ SHA256:
 `9f4ccd87403d6656ef347599914ca2a08ba3e9d0ef8cce14c1bb1b8154299e41`
 
 
-# When installing version 1.0.27 make sure to select automatic updates as manual updates will no longer be in the installation prompted in Version 1.0.30
+# When installing version `1.0.27` make sure to select automatic updates as `manual updates will no longer` be in the installation prompted in Version `1.0.30`
 
 
 Author: `BubblesTheDev`  
