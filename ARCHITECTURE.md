@@ -4,7 +4,7 @@
 
 This document explains the high-level architecture of BubblesTheDev Web Browser and how the main runtime pieces interact.
 
-Current release documentation target: version `1.0.27`.
+Current release documentation target: version `1.0.30`.
 
 ## Design Goals
 
@@ -24,7 +24,7 @@ The project is built around a few core goals:
 | Rendering engine | Chromium |
 | Runtime | Node.js |
 | UI | HTML, CSS, JavaScript |
-| Packaging | electron-builder |
+| Packaging | electron-builder with NSIS |
 
 ## Main Runtime Shape
 
@@ -44,7 +44,7 @@ The main process lives in `browser-runtime.js` and is responsible for:
 * background tab suspension under memory pressure
 * trusted-source-aware download handling and local protection-provider checks
 * site-compatible passkey and WebAuthn browser behavior
-* installer update-mode registration, install-path tracking, owner-run update-server check-in, and managed release checks
+* installer-managed automatic-update registration, install-path tracking, update-server check-in, and managed release checks
 
 ## Window Model
 
@@ -76,7 +76,7 @@ The Bubbles home/search page is an internal page implemented with:
 * `bubbles-home.js`
 * `browserview_preload.js`
 
-The main process provides the Bubbles state and search payloads through IPC.
+The main process provides Bubbles state and search payloads through IPC.
 
 The search path can use:
 
@@ -101,7 +101,7 @@ Current persisted fields include:
 * saved passwords in a separate encrypted password vault with on-demand reveal
 * imported extension records for Chromium-based browser extensions loaded into the main session
 * imported ProtonVPN WireGuard profile metadata
-* Music Player opt-in and chosen folder
+* Music Player opt-in state and chosen folder
 * per-site permission settings
 * toolbar visibility
 * bookmark bar visibility
@@ -110,7 +110,7 @@ Current persisted fields include:
 
 Separate from the main browser-state store, installer builds can also use `%APPDATA%\BubblesTheDev Web Browser\update-preferences.ini` to record installer-managed update metadata such as:
 
-* whether the install selected `Automatic updates` or `Manual updates only`
+* the installer-managed automatic-update mode
 * the tracked install directory
 * the install drive root
 * the detected install drive type
@@ -118,13 +118,13 @@ Separate from the main browser-state store, installer builds can also use `%APPD
 
 When the browser is installed to an external drive instead of `C:`, that install-path metadata can be used by the installer and uninstall flow to keep install-linked data associated with the selected external location.
 
-Persisted browser state is compressed before it is written to disk. When Electron safe storage is available, the compressed payload is also encrypted with OS-backed protection.
+Persisted browser state is compressed before it is written to disk. When Electron safe storage is available, the compressed payload is also encrypted with OS-backed protection. If OS-backed protection is unavailable, the runtime can fall back to credential-backed AES-GCM protection when available.
 
-Saved passwords are stored separately from the main browser data file. Each password value is encrypted before it is written to disk, and the password vault file is also wrapped in the same encrypted persistence envelope. Password-save prompts and reveal flows are now restricted to secure contexts such as `https:` sites or local loopback development hosts.
+Saved passwords are stored separately from the main browser data file. Each password value is encrypted before it is written to disk, and the password vault file is also wrapped in the same encrypted persistence envelope. Password-save prompts and reveal flows are restricted to secure contexts such as `https:` pages or local loopback development hosts.
 
 Extension imports and imported ProtonVPN config metadata are stored in the same local browser data store so they can be restored when the browser starts again.
 
-If the build enables the owner-run update server flow, the runtime can query the latest published release metadata and present update status to the user through the app menu's manual `Check for Updates` entry. Installs that selected `Automatic updates` can also register with the owner-run update server at startup, poll for newer releases, download the installer, and launch it. The current managed-update path includes installed-versus-available version feedback, a pre-install confirmation dialog, a dedicated download-progress window with percentage and ETA feedback, and a manual fallback path that points the user to the downloaded installer folder if automatic launch fails. The update flow now fails closed unless both the release metadata URL and installer URL use `https:` and the published release includes a valid SHA-256 hash for installer verification before launch. The registration payload is limited to update-management fields and is separate from the encrypted browser-state store.
+If the build enables the owner-run update server flow, the runtime can query the latest published release metadata and present update status through the app menu's manual `Check for Updates` entry. Installed builds register with the owner-run update server at startup, poll for newer releases, download the installer, and launch it through the automatic-update flow. The current managed-update path includes installed-versus-available version feedback, a pre-install confirmation dialog, a dedicated download-progress window with percentage and ETA feedback, and a manual fallback path that points the user to the downloaded installer folder if automatic launch fails. The update flow fails closed unless both the release metadata URL and installer URL use `https:` and the published release includes a valid SHA-256 hash for installer verification before launch. The registration payload is limited to update-management fields and is separate from the encrypted browser-state store.
 
 ### Installer and uninstall model
 
@@ -137,7 +137,7 @@ That installer layer currently handles:
 * explicit support messaging for external HDDs, external SSDs, and USB flash drives
 * registry-backed tracking of install location metadata used by update and uninstall flows
 * install-linked data relocation behavior for supported external-drive installs
-* optional installer-time update-server registration for `Automatic updates`
+* installer-time automatic-update registration for installed builds
 
 The uninstall layer uses a generated PowerShell cleanup script plus final NSIS cleanup passes to:
 
@@ -147,7 +147,7 @@ The uninstall layer uses a generated PowerShell cleanup script plus final NSIS c
 * verify whether leftovers remain after cleanup
 * re-check reported leftovers at the end so warning dialogs only reflect paths that still exist
 
-During uninstall, the user is now prompted to choose which local data categories should also be removed. The current choices are:
+During uninstall, the user is prompted to choose which local data categories should also be removed. The current choices are:
 
 * browser profile data, which includes history, bookmarks, homepage, permissions, and the main browser-state store
 * saved passwords
@@ -160,7 +160,7 @@ If a category is left unchecked, uninstall removes the installed app files and i
 
 The browser can scan common Chromium browser profile folders on Windows and import existing unpacked extension folders from Edge, Chrome, Brave, and Opera into the persistent main Electron session.
 
-Imported extensions are intentionally gated behind explicit user consent, runtime enablement, path normalization, and manifest validation. The runtime now rejects symlinked extension folders, restricts imports to Manifest V2 or V3 layouts, disables local file access when loading imported extensions, and shows an extra warning dialog for extensions that request broad or higher-risk capabilities such as `<all_urls>`, `nativeMessaging`, `proxy`, `debugger`, or `webRequestBlocking`.
+Imported extensions are intentionally gated behind explicit user consent, runtime enablement, path normalization, and manifest validation. The runtime rejects symlinked extension folders, restricts imports to Manifest V2 or V3 layouts, disables local file access when loading imported extensions, and shows an extra warning dialog for extensions that request broad or higher-risk capabilities such as `<all_urls>`, `nativeMessaging`, `proxy`, `debugger`, or `webRequestBlocking`.
 
 The browser also detects installed VPN clients for NordVPN, ExpressVPN, ProtonVPN, and WireGuard. A VPN manager panel can validate and import ProtonVPN WireGuard `.conf` files for local reuse, while installed VPN applications can be launched from the browser shell.
 
@@ -168,7 +168,7 @@ The browser also detects installed VPN clients for NordVPN, ExpressVPN, ProtonVP
 
 Diagnostics are generated locally and can be exported manually by the user as encrypted report files. No automatic upload path is implemented.
 
-The browser shell also exposes a runtime checks panel backed by the same diagnostics snapshot so users can validate active security storage, enabled download scan providers, ad-block counters, executable path, and current performance state without leaving the app.
+The browser shell also exposes a runtime checks panel backed by the same diagnostics snapshot so users can validate active storage protection, enabled download scan providers, ad-block counters, executable path, and current performance state without leaving the app.
 
 ### Download protection
 
@@ -194,9 +194,9 @@ The current context-menu layer supports:
 
 ### Shell theming and toolbar controls
 
-The browser shell now supports multiple muted built-in themes rather than a single dark-mode toggle. Theme selection is owned by the main process, persisted with browser state, and applied by the renderer through CSS custom properties.
+The browser shell supports multiple muted built-in themes rather than a single dark-mode toggle. Theme selection is owned by the main process, persisted with browser state, and applied by the renderer through CSS custom properties.
 
-Toolbar visibility is also persisted separately from the bookmark bar so users can hide the main button row while still keeping address-bar access and the quick-access `»` menu available.
+Toolbar visibility is persisted separately from the bookmark bar so users can hide the main button row while still keeping address-bar access and the quick-access menu available.
 
 ### Passkey and WebAuthn compatibility
 
@@ -206,7 +206,7 @@ That means the browser architecture is designed to allow supported websites to u
 
 ### Memory safeguards
 
-Inactive BrowserView tabs already use background throttling. The runtime now adds a second layer that can suspend hidden tabs under sustained tab-count or working-set pressure, then restore them automatically when the user returns to them.
+Inactive BrowserView tabs already use background throttling. The runtime also adds a second layer that can suspend hidden tabs under sustained tab-count or working-set pressure, then restore them automatically when the user returns to them.
 
 This is especially relevant on streaming-heavy sites because the memory guard and tab suspension logic are intended to reduce overall working-set growth without changing the core BrowserView tab model.
 
@@ -236,7 +236,6 @@ Security-sensitive defaults include:
 * imported extensions loaded without local file access and reviewed for high-risk permissions
 * stricter renderer CSP with `object-src 'none'`, `base-uri 'none'`, `frame-ancestors 'none'`, and limited resource directives
 
-
 ## Summary
 
-The application is a BrowserWindow plus BrowserView desktop browser with a local internal home page, local persistence, request filtering, helper windows, modern Chromium-style shell menus, optional managed updates, and optional local media features. The runtime keeps first-party data on-device while still supporting normal web traffic, trusted-download handling, external-drive install flows, and modern site login behavior such as passkeys.
+The application is a BrowserWindow plus BrowserView desktop browser with a local internal home page, local persistence, request filtering, helper windows, modern Chromium-style shell menus, managed automatic updates, and optional local media features. The runtime keeps browser data on-device while still supporting normal web traffic, trusted-download handling, external-drive install flows, and modern site login behavior such as passkeys.
