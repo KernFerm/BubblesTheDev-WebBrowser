@@ -1,12 +1,16 @@
-# posted updates happen in the discord server. 
+# Project Updates
 
+Project news and community update posts are shared in the official Discord server.
 
-## [BubblesTheDev - Web Browser discord channel](https://discord.gg/eYBzdZVbz6)
+## Discord
 
+[BubblesTheDev Web Browser Discord](https://discord.gg/eYBzdZVbz6)
 
 ---
 
-- > Version `1.0.27` out now
+## Current Release
 
-- > older versions not supported
+- Version `1.0.30` is the current release.
+- Older versions are not supported for current fixes and improvements.
 
+For the latest browser announcements, release posts, and community updates, check the Discord server above.
