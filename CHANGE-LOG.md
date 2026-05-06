@@ -1,6 +1,32 @@
 # Changelog
 
-This changelog reconstructs the project history from version `0.0.24` through `1.0.27` using the repository's tagged compare data, release notes, versioned README changes, and current installer/update work.
+This changelog reconstructs the project history from version `0.0.24` through `1.0.30` using the repository's tagged compare data, release notes, versioned README changes, and current installer/update work.
+
+## 1.0.30
+
+### Updated
+
+- The package version was advanced to `1.0.30`.
+- Electron was updated to `42.0.0`.
+- Release documentation and installer-facing version references were refreshed for `1.0.30`.
+- The installer no longer presents a manual-update-only setup choice. Automatic updates are now the standard setup behavior for installed builds.
+- Manual `Check for Updates` remains available from the app menu for user-initiated version and status checks.
+
+### Performance
+
+- Browser UI update churn was reduced by coalescing autocomplete, task-manager refresh, tab-strip rerender, and split-view drag work more aggressively.
+- Browser-state synchronization between the main process and renderer was tightened to reduce unnecessary high-frequency updates during normal browsing.
+- Heavy media pages such as Twitch and YouTube now use a softer browser-state debounce path for noisy tab metadata updates.
+
+### Memory
+
+- Background tab sleeping now activates earlier under memory pressure and trims more tabs per pass to reduce long-session memory growth.
+- In-memory history, downloads, diagnostics, and search caches were capped more aggressively to keep retained browser state smaller over time.
+
+### Notes
+
+- Trusted-source-aware downloads, passkey compatibility, external-drive install handling, and diagnostics tools remain part of the current browser build.
+- Existing browser features remain in place, including bookmark bar support, split-view browsing, site permissions, ad blocking, download protection, sleeping tabs, runtime diagnostics, password storage, VPN tools, and the local-only Music Player.
 
 ## 1.0.27
 
