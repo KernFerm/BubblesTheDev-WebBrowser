@@ -2,9 +2,9 @@
 
 ## Browser Privacy Comparison
 
-This document reflects the current privacy posture of BubblesTheDev Web Browser version `1.0.27`.
+This document reflects the current privacy posture of BubblesTheDev Web Browser version `1.0.30`.
 
-The goal is accuracy, not marketing language. The browser does not implement first-party telemetry, analytics SDKs, cloud sync, a built-in silent auto-updater client, or automatic diagnostics upload. It does, however, make normal network requests when the user browses the web, uses built-in search features, uses supported site authentication flows such as passkeys, downloads files, or uses the optional managed updater flow.
+The goal is accuracy, not marketing language. The browser does not implement built-in telemetry, analytics SDKs, cloud sync, a built-in silent auto-updater client, or automatic diagnostics upload. It does, however, make normal network requests when the user browses the web, uses built-in search features, uses supported site authentication flows such as passkeys, downloads files, or uses the managed update flow when the build is configured with an update server.
 
 ## High-Level Comparison
 
@@ -16,7 +16,7 @@ This table is intentionally high-level. Mainstream browsers change over time, bu
 | Analytics SDKs in app code | None | Yes | Yes | Limited | Limited | Limited | Limited | Limited |
 | Automatic diagnostics upload | No | Yes | Yes | Limited | Limited | Limited | Limited | Limited |
 | Cloud sync requirement | None | Optional | Optional | Optional | Optional | Optional | Optional | Optional |
-| Auto-updater service | No built-in silent updater; optional owner-run managed updater for opted-in installs | Present | Present | Present | Present | Present through OS updates | Present | Present |
+| Auto-updater service | No built-in silent updater; optional owner-run managed updater for installed builds | Present | Present | Present | Present | Present through OS updates | Present | Present |
 | Local browser data storage | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
 | Local persistence protection | Brotli-compressed, with OS-backed or credential-backed encryption when available | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
 | Manual encrypted diagnostics export | Yes | Varies | Varies | Varies | Varies | Varies | Varies | Varies |
@@ -30,7 +30,7 @@ This table is intentionally high-level. Mainstream browsers change over time, bu
 | External-drive install-linked data tracking | Yes | Varies | Varies | Varies | Varies | Varies | Varies | Varies |
 | Local-only music library scan | Yes, explicit opt-in | N/A | N/A | N/A | N/A | N/A | N/A | N/A |
 
-Additional notes for the new comparison columns:
+Additional notes for the comparison columns:
 
 * `Safari` is shown with OS-managed updating because Safari updates are tied to Apple operating-system updates.
 * `Opera` is shown with optional sync and limited first-party data processing because Opera documents account-based sync and optional data sharing choices.
@@ -38,13 +38,6 @@ Additional notes for the new comparison columns:
 * `Browser-data import from other browsers` refers to browser features for importing bookmarks or related local browser data from another browser or exported file.
 * `Private or incognito session mode` refers to built-in private browsing modes intended to limit what is stored locally after the private session ends.
 * `Browser VPN or VPN integration feature` is intentionally broad. It includes built-in browser VPNs, first-party browser-integrated VPN partnerships, or local VPN-management features exposed by the browser itself.
-
-
-Additional notes for the new comparison columns:
-
-* `Safari` is shown with OS-managed updating because Safari updates are tied to Apple operating-system updates.
-* `Opera` is shown with optional sync and limited first-party data processing because Opera documents account-based sync and optional data sharing choices.
-* `Vivaldi` is shown with optional sync and limited first-party data processing because Vivaldi documents both optional encrypted sync and a browser privacy policy with limited browser-generated server messages.
 
 ## Local-First Behavior
 
@@ -67,11 +60,11 @@ Current persisted data includes:
 * cached search results and suggestions
 * install-linked path metadata used for custom or external-drive installs and local update preferences
 
-The persisted browser-state payload is compressed before it is written to disk. When Electron safe storage is available, that payload is also protected with OS-backed encryption. If that is unavailable, the runtime falls back to credential-backed AES-GCM protection when possible.
+The persisted browser-state payload is compressed before it is written to disk. When Electron safe storage is available, that payload is also protected with OS-backed encryption. If OS-backed protection is unavailable, the runtime can fall back to credential-backed AES-GCM protection when available.
 
 The application does not automatically upload this browser-state data.
 
-Installer builds can optionally be configured with an owner-run update server. In that case, installs that use `Automatic updates` can send a minimal update-registration record containing install-management fields such as install ID, app version, install path, install root, install drive type, host name, platform, architecture, last-seen time, and the IP address seen by that server. They can also request the latest published release metadata and download the published installer package. The managed updater now rejects non-HTTPS release metadata or installer URLs and requires a valid published SHA-256 hash before the installer is launched. This does not include browsing history, bookmarks, saved passwords, or page contents.
+Installer builds can optionally be configured with an owner-run update server. In that case, installed builds can send a minimal update-registration record containing install-management fields such as install ID, app version, install path, install root, install drive type, host name, platform, architecture, last-seen time, and the IP address seen by that server. They can also request the latest published release metadata and download the published installer package. The managed updater rejects non-HTTPS release metadata or installer URLs and requires a valid published SHA-256 hash before the installer is launched. This does not include browsing history, bookmarks, saved passwords, or page contents.
 
 If the browser is installed on an external drive instead of `C:`, install-linked data and path tracking can follow that selected external location instead of being treated only as a default system-drive install.
 
@@ -99,12 +92,13 @@ This browser is not offline-only. Network traffic still occurs when the user doe
 * uses external search engines directly
 * uses the bundled `bubbles://home` search experience
 * uses websites that request passkey or WebAuthn authentication through the platform browser flow
+* uses the managed update flow when the build is configured with an update server
 
 The internal Bubbles search page can contact DuckDuckGo and Google endpoints to assemble results, related searches, and suggestions after the user performs a search.
 
-When the user downloads files, the browser may run trusted-source-aware download handling, local protection-provider checks, destination selection, and normal file save behavior. That is part of the local browser protection flow rather than a first-party analytics pipeline.
+When the user downloads files, the browser may run trusted-source-aware download handling, local protection-provider checks, destination selection, and normal file save behavior. That is part of the local browser protection flow rather than any built-in analytics pipeline.
 
-When the user signs in with a passkey on a supported site, the authentication flow is between the website, Chromium/Electron, and the operating system or authenticator. The browser does not add a separate first-party passkey cloud service.
+When the user signs in with a passkey on a supported site, the authentication flow is between the website, Chromium/Electron, and the operating system or authenticator. The browser does not add a separate Bubbles-operated passkey cloud service.
 
 ## Music Player Privacy Model
 
@@ -118,7 +112,7 @@ The Music Player is local-only.
 
 ## Security And Privacy Model
 
-The browser uses Electron with Chromium sandboxing and process isolation while avoiding first-party telemetry frameworks and automatic background reporting.
+The browser uses Electron with Chromium sandboxing and process isolation while avoiding built-in telemetry frameworks and automatic background reporting.
 
 Current characteristics:
 
@@ -131,10 +125,10 @@ Current characteristics:
 * modular download protection using Windows Defender, Authenticode verification, and browser heuristics when available
 * trusted-source-aware download handling intended to reduce unnecessary friction while keeping local protection checks active
 * no automatic diagnostics upload
-* no first-party analytics pipeline
+* no built-in analytics pipeline
 * no cloud sync service
 * no built-in silent auto-updater service
-* optional owner-run managed updater only for installs that explicitly opt into `Automatic updates`
+* optional owner-run managed updater for installed builds
 * managed update installs require verified HTTPS release endpoints and SHA-256 installer validation
 * password save and reveal flows are restricted to secure contexts such as `https:` pages or local loopback development hosts
 * imported extensions are loaded without local file access and high-risk permissions trigger extra user warnings
@@ -164,7 +158,7 @@ BubblesTheDev Web Browser currently aims for a local-first privacy posture:
 * music library access requires explicit consent before any scan begins
 * bookmark import and VPN profile scanning require explicit user consent before local file access begins
 * password save and reveal behavior is limited to secure contexts instead of arbitrary insecure pages
-* supported passkey sign-ins rely on site and platform authenticator flows rather than a first-party Bubbles credential cloud
-* browsing and built-in search still create normal traffic to the websites and search providers the user chooses to use
+* supported passkey sign-ins rely on site and platform authenticator flows rather than a Bubbles-operated credential cloud
+* browsing and built-in search still create normal traffic to the websites and providers the user chooses to use
 
 Developed by BubblesTheDev
