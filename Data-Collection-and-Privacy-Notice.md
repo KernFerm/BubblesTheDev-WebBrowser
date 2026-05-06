@@ -1,8 +1,8 @@
 # Data Collection and Privacy Notice
 
-This notice reflects the current privacy posture of BubblesTheDev Web Browser version `1.0.27`.
+This notice reflects the current privacy posture of BubblesTheDev Web Browser version `1.0.30`.
 
-BubblesTheDev Web Browser is designed to keep browser data local to the user's device unless the user chooses to browse external websites, use external search providers, download files, export diagnostics manually, or opt into managed update checks.
+BubblesTheDev Web Browser is designed to keep browser data local to the user's device unless the user chooses to browse external websites, use external search providers, download files, export diagnostics manually, or use the managed update flow when the build is configured with an update server.
 
 The application does not include built-in telemetry, analytics SDKs, automatic crash upload services, cloud synchronization, a built-in silent auto-updater client, or AI monitoring systems.
 
@@ -14,11 +14,11 @@ Specifically:
 * No advertising identifiers are generated or transmitted by the application itself.
 * No cloud-based synchronization features are implemented.
 * No automatic diagnostics upload path is implemented.
-* No first-party BubblesTheDev tracking server is contacted for analytics or data collection purposes.
+* No BubblesTheDev-operated tracking server is contacted for analytics or data collection purposes.
 
 Installer builds can optionally be configured with an owner-run update server. That managed-update flow is separate from telemetry and is limited to update-management fields, release metadata requests, and installer downloads, not browsing data.
 
-Version `1.0.27` also includes browser-behavior updates around lower memory usage on streaming-heavy sites, cleaner Chromium-style menus, improved trusted-source download handling, passkey compatibility, and external-drive install handling. Those changes do not add first-party telemetry or analytics collection to the browser.
+Version `1.0.30` includes the current browser behavior around lower memory usage on streaming-heavy sites, cleaner Chromium-style menus, improved trusted-source download handling, passkey compatibility, external-drive install handling, and installer-managed automatic updates. Those behaviors do not add built-in telemetry or analytics collection to the browser.
 
 ## Local Browser Data
 
@@ -45,24 +45,24 @@ The persisted browser-state payload is compressed before being written to disk. 
 
 The application does not automatically upload this browser-state data.
 
-## Optional Managed Update Flow
+## Managed Update Flow
 
-Installer builds now present `Automatic updates` and `Manual updates only` during setup, with `Automatic updates` selected by default. The managed-update flow is still opt-in at install time because the user can switch that selection before setup completes, and normal manual-update installs remain supported.
+Installed builds use the automatic-update flow when the installer build is configured with an update server.
 
 If all of the following are true:
 
 * the installer build was configured with an update server
-* the installed update mode is `Automatic updates`
 * the installer or browser can reach that configured server
+* a newer managed release has been published
 
 the installer or browser may send a minimal update-registration record to the owner-run update server, request the latest published release metadata from that server, and download the installer URL published for that release.
 
-The managed-update path now rejects non-HTTPS release metadata or installer URLs and requires a valid published SHA-256 hash before the downloaded installer is launched.
+The managed-update path rejects non-HTTPS release metadata or installer URLs and requires a valid published SHA-256 hash before the downloaded installer is launched.
 
 That record is limited to:
 
 * install ID
-* selected update mode
+* automatic update mode
 * app version
 * install directory
 * install root
@@ -73,7 +73,7 @@ That record is limited to:
 * last-seen timestamp
 * source IP address as observed by the update server
 
-This optional managed-update flow does not include browsing history, bookmarks, saved passwords, search queries, page content, imported files, or diagnostics contents.
+This managed-update flow does not include browsing history, bookmarks, saved passwords, search queries, page content, imported files, or diagnostics contents.
 
 Owner-only update-server actions such as dashboard access, viewing the full client list, and publishing releases are restricted to the server owner machine by default and are not exposed as normal end-user browser actions.
 
@@ -124,12 +124,13 @@ This browser is not offline-only. Outbound network traffic still occurs when the
 * uses external search engines directly
 * uses search from `bubbles://home`
 * uses websites that request passkey or WebAuthn authentication through the platform browser flow
+* uses the managed update flow when the build is configured with an update server
 
 When the user performs a search from `bubbles://home`, the application may contact DuckDuckGo and Google endpoints to assemble results, related searches, and suggestions on that internal page.
 
 When the user downloads files, the browser may perform normal download-related handling such as trusted-source checks, protection-provider checks, destination selection, and local save operations. That behavior is separate from telemetry and is part of the browser's on-device download protection and file-handling flow.
 
-When the user signs in with a passkey on a supported website, the authentication request is between the user, the operating system or authenticator, and that website's login flow. The browser's role is compatibility and secure-context support; it does not create a separate first-party passkey cloud service.
+When the user signs in with a passkey on a supported website, the authentication request is between the user, the operating system or authenticator, and that website's login flow. The browser's role is compatibility and secure-context support; it does not create a separate Bubbles-operated passkey cloud service.
 
 Saved-password capture and reveal flows are limited to secure contexts such as `https:` pages and local loopback development hosts. The browser does not intentionally offer those flows to arbitrary insecure pages.
 
@@ -144,17 +145,17 @@ The Music Player is local-only and off by default.
 
 ## Summary
 
-BubblesTheDev Web Browser is intentionally designed without built-in surveillance, telemetry, analytics, automatic remote reporting, cloud sync, or a built-in silent first-party auto-update client.
+BubblesTheDev Web Browser is intentionally designed without built-in surveillance, telemetry, analytics, automatic remote reporting, cloud sync, or a built-in silent auto-update client.
 
 The privacy model is local-first:
 
 * browser settings, history, bookmarks, passwords, imported extension metadata, VPN profile metadata, permissions, and search cache stay on-device
 * toolbar visibility, bookmark bar visibility, and the selected shell theme stay on-device
-* install-linked path metadata for custom or external-drive installs stays on-device except for the limited managed-update fields described above when `Automatic updates` is enabled
+* install-linked path metadata for custom or external-drive installs stays on-device except for the limited managed-update fields described above
 * persisted browser state is compressed locally and protected when an available encryption path exists
 * diagnostics stay local unless the user exports them
 * music library access requires explicit consent before any scan begins
-* optional managed updates apply only to installs using `Automatic updates`, and that flow is limited to update-management fields, release metadata checks, and installer downloads
+* managed updates are limited to update-management fields, release metadata checks, and installer downloads
 * imported extensions require explicit user action, load without local file access, and may show extra warnings for higher-risk permission requests
 * browsing, downloads, and built-in search still create normal traffic to the websites and providers the user chooses to use
 
