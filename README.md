@@ -1,28 +1,29 @@
-- > **Please Star the Project, I would greatly appreciate it. I was thinking about how everyone hates how other browsers are.**
-- > **Privacy & User Control**
+- > **If you enjoy the project, starring the repo helps a lot.**
+- > **Built around privacy, user control, and a better everyday browsing experience.**
 
 
 # 🖥️ BubblesTheDev Web Browser
 
-## 📦 Installer Package - Version 1.0.27
+[![Version](https://img.shields.io/badge/version-1.0.30-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
+[![Platform](https://img.shields.io/badge/platform-Windows%2011-0078D6)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
+[![Electron](https://img.shields.io/badge/Electron-42-47848F?logo=electron&logoColor=white)](https://www.electronjs.org/)
+[![License](https://img.shields.io/badge/license-Proprietary-lightgrey)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/readme.md#-license)
+
+## 📦 Installer Package - Version 1.0.30
 
 A Windows web browser built for people who want everyday browsing features, strong privacy defaults, and more control over their browser data.
 
 Installer file name:
 
-`BubblesTheDev Web Browser_Installer_1.0.27.exe`
+`BubblesTheDev Web Browser_Installer_1.0.30.exe`
 
 SHA256:
 
-`9f4ccd87403d6656ef347599914ca2a08ba3e9d0ef8cce14c1bb1b8154299e41`
-
-
-# When installing version `1.0.27` make sure to select automatic updates as `manual updates will no longer` be in the installation prompted in Version `1.0.30`
-
+`832634180CF209DA071E07ADA86D70F04A2B5C1AF264E51E2D49F4B839A4BB81`
 
 Author: `BubblesTheDev`  
 Platform: `Windows 11 (x64)`  
-Engine: `Electron 41` / Chromium
+Engine: `Electron 42` / Chromium
 
 ## 📚 Documentation
 
@@ -31,25 +32,18 @@ Engine: `Electron 41` / Chromium
 - [Architecture](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/ARCHITECTURE.md)
 - [Changelog](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/CHANGELOG.md)
 - [Security](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/SECURITY.md)
-- [Updates](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/UPDATES.md)
 
 ## 🚀 Overview
 
-Version `1.0.27` includes improvements such as:
+Version `1.0.30` includes improvements such as:
 
-- 🧠 lower memory use on streaming-heavy sites such as Twitch and Kick
-- 📥 more reliable downloads from trusted sources such as GitHub
-- 🖱️ cleaner right-click and tab menus
-- 🎨 muted built-in themes
-- 🧭 toolbar hide/show controls with quick access still available
-- 🔐 passkey sign-in support for websites that use it
-- 🔑 saved-password tools with reveal, add, remove, and strong-password generation
-- ⭐ bookmark import from supported Chromium browsers plus manual bookmark-file import
-- 🧩 Chromium extension import support
-- 🛜 VPN tools for NordVPN, ExpressVPN, ProtonVPN, and WireGuard
-- 🔄 managed update support with `Automatic updates` enabled by default during install
-- 🆙 manual `Check for Updates` from the app menu
+- 🧭 automatic-update installer behavior for installed builds
+- 🔐 verified `https:` update endpoints and SHA-256 checked installer launches
+- 📘 refreshed architecture, privacy, and release documentation
+- 📥 trusted-source-aware download handling
+- 🔑 passkey sign-in support for compatible websites
 - 💾 improved custom install-path tracking and external-drive install support
+- 🧾 runtime diagnostics export and checks
 - 🧹 uninstall cleanup improvements with per-category data removal options
 
 ## ✨ Top Features
@@ -84,26 +78,24 @@ Version `1.0.27` includes improvements such as:
 - 🏡 custom homepage support
 - 🧾 diagnostics export and runtime checks
 - 🔄 manual `Check for Updates`
-- 🔁 automatic updates or manual updates mode selection
 - 📂 downloads window and progress tracking
 - 📌 tab pinning and mute controls
 - 🪄 move tabs to a new window more easily
 
 ## 📥 How To Get The Browser
 
-- [**DOWNLOAD** Click here to get the latest version of the browser](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases/download/V1027-BubblesTheDev-WebBrowser/BubblesTheDev.Web.Browser_Installer_1.0.27.exe)
+- [**DOWNLOAD** Click here to get the latest version of the browser](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 
 ## 📦 Installation
 
 1. Run:
 
    ```text
-   BubblesTheDev Web Browser_Installer_1.0.27.exe
+   BubblesTheDev Web Browser_Installer_1.0.30.exe
    ```
 
 2. Choose where you want to install the browser.
-3. Select whether you want `Automatic updates` or `Manual updates only`.
-4. Finish setup and launch the browser.
+3. Finish setup and launch the browser.
 
 The installer supports:
 
@@ -115,7 +107,7 @@ The installer supports:
 
 If you install the browser on an external drive instead of `C:`, install-linked browser data can automatically move to that external drive as part of setup.
 
-`Automatic updates` is selected by default during install.
+Installed builds now use the automatic-update path when updates are enabled for the build.
 
 ## 🔄 Upgrading From An Older Version
 
@@ -128,24 +120,21 @@ If an older version is already installed and you are upgrading manually:
 5. Choose which local data categories should be removed or kept.
 6. Run the new installer after uninstall finishes.
 
-If you use the managed update flow, the installer may remove the older app version first and then continue with the new install.
+If you use the built-in update flow, the browser can still download and launch the newer installer for you.
 
-## 🔁 Update Modes
+## 🔁 Updates
 
-Current installer builds support two update modes:
+Current installer builds no longer offer a `Manual updates only` setup mode.
 
-1. `Manual updates only`  
-   You update the browser yourself by downloading the newest release and installing it manually.
-2. `Automatic updates`  
-   The browser can check for newer releases, download the published installer, and help launch the update flow for you.
+Installed builds now use the automatic-update path when updates are enabled for the build.
 
 Important notes:
 
 - The browser does not update itself silently in the background.
 - Managed updates still use a normal installer.
 - Update downloads are checked before they are launched.
+- Verified `https:` endpoints and a valid SHA-256 value are required before an update installer is launched.
 - The app menu includes `Check for Updates` if you want to check manually.
-- `Automatic updates` is selected by default during install, but `Manual updates only` remains available.
 
 ## 🧹 Uninstall Behavior
 
@@ -225,7 +214,7 @@ This application:
 - does not include analytics services
 - stores browser data locally on your device
 
-If the installer build is configured with an update server and the install uses `Automatic updates`, the installer and browser can send a small amount of update-related information such as install ID, install path, version, platform, and last-seen time. This does not include your browsing history, bookmarks, saved passwords, page content, or diagnostics.
+If automatic updates are enabled in the build, the installer and browser can send a small amount of update-related information such as install ID, install path, version, platform, and last-seen time. This does not include your browsing history, bookmarks, saved passwords, page content, or diagnostics.
 
 Saved-password capture and reveal behavior is limited to secure pages such as `https:` websites and local development hosts.
 
