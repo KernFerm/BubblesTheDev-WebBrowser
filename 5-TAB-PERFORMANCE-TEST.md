@@ -1,6 +1,6 @@
 # BubblesTheDev Web Browser 5-Tab Performance Test
 
-This document summarizes a real-world 5-tab performance test for BubblesTheDev Web Browser. The goal of the test is to measure memory and CPU usage during active browsing rather than in an idle or blank-tab scenario.
+This document summarizes a real-world 5-tab browser benchmark for BubblesTheDev Web Browser, focused on RAM and CPU usage during active browsing rather than an idle or blank-tab scenario.
 
 ## Test Overview
 
