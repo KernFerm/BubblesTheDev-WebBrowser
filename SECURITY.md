@@ -27,7 +27,7 @@ If you discover a security vulnerability, please report it privately.
 
 Report vulnerabilities by email:
 
-**Email:** [securitygithubissue@fnbubbles420.org](mailto:securitygithubissue@fnbubbles420.org)
+**Email:** [browser-support@bubbles-browser.fnbubbles420.org](mailto:browser-support@bubbles-browser.fnbubbles420.org)
 
 Please include:
 
@@ -108,7 +108,7 @@ This approach helps limit unnecessary network activity and reduces avoidable att
 
 For security matters, email is the preferred contact method:
 
-**Email:** [securitygithubissue@fnbubbles420.org](mailto:securitygithubissue@fnbubbles420.org)
+**Email:** [browser-support@bubbles-browser.fnbubbles420.org](mailto:browser-support@bubbles-browser.fnbubbles420.org)
 
 If needed, you may also reach out through the community Discord:
 
