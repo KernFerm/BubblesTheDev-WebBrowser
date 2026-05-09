@@ -1,31 +1,30 @@
-- > **If you enjoy the project, starring the repo helps a lot.**
-- > **Built around privacy, user control, and a better everyday browsing experience.**
+> **If you enjoy the project, starring the repo helps a lot.**
+> **Built around privacy, user control, and a better everyday browsing experience.**
 
+# BubblesTheDev Web Browser
 
-# 🖥️ BubblesTheDev Web Browser
-
-[![Version](https://img.shields.io/badge/version-1.0.30-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
+[![Version](https://img.shields.io/badge/version-1.0.32-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Platform](https://img.shields.io/badge/platform-Windows%2011-0078D6)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Electron](https://img.shields.io/badge/Electron-42-47848F?logo=electron&logoColor=white)](https://www.electronjs.org/)
-[![License](https://img.shields.io/badge/license-Proprietary-lightgrey)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/readme.md#-license)
+[![License](https://img.shields.io/badge/license-Proprietary-lightgrey)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/readme.md#license)
 
-## 📦 Installer Package - Version 1.0.30
+## Installer Package - Version 1.0.32
 
 A Windows web browser built for people who want everyday browsing features, strong privacy defaults, and more control over their browser data.
 
 Installer file name:
 
-`BubblesTheDev Web Browser_Installer_1.0.30.exe`
+`BubblesTheDev Web Browser_Installer_1.0.32.exe`
 
 SHA256:
 
-`C0B667AEC4790515FB59A8D750D0776D20847A4F8EC8B5F23E60525745FBA125`
+`91E45C5855CAC8A83762ED73DB409A86C7D92D8C340E34241806B9092B155F73`
 
 Author: `BubblesTheDev`  
 Platform: `Windows 11 (x64)`  
 Engine: `Electron 42` / Chromium
 
-## 📚 Documentation
+## Documentation
 
 - [Browser-Privacy-Comparison](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/Browser-Privacy-Comparison.md)
 - [Data-Collection-and-Privacy-Notice](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/Data-Collection-and-Privacy-Notice.md)
@@ -33,65 +32,64 @@ Engine: `Electron 42` / Chromium
 - [Changelog](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/CHANGELOG.md)
 - [Security](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/SECURITY.md)
 
-## 🚀 Overview
+## Overview
 
-Version `1.0.30` includes improvements such as:
+Version `1.0.32` is a dependency security update focused on keeping the browser foundation current and the packaged dependency tree lower risk.
 
-- 🧭 automatic-update installer behavior for installed builds
-- 🔐 verified `https:` update endpoints and SHA-256 checked installer launches
-- 📘 refreshed architecture, privacy, and release documentation
-- 📥 trusted-source-aware download handling
-- 🔑 passkey sign-in support for compatible websites
-- 💾 improved custom install-path tracking and external-drive install support
-- 🧾 runtime diagnostics export and checks
-- 🧹 uninstall cleanup improvements with per-category data removal options
+- Refreshed dependency set for the current packaged build
+- Local `npm audit` result of `0` known vulnerabilities for version `1.0.32`
+- Updated release documentation for the current maintenance build
+- Trusted-source-aware download handling remains in place
+- Passkey sign-in support for compatible websites remains available
+- Custom install-path tracking and external-drive install support remain included
+- Privacy-focused local data handling and uninstall controls remain included
 
-## ✨ Top Features
+## Top Features
 
-- 🗂️ multi-tab browsing
-- 🌐 one address bar for websites and search
-- 🚫 ad and tracker blocking
-- 🔐 passkey sign-in support for compatible websites
-- ⭐ bookmark bar and bookmark import
-- 🎨 multiple muted shell themes
-- 🔑 encrypted saved-password vault
-- 🧩 Chromium extension import
-- 🛜 VPN manager and public IPv4/IPv6 session checks
-- 🪟 split-view browsing
-- 🕶️ incognito windows
-- 📥 safer downloads from trusted sources
-- 🌙 sleeping background tabs to help save memory
-- 🎵 local-only Music Player
-- 🖱️ modern right-click page menu and tab context menu
+- Multi-tab browsing
+- One address bar for websites and search
+- Ad and tracker blocking
+- Passkey sign-in support for compatible websites
+- Bookmark bar and bookmark import
+- Multiple muted shell themes
+- Encrypted saved-password vault
+- Chromium extension import
+- VPN manager and public IPv4/IPv6 session checks
+- Split-view browsing
+- Incognito windows
+- Safer downloads from trusted sources
+- Sleeping background tabs to help save memory
+- Local-only Music Player
+- Modern right-click page menu and tab context menu
 
-## ⚙️ More Features
+## More Features
 
-- 🧭 toolbar hide/show controls with quick-access menu
-- 🏠 built-in home page at `bubbles://home`
-- 🔎 search results powered with DuckDuckGo and Google sources
-- 🔐 strong password generation
-- 🕘 history tracking
-- ⚙️ per-site permissions
-- 🖨️ print support
-- 💾 Save Page As support
-- 🧠 built-in Task Manager
-- 🏡 custom homepage support
-- 🧾 diagnostics export and runtime checks
-- 🔄 manual `Check for Updates`
-- 📂 downloads window and progress tracking
-- 📌 tab pinning and mute controls
-- 🪄 move tabs to a new window more easily
+- Toolbar hide/show controls with quick-access menu
+- Built-in home page at `bubbles://home`
+- Search results powered with DuckDuckGo and Google sources
+- Strong password generation
+- History tracking
+- Per-site permissions
+- Print support
+- Save Page As support
+- Built-in Task Manager
+- Custom homepage support
+- Diagnostics export and runtime checks
+- Manual `Check for Updates`
+- Downloads window and progress tracking
+- Tab pinning and mute controls
+- Move tabs to a new window more easily
 
-## 📥 How To Get The Browser
+## How To Get The Browser
 
 - [**DOWNLOAD** Click here to get the latest version of the browser](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 
-## 📦 Installation
+## Installation
 
 1. Run:
 
    ```text
-   BubblesTheDev Web Browser_Installer_1.0.30.exe
+   BubblesTheDev Web Browser_Installer_1.0.32.exe
    ```
 
 2. Choose where you want to install the browser.
@@ -99,17 +97,17 @@ Version `1.0.30` includes improvements such as:
 
 The installer supports:
 
-- default install locations
-- custom install locations
-- external HDD installs
-- external SSD installs
+- Default install locations
+- Custom install locations
+- External HDD installs
+- External SSD installs
 - USB flash-drive installs
 
 If you install the browser on an external drive instead of `C:`, install-linked browser data can automatically move to that external drive as part of setup.
 
-Installed builds now use the automatic-update path when updates are enabled for the build.
+Installed builds continue to support the managed update path when updates are enabled for the build.
 
-## 🔄 Upgrading From An Older Version
+## Upgrading From An Older Version
 
 If an older version is already installed and you are upgrading manually:
 
@@ -122,11 +120,9 @@ If an older version is already installed and you are upgrading manually:
 
 If you use the built-in update flow, the browser can still download and launch the newer installer for you.
 
-## 🔁 Updates
+## Updates
 
-Current installer builds no longer offer a `Manual updates only` setup mode.
-
-Installed builds now use the automatic-update path when updates are enabled for the build.
+Managed updates still use a normal installer flow rather than a silent background patch.
 
 Important notes:
 
@@ -136,29 +132,28 @@ Important notes:
 - Verified `https:` endpoints and a valid SHA-256 value are required before an update installer is launched.
 - The app menu includes `Check for Updates` if you want to check manually.
 
-## 🧹 Uninstall Behavior
+## Uninstall Behavior
 
 The uninstaller removes the installed app files and can also remove local data by category.
 
 Current uninstall choices include:
 
-- browser profile data  
-  This includes history, bookmarks, homepage, permissions, and main browser-state data.
-- saved passwords
-- diagnostics reports
-- local update preferences
+- Browser profile data
+- Saved passwords
+- Diagnostics reports
+- Local update preferences
 
 If a category is left unchecked, that data stays on your device for a future reinstall or update.
 
 Uninstall cleanup also:
 
-- targets tracked custom install paths
-- removes stale uninstall metadata and registry ghosts
-- re-checks reported leftovers at the end to reduce false warning dialogs
+- Targets tracked custom install paths
+- Removes stale uninstall metadata and registry ghosts
+- Re-checks reported leftovers at the end to reduce false warning dialogs
 
 If the browser was installed to an external drive, the main browser profile data can follow that external install location instead of staying on the system drive.
 
-## 📁 Default Installation Path
+## Default Installation Path
 
 If no custom path is selected, the default install location is typically:
 
@@ -166,34 +161,34 @@ If no custom path is selected, the default install location is typically:
 C:\Users\<YourUsername>\AppData\Local\Programs\BubblesTheDev Web Browser
 ```
 
-## 🖥️ System Requirements
+## System Requirements
 
 - Windows 11
 - x64 architecture
 - 4 GB RAM minimum
-- around 300 MB free disk space
+- Around 300 MB free disk space
 
-## 🔐 Privacy And Security
+## Privacy And Security
 
 The browser is built with privacy and security in mind:
 
-- 🔒 browsing protections are turned on by default
-- 🚫 ads and trackers are filtered
-- 📥 downloads get extra safety checks
-- 🕶️ incognito uses a separate session
-- 🔑 password save and reveal tools are limited to secure pages
-- 🧩 imported extensions are treated carefully and risky ones show extra warnings
-- 📡 no built-in telemetry endpoints are configured
+- Browsing protections are turned on by default
+- Ads and trackers are filtered
+- Downloads get extra safety checks
+- Incognito uses a separate session
+- Password save and reveal tools are limited to secure pages
+- Imported extensions are treated carefully and risky ones show extra warnings
+- No built-in telemetry endpoints are configured
 
-## 🎵 Music Player
+## Music Player
 
 The Music Player is local-only and off by default.
 
-- no music folder is scanned until the user explicitly agrees
-- the user can scan the default Music folder or another local folder
-- playback uses local files only
+- No music folder is scanned until the user explicitly agrees
+- The user can scan the default Music folder or another local folder
+- Playback uses local files only
 
-## 🧾 Diagnostics And Crash Reports
+## Diagnostics And Crash Reports
 
 Users can export a diagnostics report from:
 
@@ -205,20 +200,20 @@ Support email:
 
 `bubblesthedevwebbrowsersupport@fnbubbles420.org`
 
-## 🔒 Privacy Notice
+## Privacy Notice
 
 This application:
 
-- does not collect personal data automatically
-- does not send telemetry automatically
-- does not include analytics services
-- stores browser data locally on your device
+- Does not collect personal data automatically
+- Does not send telemetry automatically
+- Does not include analytics services
+- Stores browser data locally on your device
 
 If automatic updates are enabled in the build, the installer and browser can send a small amount of update-related information such as install ID, install path, version, platform, and last-seen time. This does not include your browsing history, bookmarks, saved passwords, page content, or diagnostics.
 
 Saved-password capture and reveal behavior is limited to secure pages such as `https:` websites and local development hosts.
 
-## ⚠️ SmartScreen Notice
+## SmartScreen Notice
 
 This build is currently unsigned, so Windows SmartScreen may warn before launch.
 
@@ -227,11 +222,11 @@ If prompted:
 1. Click `More Info`
 2. Click `Run Anyway`
 
-## 📜 License
+## License
 
 Proprietary - BubblesTheDev  
 All Rights Reserved.
 
-## 💙 Releases
+## Releases
 
 [Get the web browser here](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
