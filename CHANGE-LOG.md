@@ -1,6 +1,32 @@
 # Changelog
 
-This changelog reconstructs the project history from version `0.0.24` through `1.0.30` using the repository's tagged compare data, release notes, versioned README changes, and current installer/update work.
+This changelog reconstructs the project history from version `0.0.24` through `1.0.32` using the repository's tagged compare data, release notes, versioned README changes, and current installer/update work.
+
+## 1.0.32
+
+### Updated
+
+- The package version was advanced to `1.0.32`.
+- Release documentation and installer-facing version references were refreshed for `1.0.32`.
+- Project dependencies were refreshed to the current locked versions used by this build.
+- The packaged dependency tree was updated for the `1.0.32` release.
+- No major user-facing workflow changes were introduced in this maintenance release.
+
+### Security
+
+- Version `1.0.32` ships as a dependency security update focused on package freshness and lower-risk maintenance.
+- A local `npm audit` pass reported `0` known vulnerabilities in the current dependency tree for version `1.0.32`.
+- Supporting libraries for networking, sanitization, cookie handling, parsing, and secure storage remain updated in the packaged app.
+
+### Release
+
+- The `1.0.32` Windows installer package name is `BubblesTheDev Web Browser_Installer_1.0.32.exe`.
+- The verified installer SHA-256 for `1.0.32` is `91E45C5855CAC8A83762ED73DB409A86C7D92D8C340E34241806B9092B155F73`.
+
+### Notes
+
+- Existing browser features remain in place, including bookmark bar support, split-view browsing, ad blocking, download protection, saved passwords, passkey compatibility, VPN tools, diagnostics, and the local-only Music Player.
+- The browser continues to follow a local-first privacy approach with no built-in telemetry or analytics services configured.
 
 ## 1.0.30
 
