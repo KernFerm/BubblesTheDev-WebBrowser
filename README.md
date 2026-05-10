@@ -3,22 +3,22 @@
 
 # BubblesTheDev Web Browser
 
-[![Version](https://img.shields.io/badge/version-1.0.45-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
+[![Version](https://img.shields.io/badge/version-1.0.46-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Platform](https://img.shields.io/badge/platform-Windows%2011-0078D6)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Electron](https://img.shields.io/badge/Electron-42-47848F?logo=electron&logoColor=white)](https://www.electronjs.org/)
 [![License](https://img.shields.io/badge/license-Proprietary-lightgrey)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/readme.md#license)
 
-## Installer Package - Version 1.0.45
+## Installer Package - Version 1.0.46
 
 A Windows web browser built for people who want everyday browsing features, strong privacy defaults, and more control over their browser data.
 
 Installer file name:
 
-`BubblesTheDev Web Browser_Installer_1.0.45.exe`
+`BubblesTheDev Web Browser_Installer_1.0.46.exe`
 
 SHA256:
 
-`D6A7E534C3D966543DAA906DA696932A506ED89070B0E04671EE2F0371AABD9F`
+`DBC3CABA5588FBA3D5E2D68F5EB4458DEC799690C522E6D5DB34D5630BAD1F5C`
 
 Author: `BubblesTheDev`  
 Platform: `Windows 11 (x64)`  
@@ -34,7 +34,7 @@ Engine: `Electron 42` / Chromium
 
 ## Overview
 
-Version `1.0.45` adds intelligent gaming and streaming performance optimization so the browser can reduce unnecessary load when OBS Studio, Streamlabs Desktop, fullscreen games, or heavy system load are detected.
+Version `1.0.46` continues the gaming and streaming performance optimization work so the browser can reduce unnecessary load when OBS Studio, Streamlabs Desktop, fullscreen games, borderless-windowed games, or heavy system load are detected.
 
 - Intelligent gaming and streaming optimization mode with Windows-safe local detection
 - Adaptive background throttling, tab sleeping, and lower hidden-tab rendering pressure
@@ -93,7 +93,7 @@ Version `1.0.45` adds intelligent gaming and streaming performance optimization 
 1. Run:
 
    ```text
-   BubblesTheDev Web Browser_Installer_1.0.45.exe
+   BubblesTheDev Web Browser_Installer_1.0.46.exe
    ```
 
 2. Choose where you want to install the browser.
