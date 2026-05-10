@@ -4,7 +4,7 @@
 
 This document explains the high-level architecture of BubblesTheDev Web Browser and how the main runtime pieces interact.
 
-Current release documentation target: version `1.0.46`.
+Current release documentation target: version `1.0.48`.
 
 ## Design Goals
 
@@ -46,7 +46,7 @@ The main process lives in `browser-runtime.js` and is responsible for:
 * adaptive gaming and streaming performance management for Windows
 * trusted-source-aware download handling and local protection-provider checks
 * site-compatible passkey and WebAuthn browser behavior
-* installer-managed automatic-update registration, install-path tracking, update-server check-in, and managed release checks
+* installer-managed automatic-update registration, install-path tracking, update-server check-in, first-launch follow-up verification, and managed release checks
 
 ## Window Model
 
@@ -107,6 +107,7 @@ Current persisted fields include:
 * Music Player opt-in state and chosen folder
 * Music Downloader consent state, approved download folder, queue metadata, abuse lock state, and persisted cooldown state
 * performance optimization settings for gaming and streaming mode behavior, including stream-stability preferences
+* first-launch managed update follow-up state used after a fresh install
 * per-site permission settings
 * toolbar visibility
 * bookmark bar visibility
@@ -139,10 +140,12 @@ That installer layer currently handles:
 
 * custom install directory selection
 * writable-path validation before install continues
+* license acceptance plus a required legal acknowledgement step before install continues
 * explicit support messaging for external HDDs, external SSDs, and USB flash drives
 * registry-backed tracking of install location metadata used by update and uninstall flows
 * install-linked data relocation behavior for supported external-drive installs
 * installer-time automatic-update registration for installed builds
+* marking fresh installs for a Chrome-like first-launch managed update follow-up check
 
 The uninstall layer uses a generated PowerShell cleanup script plus final NSIS cleanup passes to:
 
@@ -177,7 +180,7 @@ The browser shell also exposes a runtime checks panel backed by the same diagnos
 
 ### Gaming and streaming performance manager
 
-Version `1.0.46` includes the current Windows-focused performance manager implemented in the main process and exposed to the browser UI through strict preload IPC.
+Version `1.0.48` includes the current Windows-focused performance manager implemented in the main process and exposed to the browser UI through strict preload IPC.
 
 The performance layer currently uses:
 
@@ -187,6 +190,7 @@ The performance layer currently uses:
 * adaptive browser policy changes for hidden-tab frame rate, tab sleeping thresholds, background browser FPS caps, and background activity reduction
 * safer process-priority adjustments for browser and renderer workloads during active gaming or streaming sessions
 * stream-stability prioritization that backs the browser off more aggressively when OBS or Streamlabs is active during a gaming session
+* adaptive detector sampling that reduces heavy polling while gaming is already detected
 
 That logic is intentionally local-only and anti-cheat-friendly. It does not inject into games, hook anti-cheat systems, modify protected processes, or rely on kernel drivers.
 
@@ -244,7 +248,19 @@ Inactive BrowserView tabs already use background throttling. The runtime also ad
 
 This is especially relevant on streaming-heavy sites because the memory guard and tab suspension logic are intended to reduce overall working-set growth without changing the core BrowserView tab model.
 
-In version `1.0.46`, those safeguards also integrate with the gaming and streaming performance manager so suspension thresholds, hidden-tab rendering cadence, background browser FPS behavior, and stream-stability controls can adapt automatically during heavier sessions.
+In version `1.0.48`, those safeguards also integrate with the gaming and streaming performance manager so suspension thresholds, hidden-tab rendering cadence, background browser FPS behavior, stream-stability controls, and adaptive detector sampling can respond more cleanly during heavier sessions.
+
+### Managed update follow-up behavior
+
+Version `1.0.48` also documents the current managed-update flow more clearly.
+
+Installed builds can now use:
+
+* installer-time update registration and release check-in
+* a one-time first-launch managed update follow-up after a fresh install
+* normal later update checks from the browser runtime and app menu
+
+This creates a more Chrome-like install experience without adding a silent background updater service. The installer does one managed setup pass, then the browser can do one immediate first-launch follow-up verification before returning to its normal update cadence.
 
 ### Music Player
 
@@ -276,4 +292,4 @@ Security-sensitive defaults include:
 
 ## Summary
 
-The application is a BrowserWindow plus BrowserView desktop browser with a local internal home page, local persistence, request filtering, helper windows, modern Chromium-style shell menus, managed automatic updates, adaptive gaming and streaming performance controls, and optional local media features. The runtime keeps browser data on-device while still supporting normal web traffic, trusted-download handling, external-drive install flows, controlled local media processing, and modern site login behavior such as passkeys.
+The application is a BrowserWindow plus BrowserView desktop browser with a local internal home page, local persistence, request filtering, helper windows, modern Chromium-style shell menus, managed automatic updates with first-launch follow-up verification, adaptive gaming and streaming performance controls, and optional local media features. The runtime keeps browser data on-device while still supporting normal web traffic, trusted-download handling, external-drive install flows, controlled local media processing, and modern site login behavior such as passkeys.
