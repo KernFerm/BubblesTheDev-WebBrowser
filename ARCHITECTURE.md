@@ -4,7 +4,7 @@
 
 This document explains the high-level architecture of BubblesTheDev Web Browser and how the main runtime pieces interact.
 
-Current release documentation target: version `1.0.32`.
+Current release documentation target: version `1.0.45`.
 
 ## Design Goals
 
@@ -38,10 +38,12 @@ The main process lives in `browser-runtime.js` and is responsible for:
 * downloads and diagnostics windows
 * task manager window
 * local Music Player window
+* local Music Downloader queueing, cooldown, validation, and media-processing pipeline
 * app menu and shortcut/help dialogs
 * Chromium-style page and tab context menu construction in the main process
 * split-view shell state, toolbar visibility state, bookmark bar state, theme state, and site permission policy state
 * background tab suspension under memory pressure
+* adaptive gaming and streaming performance management for Windows
 * trusted-source-aware download handling and local protection-provider checks
 * site-compatible passkey and WebAuthn browser behavior
 * installer-managed automatic-update registration, install-path tracking, update-server check-in, and managed release checks
@@ -55,6 +57,7 @@ Additional helper windows are opened as separate BrowserWindow instances for foc
 * Downloads
 * Task Manager
 * Music Player
+* Music Downloader
 * popup login windows when required by site auth flows
 
 This keeps the browser UI separated from tab content while still allowing site-compatible popup behavior.
@@ -102,6 +105,8 @@ Current persisted fields include:
 * imported extension records for Chromium-based browser extensions loaded into the main session
 * imported ProtonVPN WireGuard profile metadata
 * Music Player opt-in state and chosen folder
+* Music Downloader consent state, approved download folder, queue metadata, abuse lock state, and persisted cooldown state
+* performance optimization settings for gaming and streaming mode behavior
 * per-site permission settings
 * toolbar visibility
 * bookmark bar visibility
@@ -170,6 +175,34 @@ Diagnostics are generated locally and can be exported manually by the user as en
 
 The browser shell also exposes a runtime checks panel backed by the same diagnostics snapshot so users can validate active storage protection, enabled download scan providers, ad-block counters, executable path, and current performance state without leaving the app.
 
+### Gaming and streaming performance manager
+
+Version `1.0.45` adds a Windows-focused performance manager implemented in the main process and exposed to the browser UI through strict preload IPC.
+
+The performance layer currently uses:
+
+* local PowerShell-based process sampling for OBS Studio and Streamlabs Desktop detection
+* foreground-window checks for fullscreen-like application detection
+* Windows performance counters for CPU and GPU pressure signals
+* adaptive browser policy changes for hidden-tab frame rate, tab sleeping thresholds, and background activity reduction
+* safer process-priority adjustments for browser and renderer workloads during active gaming or streaming sessions
+
+That logic is intentionally local-only and anti-cheat-friendly. It does not inject into games, hook anti-cheat systems, modify protected processes, or rely on kernel drivers.
+
+### Music Downloader
+
+The Music Downloader feature introduced in version `1.0.37` is implemented as a local-only, main-process-controlled media pipeline with a dedicated preload bridge and isolated renderer UI.
+
+The downloader architecture currently includes:
+
+* `services/queueManager.js` for concurrency limits, queue tracking, duplicate blocking, cooldown timers, and persisted state restoration
+* `services/ytDlpService.js` for controlled `yt-dlp`, `ffmpeg`, and `ffprobe` execution through `spawn`
+* `services/binaryManager.js` for bundled binary existence checks and SHA-256 integrity verification
+* `utils/validateUrl.js`, `utils/sanitizeFilename.js`, `utils/rateLimiter.js`, and `utils/securityGuard.js` for input validation and abuse controls
+* isolated temp-directory processing with final output validation before files are moved into the approved download folder
+
+The downloader remains intentionally restricted to approved YouTube single-video audio downloads and does not expose arbitrary command execution or renderer-side filesystem access.
+
 ### Download protection
 
 Download protection runs through a modular provider chain. The current Windows path combines:
@@ -210,6 +243,8 @@ Inactive BrowserView tabs already use background throttling. The runtime also ad
 
 This is especially relevant on streaming-heavy sites because the memory guard and tab suspension logic are intended to reduce overall working-set growth without changing the core BrowserView tab model.
 
+In version `1.0.45`, those safeguards also integrate with the gaming and streaming performance manager so suspension thresholds, hidden-tab rendering cadence, and background activity behavior can adapt automatically during heavier sessions.
+
 ### Music Player
 
 The Music Player is implemented with:
@@ -231,6 +266,8 @@ Security-sensitive defaults include:
 * main-process-owned context menu creation
 * secure local diagnostics export and storage protection checks
 * isolated roles for browser, downloads, task manager, Bubbles page, and Music Player IPC
+* main-process-only performance detection and policy control with renderer access limited to read and settings-update IPC
+* main-process-only downloader execution with bundled-binary verification and strict YouTube-only validation
 * managed updates restricted to verified HTTPS releases with SHA-256 installer validation
 * password save and reveal flows restricted to secure contexts
 * imported extensions loaded without local file access and reviewed for high-risk permissions
@@ -238,4 +275,4 @@ Security-sensitive defaults include:
 
 ## Summary
 
-The application is a BrowserWindow plus BrowserView desktop browser with a local internal home page, local persistence, request filtering, helper windows, modern Chromium-style shell menus, managed automatic updates, and optional local media features. The runtime keeps browser data on-device while still supporting normal web traffic, trusted-download handling, external-drive install flows, and modern site login behavior such as passkeys.
+The application is a BrowserWindow plus BrowserView desktop browser with a local internal home page, local persistence, request filtering, helper windows, modern Chromium-style shell menus, managed automatic updates, adaptive gaming and streaming performance controls, and optional local media features. The runtime keeps browser data on-device while still supporting normal web traffic, trusted-download handling, external-drive install flows, controlled local media processing, and modern site login behavior such as passkeys.
