@@ -3,22 +3,22 @@
 
 # BubblesTheDev Web Browser
 
-[![Version](https://img.shields.io/badge/version-1.0.48-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
+[![Version](https://img.shields.io/badge/version-1.0.49-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Platform](https://img.shields.io/badge/platform-Windows%2011-0078D6)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Electron](https://img.shields.io/badge/Electron-42-47848F?logo=electron&logoColor=white)](https://www.electronjs.org/)
 [![License](https://img.shields.io/badge/license-Proprietary-lightgrey)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/readme.md#license)
 
-## Installer Package - Version 1.0.48
+## Installer Package - Version 1.0.49
 
 A Windows web browser built for people who want everyday browsing features, strong privacy defaults, and more control over their browser data.
 
 Installer file name:
 
-`BubblesTheDev Web Browser_Installer_1.0.48.exe`
+`BubblesTheDev Web Browser_Installer_1.0.49.exe`
 
 SHA256:
 
-`971275F89EEF68AAA6A7D35CEC65A054F541A8741B4779591AE548086B987FD6`
+`D8BDAA03A6327C2B0128A9A8147D9A00029426E6E417104ED87EBF74F8B5BCAA`
 
 Author: `BubblesTheDev`  
 Platform: `Windows 11 (x64)`  
@@ -34,11 +34,12 @@ Engine: `Electron 42` / Chromium
 
 ## Overview
 
-Version `1.0.48` continues the gaming and streaming performance optimization work so the browser can reduce unnecessary load when OBS Studio, Streamlabs Desktop, fullscreen games, borderless-windowed games, or heavy system load are detected, while also improving the managed install and update experience.
+Version `1.0.49` continues the gaming and streaming performance optimization work so the browser can reduce unnecessary load when OBS Studio, Streamlabs Desktop, fullscreen games, borderless-windowed games, or heavy system load are detected, while also improving real-world session detection reliability and keeping the managed install and update improvements from `1.0.48`.
 
 - Intelligent gaming and streaming optimization mode with Windows-safe local detection
 - Adaptive background throttling, tab sleeping, and lower hidden-tab rendering pressure
 - Lightweight performance panel with status visibility and user controls
+- Improved OBS and borderless-game detection reliability for performance mode
 - Chrome-like first-launch update follow-up after install for managed-update builds
 - Hardened Music Downloader with queueing, cooldowns, abuse controls, and responsible-use consent
 - Bundled binary integrity verification for `yt-dlp`, `ffmpeg`, and `ffprobe`
@@ -94,7 +95,7 @@ Version `1.0.48` continues the gaming and streaming performance optimization wor
 1. Run:
 
    ```text
-   BubblesTheDev Web Browser_Installer_1.0.48.exe
+   BubblesTheDev Web Browser_Installer_1.0.49.exe
    ```
 
 2. Choose where you want to install the browser.
