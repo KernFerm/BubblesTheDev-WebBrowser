@@ -1,62 +1,178 @@
-BubblesTheDev Web Browser 1.0.48
+# Data Collection and Privacy Notice
 
-Version 1.0.48 is a feature and optimization release focused on making the browser feel lighter during gaming, smoother while streaming, more polished during install and updates, and more controlled for local media tools. This release keeps the gaming and streaming optimization work introduced in version 1.0.45, the refinements added in versions 1.0.46 and 1.0.47, and the hardened Music Downloader added in version 1.0.37.
+This notice reflects the current privacy posture of BubblesTheDev Web Browser version `1.0.49`.
 
-What was added or changed for users:
+BubblesTheDev Web Browser is designed to keep browser data local to the user's device unless the user chooses to browse external websites, use external search providers, download files, export diagnostics manually, or use the managed update flow when the build is configured with an update server.
 
-* Kept intelligent gaming and streaming performance optimization for Windows 11 x64.
-* Kept safe local detection for OBS Studio, Streamlabs Desktop, fullscreen applications, borderless-window gaming sessions, and sustained high CPU or GPU load.
-* Kept automatic performance mode behavior that reduces unnecessary browser activity during gameplay or streaming sessions.
-* Kept adaptive background throttling, reduced hidden-tab rendering pressure, safer renderer priority adjustments, and lighter active-session detector sampling.
-* Kept a lightweight Performance panel with live optimization status, memory visibility, CPU and GPU summaries, and user controls.
-* Kept configurable performance settings for gaming optimization mode, streaming optimization mode, aggressive tab sleeping, lower GPU usage mode, stream-stability prioritization, reduced background activity, automatic OBS and Streamlabs detection, and performance notifications.
-* Added a more Chrome-like managed update feel with a one-time first-launch follow-up update check after install.
-* Kept the hardened Music Downloader introduced in version 1.0.37 for approved YouTube single-video audio downloads only.
-* Kept main-process queue controls, cooldown timers, duplicate blocking, abuse protection, and local consent gating for the Music Downloader.
-* Kept bundled SHA-256 verification for `yt-dlp`, `ffmpeg`, and `ffprobe` before local execution.
-* Kept isolated temp processing, restricted mp3-only conversion, ffprobe validation, and approved output-folder handling for downloaded audio.
+The application does not include built-in telemetry, analytics SDKs, automatic crash upload services, cloud synchronization, a built-in silent auto-updater client, or AI monitoring systems.
 
-Security, privacy, and stability highlights:
+Specifically:
 
-* Gaming and streaming optimization logic stays local to the device and does not use telemetry, cloud profiling, or invasive monitoring.
-* The browser does not hook games, inject into protected processes, modify game memory, or interfere with anti-cheat systems.
-* The Music Downloader remains intentionally limited and controlled rather than acting like a bulk downloader or unrestricted media toolkit.
-* Renderer isolation, strict IPC boundaries, and local-first processing remain part of the browser design.
-* Diagnostics remain local unless the user explicitly exports them.
+* No telemetry services are embedded in the application.
+* No background analytics services are executed.
+* No behavioral tracking mechanisms are included by the application itself.
+* No advertising identifiers are generated or transmitted by the application itself.
+* No cloud-based synchronization features are implemented.
+* No automatic diagnostics upload path is implemented.
+* No BubblesTheDev-operated tracking server is contacted for analytics or data collection purposes.
 
-Features included in this build:
+Installer builds can optionally be configured with an owner-run update server. That managed-update flow is separate from telemetry and is limited to update-management fields, release metadata requests, and installer downloads, not browsing data.
 
-* Multi-tab browsing
-* Bookmark bar
-* Split-view browsing
-* Ad and tracker blocking
-* Download protection
-* Saved passwords
-* Passkey sign-in support for compatible websites
-* VPN tools
-* Diagnostics and runtime checks
-* Local-only Music Player
-* Hardened Music Downloader
-* Performance dashboard and status indicator
-* Automatic gaming and streaming optimization
-* External-drive install support
+Version `1.0.49` includes the current browser behavior around local-first media handling, the hardened Music Downloader, Windows-safe gaming and streaming performance optimization, improved OBS and borderless-window session detection, adaptive detector sampling, trusted-source-aware download handling, passkey compatibility, external-drive install handling, and installer-managed automatic updates with a one-time first-launch follow-up check. Those behaviors do not add built-in telemetry or analytics collection to the browser.
 
-Quick summary of the 1.0.37 through 1.0.48 improvements:
+## Local Browser Data
 
-* Version 1.0.37 added the hardened Music Downloader with local-only processing, strict URL validation, queueing, cooldowns, abuse controls, and bundled binary verification.
-* Version 1.0.45 introduced intelligent gaming and streaming optimization to reduce browser impact while OBS Studio, Streamlabs Desktop, fullscreen games, or heavy system load are active.
-* Version 1.0.46 continued that work with stronger stream-stability behavior, more aggressive browser back-off during active OBS sessions, and borderless-window gaming detection.
-* Version 1.0.47 reduced active-session detector overhead with lighter polling and less frequent GPU counter sampling during gameplay.
-* Version 1.0.48 adds a more polished installer-to-browser managed update experience with a one-time first-launch follow-up check.
+Browser data is stored on the user's device in the Electron `userData` directory.
 
-Installer package:
+Current persisted data includes:
 
-* File name: `BubblesTheDev Web Browser_Installer_1.0.48.exe`
-* SHA-256: `971275F89EEF68AAA6A7D35CEC65A054F541A8741B4779591AE548086B987FD6`
+* homepage settings
+* browsing history
+* bookmarks
+* bookmark-import consent choices at runtime
+* saved password metadata and encrypted password vault entries
+* imported Chromium extension metadata for extensions the user chooses to load
+* imported ProtonVPN profile metadata for valid `.conf` files the user chooses to add
+* toolbar visibility
+* bookmark bar visibility
+* selected shell theme
+* per-site permission settings
+* optional Music Player opt-in state and chosen folder
+* Music Downloader consent state, queue state, cooldown timing, abuse-lock timing, recent job history, and approved output folder
+* cached search results and suggestions used by the internal home/search page
+* install-linked path metadata used to track custom or external-drive installs and related local update preferences
+* first-launch managed update follow-up state used after install
 
-Privacy and safety notes:
+The persisted browser-state payload is compressed before being written to disk. When Electron safe storage is available, that payload is also protected with OS-backed encryption. If OS-backed protection is unavailable, the runtime can fall back to credential-backed AES-GCM protection when available. If neither protection path is available, the payload is still stored locally in compressed form.
 
-* No built-in telemetry or analytics services are configured.
-* Performance optimization uses local Windows-safe process and foreground-window monitoring only.
-* The Music Downloader enforces responsible-use consent and supports approved YouTube single-video audio downloads only.
-* Browser data handling remains local-first.
+The application does not automatically upload this browser-state data.
+
+## Managed Update Flow
+
+Installed builds use the automatic-update flow when the installer build is configured with an update server.
+
+If all of the following are true:
+
+* the installer build was configured with an update server
+* the installer or browser can reach that configured server
+* a newer managed release has been published
+
+the installer or browser may send a minimal update-registration record to the owner-run update server, request the latest published release metadata from that server, and download the installer URL published for that release. On a fresh install, the browser can also perform a one-time first-launch managed update follow-up so the overall install experience feels more like a mainstream browser while still using a normal installer flow.
+
+The managed-update path rejects non-HTTPS release metadata or installer URLs and requires a valid published SHA-256 hash before the downloaded installer is launched.
+
+That record is limited to:
+
+* install ID
+* automatic update mode
+* app version
+* install directory
+* install root
+* install drive type
+* device host name
+* platform
+* architecture
+* last-seen timestamp
+* source IP address as observed by the update server
+
+This managed-update flow does not include browsing history, bookmarks, saved passwords, search queries, page content, imported files, or diagnostics contents.
+
+Owner-only update-server actions such as dashboard access, viewing the full client list, and publishing releases are restricted to the server owner machine by default and are not exposed as normal end-user browser actions.
+
+If the published installer URL points to a third-party host such as GitHub releases, that download host will see a normal installer download request in the same way it would for any direct browser download.
+
+## Diagnostics And Runtime Checks
+
+Diagnostics are generated locally.
+
+Current behavior:
+
+* runtime diagnostic entries are written to a local diagnostics directory
+* users can manually export an encrypted `.bdiag` diagnostics report
+* no automatic diagnostics upload path is implemented
+* the runtime checks panel shows local status for storage protection, performance mode state, and other on-device runtime state
+
+Diagnostic data remains on-device unless the user explicitly chooses to export it.
+
+## Uninstall And Data Retention
+
+The uninstaller always removes the installed application files. It can also remove local data by category when the user chooses to do so.
+
+Current removable categories include:
+
+* browser profile data
+* saved passwords
+* diagnostics reports
+* local update preferences
+
+If a category is left unchecked during uninstall, that data remains on the device for a future reinstall or update.
+
+Uninstall cleanup also:
+
+* targets tracked custom install paths
+* removes stale uninstall metadata and registry ghosts
+* re-checks reported leftover paths before showing a warning, which reduces false leftover alerts
+
+If the browser is installed on an external drive instead of `C:`, install-linked browser data and related install-path tracking can follow that selected external location instead of staying only on the main system drive.
+
+## Network Activity
+
+This browser is not offline-only. Outbound network traffic still occurs when the user does one of the following:
+
+* opens websites or web apps
+* signs into websites
+* loads page assets such as images, scripts, fonts, and media
+* downloads files
+* uses external search engines directly
+* uses search from `bubbles://home`
+* uses websites that request passkey or WebAuthn authentication through the platform browser flow
+* uses the managed update flow when the build is configured with an update server
+
+When the user performs a search from `bubbles://home`, the application may contact DuckDuckGo and Google endpoints to assemble results, related searches, and suggestions on that internal page.
+
+When the user downloads files, the browser may perform normal download-related handling such as trusted-source checks, protection-provider checks, destination selection, and local save operations. That behavior is separate from telemetry and is part of the browser's on-device download protection and file-handling flow.
+
+When the user signs in with a passkey on a supported website, the authentication request is between the user, the operating system or authenticator, and that website's login flow. The browser's role is compatibility and secure-context support; it does not create a separate Bubbles-operated passkey cloud service.
+
+Saved-password capture and reveal flows are limited to secure contexts such as `https:` pages and local loopback development hosts. The browser does not intentionally offer those flows to arbitrary insecure pages.
+
+## Music Player Privacy
+
+The Music Player is local-only and off by default.
+
+* No music folder is scanned until the user explicitly agrees inside the Music Player window.
+* The user can choose the default Music folder or another local folder.
+* Playback uses local files only.
+* The application does not upload or share the user's music files.
+
+## Music Downloader Privacy
+
+The Music Downloader is also local-first and intentionally restricted.
+
+* It requires explicit responsible-use consent before downloads can be queued.
+* It accepts only supported YouTube single-video URLs and rejects playlists, channels, livestreams, Shorts, and bulk-style flows.
+* It uses bundled local binaries for download, probing, and conversion instead of cloud processing.
+* It stores queue, cooldown, and abuse-control state locally so those controls persist across restarts.
+* It processes media inside an isolated local temp directory before moving validated mp3 output into the approved download folder.
+* It does not add built-in tracking, analytics, or private-file upload behavior.
+
+## Summary
+
+BubblesTheDev Web Browser is intentionally designed without built-in surveillance, telemetry, analytics, automatic remote reporting, cloud sync, or a built-in silent auto-update client.
+
+The privacy model is local-first:
+
+* browser settings, history, bookmarks, passwords, imported extension metadata, VPN profile metadata, permissions, and search cache stay on-device
+* toolbar visibility, bookmark bar visibility, and the selected shell theme stay on-device
+* install-linked path metadata for custom or external-drive installs stays on-device except for the limited managed-update fields described above
+* persisted browser state is compressed locally and protected when an available encryption path exists
+* diagnostics stay local unless the user exports them
+* music library access requires explicit consent before any scan begins
+* music downloader state, cooldown controls, and validated output handling stay on-device
+* gaming and streaming optimization logic, including OBS-aware throttling, improved borderless-game and streaming-session detection, and adaptive detector sampling, stays on-device
+* the new first-launch managed update follow-up remains limited to update-management behavior and does not turn the browser into a silent telemetry client
+* managed updates are limited to update-management fields, release metadata checks, and installer downloads
+* imported extensions require explicit user action, load without local file access, and may show extra warnings for higher-risk permission requests
+* browsing, downloads, and built-in search still create normal traffic to the websites and providers the user chooses to use
+
+Any future feature that materially changes this privacy posture should be disclosed in updated privacy and release documentation.
