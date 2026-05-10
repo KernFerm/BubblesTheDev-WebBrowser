@@ -1,3 +1,5 @@
+# SECURITY.md
+
 ## Security Policy
 
 The **BubblesTheDev Web Browser** project takes security seriously. This document explains how to report security issues and how confirmed vulnerabilities are handled.
@@ -10,7 +12,7 @@ Security fixes are generally provided for the most recent stable release of the 
 
 | Version | Supported |
 | ------- | --------- |
-| **1.0.37** | Yes |
+| **1.0.45** | Yes |
 | Older versions | No |
 
 Users should run the latest available version of the browser to receive the newest security fixes and improvements.
