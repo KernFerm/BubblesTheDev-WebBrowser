@@ -1,6 +1,31 @@
 # Changelog
 
-This changelog reconstructs the project history from version `0.0.24` through `1.0.48` using the repository's tagged compare data, release notes, versioned README changes, and current installer/update work.
+This changelog reconstructs the project history from version `0.0.24` through `1.0.49` using the repository's tagged compare data, release notes, versioned README changes, and current installer/update work.
+
+## 1.0.49
+
+### Updated
+
+- The package version was advanced to `1.0.49`.
+- Release, README, architecture, privacy-comparison, security, and release-note documentation were refreshed for `1.0.49`.
+- The gaming and streaming detection layer was adjusted to better match real OBS and Fortnite-style gameplay sessions.
+
+### Performance
+
+- OBS detection was broadened to catch more real-world process-name variants.
+- Process discovery was made more reliable so active streaming sessions are less likely to be missed.
+- Borderless-window detection was made more forgiving for games that do not present as strict fullscreen windows.
+- Performance mode should now activate more consistently during active OBS and borderless gaming sessions.
+
+### Release
+
+- The `1.0.49` Windows installer package name is `BubblesTheDev Web Browser_Installer_1.0.49.exe`.
+- The installer SHA-256 is `D8BDAA03A6327C2B0128A9A8147D9A00029426E6E417104ED87EBF74F8B5BCAA`.
+
+### Notes
+
+- Version `1.0.49` keeps the Chrome-like first-launch managed update follow-up added in `1.0.48`.
+- Version `1.0.49` continues the gaming and streaming optimization work introduced in `1.0.45` and refined in `1.0.46` through `1.0.48`.
 
 ## 1.0.48
 
