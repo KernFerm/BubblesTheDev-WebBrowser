@@ -1,6 +1,6 @@
 # Data Collection and Privacy Notice
 
-This notice reflects the current privacy posture of BubblesTheDev Web Browser version `1.0.45`.
+This notice reflects the current privacy posture of BubblesTheDev Web Browser version `1.0.46`.
 
 BubblesTheDev Web Browser is designed to keep browser data local to the user's device unless the user chooses to browse external websites, use external search providers, download files, export diagnostics manually, or use the managed update flow when the build is configured with an update server.
 
@@ -18,7 +18,7 @@ Specifically:
 
 Installer builds can optionally be configured with an owner-run update server. That managed-update flow is separate from telemetry and is limited to update-management fields, release metadata requests, and installer downloads, not browsing data.
 
-Version `1.0.45` includes the current browser behavior around local-first media handling, the hardened Music Downloader, Windows-safe gaming and streaming performance optimization, trusted-source-aware download handling, passkey compatibility, external-drive install handling, and installer-managed automatic updates. Those behaviors do not add built-in telemetry or analytics collection to the browser.
+Version `1.0.46` includes the current browser behavior around local-first media handling, the hardened Music Downloader, Windows-safe gaming and streaming performance optimization, borderless-window gaming detection, trusted-source-aware download handling, passkey compatibility, external-drive install handling, and installer-managed automatic updates. Those behaviors do not add built-in telemetry or analytics collection to the browser.
 
 ## Local Browser Data
 
@@ -89,7 +89,7 @@ Current behavior:
 * runtime diagnostic entries are written to a local diagnostics directory
 * users can manually export an encrypted `.bdiag` diagnostics report
 * no automatic diagnostics upload path is implemented
-* the runtime checks panel shows local status for storage protection and other on-device runtime state
+* the runtime checks panel shows local status for storage protection, performance mode state, and other on-device runtime state
 
 Diagnostic data remains on-device unless the user explicitly chooses to export it.
 
@@ -168,6 +168,7 @@ The privacy model is local-first:
 * diagnostics stay local unless the user exports them
 * music library access requires explicit consent before any scan begins
 * music downloader state, cooldown controls, and validated output handling stay on-device
+* gaming and streaming optimization logic, including OBS-aware throttling and borderless-game detection, stays on-device
 * managed updates are limited to update-management fields, release metadata checks, and installer downloads
 * imported extensions require explicit user action, load without local file access, and may show extra warnings for higher-risk permission requests
 * browsing, downloads, and built-in search still create normal traffic to the websites and providers the user chooses to use
