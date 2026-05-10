@@ -1,6 +1,6 @@
 # Data Collection and Privacy Notice
 
-This notice reflects the current privacy posture of BubblesTheDev Web Browser version `1.0.32`.
+This notice reflects the current privacy posture of BubblesTheDev Web Browser version `1.0.45`.
 
 BubblesTheDev Web Browser is designed to keep browser data local to the user's device unless the user chooses to browse external websites, use external search providers, download files, export diagnostics manually, or use the managed update flow when the build is configured with an update server.
 
@@ -18,7 +18,7 @@ Specifically:
 
 Installer builds can optionally be configured with an owner-run update server. That managed-update flow is separate from telemetry and is limited to update-management fields, release metadata requests, and installer downloads, not browsing data.
 
-Version `1.0.30` includes the current browser behavior around lower memory usage on streaming-heavy sites, cleaner Chromium-style menus, improved trusted-source download handling, passkey compatibility, external-drive install handling, and installer-managed automatic updates. Those behaviors do not add built-in telemetry or analytics collection to the browser.
+Version `1.0.45` includes the current browser behavior around local-first media handling, the hardened Music Downloader, Windows-safe gaming and streaming performance optimization, trusted-source-aware download handling, passkey compatibility, external-drive install handling, and installer-managed automatic updates. Those behaviors do not add built-in telemetry or analytics collection to the browser.
 
 ## Local Browser Data
 
@@ -38,6 +38,7 @@ Current persisted data includes:
 * selected shell theme
 * per-site permission settings
 * optional Music Player opt-in state and chosen folder
+* Music Downloader consent state, queue state, cooldown timing, abuse-lock timing, recent job history, and approved output folder
 * cached search results and suggestions used by the internal home/search page
 * install-linked path metadata used to track custom or external-drive installs and related local update preferences
 
@@ -143,6 +144,17 @@ The Music Player is local-only and off by default.
 * Playback uses local files only.
 * The application does not upload or share the user's music files.
 
+## Music Downloader Privacy
+
+The Music Downloader is also local-first and intentionally restricted.
+
+* It requires explicit responsible-use consent before downloads can be queued.
+* It accepts only supported YouTube single-video URLs and rejects playlists, channels, livestreams, Shorts, and bulk-style flows.
+* It uses bundled local binaries for download, probing, and conversion instead of cloud processing.
+* It stores queue, cooldown, and abuse-control state locally so those controls persist across restarts.
+* It processes media inside an isolated local temp directory before moving validated mp3 output into the approved download folder.
+* It does not add built-in tracking, analytics, or private-file upload behavior.
+
 ## Summary
 
 BubblesTheDev Web Browser is intentionally designed without built-in surveillance, telemetry, analytics, automatic remote reporting, cloud sync, or a built-in silent auto-update client.
@@ -155,6 +167,7 @@ The privacy model is local-first:
 * persisted browser state is compressed locally and protected when an available encryption path exists
 * diagnostics stay local unless the user exports them
 * music library access requires explicit consent before any scan begins
+* music downloader state, cooldown controls, and validated output handling stay on-device
 * managed updates are limited to update-management fields, release metadata checks, and installer downloads
 * imported extensions require explicit user action, load without local file access, and may show extra warnings for higher-risk permission requests
 * browsing, downloads, and built-in search still create normal traffic to the websites and providers the user chooses to use
