@@ -26,7 +26,7 @@ This changelog reconstructs the project history from version `0.0.24` through `1
 - The package version was advanced to `1.0.45`.
 - Release, README, privacy, architecture, and security documentation were updated to match the `1.0.45` feature set.
 - The `1.0.45` Windows installer package name is `BubblesTheDev Web Browser_Installer_1.0.45.exe`.
-- The verified installer SHA-256 for `1.0.45` is `FCB301F58251E7201E4FA319A13161FBF753CE0A05629E59547C5B3927C0E7D9`.
+- The verified installer SHA-256 for `1.0.45` is `320BE593A3B0EDF0D4537E183FC955481C3D9A935DAEBEB3F2237D1B2675A47C`.
 
 ### Notes
 
