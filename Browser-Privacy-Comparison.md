@@ -2,7 +2,7 @@
 
 ## Browser Privacy Comparison
 
-This document reflects the current privacy posture of BubblesTheDev Web Browser version `1.0.46`.
+This document reflects the current privacy posture of BubblesTheDev Web Browser version `1.0.48`.
 
 The goal is accuracy, not marketing language. The browser does not implement built-in telemetry, analytics SDKs, cloud sync, a built-in silent auto-updater client, or automatic diagnostics upload. It does, however, make normal network requests when the user browses the web, uses built-in search features, uses supported site authentication flows such as passkeys, downloads files, or uses the managed update flow when the build is configured with an update server.
 
@@ -80,12 +80,13 @@ Current persisted data includes:
 * per-site permission settings
 * cached search results and suggestions
 * install-linked path metadata used for custom or external-drive installs and local update preferences
+* first-launch managed update follow-up state used after install
 
 The persisted browser-state payload is compressed before it is written to disk. When Electron safe storage is available, that payload is also protected with OS-backed encryption. If OS-backed protection is unavailable, the runtime can fall back to credential-backed AES-GCM protection when available.
 
 The application does not automatically upload this browser-state data.
 
-Installer builds can optionally be configured with an owner-run update server. In that case, installed builds can send a minimal update-registration record containing install-management fields such as install ID, app version, install path, install root, install drive type, host name, platform, architecture, last-seen time, and the IP address seen by that server. They can also request the latest published release metadata and download the published installer package. The managed updater rejects non-HTTPS release metadata or installer URLs and requires a valid published SHA-256 hash before the installer is launched. This does not include browsing history, bookmarks, saved passwords, or page contents.
+Installer builds can optionally be configured with an owner-run update server. In that case, installed builds can send a minimal update-registration record containing install-management fields such as install ID, app version, install path, install root, install drive type, host name, platform, architecture, last-seen time, and the IP address seen by that server. They can also request the latest published release metadata and download the published installer package. The current flow can also do a one-time first-launch managed update follow-up after installation to create a more Chrome-like install experience. The managed updater rejects non-HTTPS release metadata or installer URLs and requires a valid published SHA-256 hash before the installer is launched. This does not include browsing history, bookmarks, saved passwords, or page contents.
 
 If the browser is installed on an external drive instead of `C:`, install-linked data and path tracking can follow that selected external location instead of being treated only as a default system-drive install.
 
@@ -162,6 +163,7 @@ Current characteristics:
 * local background tab throttling, memory-pressure tab suspension, and stream-stability optimization instead of cloud-managed performance services
 * optional owner-run managed updater for installed builds
 * managed update installs require verified HTTPS release endpoints and SHA-256 installer validation
+* installed builds can do a one-time first-launch managed update follow-up without adding a silent always-on updater service
 * password save and reveal flows are restricted to secure contexts such as `https:` pages or local loopback development hosts
 * imported extensions are loaded without local file access and high-risk permissions trigger extra user warnings
 * Chromium and Electron secure-context behavior for supported passkey and WebAuthn site flows
@@ -187,7 +189,8 @@ BubblesTheDev Web Browser currently aims for a local-first privacy posture:
 * toolbar visibility, bookmark bar visibility, and the selected shell theme stay on-device
 * persisted state is compressed and protected locally
 * diagnostics stay local unless the user exports them
-* performance-related behaviors such as background tab sleeping, memory-pressure trimming, OBS-aware throttling, and borderless-game detection are local runtime features rather than telemetry or remote optimization systems
+* performance-related behaviors such as background tab sleeping, memory-pressure trimming, OBS-aware throttling, borderless-game detection, and adaptive local detector sampling are local runtime features rather than telemetry or remote optimization systems
+* the more Chrome-like install and update feel in `1.0.48` still uses the same limited local update-preference and managed-release model rather than a silent telemetry-backed updater
 * music library access requires explicit consent before any scan begins
 * bookmark import and VPN profile scanning require explicit user consent before local file access begins
 * password save and reveal behavior is limited to secure contexts instead of arbitrary insecure pages
