@@ -18,7 +18,7 @@ Installer file name:
 
 SHA256:
 
-`TBD after final installer build`
+`2746B811BA4517A8C951AA63F9C1307CF66E8151AA80C8B83387F4A974D1A28A`
 
 Author: `BubblesTheDev`  
 Platform: `Windows 11 (x64)`  
