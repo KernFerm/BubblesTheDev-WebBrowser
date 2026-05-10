@@ -1,5 +1,3 @@
-# SECURITY.md
-
 ## Security Policy
 
 The **BubblesTheDev Web Browser** project takes security seriously. This document explains how to report security issues and how confirmed vulnerabilities are handled.
