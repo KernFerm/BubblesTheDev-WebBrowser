@@ -3,22 +3,22 @@
 
 # BubblesTheDev Web Browser
 
-[![Version](https://img.shields.io/badge/version-1.0.32-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
+[![Version](https://img.shields.io/badge/version-1.0.45-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Platform](https://img.shields.io/badge/platform-Windows%2011-0078D6)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Electron](https://img.shields.io/badge/Electron-42-47848F?logo=electron&logoColor=white)](https://www.electronjs.org/)
 [![License](https://img.shields.io/badge/license-Proprietary-lightgrey)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/readme.md#license)
 
-## Installer Package - Version 1.0.32
+## Installer Package - Version 1.0.45
 
 A Windows web browser built for people who want everyday browsing features, strong privacy defaults, and more control over their browser data.
 
 Installer file name:
 
-`BubblesTheDev Web Browser_Installer_1.0.32.exe`
+`BubblesTheDev Web Browser_Installer_1.0.45.exe`
 
 SHA256:
 
-`91E45C5855CAC8A83762ED73DB409A86C7D92D8C340E34241806B9092B155F73`
+`TBD after final installer build`
 
 Author: `BubblesTheDev`  
 Platform: `Windows 11 (x64)`  
@@ -34,11 +34,13 @@ Engine: `Electron 42` / Chromium
 
 ## Overview
 
-Version `1.0.32` is a dependency security update focused on keeping the browser foundation current and the packaged dependency tree lower risk.
+Version `1.0.45` adds intelligent gaming and streaming performance optimization so the browser can reduce unnecessary load when OBS Studio, Streamlabs Desktop, fullscreen games, or heavy system load are detected.
 
-- Refreshed dependency set for the current packaged build
-- Local `npm audit` result of `0` known vulnerabilities for version `1.0.32`
-- Updated release documentation for the current maintenance build
+- Intelligent gaming and streaming optimization mode with Windows-safe local detection
+- Adaptive background throttling, tab sleeping, and lower hidden-tab rendering pressure
+- Lightweight performance panel with status visibility and user controls
+- Hardened Music Downloader with queueing, cooldowns, abuse controls, and responsible-use consent
+- Bundled binary integrity verification for `yt-dlp`, `ffmpeg`, and `ffprobe`
 - Trusted-source-aware download handling remains in place
 - Passkey sign-in support for compatible websites remains available
 - Custom install-path tracking and external-drive install support remain included
@@ -58,7 +60,9 @@ Version `1.0.32` is a dependency security update focused on keeping the browser 
 - Split-view browsing
 - Incognito windows
 - Safer downloads from trusted sources
+- Hardened Music Downloader for supported YouTube single-video audio downloads
 - Sleeping background tabs to help save memory
+- Gaming and streaming performance mode for OBS, Streamlabs, and fullscreen sessions
 - Local-only Music Player
 - Modern right-click page menu and tab context menu
 
@@ -89,7 +93,7 @@ Version `1.0.32` is a dependency security update focused on keeping the browser 
 1. Run:
 
    ```text
-   BubblesTheDev Web Browser_Installer_1.0.32.exe
+   BubblesTheDev Web Browser_Installer_1.0.45.exe
    ```
 
 2. Choose where you want to install the browser.
@@ -187,6 +191,17 @@ The Music Player is local-only and off by default.
 - No music folder is scanned until the user explicitly agrees
 - The user can scan the default Music folder or another local folder
 - Playback uses local files only
+
+## Music Downloader
+
+The Music Downloader is local-first and intentionally restricted.
+
+- Supports approved YouTube single-video URLs only
+- Audio extraction only, with mp3 output
+- Uses bundled `yt-dlp`, `ffmpeg`, and `ffprobe` binaries verified by SHA-256
+- Runs only in the Electron main process through a strict preload bridge
+- Enforces queue limits, cooldown timers, duplicate blocking, and abuse throttling
+- Stores downloader state locally and restores cooldown state across restarts
 
 ## Diagnostics And Crash Reports
 
