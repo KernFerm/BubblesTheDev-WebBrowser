@@ -1,6 +1,55 @@
 # Changelog
 
-This changelog reconstructs the project history from version `0.0.24` through `1.0.46` using the repository's tagged compare data, release notes, versioned README changes, and current installer/update work.
+This changelog reconstructs the project history from version `0.0.24` through `1.0.48` using the repository's tagged compare data, release notes, versioned README changes, and current installer/update work.
+
+## 1.0.48
+
+### Updated
+
+- The package version was advanced to `1.0.48`.
+- Architecture, privacy, comparison, README, release, and release-note documentation were refreshed for `1.0.48`.
+- The managed update flow was refined to feel more like a normal mainstream-browser install experience.
+
+### Installer And Updates
+
+- The installer and browser now work together for a more Chrome-like update feel.
+- Fresh installs can now trigger a one-time first-launch managed update follow-up after the installer finishes.
+- Installer-managed update registration and later browser-managed checks remain in place.
+- The installer continues to require the license page and separate legal acknowledgement before setup continues.
+
+### Notes
+
+- Version `1.0.48` keeps the lighter adaptive gaming and streaming detector behavior introduced in `1.0.47`.
+- Version `1.0.48` also keeps the stronger OBS-aware throttling and borderless-window gaming support added across `1.0.45` and `1.0.46`.
+
+### Release
+
+- The `1.0.48` Windows installer package name is `BubblesTheDev Web Browser_Installer_1.0.48.exe`.
+- The installer SHA-256 is `971275F89EEF68AAA6A7D35CEC65A054F541A8741B4779591AE548086B987FD6`.
+
+## 1.0.47
+
+### Updated
+
+- The package version was advanced to `1.0.47`.
+- Architecture, privacy, comparison, and changelog documentation were refreshed for `1.0.47`.
+- The gaming and streaming performance detector was tuned to sample less aggressively during active sessions.
+
+### Performance
+
+- Detection now runs less often overall to reduce overhead during gameplay.
+- Heavy polling is reduced once a gaming or streaming session is already detected.
+- Expensive GPU counter sampling no longer runs every cycle.
+- The browser now shifts into a lighter "do less checking" mode while gaming is active to reduce hitching and frame-drop risk.
+
+### Release
+
+- The `1.0.47` Windows installer package name is `BubblesTheDev Web Browser_Installer_1.0.47.exe`.
+- The installer SHA-256 is `TBD after final installer build`.
+
+### Notes
+
+- Version `1.0.47` continues refining the adaptive gaming and streaming optimization work introduced in `1.0.45` and extended in `1.0.46`.
 
 ## 1.0.46
 
