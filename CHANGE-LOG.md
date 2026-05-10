@@ -1,6 +1,66 @@
 # Changelog
 
-This changelog reconstructs the project history from version `0.0.24` through `1.0.32` using the repository's tagged compare data, release notes, versioned README changes, and current installer/update work.
+This changelog reconstructs the project history from version `0.0.24` through `1.0.45` using the repository's tagged compare data, release notes, versioned README changes, and current installer/update work.
+
+## 1.0.45
+
+### Added
+
+- A Windows-focused gaming and streaming performance manager was added to detect OBS Studio, Streamlabs Desktop, fullscreen-like foreground apps, and sustained CPU or GPU pressure through local system checks only.
+- A new Performance panel and status indicator were added so users can see when optimization mode is active and adjust gaming or streaming behavior from the browser UI.
+- New user-facing settings were added for gaming optimization mode, streaming optimization mode, aggressive tab sleeping, lower GPU usage mode, reduced background activity, auto-detection for OBS and Streamlabs, and performance notifications.
+
+### Performance
+
+- Hidden-tab frame rates, tab sleeping thresholds, and background activity are now adjusted dynamically during gaming or streaming sessions.
+- Renderer-process priority behavior is now reduced more safely for inactive tabs during heavier sessions to help lower browser interference.
+- Browser memory safeguards now integrate with the performance manager so tab suspension and background work can react more aggressively under streaming or gameplay pressure.
+
+### Security
+
+- The performance optimization layer stays local-only and uses Windows-safe process and foreground-window monitoring rather than hooking games, injecting into processes, or interfering with anti-cheat systems.
+- Performance policy decisions remain owned by the Electron main process, while the renderer only receives state and settings access through strict preload IPC.
+
+### Release
+
+- The package version was advanced to `1.0.45`.
+- Release, README, privacy, architecture, and security documentation were updated to match the `1.0.45` feature set.
+- The `1.0.45` Windows installer package name is `BubblesTheDev Web Browser_Installer_1.0.45.exe`.
+- The installer SHA-256 remains `TBD after final installer build`.
+
+### Notes
+
+- Version `1.0.45` builds on the hardened Music Downloader from `1.0.37` while adding a new adaptive performance layer for gamers and streamers.
+- Existing browser capabilities remain in place, including bookmark bar support, split-view browsing, ad and tracker blocking, trusted-source-aware downloads, diagnostics tools, passkey compatibility, VPN tools, and the local-only Music Player.
+
+## 1.0.37
+
+### Added
+
+- A hardened Music Downloader was added for approved YouTube single-video audio downloads only.
+- Bundled `yt-dlp`, `ffmpeg`, and `ffprobe` support was added with SHA-256 integrity verification before execution.
+- A dedicated queue manager was added with a maximum of 3 concurrent downloads, duplicate blocking, abuse controls, and persisted cooldown state.
+- Responsible-use consent gating, approved-folder selection, and isolated temp-directory processing were added to the Music Downloader flow.
+
+### Security
+
+- The downloader now runs entirely in the Electron main process with a strict preload bridge and no renderer-side Node or filesystem access.
+- URL validation was restricted to approved YouTube single-video formats, with playlist, channel, livestream, shorts, malformed URL, and bulk-download patterns rejected.
+- Media validation was added with `ffprobe`, mp3-only conversion rules, output validation, and cleanup of failed or incomplete download artifacts.
+
+### Privacy
+
+- Music Downloader processing remains local-first with no telemetry, no analytics, and no cloud-side media processing.
+- Downloader state such as consent, approved folder, queue metadata, and cooldown timing is stored locally and restored across restarts.
+
+### Release
+
+- The package version was advanced to `1.0.37`.
+- Release documentation and installer-facing version references were refreshed for `1.0.37`.
+
+### Notes
+
+- The Music Downloader is intentionally controlled and restricted rather than acting like a bulk downloader, scraper, or unrestricted ffmpeg front end.
 
 ## 1.0.32
 
