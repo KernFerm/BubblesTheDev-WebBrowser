@@ -1,20 +1,38 @@
 # Changelog
 
-This changelog reconstructs the project history from version `0.0.24` through `1.0.45` using the repository's tagged compare data, release notes, versioned README changes, and current installer/update work.
+This changelog reconstructs the project history from version `0.0.24` through `1.0.46` using the repository's tagged compare data, release notes, versioned README changes, and current installer/update work.
+
+## 1.0.46
+
+### Updated
+
+- The package version was advanced to `1.0.46`.
+- Release, README, privacy, architecture, and changelog documentation were refreshed for `1.0.46`.
+- The current `1.0.46` release documentation reflects the latest gaming and streaming optimization additions, including stronger OBS-aware throttling, stream-stability controls, and borderless-window gaming detection.
+
+### Release
+
+- The `1.0.46` Windows installer package name is `BubblesTheDev Web Browser_Installer_1.0.46.exe`.
+- The installer SHA-256 is `DBC3CABA5588FBA3D5E2D68F5EB4458DEC799690C522E6D5DB34D5630BAD1F5C`.
+
+### Notes
+
+- Version `1.0.46` continues the adaptive gaming and streaming optimization work introduced in `1.0.45`.
 
 ## 1.0.45
 
 ### Added
 
-- A Windows-focused gaming and streaming performance manager was added to detect OBS Studio, Streamlabs Desktop, fullscreen-like foreground apps, and sustained CPU or GPU pressure through local system checks only.
+- A Windows-focused gaming and streaming performance manager was added to detect OBS Studio, Streamlabs Desktop, fullscreen-like and borderless-window foreground apps, and sustained CPU or GPU pressure through local system checks only.
 - A new Performance panel and status indicator were added so users can see when optimization mode is active and adjust gaming or streaming behavior from the browser UI.
-- New user-facing settings were added for gaming optimization mode, streaming optimization mode, aggressive tab sleeping, lower GPU usage mode, reduced background activity, auto-detection for OBS and Streamlabs, and performance notifications.
+- New user-facing settings were added for gaming optimization mode, streaming optimization mode, aggressive tab sleeping, lower GPU usage mode, stream-stability prioritization, reduced background activity, auto-detection for OBS and Streamlabs, and performance notifications.
 
 ### Performance
 
 - Hidden-tab frame rates, tab sleeping thresholds, and background activity are now adjusted dynamically during gaming or streaming sessions.
 - Renderer-process priority behavior is now reduced more safely for inactive tabs during heavier sessions to help lower browser interference.
 - Browser memory safeguards now integrate with the performance manager so tab suspension and background work can react more aggressively under streaming or gameplay pressure.
+- The browser now backs off more aggressively during active OBS or Streamlabs sessions, including lower background browser FPS caps intended to reduce frame drops while gaming.
 
 ### Security
 
@@ -26,7 +44,7 @@ This changelog reconstructs the project history from version `0.0.24` through `1
 - The package version was advanced to `1.0.45`.
 - Release, README, privacy, architecture, and security documentation were updated to match the `1.0.45` feature set.
 - The `1.0.45` Windows installer package name is `BubblesTheDev Web Browser_Installer_1.0.45.exe`.
-- The verified installer SHA-256 for `1.0.45` is `D6A7E534C3D966543DAA906DA696932A506ED89070B0E04671EE2F0371AABD9F`.
+- The latest verified installer SHA-256 for `1.0.45` is `D6A7E534C3D966543DAA906DA696932A506ED89070B0E04671EE2F0371AABD9F`.
 
 ### Notes
 
