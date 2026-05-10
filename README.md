@@ -3,22 +3,22 @@
 
 # BubblesTheDev Web Browser
 
-[![Version](https://img.shields.io/badge/version-1.0.46-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
+[![Version](https://img.shields.io/badge/version-1.0.48-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Platform](https://img.shields.io/badge/platform-Windows%2011-0078D6)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Electron](https://img.shields.io/badge/Electron-42-47848F?logo=electron&logoColor=white)](https://www.electronjs.org/)
 [![License](https://img.shields.io/badge/license-Proprietary-lightgrey)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/readme.md#license)
 
-## Installer Package - Version 1.0.46
+## Installer Package - Version 1.0.48
 
 A Windows web browser built for people who want everyday browsing features, strong privacy defaults, and more control over their browser data.
 
 Installer file name:
 
-`BubblesTheDev Web Browser_Installer_1.0.46.exe`
+`BubblesTheDev Web Browser_Installer_1.0.48.exe`
 
 SHA256:
 
-`DBC3CABA5588FBA3D5E2D68F5EB4458DEC799690C522E6D5DB34D5630BAD1F5C`
+`971275F89EEF68AAA6A7D35CEC65A054F541A8741B4779591AE548086B987FD6`
 
 Author: `BubblesTheDev`  
 Platform: `Windows 11 (x64)`  
@@ -34,11 +34,12 @@ Engine: `Electron 42` / Chromium
 
 ## Overview
 
-Version `1.0.46` continues the gaming and streaming performance optimization work so the browser can reduce unnecessary load when OBS Studio, Streamlabs Desktop, fullscreen games, borderless-windowed games, or heavy system load are detected.
+Version `1.0.48` continues the gaming and streaming performance optimization work so the browser can reduce unnecessary load when OBS Studio, Streamlabs Desktop, fullscreen games, borderless-windowed games, or heavy system load are detected, while also improving the managed install and update experience.
 
 - Intelligent gaming and streaming optimization mode with Windows-safe local detection
 - Adaptive background throttling, tab sleeping, and lower hidden-tab rendering pressure
 - Lightweight performance panel with status visibility and user controls
+- Chrome-like first-launch update follow-up after install for managed-update builds
 - Hardened Music Downloader with queueing, cooldowns, abuse controls, and responsible-use consent
 - Bundled binary integrity verification for `yt-dlp`, `ffmpeg`, and `ffprobe`
 - Trusted-source-aware download handling remains in place
@@ -93,7 +94,7 @@ Version `1.0.46` continues the gaming and streaming performance optimization wor
 1. Run:
 
    ```text
-   BubblesTheDev Web Browser_Installer_1.0.46.exe
+   BubblesTheDev Web Browser_Installer_1.0.48.exe
    ```
 
 2. Choose where you want to install the browser.
@@ -132,6 +133,7 @@ Important notes:
 
 - The browser does not update itself silently in the background.
 - Managed updates still use a normal installer.
+- Fresh installs can do a one-time first-launch update follow-up for a more Chrome-like feel.
 - Update downloads are checked before they are launched.
 - Verified `https:` endpoints and a valid SHA-256 value are required before an update installer is launched.
 - The app menu includes `Check for Updates` if you want to check manually.
