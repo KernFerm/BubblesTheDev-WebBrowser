@@ -4,7 +4,7 @@
 
 This document explains the high-level architecture of BubblesTheDev Web Browser and how the main runtime pieces interact.
 
-Current release documentation target: version `1.0.45`.
+Current release documentation target: version `1.0.46`.
 
 ## Design Goals
 
@@ -106,7 +106,7 @@ Current persisted fields include:
 * imported ProtonVPN WireGuard profile metadata
 * Music Player opt-in state and chosen folder
 * Music Downloader consent state, approved download folder, queue metadata, abuse lock state, and persisted cooldown state
-* performance optimization settings for gaming and streaming mode behavior
+* performance optimization settings for gaming and streaming mode behavior, including stream-stability preferences
 * per-site permission settings
 * toolbar visibility
 * bookmark bar visibility
@@ -177,15 +177,16 @@ The browser shell also exposes a runtime checks panel backed by the same diagnos
 
 ### Gaming and streaming performance manager
 
-Version `1.0.45` adds a Windows-focused performance manager implemented in the main process and exposed to the browser UI through strict preload IPC.
+Version `1.0.46` includes the current Windows-focused performance manager implemented in the main process and exposed to the browser UI through strict preload IPC.
 
 The performance layer currently uses:
 
 * local PowerShell-based process sampling for OBS Studio and Streamlabs Desktop detection
-* foreground-window checks for fullscreen-like application detection
+* foreground-window checks for fullscreen-like and borderless-window application detection
 * Windows performance counters for CPU and GPU pressure signals
-* adaptive browser policy changes for hidden-tab frame rate, tab sleeping thresholds, and background activity reduction
+* adaptive browser policy changes for hidden-tab frame rate, tab sleeping thresholds, background browser FPS caps, and background activity reduction
 * safer process-priority adjustments for browser and renderer workloads during active gaming or streaming sessions
+* stream-stability prioritization that backs the browser off more aggressively when OBS or Streamlabs is active during a gaming session
 
 That logic is intentionally local-only and anti-cheat-friendly. It does not inject into games, hook anti-cheat systems, modify protected processes, or rely on kernel drivers.
 
@@ -243,7 +244,7 @@ Inactive BrowserView tabs already use background throttling. The runtime also ad
 
 This is especially relevant on streaming-heavy sites because the memory guard and tab suspension logic are intended to reduce overall working-set growth without changing the core BrowserView tab model.
 
-In version `1.0.45`, those safeguards also integrate with the gaming and streaming performance manager so suspension thresholds, hidden-tab rendering cadence, and background activity behavior can adapt automatically during heavier sessions.
+In version `1.0.46`, those safeguards also integrate with the gaming and streaming performance manager so suspension thresholds, hidden-tab rendering cadence, background browser FPS behavior, and stream-stability controls can adapt automatically during heavier sessions.
 
 ### Music Player
 
