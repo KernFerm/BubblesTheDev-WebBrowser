@@ -213,7 +213,7 @@ Diagnostics are stored locally and are not transmitted automatically. Exported d
 
 Support email:
 
-`bubblesthedevwebbrowsersupport@fnbubbles420.org`
+`browser-support@bubbles-browser.fnbubbles420.org`
 
 ## Privacy Notice
 
