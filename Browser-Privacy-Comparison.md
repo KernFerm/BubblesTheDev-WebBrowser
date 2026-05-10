@@ -2,7 +2,7 @@
 
 ## Browser Privacy Comparison
 
-This document reflects the current privacy posture of BubblesTheDev Web Browser version `1.0.45`.
+This document reflects the current privacy posture of BubblesTheDev Web Browser version `1.0.46`.
 
 The goal is accuracy, not marketing language. The browser does not implement built-in telemetry, analytics SDKs, cloud sync, a built-in silent auto-updater client, or automatic diagnostics upload. It does, however, make normal network requests when the user browses the web, uses built-in search features, uses supported site authentication flows such as passkeys, downloads files, or uses the managed update flow when the build is configured with an update server.
 
@@ -14,7 +14,7 @@ Related project documents cover adjacent topics:
 
 * [5-TAB-PERFORMANCE-TEST.md](/c:/Users/frost/OneDrive/Desktop/python-webbrowser/5-TAB-PERFORMANCE-TEST.md) covers measured RAM and CPU behavior for a real-world 5 tab test on Windows 11.
 * [Data-Collection-and-Privacy-Notice.md](/c:/Users/frost/OneDrive/Desktop/python-webbrowser/Data-Collection-and-Privacy-Notice.md) is the plain-language privacy notice for end users.
-* [ARCHITECTURE.md](/c:/Users/frost/OneDrive/Desktop/python-webbrowser/ARCHITECTURE.md) explains how local persistence, diagnostics, downloads, passkeys, and background tab suspension are implemented in the current runtime.
+* [ARCHITECTURE.md](/c:/Users/frost/OneDrive/Desktop/python-webbrowser/ARCHITECTURE.md) explains how local persistence, diagnostics, downloads, passkeys, background tab suspension, and gaming or streaming performance controls are implemented in the current runtime.
 
 Those documents should be read together:
 
@@ -76,6 +76,7 @@ Current persisted data includes:
 * selected shell theme
 * Music Player opt-in state and chosen folder
 * Music Downloader consent state, queue state, cooldown timing, abuse-lock timing, recent job history, and approved output folder
+* gaming and streaming performance settings, including stream-stability preferences
 * per-site permission settings
 * cached search results and suggestions
 * install-linked path metadata used for custom or external-drive installs and local update preferences
@@ -158,7 +159,7 @@ Current characteristics:
 * no built-in analytics pipeline
 * no cloud sync service
 * no built-in silent auto-updater service
-* local background tab throttling and memory-pressure tab suspension instead of cloud-managed performance services
+* local background tab throttling, memory-pressure tab suspension, and stream-stability optimization instead of cloud-managed performance services
 * optional owner-run managed updater for installed builds
 * managed update installs require verified HTTPS release endpoints and SHA-256 installer validation
 * password save and reveal flows are restricted to secure contexts such as `https:` pages or local loopback development hosts
@@ -186,7 +187,7 @@ BubblesTheDev Web Browser currently aims for a local-first privacy posture:
 * toolbar visibility, bookmark bar visibility, and the selected shell theme stay on-device
 * persisted state is compressed and protected locally
 * diagnostics stay local unless the user exports them
-* performance-related behaviors such as background tab sleeping and memory-pressure trimming are local runtime features rather than telemetry or remote optimization systems
+* performance-related behaviors such as background tab sleeping, memory-pressure trimming, OBS-aware throttling, and borderless-game detection are local runtime features rather than telemetry or remote optimization systems
 * music library access requires explicit consent before any scan begins
 * bookmark import and VPN profile scanning require explicit user consent before local file access begins
 * password save and reveal behavior is limited to secure contexts instead of arbitrary insecure pages
