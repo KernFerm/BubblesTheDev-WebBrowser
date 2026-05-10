@@ -1,6 +1,30 @@
 # Changelog
 
-This changelog reconstructs the project history from version `0.0.24` through `1.0.49` using the repository's tagged compare data, release notes, versioned README changes, and current installer/update work.
+This changelog reconstructs the project history from version `0.0.24` through `1.0.50` using the repository's tagged compare data, release notes, versioned README changes, and current installer/update work.
+
+## 1.0.50
+
+### Updated
+
+- The package version was advanced to `1.0.50`.
+- Release, README, and release-note documentation were refreshed for `1.0.50`.
+- The performance-mode status flow was adjusted so the UI requests a fresh detector sample instead of only showing cached state.
+
+### Performance
+
+- Opening the Performance panel or using `Refresh Status` now forces a new detection pass.
+- A stronger OBS detection fallback path was added so streaming detection does not rely only on the heavier PowerShell and window probe.
+- Performance mode should now surface OBS activity more reliably in the UI while keeping the earlier `1.0.49` detection improvements in place.
+
+### Release
+
+- The `1.0.50` Windows installer package name is `BubblesTheDev Web Browser_Installer_1.0.50.exe`.
+- The installer SHA-256 is `6F3A996A5230E6C434D41134FE5BEA85C42E7C831B6513206C2A257DA44AC33D`.
+
+### Notes
+
+- Version `1.0.50` keeps the Chrome-like first-launch managed update follow-up added in `1.0.48`.
+- Version `1.0.50` builds directly on the detection reliability work added in `1.0.49`.
 
 ## 1.0.49
 
