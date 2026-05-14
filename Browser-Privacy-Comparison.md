@@ -40,11 +40,16 @@ This table is intentionally high-level. Mainstream browsers change over time, bu
 | Browser-data import from other browsers | Yes, explicit user action and consent | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
 | Per-site permission controls | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
 | Ad and tracker filtering built in | Yes | Limited | Limited | Yes | Limited | Yes | Yes | Yes |
+| Windows-native download protection stack | Yes, with Windows Security Center detection, Attachment Services, Mark of the Web, Authenticode checks, and Windows Defender fallback scanning | Varies | Varies | Varies | Varies | Varies | Varies | Varies |
 | Private or incognito session mode | Yes, separate incognito session handling | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
 | Isolated in-browser streaming service sessions | Yes, for supported services with dedicated persistent partitions | No | No | No | No | No | No | No |
+| Runtime checks or local diagnostics view | Yes, with Runtime Checks plus manual encrypted diagnostics export | Varies | Varies | Varies | Varies | Varies | Varies | Varies |
 | Search-provider requests from built-in home/search page | Yes, after user search on `bubbles://home` | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
 | Passkey and WebAuthn compatibility | Yes, through Chromium/Electron site support | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
+| Gaming or streaming-aware performance controls | Yes, with local OBS or Streamlabs detection, tab sleeping, background throttling, and stream-stability tuning | Varies | Varies | Varies | Varies | Varies | Varies | Varies |
 | Browser VPN or VPN integration feature | Local VPN manager, installed-client detection, and ProtonVPN WireGuard profile import | Not documented as a built-in browser VPN feature | Built-in Edge Secure Network VPN | Built-in paid Brave Firewall + VPN | Separate Mozilla VPN service and Firefox extension support | Not documented as a built-in browser VPN feature | Built-in Opera VPN | Built-in Proton VPN integration |
+| Split-view browsing built in | Yes | Varies | Varies | Varies | Varies | Varies | Varies | Yes |
+| Built-in task or process manager | Yes | Yes | Yes | Yes | Varies | Varies | Yes | Yes |
 | External-drive install-linked data tracking | Yes | Varies | Varies | Varies | Varies | Varies | Varies | Varies |
 | Local-only music library scan | Yes, explicit opt-in | N/A | N/A | N/A | N/A | N/A | N/A | N/A |
 | Restricted local music downloader | Yes, consent-gated and limited to approved YouTube single-video audio flows | N/A | N/A | N/A | N/A | N/A | N/A | N/A |
@@ -56,7 +61,12 @@ Additional notes for the comparison columns:
 * `Vivaldi` is shown with optional sync and limited first-party data processing because Vivaldi documents both optional encrypted sync and a browser privacy policy with limited browser-generated server messages.
 * `Browser-data import from other browsers` refers to browser features for importing bookmarks or related local browser data from another browser or exported file.
 * `Private or incognito session mode` refers to built-in private browsing modes intended to limit what is stored locally after the private session ends.
+* `Windows-native download protection stack` refers to whether the browser exposes a local download-validation path that can cooperate with normal Windows security layers instead of only using browser-level prompts.
+* `Runtime checks or local diagnostics view` refers to whether the browser exposes a user-facing diagnostics or inspection surface rather than only hidden internal pages or crash dialogs.
+* `Gaming or streaming-aware performance controls` is intentionally broad. It refers to browser behavior that reacts to heavier local sessions such as streaming, recording, or gaming pressure rather than acting only like a static tab-throttling model.
 * `Browser VPN or VPN integration feature` is intentionally broad. It includes built-in browser VPNs, first-party browser-integrated VPN partnerships, or local VPN-management features exposed by the browser itself.
+* `Split-view browsing built in` refers to a browser-exposed side-by-side browsing feature or comparable built-in tab tiling behavior.
+* `Built-in task or process manager` refers to a browser-exposed page, window, or tool that lets the user inspect browser tab or process activity directly.
 * Built-in content blocking can also affect page weight and resource usage on some sites, but direct RAM and CPU measurements belong in the dedicated performance test document rather than this privacy comparison.
 
 ## Local-First Behavior
