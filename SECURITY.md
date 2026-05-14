@@ -12,7 +12,7 @@ Security fixes are generally provided for the most recent stable release of the 
 
 | Version | Supported |
 | ------- | --------- |
-| **1.0.60** | Yes |
+| **1.0.61** | Yes |
 | Older versions | No |
 
 Users should run the latest available version of the browser to receive the newest security fixes and improvements.
@@ -103,7 +103,7 @@ The browser is developed with a reduced-surface approach that emphasizes:
 * main-process ownership of higher-risk operations such as downloader execution, performance-policy control, and update verification
 * verified HTTPS-based managed update checks with SHA-256 installer validation before launch
 
-Current security-sensitive design points in version `1.0.60` include:
+Current security-sensitive design points in version `1.0.61` include:
 
 * sandboxed renderer processes and strict preload IPC boundaries
 * isolated persistent streaming-service partitions for supported providers such as Disney+, Hulu, Max, Netflix, Paramount+, Prime Video, Apple TV+, AMC+, Peacock, Crunchyroll, YouTube TV, Sling TV, Pluto TV, The Roku Channel, Plex, Discovery+, ESPN+, MGM+, STARZ, and Tubi
@@ -112,6 +112,7 @@ Current security-sensitive design points in version `1.0.60` include:
 * streaming permission lockdown that denies camera, microphone, geolocation, notifications, MIDI, and clipboard-read access while allowing only safe playback-oriented cases
 * download blocking and file-access blocking inside isolated streaming sessions
 * popup abuse controls that restrict streaming login popups to one live popup per service with cooldown protection
+* Windows-native download protection using Windows Security Center detection, Windows Attachment Services handoff, Mark of the Web tagging, Authenticode checks, and Windows Defender fallback scanning
 * hardened Music Downloader execution limited to approved YouTube single-video audio flows with bundled-binary integrity verification
 * controlled YouTube URL normalization that accepts certain auto-added single-video watch-page radio parameters without enabling playlist or bulk download behavior
 * Windows-safe gaming and streaming optimization that avoids game hooking, code injection, kernel drivers, or anti-cheat interference
