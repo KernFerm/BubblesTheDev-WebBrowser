@@ -1,6 +1,67 @@
 # Changelog
 
-This changelog reconstructs the project history from version `0.0.24` through `1.0.50` using the repository's tagged compare data, release notes, versioned README changes, and current installer/update work.
+This changelog reconstructs the project history from version `0.0.24` through `1.0.60` using the repository's tagged compare data, release notes, versioned README changes, and current installer/update work.
+
+## 1.0.60
+
+### Updated
+
+- The package version was advanced to `1.0.60`.
+- Architecture, privacy, security, README, release, and comparison documentation were refreshed for `1.0.60`.
+- The browser now includes a dedicated Streaming Hub for isolated in-browser access to supported streaming services.
+- The `1.0.60` documentation set now consistently describes the current Streaming Hub behavior, Windows-native download protection path, and local-first privacy model.
+
+### Streaming Hub
+
+- Added a new Streaming Hub entry in the browser UI for Disney+, Hulu, Max, Netflix, Paramount+, Prime Video, Apple TV+, AMC+, Peacock, Crunchyroll, YouTube TV, Sling TV, Pluto TV, The Roku Channel, Plex, Discovery+, ESPN+, MGM+, STARZ, and Tubi.
+- Each supported streaming service now uses its own dedicated persistent Electron session partition instead of the shared default browser session.
+- Streaming tabs can now be reopened from the hub and their isolated service session can be cleared directly from the browser UI.
+
+### Security
+
+- Streaming views now run with hardened `webPreferences`, including `contextIsolation`, `sandbox`, disabled `nodeIntegration`, disabled `enableRemoteModule`, `webSecurity`, blocked insecure content, disabled spellcheck, and no normal browser preload bridge.
+- Streaming navigation is now locked to service-specific allowlists and blocks unsafe schemes such as `data:`, `file:`, `chrome:`, and `javascript:`.
+- Streaming sign-in popups now use dedicated hardened windows with one-popup-per-service enforcement and popup cooldown protection to reduce abuse.
+- Streaming sessions now deny downloads, deny file-scheme access, restrict permission requests to safe playback-oriented cases, and keep cookies or tokens out of renderer-visible APIs.
+- Renderer-to-main streaming IPC now uses an explicit allowlist with strict payload validation instead of arbitrary command handling.
+- `Bubbles Safe Browsing` was simplified from the earlier custom-list model into a Windows-native download protection stack.
+- Download protection now detects Windows-registered antivirus products through Windows Security Center and surfaces that status in Runtime Checks.
+- Download save and open flows now integrate with Windows Attachment Services (`IAttachmentExecute`) so Windows and the user's installed security stack can participate in validation before trust-sensitive file actions continue.
+- Downloaded files now receive Mark of the Web tagging alongside the existing Windows Defender, Authenticode, and heuristic protection chain.
+
+### Notes
+
+- Version `1.0.60` keeps the existing gaming and streaming performance manager, Music Downloader hardening, diagnostics tooling, passkey compatibility, and managed update flow.
+- Version `1.0.60` shifts the streaming story from performance-only tuning toward a privacy-first embedded streaming architecture with stronger session isolation and navigation controls.
+
+## 1.0.52
+
+### Updated
+
+- The package version was advanced to `1.0.52`.
+- Architecture, privacy, security, README, release, and release-note documentation were refreshed for `1.0.52`.
+- The Music Downloader URL validation was refined to better handle normal single-video YouTube watch-page links.
+
+### Music Downloader
+
+- Certain YouTube watch URLs that include auto-added radio parameters such as `list=RD<videoId>&start_radio=1` are now normalized back to the canonical single-video watch URL.
+- This keeps support focused on approved single-video audio downloads rather than enabling playlist or bulk-download behavior.
+- Playlist-only, channel, Shorts, livestream, malformed, and bulk-style URLs remain blocked.
+
+### Performance
+
+- The fresher performance-panel refresh behavior and stronger OBS fallback detection path from `1.0.50` remain in place.
+- The detector continues using broader OBS matching and more forgiving borderless-game heuristics from `1.0.49`.
+
+### Release
+
+- The `1.0.52` Windows installer package name is `BubblesTheDev Web Browser_Installer_1.0.52.exe`.
+- The installer SHA-256 is `TBD after final installer build`.
+
+### Notes
+
+- Version `1.0.52` keeps the Chrome-like first-launch managed update follow-up added in `1.0.48`.
+- Version `1.0.52` builds on the gaming and streaming optimization work introduced in `1.0.45` and the downloader hardening introduced in `1.0.37`.
 
 ## 1.0.50
 
