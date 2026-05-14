@@ -1,6 +1,29 @@
 # Changelog
 
-This changelog reconstructs the project history from version `0.0.24` through `1.0.60` using the repository's tagged compare data, release notes, versioned README changes, and current installer/update work.
+This changelog reconstructs the project history from version `0.0.24` through `1.0.61` using the repository's tagged compare data, release notes, versioned README changes, and current installer/update work.
+
+## 1.0.61
+
+### Updated
+
+- The package version was advanced to `1.0.61`.
+- Release, README, privacy, comparison, changelog, and architecture documentation were refreshed for `1.0.61`.
+- The browser's normal UI state pipeline was adjusted so everyday browser-state updates no longer rebuild full performance summaries every time.
+
+### Performance
+
+- Normal browser-state updates now send a lighter performance payload unless the user explicitly opens or refreshes the Performance panel.
+- App metrics and performance summaries now use short-lived caching so repeated tab, title, or audio-state updates do less background work.
+- The renderer now keeps the last detailed performance summary it already fetched instead of discarding it when lighter live state updates arrive.
+
+### Release
+
+- The `1.0.61` Windows installer package name is `BubblesTheDev Web Browser_Installer_1.0.61.exe`.
+- The installer SHA-256 is `0190C9C2856D3B2582012146CC17852DF00F2446F8BDE95E8469A7DDDDDFCEB5`.
+
+### Notes
+
+- Version `1.0.61` keeps the Streaming Hub, isolated streaming sessions, Windows-native download protection, AMC+ support, diagnostics tooling, and the hardened Music Downloader from `1.0.60`.
 
 ## 1.0.60
 
@@ -56,7 +79,7 @@ This changelog reconstructs the project history from version `0.0.24` through `1
 ### Release
 
 - The `1.0.52` Windows installer package name is `BubblesTheDev Web Browser_Installer_1.0.52.exe`.
-- The installer SHA-256 is `TBD after final installer build`.
+- The installer SHA-256 is `FEA78338816A1D0B9326A3CF9C42C5F4680137565AA69A0F057B9DCE96134590`.
 
 ### Notes
 
