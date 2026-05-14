@@ -1,6 +1,6 @@
 # Data Collection and Privacy Notice
 
-This notice reflects the current privacy posture of BubblesTheDev Web Browser version `1.0.49`.
+This notice reflects the current privacy posture of BubblesTheDev Web Browser version `1.0.60`.
 
 BubblesTheDev Web Browser is designed to keep browser data local to the user's device unless the user chooses to browse external websites, use external search providers, download files, export diagnostics manually, or use the managed update flow when the build is configured with an update server.
 
@@ -18,7 +18,7 @@ Specifically:
 
 Installer builds can optionally be configured with an owner-run update server. That managed-update flow is separate from telemetry and is limited to update-management fields, release metadata requests, and installer downloads, not browsing data.
 
-Version `1.0.49` includes the current browser behavior around local-first media handling, the hardened Music Downloader, Windows-safe gaming and streaming performance optimization, improved OBS and borderless-window session detection, adaptive detector sampling, trusted-source-aware download handling, passkey compatibility, external-drive install handling, and installer-managed automatic updates with a one-time first-launch follow-up check. Those behaviors do not add built-in telemetry or analytics collection to the browser.
+Version `1.0.60` includes the current browser behavior around the new Streaming Hub, isolated persistent streaming-service sessions, hardened streaming login popups, service-specific navigation allowlists, blocked downloads inside streaming views, local-first media handling, the hardened Music Downloader, Windows-safe gaming and streaming performance optimization, passkey compatibility, external-drive install handling, and installer-managed automatic updates with a one-time first-launch follow-up check. Those behaviors do not add built-in telemetry or analytics collection to the browser.
 
 ## Local Browser Data
 
@@ -37,11 +37,14 @@ Current persisted data includes:
 * bookmark bar visibility
 * selected shell theme
 * per-site permission settings
+* service-specific persistent streaming-session partitions for supported Streaming Hub providers
 * optional Music Player opt-in state and chosen folder
 * Music Downloader consent state, queue state, cooldown timing, abuse-lock timing, recent job history, and approved output folder
 * cached search results and suggestions used by the internal home/search page
 * install-linked path metadata used to track custom or external-drive installs and related local update preferences
 * first-launch managed update follow-up state used after install
+
+Current runtime-only state also includes transient Streaming Hub popup cooldown and window-tracking data held in memory while the browser is open.
 
 The persisted browser-state payload is compressed before being written to disk. When Electron safe storage is available, that payload is also protected with OS-backed encryption. If OS-backed protection is unavailable, the runtime can fall back to credential-backed AES-GCM protection when available. If neither protection path is available, the payload is still stored locally in compressed form.
 
@@ -121,6 +124,7 @@ This browser is not offline-only. Outbound network traffic still occurs when the
 
 * opens websites or web apps
 * signs into websites
+* signs into supported streaming services through the Streaming Hub
 * loads page assets such as images, scripts, fonts, and media
 * downloads files
 * uses external search engines directly
@@ -130,11 +134,15 @@ This browser is not offline-only. Outbound network traffic still occurs when the
 
 When the user performs a search from `bubbles://home`, the application may contact DuckDuckGo and Google endpoints to assemble results, related searches, and suggestions on that internal page.
 
-When the user downloads files, the browser may perform normal download-related handling such as trusted-source checks, protection-provider checks, destination selection, and local save operations. That behavior is separate from telemetry and is part of the browser's on-device download protection and file-handling flow.
+When the user downloads files, the browser may perform normal download-related handling such as trusted-source checks, Windows Security Center antivirus detection, Windows Attachment Services validation, Mark of the Web tagging, protection-provider checks, destination selection, and local save operations. That behavior is separate from telemetry and is part of the browser's on-device download protection and file-handling flow.
 
 When the user signs in with a passkey on a supported website, the authentication request is between the user, the operating system or authenticator, and that website's login flow. The browser's role is compatibility and secure-context support; it does not create a separate Bubbles-operated passkey cloud service.
 
 Saved-password capture and reveal flows are limited to secure contexts such as `https:` pages and local loopback development hosts. The browser does not intentionally offer those flows to arbitrary insecure pages.
+
+When the user signs into a supported streaming service through the Streaming Hub, that service still sees normal login traffic just as it would in another browser. The browser isolates each supported service into its own dedicated session partition, does not use the shared default session for those services, does not export their session data, and does not intentionally expose streaming cookies or tokens to renderer code.
+
+As of version `1.0.60`, the currently supported Streaming Hub services are Disney+, Hulu, Max, Netflix, Paramount+, Prime Video, Apple TV+, AMC+, Peacock, Crunchyroll, YouTube TV, Sling TV, Pluto TV, The Roku Channel, Plex, Discovery+, ESPN+, MGM+, STARZ, and Tubi.
 
 ## Music Player Privacy
 
@@ -151,6 +159,7 @@ The Music Downloader is also local-first and intentionally restricted.
 
 * It requires explicit responsible-use consent before downloads can be queued.
 * It accepts only supported YouTube single-video URLs and rejects playlists, channels, livestreams, Shorts, and bulk-style flows.
+* It can normalize certain auto-added YouTube radio/watch-page parameters back to the canonical single-video URL without enabling playlist downloads.
 * It uses bundled local binaries for download, probing, and conversion instead of cloud processing.
 * It stores queue, cooldown, and abuse-control state locally so those controls persist across restarts.
 * It processes media inside an isolated local temp directory before moving validated mp3 output into the approved download folder.
@@ -167,12 +176,14 @@ The privacy model is local-first:
 * install-linked path metadata for custom or external-drive installs stays on-device except for the limited managed-update fields described above
 * persisted browser state is compressed locally and protected when an available encryption path exists
 * diagnostics stay local unless the user exports them
+* supported streaming sessions stay isolated per service and can be cleared independently
 * music library access requires explicit consent before any scan begins
 * music downloader state, cooldown controls, and validated output handling stay on-device
-* gaming and streaming optimization logic, including OBS-aware throttling, improved borderless-game and streaming-session detection, and adaptive detector sampling, stays on-device
+* gaming and streaming optimization logic, including OBS-aware throttling, improved borderless-game and streaming-session detection, fresh local status sampling, and adaptive detector sampling, stays on-device
 * the new first-launch managed update follow-up remains limited to update-management behavior and does not turn the browser into a silent telemetry client
 * managed updates are limited to update-management fields, release metadata checks, and installer downloads
 * imported extensions require explicit user action, load without local file access, and may show extra warnings for higher-risk permission requests
+* download protection can consult Windows-registered antivirus status and use Windows-native attachment handling without sending browsing data to a Bubbles-operated cloud service
 * browsing, downloads, and built-in search still create normal traffic to the websites and providers the user chooses to use
 
 Any future feature that materially changes this privacy posture should be disclosed in updated privacy and release documentation.
