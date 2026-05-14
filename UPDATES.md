@@ -10,7 +10,7 @@ Project news and community update posts are shared in the official Discord serve
 
 ## Current Release
 
-- Version `1.0.60` is the current release.
+- Version `1.0.61` is the current release.
 - Older versions are not supported for current fixes and improvements.
 
 For the latest browser announcements, release posts, and community updates, check the Discord server above.
