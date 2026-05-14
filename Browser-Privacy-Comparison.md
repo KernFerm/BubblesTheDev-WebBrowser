@@ -2,7 +2,7 @@
 
 ## Browser Privacy Comparison
 
-This document reflects the current privacy posture of BubblesTheDev Web Browser version `1.0.49`.
+This document reflects the current privacy posture of BubblesTheDev Web Browser version `1.0.60`.
 
 The goal is accuracy, not marketing language. The browser does not implement built-in telemetry, analytics SDKs, cloud sync, a built-in silent auto-updater client, or automatic diagnostics upload. It does, however, make normal network requests when the user browses the web, uses built-in search features, uses supported site authentication flows such as passkeys, downloads files, or uses the managed update flow when the build is configured with an update server.
 
@@ -12,9 +12,9 @@ This document is focused on privacy behavior and high-level browser feature comp
 
 Related project documents cover adjacent topics:
 
-* [5-TAB-PERFORMANCE-TEST.md](/c:/Users/frost/OneDrive/Desktop/python-webbrowser/5-TAB-PERFORMANCE-TEST.md) covers measured RAM and CPU behavior for a real-world 5 tab test on Windows 11.
-* [Data-Collection-and-Privacy-Notice.md](/c:/Users/frost/OneDrive/Desktop/python-webbrowser/Data-Collection-and-Privacy-Notice.md) is the plain-language privacy notice for end users.
-* [ARCHITECTURE.md](/c:/Users/frost/OneDrive/Desktop/python-webbrowser/ARCHITECTURE.md) explains how local persistence, diagnostics, downloads, passkeys, background tab suspension, and gaming or streaming performance controls are implemented in the current runtime.
+* [5-TAB-PERFORMANCE-TEST.md](./5-TAB-PERFORMANCE-TEST.md) covers measured RAM and CPU behavior for a real-world 5 tab test on Windows 11.
+* [Data-Collection-and-Privacy-Notice.md](./Data-Collection-and-Privacy-Notice.md) is the plain-language privacy notice for end users.
+* [ARCHITECTURE.md](./ARCHITECTURE.md) explains how local persistence, diagnostics, downloads, passkeys, background tab suspension, streaming-session isolation, and gaming or streaming performance controls are implemented in the current runtime.
 
 Those documents should be read together:
 
@@ -41,6 +41,7 @@ This table is intentionally high-level. Mainstream browsers change over time, bu
 | Per-site permission controls | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
 | Ad and tracker filtering built in | Yes | Limited | Limited | Yes | Limited | Yes | Yes | Yes |
 | Private or incognito session mode | Yes, separate incognito session handling | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
+| Isolated in-browser streaming service sessions | Yes, for supported services with dedicated persistent partitions | No | No | No | No | No | No | No |
 | Search-provider requests from built-in home/search page | Yes, after user search on `bubbles://home` | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
 | Passkey and WebAuthn compatibility | Yes, through Chromium/Electron site support | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
 | Browser VPN or VPN integration feature | Local VPN manager, installed-client detection, and ProtonVPN WireGuard profile import | Not documented as a built-in browser VPN feature | Built-in Edge Secure Network VPN | Built-in paid Brave Firewall + VPN | Separate Mozilla VPN service and Firefox extension support | Not documented as a built-in browser VPN feature | Built-in Opera VPN | Built-in Proton VPN integration |
@@ -78,6 +79,7 @@ Current persisted data includes:
 * Music Downloader consent state, queue state, cooldown timing, abuse-lock timing, recent job history, and approved output folder
 * gaming and streaming performance settings, including stream-stability preferences
 * per-site permission settings
+* service-specific persistent streaming-session partitions for supported streaming services
 * cached search results and suggestions
 * install-linked path metadata used for custom or external-drive installs and local update preferences
 * first-launch managed update follow-up state used after install
@@ -118,9 +120,13 @@ This browser is not offline-only. Network traffic still occurs when the user doe
 
 The internal Bubbles search page can contact DuckDuckGo and Google endpoints to assemble results, related searches, and suggestions after the user performs a search.
 
-When the user downloads files, the browser may run trusted-source-aware download handling, local protection-provider checks, destination selection, and normal file save behavior. That is part of the local browser protection flow rather than any built-in analytics pipeline.
+When the user downloads files, the browser may run trusted-source-aware download handling, Windows Security Center antivirus detection, Windows Attachment Services validation, Mark of the Web tagging, local protection-provider checks, destination selection, and normal file save behavior. That is part of the local browser protection flow rather than any built-in analytics pipeline.
 
 When the user signs in with a passkey on a supported site, the authentication flow is between the website, Chromium/Electron, and the operating system or authenticator. The browser does not add a separate Bubbles-operated passkey cloud service.
+
+When the user signs into a supported streaming service through the Streaming Hub, the service still receives normal web login traffic, but each supported service stays inside its own dedicated persistent Electron partition rather than the shared default browsing session.
+
+As of version `1.0.60`, the supported services are Disney+, Hulu, Max, Netflix, Paramount+, Prime Video, Apple TV+, AMC+, Peacock, Crunchyroll, YouTube TV, Sling TV, Pluto TV, The Roku Channel, Plex, Discovery+, ESPN+, MGM+, STARZ, and Tubi.
 
 ## Music Player Privacy Model
 
@@ -138,6 +144,7 @@ The Music Downloader is local-first and intentionally constrained.
 
 * It requires explicit responsible-use consent before downloads can begin.
 * It is limited to supported YouTube single-video audio flows.
+* Certain YouTube watch-page radio parameters can be normalized back to the single canonical video URL instead of being treated like playlist support.
 * Queue state, cooldown timers, and abuse protection are enforced in the Electron main process and stored locally.
 * Download, probe, and conversion steps use bundled local binaries after integrity verification.
 * Media is processed in an isolated temp location before validated output is moved into the approved download folder.
@@ -152,9 +159,10 @@ Current characteristics:
 * `contextIsolation` enabled
 * `nodeIntegration` disabled in renderers
 * separate session handling for incognito windows
+* separate persistent session handling for supported streaming services
 * per-site permission prompts with allow, block, and ask-later behavior
 * ad and tracker request filtering with local counters
-* modular download protection using Windows Defender, Authenticode verification, and browser heuristics when available
+* modular download protection using Windows Security Center antivirus detection, Windows Attachment Services handoff, Mark of the Web tagging, Windows Defender, Authenticode verification, and browser heuristics when available
 * trusted-source-aware download handling intended to reduce unnecessary friction while keeping local protection checks active
 * no automatic diagnostics upload
 * no built-in analytics pipeline
@@ -189,8 +197,8 @@ BubblesTheDev Web Browser currently aims for a local-first privacy posture:
 * toolbar visibility, bookmark bar visibility, and the selected shell theme stay on-device
 * persisted state is compressed and protected locally
 * diagnostics stay local unless the user exports them
-* performance-related behaviors such as background tab sleeping, memory-pressure trimming, OBS-aware throttling, borderless-game detection, improved local session detection, and adaptive local detector sampling are local runtime features rather than telemetry or remote optimization systems
-* the more Chrome-like install and update feel in `1.0.49` still uses the same limited local update-preference and managed-release model rather than a silent telemetry-backed updater
+* performance-related behaviors such as background tab sleeping, memory-pressure trimming, OBS-aware throttling, borderless-game detection, improved local session detection, fresh local detector refreshes, and adaptive local detector sampling are local runtime features rather than telemetry or remote optimization systems
+* the isolated Streaming Hub in `1.0.60` adds service-specific session separation and popup hardening without changing the browser into a credential interceptor or telemetry client
 * music library access requires explicit consent before any scan begins
 * bookmark import and VPN profile scanning require explicit user consent before local file access begins
 * password save and reveal behavior is limited to secure contexts instead of arbitrary insecure pages
