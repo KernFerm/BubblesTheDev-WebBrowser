@@ -43,6 +43,11 @@ This table is intentionally high-level. Mainstream browsers change over time, bu
 | Windows-native download protection stack | Yes, with Windows Security Center detection, Attachment Services, Mark of the Web, Authenticode checks, and Windows Defender fallback scanning | Varies | Varies | Varies | Varies | Varies | Varies | Varies |
 | Private or incognito session mode | Yes, separate incognito session handling | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
 | Isolated in-browser streaming service sessions | Yes, for supported services with dedicated persistent partitions | No | No | No | No | No | No | No |
+| Supported built-in streaming hub or launcher | Yes, with a dedicated Streaming Hub for supported services | Varies | Varies | Varies | Varies | Varies | Varies | Varies |
+| Streaming sign-in popup hardening | Yes, with hardened popup windows, one-popup-per-service limits, and cooldown protection | Varies | Varies | Varies | Varies | Varies | Varies | Varies |
+| Streaming navigation allowlists | Yes, with per-service allowlists and unsafe-scheme blocking | No | No | No | No | No | No | No |
+| Streaming download blocking inside isolated sessions | Yes | No | No | No | No | No | No | No |
+| Per-service streaming session clearing | Yes | No | No | No | No | No | No | No |
 | Runtime checks or local diagnostics view | Yes, with Runtime Checks plus manual encrypted diagnostics export | Varies | Varies | Varies | Varies | Varies | Varies | Varies |
 | Search-provider requests from built-in home/search page | Yes, after user search on `bubbles://home` | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
 | Passkey and WebAuthn compatibility | Yes, through Chromium/Electron site support | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
@@ -61,6 +66,11 @@ Additional notes for the comparison columns:
 * `Vivaldi` is shown with optional sync and limited first-party data processing because Vivaldi documents both optional encrypted sync and a browser privacy policy with limited browser-generated server messages.
 * `Browser-data import from other browsers` refers to browser features for importing bookmarks or related local browser data from another browser or exported file.
 * `Private or incognito session mode` refers to built-in private browsing modes intended to limit what is stored locally after the private session ends.
+* `Supported built-in streaming hub or launcher` refers to whether the browser exposes a dedicated in-browser streaming surface for supported providers rather than treating streaming services only like normal tabs or bookmarks.
+* `Streaming sign-in popup hardening` refers to whether sign-in popups for supported streaming flows are restricted with dedicated popup handling, abuse controls, or tighter window settings.
+* `Streaming navigation allowlists` refers to whether supported streaming sessions are actively restricted to trusted service domains instead of behaving like unrestricted general web tabs.
+* `Streaming download blocking inside isolated sessions` refers to whether the browser intentionally denies normal download flows from those supported streaming sessions.
+* `Per-service streaming session clearing` refers to whether the browser can clear the isolated stored session data for one supported streaming provider without wiping the full default browser session.
 * `Windows-native download protection stack` refers to whether the browser exposes a local download-validation path that can cooperate with normal Windows security layers instead of only using browser-level prompts.
 * `Runtime checks or local diagnostics view` refers to whether the browser exposes a user-facing diagnostics or inspection surface rather than only hidden internal pages or crash dialogs.
 * `Gaming or streaming-aware performance controls` is intentionally broad. It refers to browser behavior that reacts to heavier local sessions such as streaming, recording, or gaming pressure rather than acting only like a static tab-throttling model.
