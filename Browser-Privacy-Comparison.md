@@ -2,7 +2,7 @@
 
 ## Browser Privacy Comparison
 
-This document reflects the current privacy posture of BubblesTheDev Web Browser version `1.0.61`.
+This document reflects the current privacy posture of BubblesTheDev Web Browser version `1.0.63`.
 
 The goal is accuracy, not marketing language. The browser does not implement built-in telemetry, analytics SDKs, cloud sync, a built-in silent auto-updater client, or automatic diagnostics upload. It does, however, make normal network requests when the user browses the web, uses built-in search features, uses supported site authentication flows such as passkeys, downloads files, or uses the managed update flow when the build is configured with an update server.
 
@@ -146,7 +146,7 @@ When the user signs in with a passkey on a supported site, the authentication fl
 
 When the user signs into a supported streaming service through the Streaming Hub, the service still receives normal web login traffic, but each supported service stays inside its own dedicated persistent Electron partition rather than the shared default browsing session.
 
-As of version `1.0.61`, the supported services are Disney+, Hulu, Max, Netflix, Paramount+, Prime Video, Apple TV+, AMC+, Peacock, Crunchyroll, YouTube TV, Sling TV, Pluto TV, The Roku Channel, Plex, Discovery+, ESPN+, MGM+, STARZ, and Tubi.
+As of version `1.0.63`, the supported services are Disney+, Hulu, Max, Netflix, Paramount+, Prime Video, Apple TV+, AMC+, Peacock, Crunchyroll, YouTube TV, Sling TV, Pluto TV, The Roku Channel, Plex, Discovery+, ESPN+, MGM+, STARZ, and Tubi.
 
 ## Music Player Privacy Model
 
@@ -218,8 +218,9 @@ BubblesTheDev Web Browser currently aims for a local-first privacy posture:
 * persisted state is compressed and protected locally
 * diagnostics stay local unless the user exports them
 * performance-related behaviors such as background tab sleeping, memory-pressure trimming, OBS-aware throttling, borderless-game detection, improved local session detection, fresh local detector refreshes, and adaptive local detector sampling are local runtime features rather than telemetry or remote optimization systems
-* the isolated Streaming Hub in `1.0.61` adds service-specific session separation and popup hardening without changing the browser into a credential interceptor or telemetry client
-* lighter performance-summary handling in `1.0.61` reduces repeated local metrics work during normal browsing without changing the browser's privacy posture
+* the isolated Streaming Hub in `1.0.63` adds service-specific session separation and popup hardening without changing the browser into a credential interceptor or telemetry client
+* lighter performance-summary handling in `1.0.63` reduces repeated local metrics work during normal browsing without changing the browser's privacy posture
+* the visible media memory saver and lighter cached Runtime Checks behavior in `1.0.63` lower local overhead further without changing the browser's privacy posture
 * music library access requires explicit consent before any scan begins
 * bookmark import and VPN profile scanning require explicit user consent before local file access begins
 * password save and reveal behavior is limited to secure contexts instead of arbitrary insecure pages
