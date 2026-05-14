@@ -2,7 +2,7 @@
 
 > A browser built for privacy, control, and a smoother everyday experience 🫧
 
-[![Version](https://img.shields.io/badge/version-1.0.61-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
+[![Version](https://img.shields.io/badge/version-1.0.63-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Platform](https://img.shields.io/badge/platform-Windows%2011-0078D6)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Electron](https://img.shields.io/badge/Electron-42-47848F?logo=electron&logoColor=white)](https://www.electronjs.org/)
 [![License](https://img.shields.io/badge/license-Proprietary-lightgrey)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/readme.md#license)
@@ -13,9 +13,9 @@ BubblesTheDev Web Browser is a Windows browser for people who want something fam
 
 It is designed to feel like a real daily browser, not just a stripped-down experiment. You still get tabs, bookmarks, saved passwords, downloads, a home page, streaming tools, privacy protections, and Windows-focused extras all in one place.
 
-Version `1.0.61` focuses on safer streaming sessions, stronger download protection, lighter background performance overhead, and a more polished Windows experience.
+Version `1.0.63` focuses on safer streaming sessions, stronger download protection, lighter background performance overhead, and a more polished Windows experience.
 
-## ✨ What's New In 1.0.61
+## ✨ What's New In 1.0.63
 
 - 🎬 New `Streaming Hub` with isolated sessions for supported streaming services
 - 🔒 Hardened streaming sign-in popups, stricter service allowlists, and blocked downloads inside streaming sessions
@@ -24,6 +24,8 @@ Version `1.0.61` focuses on safer streaming sessions, stronger download protecti
 - 📥 Chrome-like risky download review flow with keep, discard, and protected open behavior
 - 🚀 Lower idle CPU and memory overhead by avoiding full performance-summary rebuilds during normal browser-state updates
 - 🧠 Short-lived app-metrics caching so the browser does less repeated background work while tabs are updating
+- 🎞️ Added `Visible Media Memory Saver` for heavy visible media tabs
+- 📋 Made `Runtime Checks` and standard Performance panel opens reuse cached values more aggressively
 
 ## ❤️ Why People May Like It
 
@@ -99,7 +101,7 @@ That means:
 - downloads are blocked inside streaming sessions
 - service sessions can be cleared individually
 
-Supported services in `1.0.61`:
+Supported services in `1.0.63`:
 
 - Disney+
 - Hulu
@@ -197,11 +199,11 @@ If your PC already has antivirus installed, the browser can work more naturally 
 
 Installer file name:
 
-`BubblesTheDev Web Browser_Installer_1.0.61.exe`
+`BubblesTheDev Web Browser_Installer_1.0.63.exe`
 
 SHA256:
 
-`0190C9C2856D3B2582012146CC17852DF00F2446F8BDE95E8469A7DDDDDFCEB5`
+`TBD after final installer build`
 
 Platform:
 
@@ -214,7 +216,7 @@ Platform:
 ## 🚀 How To Install
 
 1. Download the latest installer.
-2. Run `BubblesTheDev Web Browser_Installer_1.0.61.exe`.
+2. Run `BubblesTheDev Web Browser_Installer_1.0.63.exe`.
 3. Choose where you want to install it.
 4. Finish setup and launch the browser.
 
