@@ -12,7 +12,7 @@ Security fixes are generally provided for the most recent stable release of the 
 
 | Version | Supported |
 | ------- | --------- |
-| **1.0.50** | Yes |
+| **1.0.60** | Yes |
 | Older versions | No |
 
 Users should run the latest available version of the browser to receive the newest security fixes and improvements.
@@ -99,6 +99,24 @@ The browser is developed with a reduced-surface approach that emphasizes:
 * no built-in telemetry frameworks
 * local-first data storage
 * reliance on Chromium sandboxing and process isolation where applicable
+* strict renderer isolation with `contextIsolation` enabled and `nodeIntegration` disabled
+* main-process ownership of higher-risk operations such as downloader execution, performance-policy control, and update verification
+* verified HTTPS-based managed update checks with SHA-256 installer validation before launch
+
+Current security-sensitive design points in version `1.0.60` include:
+
+* sandboxed renderer processes and strict preload IPC boundaries
+* isolated persistent streaming-service partitions for supported providers such as Disney+, Hulu, Max, Netflix, Paramount+, Prime Video, Apple TV+, AMC+, Peacock, Crunchyroll, YouTube TV, Sling TV, Pluto TV, The Roku Channel, Plex, Discovery+, ESPN+, MGM+, STARZ, and Tubi
+* hardened streaming BrowserView and popup windows using `contextIsolation`, `sandbox`, disabled `nodeIntegration`, disabled `enableRemoteModule`, blocked insecure content, and no general-purpose preload bridge
+* per-service navigation allowlists that block untrusted redirects and unsafe schemes such as `data:`, `file:`, `chrome:`, and `javascript:`
+* streaming permission lockdown that denies camera, microphone, geolocation, notifications, MIDI, and clipboard-read access while allowing only safe playback-oriented cases
+* download blocking and file-access blocking inside isolated streaming sessions
+* popup abuse controls that restrict streaming login popups to one live popup per service with cooldown protection
+* hardened Music Downloader execution limited to approved YouTube single-video audio flows with bundled-binary integrity verification
+* controlled YouTube URL normalization that accepts certain auto-added single-video watch-page radio parameters without enabling playlist or bulk download behavior
+* Windows-safe gaming and streaming optimization that avoids game hooking, code injection, kernel drivers, or anti-cheat interference
+* local-only diagnostics generation and encrypted diagnostics export
+* imported extension safeguards, secure-context password handling, and trusted-source-aware download checks
 
 This approach helps limit unnecessary network activity and reduces avoidable attack surface.
 
