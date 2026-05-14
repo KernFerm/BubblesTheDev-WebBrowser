@@ -4,7 +4,7 @@
 
 This document explains the high-level architecture of BubblesTheDev Web Browser and how the main runtime pieces interact.
 
-Current release documentation target: version `1.0.60`.
+Current release documentation target: version `1.0.61`.
 
 ## Design Goals
 
@@ -66,7 +66,7 @@ This keeps the browser UI separated from tab content while still allowing site-c
 
 ## Streaming Hub Architecture
 
-Version `1.0.60` adds a Streaming Hub that opens supported streaming services inside isolated BrowserView tabs rather than the shared default browser session.
+Version `1.0.61` includes a Streaming Hub that opens supported streaming services inside isolated BrowserView tabs rather than the shared default browser session.
 
 Supported services currently include:
 
@@ -223,7 +223,7 @@ The browser shell also exposes a runtime checks panel backed by the same diagnos
 
 ### Gaming and streaming performance manager
 
-Version `1.0.60` includes the current Windows-focused performance manager implemented in the main process and exposed to the browser UI through strict preload IPC.
+Version `1.0.61` includes the current Windows-focused performance manager implemented in the main process and exposed to the browser UI through strict preload IPC.
 
 The performance layer currently uses:
 
@@ -236,6 +236,8 @@ The performance layer currently uses:
 * adaptive detector sampling that reduces heavy polling while gaming is already detected
 * broader OBS process matching, more reliable process discovery, and more forgiving borderless-window heuristics so real gameplay sessions are less likely to be missed
 * fresh on-demand detector sampling when the user opens or refreshes the Performance panel, plus a stronger OBS fallback path when the heavier probe is unreliable
+* lighter default browser-state payloads so the renderer does not rebuild full performance summaries during normal tab updates unless the user explicitly requests the detailed panel state
+* short-lived app-metrics and performance-summary caching to reduce repeated CPU and memory overhead from normal browser shell updates
 
 That logic is intentionally local-only and anti-cheat-friendly. It does not inject into games, hook anti-cheat systems, modify protected processes, or rely on kernel drivers.
 
@@ -299,11 +301,11 @@ Inactive BrowserView tabs already use background throttling. The runtime also ad
 
 This is especially relevant on streaming-heavy sites because the memory guard and tab suspension logic are intended to reduce overall working-set growth without changing the core BrowserView tab model.
 
-In version `1.0.60`, those safeguards still integrate with the gaming and streaming performance manager so suspension thresholds, hidden-tab rendering cadence, background browser FPS behavior, stream-stability controls, and adaptive detector sampling can respond more cleanly during heavier sessions.
+In version `1.0.61`, those safeguards still integrate with the gaming and streaming performance manager so suspension thresholds, hidden-tab rendering cadence, background browser FPS behavior, stream-stability controls, adaptive detector sampling, and lighter summary generation can respond more cleanly during heavier sessions.
 
 ### Managed update follow-up behavior
 
-Version `1.0.60` also documents the current managed-update flow more clearly.
+Version `1.0.61` also documents the current managed-update flow more clearly.
 
 Installed builds can now use:
 
