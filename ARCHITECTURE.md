@@ -4,7 +4,7 @@
 
 This document explains the high-level architecture of BubblesTheDev Web Browser and how the main runtime pieces interact.
 
-Current release documentation target: version `1.0.49`.
+Current release documentation target: version `1.0.60`.
 
 ## Design Goals
 
@@ -44,6 +44,7 @@ The main process lives in `browser-runtime.js` and is responsible for:
 * split-view shell state, toolbar visibility state, bookmark bar state, theme state, and site permission policy state
 * background tab suspension under memory pressure
 * adaptive gaming and streaming performance management for Windows
+* isolated Streaming Hub session management for supported streaming services
 * trusted-source-aware download handling and local protection-provider checks
 * site-compatible passkey and WebAuthn browser behavior
 * installer-managed automatic-update registration, install-path tracking, update-server check-in, first-launch follow-up verification, and managed release checks
@@ -59,8 +60,49 @@ Additional helper windows are opened as separate BrowserWindow instances for foc
 * Music Player
 * Music Downloader
 * popup login windows when required by site auth flows
+* hardened streaming sign-in popup windows for supported streaming services
 
 This keeps the browser UI separated from tab content while still allowing site-compatible popup behavior.
+
+## Streaming Hub Architecture
+
+Version `1.0.60` adds a Streaming Hub that opens supported streaming services inside isolated BrowserView tabs rather than the shared default browser session.
+
+Supported services currently include:
+
+* Disney+ using `persist:stream_disney`
+* Hulu using `persist:stream_hulu`
+* Max using `persist:stream_max`
+* Netflix using `persist:stream_netflix`
+* Paramount+ using `persist:stream_paramount`
+* Prime Video using `persist:stream_prime`
+* Apple TV+ using `persist:stream_appletv`
+* AMC+ using `persist:stream_amcplus`
+* Peacock using `persist:stream_peacock`
+* Crunchyroll using `persist:stream_crunchyroll`
+* YouTube TV using `persist:stream_youtubetv`
+* Sling TV using `persist:stream_slingtv`
+* Pluto TV using `persist:stream_plutotv`
+* The Roku Channel using `persist:stream_rokuchannel`
+* Plex using `persist:stream_plex`
+* Discovery+ using `persist:stream_discovery`
+* ESPN+ using `persist:stream_espn`
+* MGM+ using `persist:stream_mgm`
+* STARZ using `persist:stream_starz`
+* Tubi using `persist:stream_tubi`
+
+The streaming architecture currently uses:
+
+* dedicated persistent Electron partitions per service
+* hardened BrowserView `webPreferences` with `contextIsolation`, `sandbox`, disabled `nodeIntegration`, disabled `enableRemoteModule`, `webSecurity`, blocked insecure content, and disabled spellcheck
+* no general-purpose browser preload bridge inside streaming tabs
+* per-service navigation allowlists enforced in the main process
+* hardened popup login windows with one-popup-per-service enforcement and cooldown protection
+* blocked downloads and blocked file-scheme access inside isolated streaming sessions
+* strict permission handling that allows only safe playback-oriented cases
+* validated IPC handlers for opening a streaming service and clearing its isolated session data
+
+The Streaming Hub is intentionally designed as an isolated browser feature, not as a credential interception layer, proxy login system, or session extractor.
 
 ## Browser Navigation Model
 
@@ -112,6 +154,7 @@ Current persisted fields include:
 * toolbar visibility
 * bookmark bar visibility
 * selected shell theme
+* service-specific persistent streaming-session partitions for supported Streaming Hub providers
 * cached internal search results and suggestions for the Bubbles home/search page
 
 Separate from the main browser-state store, installer builds can also use `%APPDATA%\BubblesTheDev Web Browser\update-preferences.ini` to record installer-managed update metadata such as:
@@ -180,7 +223,7 @@ The browser shell also exposes a runtime checks panel backed by the same diagnos
 
 ### Gaming and streaming performance manager
 
-Version `1.0.49` includes the current Windows-focused performance manager implemented in the main process and exposed to the browser UI through strict preload IPC.
+Version `1.0.60` includes the current Windows-focused performance manager implemented in the main process and exposed to the browser UI through strict preload IPC.
 
 The performance layer currently uses:
 
@@ -192,6 +235,7 @@ The performance layer currently uses:
 * stream-stability prioritization that backs the browser off more aggressively when OBS or Streamlabs is active during a gaming session
 * adaptive detector sampling that reduces heavy polling while gaming is already detected
 * broader OBS process matching, more reliable process discovery, and more forgiving borderless-window heuristics so real gameplay sessions are less likely to be missed
+* fresh on-demand detector sampling when the user opens or refreshes the Performance panel, plus a stronger OBS fallback path when the heavier probe is unreliable
 
 That logic is intentionally local-only and anti-cheat-friendly. It does not inject into games, hook anti-cheat systems, modify protected processes, or rely on kernel drivers.
 
@@ -206,6 +250,7 @@ The downloader architecture currently includes:
 * `services/binaryManager.js` for bundled binary existence checks and SHA-256 integrity verification
 * `utils/validateUrl.js`, `utils/sanitizeFilename.js`, `utils/rateLimiter.js`, and `utils/securityGuard.js` for input validation and abuse controls
 * isolated temp-directory processing with final output validation before files are moved into the approved download folder
+* normalization support for certain YouTube watch-page radio parameters such as `list=RD<videoId>&start_radio=1` when they still point to a single approved video URL
 
 The downloader remains intentionally restricted to approved YouTube single-video audio downloads and does not expose arbitrary command execution or renderer-side filesystem access.
 
@@ -213,6 +258,9 @@ The downloader remains intentionally restricted to approved YouTube single-video
 
 Download protection runs through a modular provider chain. The current Windows path combines:
 
+* Windows Security Center antivirus detection so the browser can see which registered antivirus products are present on the device
+* Windows Attachment Services (`IAttachmentExecute`) save and execute handoff for downloaded files
+* Mark of the Web tagging for downloaded files so Windows and other security tools can treat them as internet-origin files
 * Windows Defender CLI scanning when available
 * Authenticode signature verification for executable or script-like file types
 * browser-side heuristics and protected open-file gating
@@ -220,6 +268,8 @@ Download protection runs through a modular provider chain. The current Windows p
 The providers run independently so one unavailable provider does not disable the entire protection flow.
 
 On top of that protection chain, the runtime also supports user-facing download flows that aim to reduce unnecessary friction for trusted sources such as GitHub while keeping the browser's local protection checks in place.
+
+For executable downloads opened from the browser's Downloads UI, the current runtime first attempts a Windows Attachment Services execution handoff before falling back to the normal shell open path. That design is intended to let the user's registered Windows security stack participate in file-execution checks without requiring vendor-specific antivirus integrations in the browser itself.
 
 ### Context menus
 
@@ -249,11 +299,11 @@ Inactive BrowserView tabs already use background throttling. The runtime also ad
 
 This is especially relevant on streaming-heavy sites because the memory guard and tab suspension logic are intended to reduce overall working-set growth without changing the core BrowserView tab model.
 
-In version `1.0.49`, those safeguards also integrate with the gaming and streaming performance manager so suspension thresholds, hidden-tab rendering cadence, background browser FPS behavior, stream-stability controls, and adaptive detector sampling can respond more cleanly during heavier sessions.
+In version `1.0.60`, those safeguards still integrate with the gaming and streaming performance manager so suspension thresholds, hidden-tab rendering cadence, background browser FPS behavior, stream-stability controls, and adaptive detector sampling can respond more cleanly during heavier sessions.
 
 ### Managed update follow-up behavior
 
-Version `1.0.49` also documents the current managed-update flow more clearly.
+Version `1.0.60` also documents the current managed-update flow more clearly.
 
 Installed builds can now use:
 
@@ -286,6 +336,7 @@ Security-sensitive defaults include:
 * isolated roles for browser, downloads, task manager, Bubbles page, and Music Player IPC
 * main-process-only performance detection and policy control with renderer access limited to read and settings-update IPC
 * main-process-only downloader execution with bundled-binary verification and strict YouTube-only validation
+* Windows-native download protection wiring through Windows Security Center detection, Attachment Services handoff, Mark of the Web tagging, Authenticode checks, and Windows Defender fallback scanning
 * managed updates restricted to verified HTTPS releases with SHA-256 installer validation
 * password save and reveal flows restricted to secure contexts
 * imported extensions loaded without local file access and reviewed for high-risk permissions
@@ -293,4 +344,4 @@ Security-sensitive defaults include:
 
 ## Summary
 
-The application is a BrowserWindow plus BrowserView desktop browser with a local internal home page, local persistence, request filtering, helper windows, modern Chromium-style shell menus, managed automatic updates with first-launch follow-up verification, adaptive gaming and streaming performance controls, and optional local media features. The runtime keeps browser data on-device while still supporting normal web traffic, trusted-download handling, external-drive install flows, controlled local media processing, and modern site login behavior such as passkeys.
+The application is a BrowserWindow plus BrowserView desktop browser with a local internal home page, local persistence, request filtering, helper windows, modern Chromium-style shell menus, managed automatic updates with first-launch follow-up verification, adaptive gaming and streaming performance controls, isolated streaming-service sessions for supported providers, and optional local media features. The runtime keeps browser data on-device while still supporting normal web traffic, trusted-download handling, external-drive install flows, controlled local media processing, privacy-first embedded streaming sessions, and modern site login behavior such as passkeys.
