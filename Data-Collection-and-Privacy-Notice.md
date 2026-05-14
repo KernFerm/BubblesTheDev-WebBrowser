@@ -1,6 +1,6 @@
 # Data Collection and Privacy Notice
 
-This notice reflects the current privacy posture of BubblesTheDev Web Browser version `1.0.61`.
+This notice reflects the current privacy posture of BubblesTheDev Web Browser version `1.0.63`.
 
 BubblesTheDev Web Browser is designed to keep browser data local to the user's device unless the user chooses to browse external websites, use external search providers, download files, export diagnostics manually, or use the managed update flow when the build is configured with an update server.
 
@@ -18,7 +18,7 @@ Specifically:
 
 Installer builds can optionally be configured with an owner-run update server. That managed-update flow is separate from telemetry and is limited to update-management fields, release metadata requests, and installer downloads, not browsing data.
 
-Version `1.0.61` includes the current browser behavior around the Streaming Hub, isolated persistent streaming-service sessions, hardened streaming login popups, service-specific navigation allowlists, blocked downloads inside streaming views, local-first media handling, the hardened Music Downloader, Windows-safe gaming and streaming performance optimization, lighter performance-summary handling during normal browser-state updates, passkey compatibility, external-drive install handling, and installer-managed automatic updates with a one-time first-launch follow-up check. Those behaviors do not add built-in telemetry or analytics collection to the browser.
+Version `1.0.63` includes the current browser behavior around the Streaming Hub, isolated persistent streaming-service sessions, hardened streaming login popups, service-specific navigation allowlists, blocked downloads inside streaming views, local-first media handling, the hardened Music Downloader, Windows-safe gaming and streaming performance optimization, lighter performance-summary handling during normal browser-state updates, the visible media memory saver path for heavy tabs, lighter cached Runtime Checks behavior, passkey compatibility, external-drive install handling, and installer-managed automatic updates with a one-time first-launch follow-up check. Those behaviors do not add built-in telemetry or analytics collection to the browser.
 
 ## Local Browser Data
 
@@ -142,7 +142,7 @@ Saved-password capture and reveal flows are limited to secure contexts such as `
 
 When the user signs into a supported streaming service through the Streaming Hub, that service still sees normal login traffic just as it would in another browser. The browser isolates each supported service into its own dedicated session partition, does not use the shared default session for those services, does not export their session data, and does not intentionally expose streaming cookies or tokens to renderer code.
 
-As of version `1.0.61`, the currently supported Streaming Hub services are Disney+, Hulu, Max, Netflix, Paramount+, Prime Video, Apple TV+, AMC+, Peacock, Crunchyroll, YouTube TV, Sling TV, Pluto TV, The Roku Channel, Plex, Discovery+, ESPN+, MGM+, STARZ, and Tubi.
+As of version `1.0.63`, the currently supported Streaming Hub services are Disney+, Hulu, Max, Netflix, Paramount+, Prime Video, Apple TV+, AMC+, Peacock, Crunchyroll, YouTube TV, Sling TV, Pluto TV, The Roku Channel, Plex, Discovery+, ESPN+, MGM+, STARZ, and Tubi.
 
 ## Music Player Privacy
 
