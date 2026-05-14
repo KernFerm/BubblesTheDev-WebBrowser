@@ -203,7 +203,7 @@ Installer file name:
 
 SHA256:
 
-`TBD after final installer build`
+`146A9311DDBA8B111A639335784FA3FE187702C742A024D211F1ED01B3ADD8E7`
 
 Platform:
 
