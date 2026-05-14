@@ -1,251 +1,313 @@
-> **If you enjoy the project, starring the repo helps a lot.**
-> **Built around privacy, user control, and a better everyday browsing experience.**
-
 # BubblesTheDev Web Browser
 
-[![Version](https://img.shields.io/badge/version-1.0.50-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
+> A browser built for privacy, control, and a smoother everyday experience 🫧
+
+[![Version](https://img.shields.io/badge/version-1.0.60-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Platform](https://img.shields.io/badge/platform-Windows%2011-0078D6)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Electron](https://img.shields.io/badge/Electron-42-47848F?logo=electron&logoColor=white)](https://www.electronjs.org/)
 [![License](https://img.shields.io/badge/license-Proprietary-lightgrey)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/readme.md#license)
 
-## Installer Package - Version 1.0.50
+## 🌐 What Is It?
 
-A Windows web browser built for people who want everyday browsing features, strong privacy defaults, and more control over their browser data.
+BubblesTheDev Web Browser is a Windows browser for people who want something familiar, useful, and more privacy-friendly without giving up everyday features.
+
+It is designed to feel like a real daily browser, not just a stripped-down experiment. You still get tabs, bookmarks, saved passwords, downloads, a home page, streaming tools, privacy protections, and Windows-focused extras all in one place.
+
+Version `1.0.60` focuses on safer streaming sessions, stronger download protection, and a more polished Windows experience.
+
+## ✨ What's New In 1.0.60
+
+- 🎬 New `Streaming Hub` with isolated sessions for supported streaming services
+- 🔒 Hardened streaming sign-in popups, stricter service allowlists, and blocked downloads inside streaming sessions
+- 🛡️ `Bubbles Safe Browsing` now uses a Windows-native download protection stack
+- 🧪 Added Windows Security Center antivirus detection and Windows Attachment Services handoff for downloads
+- 📥 Chrome-like risky download review flow with keep, discard, and protected open behavior
+
+## ❤️ Why People May Like It
+
+- 🧭 Easy everyday browsing with tabs, bookmarks, history, and a built-in home page
+- 🔐 Privacy-first design with local data handling
+- 🚫 Built-in ad and tracker blocking
+- 📥 Extra download protection before opening risky files
+- 🕶️ Incognito support
+- 🧩 Extension import support
+- 🔑 Saved password vault and passkey support
+- 🖥️ Split view and built-in Task Manager
+- 🎨 Multiple themes
+- 🌍 VPN tools and public IP checking
+
+## 🧰 Main Browser Features
+
+Here's a fuller look at what the browser includes:
+
+### 🧭 Everyday Browsing
+
+- multi-tab browsing
+- back, forward, refresh, and home controls
+- built-in `bubbles://home` start page
+- address bar with direct website navigation
+- browsing history
+- bookmarks and bookmark bar
+- pinned tabs
+- tab mute controls
+- open links in new tabs or new windows
+- full-screen browsing
+
+### 🔎 Search And Home Page
+
+- built-in Bubbles home page
+- Bubbles search experience inside the browser
+- DuckDuckGo-backed and Google-backed search results
+- search suggestions and result helpers
+- local home-page counters and browser stats
+
+### 🔐 Privacy And Security
+
+- local-first browser data storage
+- no built-in telemetry or analytics
+- incognito browsing support
+- built-in ad and tracker blocking
+- download protection with `Bubbles Safe Browsing`
+- Windows-friendly security checks for downloads
+- password vault with encrypted saved passwords
+- strong password generation
+- passkey support for compatible websites
+- per-site permission controls
+
+### 📥 Download Protection
+
+- download history window
+- risky download warnings
+- trusted-source-aware download handling
+- Windows Attachment Services integration
+- Mark of the Web tagging
+- Windows Defender support when available
+- digital signature checks for relevant file types
+- keep, review, open, and discard flows for downloads
+
+### 🎬 Streaming Hub
+
+The `Streaming Hub` gives supported streaming services their own isolated space inside the browser.
+
+That means:
+
+- each service stays in its own separate session
+- sign-in popups are more locked down
+- unsafe redirects are blocked more aggressively
+- downloads are blocked inside streaming sessions
+- service sessions can be cleared individually
+
+Supported services in `1.0.60`:
+
+- Disney+
+- Hulu
+- Max
+- Netflix
+- Paramount+
+- Prime Video
+- Apple TV+
+- AMC+
+- Peacock
+- Crunchyroll
+- YouTube TV
+- Sling TV
+- Pluto TV
+- The Roku Channel
+- Plex
+- Discovery+
+- ESPN+
+- MGM+
+- STARZ
+- Tubi
+
+This feature is designed to make streaming cleaner and safer. It is not a credential grabber, proxy login tool, or session extractor.
+
+### 🖥️ Power Features
+
+- split-view browsing
+- built-in Task Manager
+- runtime checks panel
+- diagnostics export
+- multiple built-in themes
+- hideable toolbar
+- bookmark bar toggle
+- context menus for pages and tabs
+
+### 🎮 Performance Features
+
+- gaming and streaming performance mode
+- Windows-focused system detection
+- background tab throttling
+- sleeping tabs under memory pressure
+- stream-stability controls
+- reduced background browser activity during heavy sessions
+
+### 🎵 Media Features
+
+#### 🎧 Music Player
+
+- local-only music playback
+- off by default
+- folder scan only after user consent
+- works with a local Music folder or another folder you choose
+
+#### 🎶 Music Downloader
+
+- approved YouTube single-video audio downloads only
+- local processing with bundled tools
+- queue limits and cooldowns
+- abuse protections
+- local-only state storage
+
+### 🌍 VPN And Network Tools
+
+- installed VPN client detection
+- support for NordVPN, ExpressVPN, ProtonVPN, and WireGuard detection
+- ProtonVPN WireGuard `.conf` import support
+- public IPv4 and IPv6 checking
+- quick launch support for supported installed VPN apps
+
+### 🧩 Extra Browser Tools
+
+- extension import support
+- downloads window
+- diagnostics report export
+- site permission management
+- browser update checking from the app menu
+
+## 🛡️ Bubbles Safe Browsing
+
+`Bubbles Safe Browsing` is the browser's download protection system.
+
+It helps make downloads safer by using Windows-friendly protection layers like:
+
+- Windows Attachment Services
+- Mark of the Web
+- Windows Defender when available
+- digital signature checks
+- browser safety warnings before opening risky files
+
+If your PC already has antivirus installed, the browser can work more naturally with the Windows security path already on that system.
+
+## 📦 Installer Info
 
 Installer file name:
 
-`BubblesTheDev Web Browser_Installer_1.0.50.exe`
+`BubblesTheDev Web Browser_Installer_1.0.60.exe`
 
 SHA256:
 
-`6F3A996A5230E6C434D41134FE5BEA85C42E7C831B6513206C2A257DA44AC33D`
+`FEA78338816A1D0B9326A3CF9C42C5F4680137565AA69A0F057B9DCE96134590`
 
-Author: `BubblesTheDev`  
-Platform: `Windows 11 (x64)`  
-Engine: `Electron 42` / Chromium
+Platform:
 
-## Documentation
+`Windows 11 x64`
 
-- [Browser-Privacy-Comparison](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/Browser-Privacy-Comparison.md)
-- [Data-Collection-and-Privacy-Notice](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/Data-Collection-and-Privacy-Notice.md)
-- [Architecture](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/ARCHITECTURE.md)
-- [Changelog](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/CHANGELOG.md)
-- [Security](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/SECURITY.md)
+## ⬇️ Download
 
-## Overview
+- [Download the latest release](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 
-Version `1.0.50` continues the gaming and streaming performance optimization work so the browser can reduce unnecessary load when OBS Studio, Streamlabs Desktop, fullscreen games, borderless-windowed games, or heavy system load are detected, while also improving live detection refresh behavior and keeping the managed install and update improvements from `1.0.48`.
+## 🚀 How To Install
 
-- Intelligent gaming and streaming optimization mode with Windows-safe local detection
-- Adaptive background throttling, tab sleeping, and lower hidden-tab rendering pressure
-- Lightweight performance panel with status visibility and user controls
-- Fresher performance-panel refresh behavior with a real detection sample on open or refresh
-- Improved OBS and borderless-game detection reliability for performance mode
-- Chrome-like first-launch update follow-up after install for managed-update builds
-- Hardened Music Downloader with queueing, cooldowns, abuse controls, and responsible-use consent
-- Bundled binary integrity verification for `yt-dlp`, `ffmpeg`, and `ffprobe`
-- Trusted-source-aware download handling remains in place
-- Passkey sign-in support for compatible websites remains available
-- Custom install-path tracking and external-drive install support remain included
-- Privacy-focused local data handling and uninstall controls remain included
-
-## Top Features
-
-- Multi-tab browsing
-- One address bar for websites and search
-- Ad and tracker blocking
-- Passkey sign-in support for compatible websites
-- Bookmark bar and bookmark import
-- Multiple muted shell themes
-- Encrypted saved-password vault
-- Chromium extension import
-- VPN manager and public IPv4/IPv6 session checks
-- Split-view browsing
-- Incognito windows
-- Safer downloads from trusted sources
-- Hardened Music Downloader for supported YouTube single-video audio downloads
-- Sleeping background tabs to help save memory
-- Gaming and streaming performance mode for OBS, Streamlabs, and fullscreen sessions
-- Local-only Music Player
-- Modern right-click page menu and tab context menu
-
-## More Features
-
-- Toolbar hide/show controls with quick-access menu
-- Built-in home page at `bubbles://home`
-- Search results powered with DuckDuckGo and Google sources
-- Strong password generation
-- History tracking
-- Per-site permissions
-- Print support
-- Save Page As support
-- Built-in Task Manager
-- Custom homepage support
-- Diagnostics export and runtime checks
-- Manual `Check for Updates`
-- Downloads window and progress tracking
-- Tab pinning and mute controls
-- Move tabs to a new window more easily
-
-## How To Get The Browser
-
-- [**DOWNLOAD** Click here to get the latest version of the browser](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
-
-## Installation
-
-1. Run:
-
-   ```text
-   BubblesTheDev Web Browser_Installer_1.0.50.exe
-   ```
-
-2. Choose where you want to install the browser.
-3. Finish setup and launch the browser.
+1. Download the latest installer.
+2. Run `BubblesTheDev Web Browser_Installer_1.0.60.exe`.
+3. Choose where you want to install it.
+4. Finish setup and launch the browser.
 
 The installer supports:
 
-- Default install locations
-- Custom install locations
-- External HDD installs
-- External SSD installs
+- normal installs
+- custom install locations
+- external HDD installs
+- external SSD installs
 - USB flash-drive installs
 
-If you install the browser on an external drive instead of `C:`, install-linked browser data can automatically move to that external drive as part of setup.
+## 🔄 Updating
 
-Installed builds continue to support the managed update path when updates are enabled for the build.
+The browser does not silently patch itself in the background.
 
-## Upgrading From An Older Version
+Instead:
 
-If an older version is already installed and you are upgrading manually:
+- updates still use a normal installer
+- you can use `Check for Updates` from the app menu
+- fresh installs can do a one-time follow-up update check for a smoother setup experience
 
-1. Close `BubblesTheDev Web Browser`.
-2. Open `Start > Settings > Apps > Installed apps`.
-3. Find `BubblesTheDev Web Browser`.
-4. Click the `...` menu and choose `Uninstall`.
-5. Choose which local data categories should be removed or kept.
-6. Run the new installer after uninstall finishes.
+If you are updating manually, uninstall the older version first, then run the new installer.
 
-If you use the built-in update flow, the browser can still download and launch the newer installer for you.
+## 🧹 Uninstall
 
-## Updates
+When uninstalling, you can choose what local data to keep or remove.
 
-Managed updates still use a normal installer flow rather than a silent background patch.
+Current choices include:
 
-Important notes:
+- browser profile data
+- saved passwords
+- diagnostics reports
+- local update preferences
 
-- The browser does not update itself silently in the background.
-- Managed updates still use a normal installer.
-- Fresh installs can do a one-time first-launch update follow-up for a more Chrome-like feel.
-- Update downloads are checked before they are launched.
-- Verified `https:` endpoints and a valid SHA-256 value are required before an update installer is launched.
-- The app menu includes `Check for Updates` if you want to check manually.
+So if you want to reinstall later, you do not have to wipe everything unless you want to.
 
-## Uninstall Behavior
+## 🔐 Privacy
 
-The uninstaller removes the installed app files and can also remove local data by category.
+This browser is built to keep things simple, respectful, and easy to understand.
 
-Current uninstall choices include:
+It does:
 
-- Browser profile data
-- Saved passwords
-- Diagnostics reports
-- Local update preferences
+- keep browser data local on your device
+- avoid built-in telemetry and analytics systems
+- avoid automatic diagnostics upload
+- give you more control over your local browser data
 
-If a category is left unchecked, that data stays on your device for a future reinstall or update.
+It does not:
 
-Uninstall cleanup also:
+- run built-in tracking analytics
+- automatically upload your diagnostics
+- act like a credential interceptor
+- expose supported streaming cookies or tokens to page code
 
-- Targets tracked custom install paths
-- Removes stale uninstall metadata and registry ghosts
-- Re-checks reported leftovers at the end to reduce false warning dialogs
+Important note:
 
-If the browser was installed to an external drive, the main browser profile data can follow that external install location instead of staying on the system drive.
+Normal web browsing still creates regular internet traffic when you visit websites, search, stream, or download files. That part is just how browsers work.
 
-## Default Installation Path
-
-If no custom path is selected, the default install location is typically:
-
-```text
-C:\Users\<YourUsername>\AppData\Local\Programs\BubblesTheDev Web Browser
-```
-
-## System Requirements
+## 🖥️ System Requirements
 
 - Windows 11
 - x64 architecture
 - 4 GB RAM minimum
-- Around 300 MB free disk space
+- around 300 MB free disk space
 
-## Privacy And Security
+## 📄 Helpful Docs
 
-The browser is built with privacy and security in mind:
+- [Architecture](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/ARCHITECTURE.md)
+- [Browser Privacy Comparison](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/Browser-Privacy-Comparison.md)
+- [Data Collection and Privacy Notice](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/Data-Collection-and-Privacy-Notice.md)
+- [Changelog](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/CHANGELOG.md)
+- [Security](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/SECURITY.md)
 
-- Browsing protections are turned on by default
-- Ads and trackers are filtered
-- Downloads get extra safety checks
-- Incognito uses a separate session
-- Password save and reveal tools are limited to secure pages
-- Imported extensions are treated carefully and risky ones show extra warnings
-- No built-in telemetry endpoints are configured
+## 🆘 Support
 
-## Music Player
-
-The Music Player is local-only and off by default.
-
-- No music folder is scanned until the user explicitly agrees
-- The user can scan the default Music folder or another local folder
-- Playback uses local files only
-
-## Music Downloader
-
-The Music Downloader is local-first and intentionally restricted.
-
-- Supports approved YouTube single-video URLs only
-- Audio extraction only, with mp3 output
-- Uses bundled `yt-dlp`, `ffmpeg`, and `ffprobe` binaries verified by SHA-256
-- Runs only in the Electron main process through a strict preload bridge
-- Enforces queue limits, cooldown timers, duplicate blocking, and abuse throttling
-- Stores downloader state locally and restores cooldown state across restarts
-
-## Diagnostics And Crash Reports
-
-Users can export a diagnostics report from:
+Diagnostics can be exported from:
 
 `Tools > Export Diagnostics Report`
-
-Diagnostics are stored locally and are not transmitted automatically. Exported diagnostics reports are encrypted before being written to disk.
 
 Support email:
 
 `browser-support@bubbles-browser.fnbubbles420.org`
 
-## Privacy Notice
+## ⚠️ SmartScreen Note
 
-This application:
+This build is currently unsigned, so Windows SmartScreen may show a warning before launch.
 
-- Does not collect personal data automatically
-- Does not send telemetry automatically
-- Does not include analytics services
-- Stores browser data locally on your device
-
-If automatic updates are enabled in the build, the installer and browser can send a small amount of update-related information such as install ID, install path, version, platform, and last-seen time. This does not include your browsing history, bookmarks, saved passwords, page content, or diagnostics.
-
-Saved-password capture and reveal behavior is limited to secure pages such as `https:` websites and local development hosts.
-
-## SmartScreen Notice
-
-This build is currently unsigned, so Windows SmartScreen may warn before launch.
-
-If prompted:
+If that happens:
 
 1. Click `More Info`
 2. Click `Run Anyway`
 
-## License
+## 📜 License
 
-Proprietary - BubblesTheDev  
+Proprietary - BubblesTheDev
 All Rights Reserved.
 
-## Releases
+## 🔗 Releases
 
-[Get the web browser here](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
+[Get the browser here](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
