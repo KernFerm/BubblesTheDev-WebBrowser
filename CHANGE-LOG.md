@@ -1,6 +1,29 @@
 # Changelog
 
-This changelog reconstructs the project history from version `0.0.24` through `1.0.61` using the repository's tagged compare data, release notes, versioned README changes, and current installer/update work.
+This changelog reconstructs the project history from version `0.0.24` through `1.0.63` using the repository's tagged compare data, release notes, versioned README changes, and current installer/update work.
+
+## 1.0.63
+
+### Updated
+
+- The package version was advanced to `1.0.63`.
+- Release, README, privacy, security, comparison, changelog, and architecture documentation were refreshed for `1.0.63`.
+- Runtime Checks and the standard Performance panel open path were adjusted to reuse cached data more aggressively during normal viewing.
+
+### Performance
+
+- Added a `Visible Media Memory Saver` mode so heavy visible media tabs can run under a lower frame-rate cap instead of always using the full default visible-tab rate.
+- Runtime Checks now use a lighter cached diagnostics path by default instead of always collecting a full app-metrics snapshot.
+- The standard `performance:get-state` path now prefers cached values for normal panel opens, while explicit refresh and encrypted diagnostics export still use heavier full-detail collection paths when requested.
+
+### Release
+
+- The `1.0.63` Windows installer package name is `BubblesTheDev Web Browser_Installer_1.0.63.exe`.
+- The installer SHA-256 is `TBD after final installer build`.
+
+### Notes
+
+- Version `1.0.63` keeps the Streaming Hub, isolated streaming sessions, Windows-native download protection, AMC+ support, diagnostics tooling, and the hardened Music Downloader from `1.0.61`.
 
 ## 1.0.61
 
