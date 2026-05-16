@@ -13,7 +13,7 @@ This changelog reconstructs the project history from version `0.0.24` through `1
 ### Release
 
 - The 1.0.65 Windows installer package name is BubblesTheDev Web Browser_Installer_1.0.65.exe.
-- The installer SHA-256 is TBD after final installer build.
+- The installer `ED32325BF17EE6F63B45329275515019654A1AD92235014647125F22B9DBE3FF` after final installer build.
 
 ### Notes
 
