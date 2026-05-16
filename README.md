@@ -2,7 +2,7 @@
 
 > A browser built for privacy, control, and a smoother everyday experience 🫧
 
-[![Version](https://img.shields.io/badge/version-1.0.63-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
+[![Version](https://img.shields.io/badge/version-1.0.65-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Platform](https://img.shields.io/badge/platform-Windows%2011-0078D6)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Electron](https://img.shields.io/badge/Electron-42-47848F?logo=electron&logoColor=white)](https://www.electronjs.org/)
 [![License](https://img.shields.io/badge/license-Proprietary-lightgrey)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/readme.md#license)
@@ -13,21 +13,16 @@ BubblesTheDev Web Browser is a Windows browser for people who want something fam
 
 It is designed to feel like a real daily browser, not just a stripped-down experiment. You still get tabs, bookmarks, saved passwords, downloads, a home page, streaming tools, privacy protections, and Windows-focused extras all in one place.
 
-Version `1.0.63` focuses on safer streaming sessions, stronger download protection, lighter background performance overhead, and a more polished Windows experience.
+Version `1.0.65` is a security-focused maintenance update that refreshes dependencies and keeps the current browser feature set intact.
 
-## ✨ What's New In 1.0.63
+## What's New In 1.0.65
 
-- 🎬 New `Streaming Hub` with isolated sessions for supported streaming services
-- 🔒 Hardened streaming sign-in popups, stricter service allowlists, and blocked downloads inside streaming sessions
-- 🛡️ `Bubbles Safe Browsing` now uses a Windows-native download protection stack
-- 🧪 Added Windows Security Center antivirus detection and Windows Attachment Services handoff for downloads
-- 📥 Chrome-like risky download review flow with keep, discard, and protected open behavior
-- 🚀 Lower idle CPU and memory overhead by avoiding full performance-summary rebuilds during normal browser-state updates
-- 🧠 Short-lived app-metrics caching so the browser does less repeated background work while tabs are updating
-- 🎞️ Added `Visible Media Memory Saver` for heavy visible media tabs
-- 📋 Made `Runtime Checks` and standard Performance panel opens reuse cached values more aggressively
+- Security-focused dependency refresh for the current Windows build
+- Updated package metadata and installer-facing version references to 1.0.65
+- No new headline browser features in this release
+- Existing privacy, streaming, download-protection, diagnostics, and performance features remain in place
 
-## ❤️ Why People May Like It
+## Why People May Like It
 
 - 🧭 Easy everyday browsing with tabs, bookmarks, history, and a built-in home page
 - 🔐 Privacy-first design with local data handling
@@ -101,7 +96,7 @@ That means:
 - downloads are blocked inside streaming sessions
 - service sessions can be cleared individually
 
-Supported services in `1.0.63`:
+Supported services in `1.0.65`:
 
 - Disney+
 - Hulu
@@ -199,11 +194,11 @@ If your PC already has antivirus installed, the browser can work more naturally 
 
 Installer file name:
 
-`BubblesTheDev Web Browser_Installer_1.0.63.exe`
+`BubblesTheDev Web Browser_Installer_1.0.65.exe`
 
 SHA256:
 
-`146A9311DDBA8B111A639335784FA3FE187702C742A024D211F1ED01B3ADD8E7`
+`TBD after final installer build`
 
 Platform:
 
@@ -216,7 +211,7 @@ Platform:
 ## 🚀 How To Install
 
 1. Download the latest installer.
-2. Run `BubblesTheDev Web Browser_Installer_1.0.63.exe`.
+2. Run `BubblesTheDev Web Browser_Installer_1.0.65.exe`.
 3. Choose where you want to install it.
 4. Finish setup and launch the browser.
 
@@ -317,6 +312,3 @@ All Rights Reserved.
 ## 🔗 Releases
 
 [Get the browser here](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
-
-
-
