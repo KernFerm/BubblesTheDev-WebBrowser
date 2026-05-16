@@ -1,29 +1,23 @@
 # Changelog
 
-This changelog reconstructs the project history from version `0.0.24` through `1.0.63` using the repository's tagged compare data, release notes, versioned README changes, and current installer/update work.
+This changelog reconstructs the project history from version `0.0.24` through `1.0.65` using the repository's tagged compare data, release notes, versioned README changes, and current installer/update work.
 
-## 1.0.63
+## 1.0.65
 
 ### Updated
 
-- The package version was advanced to `1.0.63`.
-- Release, README, privacy, security, comparison, changelog, and architecture documentation were refreshed for `1.0.63`.
-- Runtime Checks and the standard Performance panel open path were adjusted to reuse cached data more aggressively during normal viewing.
-
-### Performance
-
-- Added a `Visible Media Memory Saver` mode so heavy visible media tabs can run under a lower frame-rate cap instead of always using the full default visible-tab rate.
-- Runtime Checks now use a lighter cached diagnostics path by default instead of always collecting a full app-metrics snapshot.
-- The standard `performance:get-state` path now prefers cached values for normal panel opens, while explicit refresh and encrypted diagnostics export still use heavier full-detail collection paths when requested.
+- The package version was advanced to 1.0.65.
+- Locked dependency versions were refreshed for the current packaged build.
+- Release, README, privacy, security, comparison, changelog, architecture, and project update documentation were refreshed for 1.0.65.
 
 ### Release
 
-- The `1.0.63` Windows installer package name is `BubblesTheDev Web Browser_Installer_1.0.63.exe`.
-- The installer SHA-256 is `146A9311DDBA8B111A639335784FA3FE187702C742A024D211F1ED01B3ADD8E7`.
+- The 1.0.65 Windows installer package name is BubblesTheDev Web Browser_Installer_1.0.65.exe.
+- The installer SHA-256 is TBD after final installer build.
 
 ### Notes
 
-- Version `1.0.63` keeps the Streaming Hub, isolated streaming sessions, Windows-native download protection, AMC+ support, diagnostics tooling, and the hardened Music Downloader from `1.0.61`.
+- Version 1.0.65 is a security-focused maintenance release with no new headline browser features.
 
 ## 1.0.61
 
@@ -311,13 +305,13 @@ This changelog reconstructs the project history from version `0.0.24` through `1
 - Existing browser features remain in place, including bookmark bar support, split-view browsing, ad blocking, download protection, saved passwords, passkey compatibility, VPN tools, diagnostics, and the local-only Music Player.
 - The browser continues to follow a local-first privacy approach with no built-in telemetry or analytics services configured.
 
-## 1.0.30
+## 1.0.65
 
 ### Updated
 
-- The package version was advanced to `1.0.30`.
+- The package version was advanced to `1.0.65`.
 - Electron was updated to `42.0.0`.
-- Release documentation and installer-facing version references were refreshed for `1.0.30`.
+- Release documentation and installer-facing version references were refreshed for `1.0.65`.
 - The installer no longer presents a manual-update-only setup choice. Automatic updates are now the standard setup behavior for installed builds.
 - Manual `Check for Updates` remains available from the app menu for user-initiated version and status checks.
 
@@ -674,3 +668,7 @@ This file was reconstructed from:
 - the repository compare history for `0.0.24 -> 0.0.35`, `0.0.35 -> 0.0.50`, and `0.0.50 -> 0.1.5`
 - the in-repo `release.md` for version `0.1.5`
 - the repository's tagged README and documentation diffs
+
+
+
+
