@@ -4,7 +4,7 @@
 
 This document explains the high-level architecture of BubblesTheDev Web Browser and how the main runtime pieces interact.
 
-Current release documentation target: version `1.0.63`.
+Current release documentation target: version `1.0.65`.
 
 ## Design Goals
 
@@ -66,7 +66,7 @@ This keeps the browser UI separated from tab content while still allowing site-c
 
 ## Streaming Hub Architecture
 
-Version `1.0.63` includes a Streaming Hub that opens supported streaming services inside isolated BrowserView tabs rather than the shared default browser session.
+Version `1.0.65` includes a Streaming Hub that opens supported streaming services inside isolated BrowserView tabs rather than the shared default browser session.
 
 Supported services currently include:
 
@@ -223,7 +223,7 @@ The browser shell also exposes a runtime checks panel backed by the same diagnos
 
 ### Gaming and streaming performance manager
 
-Version `1.0.63` includes the current Windows-focused performance manager implemented in the main process and exposed to the browser UI through strict preload IPC.
+Version `1.0.65` includes the current Windows-focused performance manager implemented in the main process and exposed to the browser UI through strict preload IPC.
 
 The performance layer currently uses:
 
@@ -303,11 +303,11 @@ Inactive BrowserView tabs already use background throttling. The runtime also ad
 
 This is especially relevant on streaming-heavy sites because the memory guard and tab suspension logic are intended to reduce overall working-set growth without changing the core BrowserView tab model.
 
-In version `1.0.63`, those safeguards still integrate with the gaming and streaming performance manager so suspension thresholds, hidden-tab rendering cadence, background browser FPS behavior, stream-stability controls, adaptive detector sampling, lighter summary generation, and the visible media saver path can respond more cleanly during heavier sessions.
+In version `1.0.65`, those safeguards still integrate with the gaming and streaming performance manager so suspension thresholds, hidden-tab rendering cadence, background browser FPS behavior, stream-stability controls, adaptive detector sampling, lighter summary generation, and the visible media saver path can respond more cleanly during heavier sessions.
 
 ### Managed update follow-up behavior
 
-Version `1.0.63` also documents the current managed-update flow more clearly.
+Version `1.0.65` also documents the current managed-update flow more clearly.
 
 Installed builds can now use:
 
@@ -349,3 +349,4 @@ Security-sensitive defaults include:
 ## Summary
 
 The application is a BrowserWindow plus BrowserView desktop browser with a local internal home page, local persistence, request filtering, helper windows, modern Chromium-style shell menus, managed automatic updates with first-launch follow-up verification, adaptive gaming and streaming performance controls, isolated streaming-service sessions for supported providers, and optional local media features. The runtime keeps browser data on-device while still supporting normal web traffic, trusted-download handling, external-drive install flows, controlled local media processing, privacy-first embedded streaming sessions, and modern site login behavior such as passkeys.
+
