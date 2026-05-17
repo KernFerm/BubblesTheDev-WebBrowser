@@ -1,314 +1,160 @@
 # BubblesTheDev Web Browser
 
-> A browser built for privacy, control, and a smoother everyday experience 🫧
+> A browser built for privacy, control, and a smoother everyday experience. ✨
 
-[![Version](https://img.shields.io/badge/version-1.0.65-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
+[![Version](https://img.shields.io/badge/version-1.1.5-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Platform](https://img.shields.io/badge/platform-Windows%2011-0078D6)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Electron](https://img.shields.io/badge/Electron-42-47848F?logo=electron&logoColor=white)](https://www.electronjs.org/)
-[![License](https://img.shields.io/badge/license-Proprietary-lightgrey)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/readme.md#license)
 
 ## 🌐 What Is It?
 
-BubblesTheDev Web Browser is a Windows browser for people who want something familiar, useful, and more privacy-friendly without giving up everyday features.
+BubblesTheDev Web Browser is a Windows browser designed for everyday use while keeping browser data local-first and user controls easy to understand.
 
-It is designed to feel like a real daily browser, not just a stripped-down experiment. You still get tabs, bookmarks, saved passwords, downloads, a home page, streaming tools, privacy protections, and Windows-focused extras all in one place.
+It includes normal browsing features such as tabs, bookmarks, downloads, saved passwords, a built-in home page, split view, streaming tools, privacy protections, and Windows-focused performance controls.
 
-Version `1.0.65` is a security-focused maintenance update that refreshes dependencies and keeps the current browser feature set intact.
+Version `1.1.5` expands the browser with a hardened local AI and diagnostics architecture.
 
-## What's New In 1.0.65
+The goal is to give users a browser that still feels practical for daily use while avoiding unnecessary background collection and exposing more of the browser’s privacy and diagnostics behavior in plain language.
 
-- Security-focused dependency refresh for the current Windows build
-- Updated package metadata and installer-facing version references to 1.0.65
-- No new headline browser features in this release
-- Existing privacy, streaming, download-protection, diagnostics, and performance features remain in place
+## 🆕 What's New In 1.1.5
 
-## Why People May Like It
+* Added an `AI & Diagnostics` panel
+* Added profile-isolated local AI memory with encrypted persistence for standard profiles
+* Added non-persistent AI memory handling for incognito sessions
+* Added offline local summarization and isolated AI runtime analysis
+* Added current-session health monitoring for browser load and stability
+* Added automatic session-only AI health recovery reset behavior
+* Added opt-in privacy-safe diagnostics preview, manual send, test send, and optional severe-event reporting
 
-- 🧭 Easy everyday browsing with tabs, bookmarks, history, and a built-in home page
-- 🔐 Privacy-first design with local data handling
-- 🚫 Built-in ad and tracker blocking
-- 📥 Extra download protection before opening risky files
-- 🕶️ Incognito support
-- 🧩 Extension import support
-- 🔑 Saved password vault and passkey support
-- 🖥️ Split view and built-in Task Manager
-- 🎨 Multiple themes
-- 🌍 VPN tools and public IP checking
+In practical terms, this release is focused on making the browser more transparent and more resilient. Local AI features stay on-device by default, diagnostics are user-controlled, and the new session-health model is meant to help users understand what the browser is doing during heavier workloads.
 
-## 🧰 Main Browser Features
-
-Here's a fuller look at what the browser includes:
+## 🧰 Main Features
 
 ### 🧭 Everyday Browsing
 
-- multi-tab browsing
-- back, forward, refresh, and home controls
-- built-in `bubbles://home` start page
-- address bar with direct website navigation
-- browsing history
-- bookmarks and bookmark bar
-- pinned tabs
-- tab mute controls
-- open links in new tabs or new windows
-- full-screen browsing
+* multi-tab browsing
+* built-in `bubbles://home` start page
+* bookmarks and bookmark bar
+* browsing history
+* pinned tabs
+* tab mute controls
+* split-view browsing
+* full-screen support
 
-### 🔎 Search And Home Page
-
-- built-in Bubbles home page
-- Bubbles search experience inside the browser
-- DuckDuckGo-backed and Google-backed search results
-- search suggestions and result helpers
-- local home-page counters and browser stats
+The everyday browsing layer is meant to stay familiar. You still get a normal browser shell with address bar navigation, bookmarks, history, saved sessions, and utility panels, but the surrounding browser behavior is designed to stay more understandable and more local-first.
 
 ### 🔐 Privacy And Security
 
-- local-first browser data storage
-- no built-in telemetry or analytics
-- incognito browsing support
-- built-in ad and tracker blocking
-- download protection with `Bubbles Safe Browsing`
-- Windows-friendly security checks for downloads
-- password vault with encrypted saved passwords
-- strong password generation
-- passkey support for compatible websites
-- per-site permission controls
+* local-first browser data handling
+* no built-in telemetry or analytics
+* incognito browsing
+* built-in ad and tracker blocking
+* Windows-friendly download protection
+* encrypted saved-password storage
+* per-site permission controls
+* sandboxed and isolated browser runtime
 
-### 📥 Download Protection
+The browser tries to keep privacy features understandable instead of hidden. Browser data stays local by default, sensitive operations stay in browser-controlled processes, and the renderer side is kept more restricted through sandboxing, disabled Node integration, and stricter runtime boundaries.
 
-- download history window
-- risky download warnings
-- trusted-source-aware download handling
-- Windows Attachment Services integration
-- Mark of the Web tagging
-- Windows Defender support when available
-- digital signature checks for relevant file types
-- keep, review, open, and discard flows for downloads
+### 🤖 Local AI And Diagnostics
 
-### 🎬 Streaming Hub
+* `AI & Diagnostics` panel in the browser UI
+* offline local summarization
+* isolated local AI runtime worker
+* current-session health monitoring
+* encrypted profile-isolated AI memory for standard profiles
+* non-persistent AI memory behavior for incognito sessions
+* privacy-safe diagnostics preview
+* privacy-safe manual diagnostic reporting
+* privacy-safe test reporting
+* optional automatic severe-event reporting when enabled by the user
 
-The `Streaming Hub` gives supported streaming services their own isolated space inside the browser.
+This part of the browser is intended to stay local-first. The AI layer is used for offline summaries, runtime analysis, and current-session health feedback rather than cloud-based assistant behavior. Standard profiles can keep encrypted AI memory locally, while incognito sessions do not persist that memory across sessions.
 
-That means:
+The diagnostics side is designed to be transparent. Users can inspect what would be sent before sending it, keep reporting disabled, or manually send a report only when needed. Privacy-safe diagnostics are meant to focus on browser stability and system health rather than personal browsing content.
 
-- each service stays in its own separate session
-- sign-in popups are more locked down
-- unsafe redirects are blocked more aggressively
-- downloads are blocked inside streaming sessions
-- service sessions can be cleared individually
+### 📺 Streaming Hub
 
-Supported services in `1.0.65`:
+The browser includes an isolated Streaming Hub for supported providers. Supported services currently include:
 
-- Disney+
-- Hulu
-- Max
-- Netflix
-- Paramount+
-- Prime Video
-- Apple TV+
-- AMC+
-- Peacock
-- Crunchyroll
-- YouTube TV
-- Sling TV
-- Pluto TV
-- The Roku Channel
-- Plex
-- Discovery+
-- ESPN+
-- MGM+
-- STARZ
-- Tubi
+* Disney+
+* Hulu
+* Max
+* Netflix
+* Paramount+
+* Prime Video
+* Apple TV+
+* AMC+
+* Peacock
+* Crunchyroll
+* YouTube TV
+* Sling TV
+* Pluto TV
+* The Roku Channel
+* Plex
+* Discovery+
+* ESPN+
+* MGM+
+* STARZ
+* Tubi
 
-This feature is designed to make streaming cleaner and safer. It is not a credential grabber, proxy login tool, or session extractor.
+Each supported streaming service is intended to run in its own isolated session instead of the shared normal browsing session. That helps keep streaming sign-in state more separated, reduces cross-service mixing, and allows service sessions to be managed more independently from normal browsing activity.
 
-### 🖥️ Power Features
+### ⚡ Performance And Power Features
 
-- split-view browsing
-- built-in Task Manager
-- runtime checks panel
-- diagnostics export
-- multiple built-in themes
-- hideable toolbar
-- bookmark bar toggle
-- context menus for pages and tabs
+* gaming and streaming performance mode
+* background tab throttling
+* sleeping tabs under memory pressure
+* stream-stability controls
+* built-in Task Manager
+* runtime checks panel
+* multiple built-in themes
 
-### 🎮 Performance Features
+These features are aimed at keeping the browser usable during heavier sessions such as gaming, streaming, multitasking, or long browsing runs. The browser can back off more aggressively in the background, reduce unnecessary work, and surface a current-session health view so users can see when the browser is under more pressure.
 
-- gaming and streaming performance mode
-- Windows-focused system detection
-- background tab throttling
-- sleeping tabs under memory pressure
-- stream-stability controls
-- reduced background browser activity during heavy sessions
-- lighter everyday performance-state updates
-- less repeated metrics work when the Performance panel is not open
+### 🧩 Extra Tools
 
-### 🎵 Media Features
+* extension import support
+* VPN tools and public IP checks
+* passkey compatibility for supported sites
+* local-only Music Player
+* hardened Music Downloader
 
-#### 🎧 Music Player
+These tools are meant to make the browser feel more complete without pushing more data into remote services. Where possible, these features stay local, use explicit user action, and expose their behavior through the browser UI instead of hidden background collection.
 
-- local-only music playback
-- off by default
-- folder scan only after user consent
-- works with a local Music folder or another folder you choose
-
-#### 🎶 Music Downloader
-
-- approved YouTube single-video audio downloads only
-- local processing with bundled tools
-- queue limits and cooldowns
-- abuse protections
-- local-only state storage
-
-### 🌍 VPN And Network Tools
-
-- installed VPN client detection
-- support for NordVPN, ExpressVPN, ProtonVPN, and WireGuard detection
-- ProtonVPN WireGuard `.conf` import support
-- public IPv4 and IPv6 checking
-- quick launch support for supported installed VPN apps
-
-### 🧩 Extra Browser Tools
-
-- extension import support
-- downloads window
-- diagnostics report export
-- site permission management
-- browser update checking from the app menu
-
-## 🛡️ Bubbles Safe Browsing
-
-`Bubbles Safe Browsing` is the browser's download protection system.
-
-It helps make downloads safer by using Windows-friendly protection layers like:
-
-- Windows Attachment Services
-- Mark of the Web
-- Windows Defender when available
-- digital signature checks
-- browser safety warnings before opening risky files
-
-If your PC already has antivirus installed, the browser can work more naturally with the Windows security path already on that system.
-
-## 📦 Installer Info
+## 📦 Installer
 
 Installer file name:
 
-`BubblesTheDev Web Browser_Installer_1.0.65.exe`
-
-SHA256:
-
-`ED32325BF17EE6F63B45329275515019654A1AD92235014647125F22B9DBE3FF`
+`BubblesTheDev Web Browser_Installer_1.1.5.exe`
 
 Platform:
 
 `Windows 11 x64`
 
-## ⬇️ Download
-
-- [Download the latest release](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
-
-## 🚀 How To Install
-
-1. Download the latest installer.
-2. Run `BubblesTheDev Web Browser_Installer_1.0.65.exe`.
-3. Choose where you want to install it.
-4. Finish setup and launch the browser.
-
-The installer supports:
-
-- normal installs
-- custom install locations
-- external HDD installs
-- external SSD installs
-- USB flash-drive installs
-
 ## 🔄 Updating
 
-The browser does not silently patch itself in the background.
+The browser does not rely on a silent always-on updater.
 
 Instead:
 
-- updates still use a normal installer
-- you can use `Check for Updates` from the app menu
-- fresh installs can do a one-time follow-up update check for a smoother setup experience
+* updates continue to use a normal installer flow
+* the browser can check for newer releases from the app menu
+* fresh installs can do a one-time follow-up update check for a smoother setup experience
 
-If you are updating manually, uninstall the older version first, then run the new installer.
+That means updates are still visible and installer-based instead of behaving like a hidden background patch service. The browser can help with update checks, but the overall update experience is still built around a normal Windows installer flow.
 
-## 🧹 Uninstall
+## 🛡️ Privacy Summary
 
-When uninstalling, you can choose what local data to keep or remove.
-
-Current choices include:
-
-- browser profile data
-- saved passwords
-- diagnostics reports
-- local update preferences
-
-So if you want to reinstall later, you do not have to wipe everything unless you want to.
-
-## 🔐 Privacy
-
-This browser is built to keep things simple, respectful, and easy to understand.
+This browser is built to keep things simple and local-first.
 
 It does:
 
-- keep browser data local on your device
-- avoid built-in telemetry and analytics systems
-- avoid automatic diagnostics upload
-- give you more control over your local browser data
+* keep browser data local on the device by default
+* avoid built-in telemetry and analytics systems
+* keep local AI memory isolated per profile
+* keep incognito AI memory non-persistent
+* keep diagnostics local unless the user exports them or enables privacy-safe reporting
+* give users clear controls over diagnostics behavior
 
-It does not:
-
-- run built-in tracking analytics
-- automatically upload your diagnostics
-- act like a credential interceptor
-- expose supported streaming cookies or tokens to page code
-
-Important note:
-
-Normal web browsing still creates regular internet traffic when you visit websites, search, stream, or download files. That part is just how browsers work.
-
-## 🖥️ System Requirements
-
-- Windows 11
-- x64 architecture
-- 4 GB RAM minimum
-- around 300 MB free disk space
-
-## 📄 Helpful Docs
-
-- [Architecture](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/ARCHITECTURE.md)
-- [Browser Privacy Comparison](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/Browser-Privacy-Comparison.md)
-- [Data Collection and Privacy Notice](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/Data-Collection-and-Privacy-Notice.md)
-- [Changelog](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/CHANGELOG.md)
-- [Security](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/SECURITY.md)
-
-## 🆘 Support
-
-Diagnostics can be exported from:
-
-`Tools > Export Diagnostics Report`
-
-Support email:
-
-`browser-support@bubbles-browser.fnbubbles420.org`
-
-## ⚠️ SmartScreen Note
-
-This build is currently unsigned, so Windows SmartScreen may show a warning before launch.
-
-If that happens:
-
-1. Click `More Info`
-2. Click `Run Anyway`
-
-## 📜 License
-
-Proprietary - BubblesTheDev
-All Rights Reserved.
-
-## 🔗 Releases
-
-[Get the browser here](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
+It does not promise zero network activity, because websites, search, downloads, passkeys, streaming services, and updates can still use the network when the user chooses those features. The privacy goal is not “offline-only”; it is “local-first, transparent, and limited by default.”
