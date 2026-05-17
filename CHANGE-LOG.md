@@ -2,11 +2,11 @@
 
 This changelog reconstructs the project history from version `0.0.24` through `1.1.7` using the repository's tagged compare data, release notes, versioned README changes, and current installer/update work.
 
-## 1.1.7
+## 1.1.8
 
 ### Updated
 
-- The package version was advanced to `1.1.7`.
+- The package version was advanced to `1.1.8`.
 - Release-facing documentation was refreshed to reflect the current version number.
 - The `AI & Diagnostics` panel continues to include the newer `Refresh Status` action for live runtime checks while browsing.
 
@@ -16,12 +16,12 @@ This changelog reconstructs the project history from version `0.0.24` through `1
 
 ### Release
 
-- The `1.1.7` Windows installer package name is `BubblesTheDev Web Browser_Installer_1.1.7.exe`.
-- The verified installer SHA-256 for `1.1.7` is `TBD after final installer build`.
+- The `1.1.8` Windows installer package name is `BubblesTheDev Web Browser_Installer_1.1.8.exe`.
+- The verified installer SHA-256 for `1.1.8` is `TBD after final installer build`.
 
 ### Notes
 
-- Version `1.1.7` carries forward the local AI, privacy-safe diagnostics, installer UX, and runtime optimization work introduced in the recent `1.1.x` releases.
+- Version `1.1.8` carries forward the local AI, privacy-safe diagnostics, installer UX, and runtime optimization work introduced in the recent `1.1.x` releases.
 
 ## 1.1.5
 
