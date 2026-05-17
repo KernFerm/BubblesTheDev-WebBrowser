@@ -94,7 +94,7 @@ This browser is not offline-only. Outbound network traffic still occurs when the
 * uses search from `bubbles://home`
 * uses websites that request passkey or WebAuthn authentication through the platform browser flow
 
-When the user performs a search from `bubbles://home`, the application may contact DuckDuckGo and Google endpoints to assemble results, related searches, and suggestions on that internal page.
+When the user performs a search from `bubbles://home`, the application may contact DuckDuckGo and Google services to assemble results, related searches, and suggestions on that internal page.
 
 When the user downloads files, the browser may perform normal download-related handling such as trusted-source checks, Windows Security Center antivirus detection, Windows Attachment Services validation, Mark of the Web tagging, protection-provider checks, destination selection, and local save operations. That behavior is separate from telemetry and is part of the browser's on-device download protection and file-handling flow.
 
@@ -190,7 +190,7 @@ Current additional diagnostics behavior in `1.1.10`:
 * users can manually send a privacy-safe report
 * users can send a privacy-safe test report
 * users can optionally allow privacy-safe severe-event reporting
-* public documentation intentionally does not expose private endpoint, token, inbox, or backend-routing details for that reporting path
+* public documentation intentionally avoids private operational details for that reporting path
 
 Privacy-safe diagnostics are intended to remain narrower than general browser data collection. They are not meant to include browsing history, passwords, AI memory contents, personal documents, or website content.
 
