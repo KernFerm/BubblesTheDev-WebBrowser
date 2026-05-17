@@ -12,7 +12,7 @@ Security fixes are generally provided for the most recent stable release of the 
 
 | Version | Supported |
 | ------- | --------- |
-| **1.1.8** | Yes |
+| **1.1.10** | Yes |
 | Older versions | No |
 
 Users should run the latest available version of the browser to receive the newest security fixes and improvements.
@@ -116,7 +116,7 @@ The browser is developed with a reduced-surface approach that emphasizes:
 * main-process ownership of higher-risk operations such as downloader execution and performance-policy control
 * verified installer-package validation with SHA-256 checks before launch
 
-Current security-sensitive design points in version `1.1.7` include:
+Current security-sensitive design points in version `1.1.10` include:
 
 * sandboxed renderer processes and strict preload IPC boundaries
 * isolated persistent streaming-service partitions for supported providers such as Disney+, Hulu, Max, Netflix, Paramount+, Prime Video, Apple TV+, AMC+, Peacock, Crunchyroll, YouTube TV, Sling TV, Pluto TV, The Roku Channel, Plex, Discovery+, ESPN+, MGM+, STARZ, and Tubi
