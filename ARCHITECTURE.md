@@ -2,7 +2,7 @@
 
 ## Architecture Overview
 
-This document explains the high-level runtime shape of BubblesTheDev Web Browser version `1.1.8`.
+This document explains the high-level runtime shape of BubblesTheDev Web Browser version `1.1.10`.
 
 ## Design Goals
 
@@ -30,7 +30,7 @@ The main process owns:
 
 ## Local AI Architecture
 
-Version `1.1.8` adds a local AI layer that stays on-device by default.
+Version `1.1.10` adds a local AI layer that stays on-device by default.
 
 The current AI runtime includes:
 
@@ -60,7 +60,7 @@ The current session health system:
 
 Diagnostics are generated locally.
 
-Version `1.1.8` includes:
+Version `1.1.10` includes:
 
 * manual encrypted diagnostics export
 * an `AI & Diagnostics` panel
