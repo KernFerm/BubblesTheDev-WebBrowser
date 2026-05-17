@@ -14,7 +14,7 @@ It includes normal browsing features such as tabs, bookmarks, downloads, saved p
 
 Version `1.1.7` expands the browser with a hardened local AI and diagnostics architecture.
 
-The goal is to give users a browser that still feels practical for daily use while avoiding unnecessary background collection and exposing more of the browser’s privacy and diagnostics behavior in plain language.
+The goal is to give users a browser that still feels practical for daily use while avoiding unnecessary background collection and exposing more of the browser's privacy and diagnostics behavior in plain language.
 
 ## 🆕 What's New In 1.1.7
 
@@ -158,4 +158,4 @@ It does:
 * keep diagnostics local unless the user exports them or enables privacy-safe reporting
 * give users clear controls over diagnostics behavior
 
-It does not promise zero network activity, because websites, search, downloads, passkeys, streaming services, and updates can still use the network when the user chooses those features. The privacy goal is not “offline-only”; it is “local-first, transparent, and limited by default.”
+It does not promise zero network activity, because websites, search, downloads, passkeys, streaming services, and updates can still use the network when the user chooses those features. The privacy goal is not "offline-only"; it is "local-first, transparent, and limited by default."
