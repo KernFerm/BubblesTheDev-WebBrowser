@@ -2,6 +2,46 @@
 
 This changelog reconstructs the project history from version `0.0.24` through `1.0.65` using the repository's tagged compare data, release notes, versioned README changes, and current installer/update work.
 
+## 1.1.5
+
+### Added
+
+- Added an `AI & Diagnostics` panel to the browser UI.
+- Added encrypted profile-isolated local AI memory for standard profiles.
+- Added non-persistent AI memory handling for incognito sessions.
+- Added offline local summarization and isolated local AI runtime analysis.
+- Added current-session AI health monitoring.
+- Added automatic current-session AI health recovery reset behavior after severe low-health conditions.
+- Added privacy-safe diagnostics preview, manual send, test send, and optional severe-event reporting controls.
+
+### Security And Privacy
+
+- Hardened the local AI worker with startup integrity checks, bootstrap validation, operation allowlisting, and timeout watchdog protection.
+- Hardened AI memory handling with stronger profile-context validation, path safety checks, quota enforcement, and corruption recovery behavior.
+- Hardened privacy-safe diagnostics with stricter allowlisted payload validation and browser-side submission only.
+- Kept public documentation free of private endpoint, token, and backend-routing details.
+
+### Installer And Updates
+
+- Updated the NSIS finish flow so post-install registration and stable-version validation are shown in a visible branded progress window.
+- Improved the finish window messaging so users can see what step is happening during registration and validation.
+- Hid the blank PowerShell console from the visible post-install flow.
+- Extended the completion state so the result remains visible briefly before the window closes automatically.
+
+### Documentation
+
+- Refreshed `README`, release, architecture, privacy, security, changelog, and comparison documentation for version `1.1.5`.
+- Updated public privacy and comparison documentation to describe the new local AI and privacy-safe diagnostics behavior without exposing sensitive infrastructure details.
+
+### Release
+
+- The `1.1.5` Windows installer package name is `BubblesTheDev Web Browser_Installer_1.1.5.exe`.
+- The verified installer SHA-256 for `1.1.5` is `C49CF258BAA084522060386798FC3ED961EC226618EF6719D4FE2AC7253361E0`.
+
+### Notes
+
+- Version `1.1.5` expands the browser's local-first privacy model with on-device AI features while keeping diagnostics user-controlled and privacy-safe by default.
+
 ## 1.0.65
 
 ### Updated
@@ -668,7 +708,5 @@ This file was reconstructed from:
 - the repository compare history for `0.0.24 -> 0.0.35`, `0.0.35 -> 0.0.50`, and `0.0.50 -> 0.1.5`
 - the in-repo `release.md` for version `0.1.5`
 - the repository's tagged README and documentation diffs
-
-
 
 
