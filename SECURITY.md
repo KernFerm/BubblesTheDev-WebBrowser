@@ -12,7 +12,7 @@ Security fixes are generally provided for the most recent stable release of the 
 
 | Version | Supported |
 | ------- | --------- |
-| **1.0.65** | Yes |
+| **1.1.5** | Yes |
 | Older versions | No |
 
 Users should run the latest available version of the browser to receive the newest security fixes and improvements.
@@ -36,6 +36,8 @@ Please include:
 * the affected browser version
 * operating system details
 * screenshots, logs, or proof of concept if available
+
+Please do not include sensitive personal information in a report. Do not send passwords, session tokens, recovery codes, payment information, government identifiers, or full personal documents. If screenshots or logs are necessary, redact private data before sending them.
 
 The more detail included in the report, the faster the issue can usually be validated and addressed.
 
@@ -103,7 +105,7 @@ The browser is developed with a reduced-surface approach that emphasizes:
 * main-process ownership of higher-risk operations such as downloader execution, performance-policy control, and update verification
 * verified HTTPS-based managed update checks with SHA-256 installer validation before launch
 
-Current security-sensitive design points in version `1.0.65` include:
+Current security-sensitive design points in version `1.1.5` include:
 
 * sandboxed renderer processes and strict preload IPC boundaries
 * isolated persistent streaming-service partitions for supported providers such as Disney+, Hulu, Max, Netflix, Paramount+, Prime Video, Apple TV+, AMC+, Peacock, Crunchyroll, YouTube TV, Sling TV, Pluto TV, The Roku Channel, Plex, Discovery+, ESPN+, MGM+, STARZ, and Tubi
@@ -116,7 +118,10 @@ Current security-sensitive design points in version `1.0.65` include:
 * hardened Music Downloader execution limited to approved YouTube single-video audio flows with bundled-binary integrity verification
 * controlled YouTube URL normalization that accepts certain auto-added single-video watch-page radio parameters without enabling playlist or bulk download behavior
 * Windows-safe gaming and streaming optimization that avoids game hooking, code injection, kernel drivers, or anti-cheat interference
+* isolated local AI worker execution with startup integrity checks, authorized bootstrap validation, operation allowlisting, and timeout watchdog protection
+* profile-isolated AI memory with encrypted persistence for standard profiles, non-persistent in-memory handling for incognito sessions, and stronger path, quota, and corruption-recovery safeguards
 * local-only diagnostics generation and encrypted diagnostics export
+* privacy-safe diagnostics that remain disabled by default, use stricter allowlisted payload validation, and submit only through privileged browser-side services when the user enables reporting
 * imported extension safeguards, secure-context password handling, and trusted-source-aware download checks
 
 This approach helps limit unnecessary network activity and reduces avoidable attack surface.
@@ -129,9 +134,7 @@ For security matters, email is the preferred contact method:
 
 **Email:** [browser-support@bubbles-browser.fnbubbles420.org](mailto:browser-support@bubbles-browser.fnbubbles420.org)
 
-If needed, you may also reach out through the community Discord:
-
-[https://discord.gg/zQbJJgwbUv](https://discord.gg/zQbJJgwbUv)
+Community channels should not be used for security reports or for sharing logs that may contain private information.
 
 ---
 
