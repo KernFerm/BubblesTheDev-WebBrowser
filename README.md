@@ -14,6 +14,9 @@ It is meant to feel like a practical daily browser, not just a privacy experimen
 
 Version `1.1.10` continues that direction with a hardened local AI and diagnostics architecture, lighter runtime monitoring behavior, and a clearer installer finish experience.
 
+
+## [Download Browser](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/DOWNLOAD-BROWSER.md)
+
 The overall goal is simple:
 
 * keep everyday browsing familiar
