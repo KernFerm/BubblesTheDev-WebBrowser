@@ -17,7 +17,7 @@ This changelog reconstructs the project history from version `0.0.24` through `1
 ### Release
 
 - The `1.1.10` Windows installer package name is `BubblesTheDev Web Browser_Installer_1.1.10.exe`.
-- The verified installer SHA-256 for `1.1.10` is `TBD after final installer build`.
+- The verified installer SHA-256 for `1.1.10` is `F3EECBD7868C0EB8475F7416863A8CC378DA1BD8B48C66BF0F27BFD4F68EAD3C`.
 
 ### Notes
 
