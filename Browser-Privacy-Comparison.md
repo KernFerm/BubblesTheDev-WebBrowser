@@ -6,7 +6,7 @@ Update note for readers: the original comparison text below was written around v
 
 This document reflects the current privacy posture of BubblesTheDev Web Browser version `1.1.10`.
 
-The goal is accuracy, not marketing language. The browser does not implement built-in telemetry, analytics SDKs, cloud sync, a built-in silent auto-updater client, or automatic diagnostics upload. It does, however, make normal network requests when the user browses the web, uses built-in search features, uses supported site authentication flows such as passkeys, downloads files, or uses normal release-check behavior from the app menu.
+The goal is accuracy, not marketing language. The browser does not implement built-in telemetry, analytics SDKs, cloud sync, a built-in silent auto-updater client, or automatic diagnostics upload. It does, however, make normal network requests when the user browses the web, uses built-in search features, uses supported site authentication flows such as passkeys, or downloads files.
 
 ## Scope And Related Documents
 
@@ -35,7 +35,7 @@ This table is intentionally high-level. Mainstream browsers change over time, bu
 | Analytics SDKs in app code | None | Yes | Yes | Limited | Limited | Limited | Limited | Limited |
 | Automatic diagnostics upload | No | Yes | Yes | Limited | Limited | Limited | Limited | Limited |
 | Cloud sync requirement | None | Optional | Optional | Optional | Optional | Optional | Optional | Optional |
-| Auto-updater service | No built-in silent updater; optional installer-based update flow for installed builds | Present | Present | Present | Present | Present through OS updates | Present | Present |
+| Auto-updater service | No built-in silent updater; user-visible installer-based updates | Present | Present | Present | Present | Present through OS updates | Present | Present |
 | Local browser data storage | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
 | Local AI memory support | Yes, encrypted and profile-isolated for standard profiles | Varies | Varies | Varies | Varies | Varies | Varies | Varies |
 | Local persistence protection | Brotli-compressed, with OS-backed or credential-backed encryption when available | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
@@ -143,7 +143,7 @@ This browser is not offline-only. Network traffic still occurs when the user doe
 * uses the bundled `bubbles://home` search experience
 * uses websites that request passkey or WebAuthn authentication through the platform browser flow
 
-The internal Bubbles search page can contact DuckDuckGo and Google endpoints to assemble results, related searches, and suggestions after the user performs a search.
+The internal Bubbles search page can contact DuckDuckGo and Google services to assemble results, related searches, and suggestions after the user performs a search.
 
 When the user downloads files, the browser may run trusted-source-aware download handling, Windows Security Center antivirus detection, Windows Attachment Services validation, Mark of the Web tagging, local protection-provider checks, destination selection, and normal file save behavior. That is part of the local browser protection flow rather than any built-in analytics pipeline.
 
@@ -209,8 +209,8 @@ Current uninstall behavior:
 
 * the installed app files are removed
 * the user can choose which local data categories should be removed or kept
-* current removable categories include browser profile data, saved passwords, diagnostics reports, and local update preferences
-* if a category is left unchecked, that data remains on the device for a future reinstall or update
+* current removable categories include browser profile data, saved passwords, diagnostics reports, and local install preferences
+* if a category is left unchecked, that data remains on the device for a future reinstall
 * uninstall cleanup also removes stale uninstall metadata and re-checks leftovers before showing a warning
 * external-drive installs can keep install-linked data associated with the selected external location
 
@@ -289,7 +289,7 @@ Current additional diagnostics behavior in `1.1.10`:
 * users can send a privacy-safe test report
 * users can optionally allow privacy-safe severe-event reporting
 * users can refresh the panel status manually while browsing so the local AI runtime view is more current
-* the public documentation intentionally does not expose private infrastructure details for that reporting path
+* the public documentation intentionally avoids private operational details for that reporting path
 
 These additions do not change the core privacy direction of the browser into a telemetry-heavy model. The reporting path is intended to remain privacy-safe, user-controlled, and narrower than general browser data collection.
 
