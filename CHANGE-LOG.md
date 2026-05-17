@@ -160,7 +160,7 @@ This changelog reconstructs the project history from version `0.0.24` through `1
 
 ### Notes
 
-- Version `1.0.60` keeps the existing gaming and streaming performance manager, Music Downloader hardening, diagnostics tooling, passkey compatibility, and managed update flow.
+- Version `1.0.60` keeps the existing gaming and streaming performance manager, Music Downloader hardening, diagnostics tooling, and passkey compatibility.
 - Version `1.0.60` shifts the streaming story from performance-only tuning toward a privacy-first embedded streaming architecture with stronger session isolation and navigation controls.
 
 ## 1.0.52
@@ -189,7 +189,7 @@ This changelog reconstructs the project history from version `0.0.24` through `1
 
 ### Notes
 
-- Version `1.0.52` keeps the Chrome-like first-launch managed update follow-up added in `1.0.48`.
+- Version `1.0.52` keeps the earlier installer and release-flow polish added in `1.0.48`.
 - Version `1.0.52` builds on the gaming and streaming optimization work introduced in `1.0.45` and the downloader hardening introduced in `1.0.37`.
 
 ## 1.0.50
@@ -213,7 +213,7 @@ This changelog reconstructs the project history from version `0.0.24` through `1
 
 ### Notes
 
-- Version `1.0.50` keeps the Chrome-like first-launch managed update follow-up added in `1.0.48`.
+- Version `1.0.50` keeps the earlier installer and release-flow polish added in `1.0.48`.
 - Version `1.0.50` builds directly on the detection reliability work added in `1.0.49`.
 
 ## 1.0.49
@@ -238,7 +238,7 @@ This changelog reconstructs the project history from version `0.0.24` through `1
 
 ### Notes
 
-- Version `1.0.49` keeps the Chrome-like first-launch managed update follow-up added in `1.0.48`.
+- Version `1.0.49` keeps the earlier installer and release-flow polish added in `1.0.48`.
 - Version `1.0.49` continues the gaming and streaming optimization work introduced in `1.0.45` and refined in `1.0.46` through `1.0.48`.
 
 ## 1.0.48
@@ -247,13 +247,13 @@ This changelog reconstructs the project history from version `0.0.24` through `1
 
 - The package version was advanced to `1.0.48`.
 - Architecture, privacy, comparison, README, release, and release-note documentation were refreshed for `1.0.48`.
-- The managed update flow was refined to feel more like a normal mainstream-browser install experience.
+- The installer flow was refined to feel more like a normal mainstream-browser install experience.
 
 ### Installer And Updates
 
 - The installer and browser now work together for a more Chrome-like update feel.
-- Fresh installs can now trigger a one-time first-launch managed update follow-up after the installer finishes.
-- Installer-managed update registration and later browser-managed checks remain in place.
+- Fresh installs now have a smoother post-install follow-up experience after the installer finishes.
+- The installer and browser release flow remain aligned for installed builds.
 - The installer continues to require the license page and separate legal acknowledgement before setup continues.
 
 ### Notes
@@ -476,8 +476,8 @@ This changelog reconstructs the project history from version `0.0.24` through `1
 - Chromium extension import support for Edge, Chrome, Brave, and Opera profile folders plus manual folder import
 - VPN manager support for NordVPN, ExpressVPN, ProtonVPN, and WireGuard with Proton `.conf` validation and import
 - Browser-session public IP testing with separate IPv4 and IPv6 checks in the VPN panel
-- Installer update-mode choice with `Automatic updates` and `Manual updates only`, plus a managed update flow for installs that opt into automatic updates
-- Installer-time opt-in registration so `Automatic updates` installs can notify the managed update flow immediately after setup
+- Installer update-mode choice with `Automatic updates` and `Manual updates only`
+- Clearer installer-time update preference handling during setup
 - Manual `Check for Updates` entry in the app menu with clearer version and status feedback
 - Improved uninstall flow with custom install-path tracking, external-drive install support, and better cleanup of stale install metadata
 - Uninstall options that let users choose which local data categories should be removed or kept
@@ -491,8 +491,8 @@ This changelog reconstructs the project history from version `0.0.24` through `1
 - Extension import scans supported Chromium profile locations and restores imported extensions into the persistent main session.
 - VPN integration now includes installed-client detection, external app launch shortcuts, local Proton profile import, and browser network refresh support.
 - Public IP testing now surfaces both IPv4 and IPv6 results so users can verify whether the browser session is going through the expected network path.
-- Installer builds can now record whether the user selected `Automatic updates` or `Manual updates only`, register auto-update installs immediately after setup, and fetch or download the latest published installer through the managed update flow.
-- Managed update administration was tightened so release-management actions stay more restricted.
+- Installer builds can now record whether the user selected `Automatic updates` or `Manual updates only` and keep that local preference available after setup.
+- Release handling was tightened so administrative actions stay more restricted.
 - Users can now manually run `Check for Updates` from the app menu and see installed-versus-available version feedback.
 - Custom install locations now better support external HDDs, external SSDs, and USB flash drives.
 - Uninstall now cleans up tracked custom install paths more reliably, lets users choose which local data categories to remove, and suppresses false leftover warnings when cleanup finishes successfully.
@@ -507,8 +507,8 @@ This changelog reconstructs the project history from version `0.0.24` through `1
 - Chromium extension import support for Edge, Chrome, Brave, and Opera profile folders plus manual folder import
 - VPN manager support for NordVPN, ExpressVPN, ProtonVPN, and WireGuard with Proton `.conf` validation and import
 - Browser-session public IP testing with separate IPv4 and IPv6 checks in the VPN panel
-- Installer update-mode choice with `Automatic updates` and `Manual updates only`, plus a managed update flow for installs that opt into automatic updates
-- Installer-time opt-in registration so `Automatic updates` installs can notify the managed update flow immediately after setup
+- Installer update-mode choice with `Automatic updates` and `Manual updates only`
+- Clearer installer-time update preference handling during setup
 - Manual `Check for Updates` entry in the app menu with clearer version and status feedback
 - Improved uninstall flow with custom install-path tracking, external-drive install support, and better cleanup of stale install metadata
 - Uninstall options that let users choose which local data categories should be removed or kept
@@ -522,8 +522,8 @@ This changelog reconstructs the project history from version `0.0.24` through `1
 - Extension import scans supported Chromium profile locations and restores imported extensions into the persistent main session.
 - VPN integration now includes installed-client detection, external app launch shortcuts, local Proton profile import, and browser network refresh support.
 - Public IP testing now surfaces both IPv4 and IPv6 results so users can verify whether the browser session is going through the expected network path.
-- Installer builds can now record whether the user selected `Automatic updates` or `Manual updates only`, register auto-update installs immediately after setup, and fetch or download the latest published installer through the managed update flow.
-- Managed update administration was tightened so release-management actions stay more restricted.
+- Installer builds can now record whether the user selected `Automatic updates` or `Manual updates only` and keep that local preference available after setup.
+- Release handling was tightened so administrative actions stay more restricted.
 - Users can now manually run `Check for Updates` from the app menu and see installed-versus-available version feedback.
 - Custom install locations now better support external HDDs, external SSDs, and USB flash drives.
 - Uninstall now cleans up tracked custom install paths more reliably, lets users choose which local data categories to remove, and suppresses false leftover warnings when cleanup finishes successfully.
@@ -579,13 +579,13 @@ This changelog reconstructs the project history from version `0.0.24` through `1
 
 ### Added
 
-- Installer-time auto-update check-in was added so installs that choose `Automatic updates` can register with the managed update flow immediately after setup.
+- Installer-time update preference handling was added for installs that choose `Automatic updates`.
 
 ### Updated
 
 - The package version was advanced to `1.0.6`.
 - Current release documentation and installer-facing version references were updated to `1.0.6`.
-- Managed update handling now separates end-user update access from release-management actions.
+- Release handling now separates end-user update access from administrative actions.
 
 ## 0.9.23
 
@@ -596,12 +596,12 @@ This changelog reconstructs the project history from version `0.0.24` through `1
 - Separate consent gating was added for browser bookmark-path scanning and manual bookmark-file access.
 - Chromium extension import support was added for Edge, Chrome, Brave, and Opera profile folders.
 - VPN tooling was added for installed-client detection, Proton `.conf` validation/import, and browser-session IP checks.
-- Installer update-mode selection was added for `Automatic updates` and `Manual updates only`, along with a managed updater that can register opted-in installs, publish the latest release, and let clients download and launch that installer.
+- Installer update-mode selection was added for `Automatic updates` and `Manual updates only`, along with a clearer installer-based release path for end users.
 
 ### Updated
 
 - Release, README, privacy, and architecture documentation were refreshed for version `0.9.23`.
-- Update documentation was revised to describe the managed updater, published release flow, and the limited fields it collects.
+- Update documentation was revised to describe the installer-based release flow in simpler public terms.
 - Browser persistence behavior was updated so uninstall no longer deletes app data by default.
 - Startup logging was reduced so blocked tracker noise and low-level Chromium network spam do not flood the terminal.
 
@@ -648,7 +648,7 @@ This changelog reconstructs the project history from version `0.0.24` through `1
 ### Added
 
 - Exportable diagnostics and local crash logging were introduced.
-- A documented crash-report workflow was added through `Tools > Export Diagnostics Report` with a support email contact.
+- A documented crash-report workflow was added through `Tools > Export Diagnostics Report` with a private support contact path.
 - `Data-Collection-and-Privacy-Notice.md` was added to formalize the browser's no-telemetry and no-analytics position.
 
 ### Updated
