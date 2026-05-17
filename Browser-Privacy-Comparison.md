@@ -2,9 +2,9 @@
 
 ## Browser Privacy Comparison
 
-Update note for readers: the original comparison text below was written around version `1.0.65`. The browser has since moved forward to version `1.1.5`, and the addendum sections in this document extend the comparison with the newer local AI and privacy-safe diagnostics behavior without removing the earlier reference material.
+Update note for readers: the original comparison text below was written around version `1.0.65`. The browser has since moved forward to version `1.1.7`, and the addendum sections in this document extend the comparison with the newer local AI and privacy-safe diagnostics behavior without removing the earlier reference material.
 
-This document reflects the current privacy posture of BubblesTheDev Web Browser version `1.0.65`.
+This document reflects the current privacy posture of BubblesTheDev Web Browser version `1.1.7`.
 
 The goal is accuracy, not marketing language. The browser does not implement built-in telemetry, analytics SDKs, cloud sync, a built-in silent auto-updater client, or automatic diagnostics upload. It does, however, make normal network requests when the user browses the web, uses built-in search features, uses supported site authentication flows such as passkeys, downloads files, or uses the managed update flow when the build is configured with an update server.
 
@@ -231,11 +231,11 @@ BubblesTheDev Web Browser currently aims for a local-first privacy posture:
 
 Developed by BubblesTheDev
 
-## Version 1.1.5 Addendum
+## Version 1.1.7 Addendum
 
-Version `1.1.5` keeps the same local-first privacy direction described above and adds a new local AI and diagnostics layer.
+Version `1.1.7` keeps the same local-first privacy direction described above and adds a new local AI and diagnostics layer.
 
-Important privacy-facing differences in `1.1.5` compared with the older `1.0.65` baseline described above:
+Important privacy-facing differences in `1.1.7` compared with the older `1.0.65` baseline described above:
 
 * the browser now includes an `AI & Diagnostics` panel
 * local AI summarization and runtime analysis are available on-device
@@ -247,18 +247,18 @@ Important privacy-facing differences in `1.1.5` compared with the older `1.0.65`
 * users can send a privacy-safe test report for verification
 * optional severe-event privacy-safe diagnostics can be enabled by the user
 
-## Additional High-Level Comparison Notes For 1.1.5
+## Additional High-Level Comparison Notes For 1.1.7
 
-If the comparison table above were extended for `1.1.5`, the Bubbles column would also include the following clarifications:
+If the comparison table above were extended for `1.1.7`, the Bubbles column would also include the following clarifications:
 
 * `Automatic diagnostics upload` would now be better described as: `No by default; optional privacy-safe severe-event reporting only when enabled by the user`
 * `Local browser data storage` would now also include encrypted profile-isolated AI memory for standard profiles
 * `Private or incognito session mode` would now also include non-persistent local AI memory behavior for incognito sessions
 * `Runtime checks or local diagnostics view` would now also include the `AI & Diagnostics` panel with preview, manual send, and test-send controls
 
-## Local AI Privacy Addendum For 1.1.5
+## Local AI Privacy Addendum For 1.1.7
 
-Version `1.1.5` adds an optional on-device AI layer.
+Version `1.1.7` adds an optional on-device AI layer.
 
 Current privacy-facing characteristics of that layer are:
 
@@ -270,11 +270,11 @@ Current privacy-facing characteristics of that layer are:
 * AI memory contents are not intended to be part of privacy-safe diagnostics payloads
 * the local AI layer is not described as a cloud-sync feature
 
-## Diagnostics Addendum For 1.1.5
+## Diagnostics Addendum For 1.1.7
 
-The older sections above describe diagnostics as local-only manual export behavior. Version `1.1.5` extends that model while keeping the privacy posture user-controlled.
+The older sections above describe diagnostics as local-only manual export behavior. Version `1.1.7` extends that model while keeping the privacy posture user-controlled.
 
-Current additional diagnostics behavior in `1.1.5`:
+Current additional diagnostics behavior in `1.1.7`:
 
 * privacy-safe diagnostics are disabled by default
 * users can preview approved diagnostic data before sending
@@ -285,9 +285,9 @@ Current additional diagnostics behavior in `1.1.5`:
 
 These additions do not change the core privacy direction of the browser into a telemetry-heavy model. The reporting path is intended to remain privacy-safe, user-controlled, and narrower than general browser data collection.
 
-## Updated Summary For 1.1.5
+## Updated Summary For 1.1.7
 
-The broad privacy conclusion from the original comparison still holds in `1.1.5`:
+The broad privacy conclusion from the original comparison still holds in `1.1.7`:
 
 * browser data stays local by default
 * AI memory stays local and isolated per profile
