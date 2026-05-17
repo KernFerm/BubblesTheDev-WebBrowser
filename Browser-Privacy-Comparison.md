@@ -6,7 +6,7 @@ Update note for readers: the original comparison text below was written around v
 
 This document reflects the current privacy posture of BubblesTheDev Web Browser version `1.1.7`.
 
-The goal is accuracy, not marketing language. The browser does not implement built-in telemetry, analytics SDKs, cloud sync, a built-in silent auto-updater client, or automatic diagnostics upload. It does, however, make normal network requests when the user browses the web, uses built-in search features, uses supported site authentication flows such as passkeys, downloads files, or uses the managed update flow when the build is configured with an update server.
+The goal is accuracy, not marketing language. The browser does not implement built-in telemetry, analytics SDKs, cloud sync, a built-in silent auto-updater client, or automatic diagnostics upload. It does, however, make normal network requests when the user browses the web, uses built-in search features, uses supported site authentication flows such as passkeys, downloads files, or uses normal release-check behavior from the app menu.
 
 ## Scope And Related Documents
 
@@ -37,6 +37,7 @@ This table is intentionally high-level. Mainstream browsers change over time, bu
 | Cloud sync requirement | None | Optional | Optional | Optional | Optional | Optional | Optional | Optional |
 | Auto-updater service | No built-in silent updater; optional installer-based update flow for installed builds | Present | Present | Present | Present | Present through OS updates | Present | Present |
 | Local browser data storage | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
+| Local AI memory support | Yes, encrypted and profile-isolated for standard profiles | Varies | Varies | Varies | Varies | Varies | Varies | Varies |
 | Local persistence protection | Brotli-compressed, with OS-backed or credential-backed encryption when available | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
 | Manual encrypted diagnostics export | Yes | Varies | Varies | Varies | Varies | Varies | Varies | Varies |
 | Browser-data import from other browsers | Yes, explicit user action and consent | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
@@ -51,6 +52,7 @@ This table is intentionally high-level. Mainstream browsers change over time, bu
 | Streaming download blocking inside isolated sessions | Yes | No | No | No | No | No | No | No |
 | Per-service streaming session clearing | Yes | No | No | No | No | No | No | No |
 | Runtime checks or local diagnostics view | Yes, with Runtime Checks plus manual encrypted diagnostics export | Varies | Varies | Varies | Varies | Varies | Varies | Varies |
+| Built-in AI status and diagnostics panel | Yes, with `AI & Diagnostics`, current-session health, refresh controls, preview, manual send, and test-send actions | Varies | Varies | Varies | Varies | Varies | Varies | Varies |
 | Search-provider requests from built-in home/search page | Yes, after user search on `bubbles://home` | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
 | Passkey and WebAuthn compatibility | Yes, through Chromium/Electron site support | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
 | Gaming or streaming-aware performance controls | Yes, with local OBS or Streamlabs detection, tab sleeping, background throttling, and stream-stability tuning | Varies | Varies | Varies | Varies | Varies | Varies | Varies |
@@ -68,6 +70,7 @@ Additional notes for the comparison columns:
 * `Vivaldi` is shown with optional sync and limited first-party data processing because Vivaldi documents both optional encrypted sync and a browser privacy policy with limited browser-generated server messages.
 * `Browser-data import from other browsers` refers to browser features for importing bookmarks or related local browser data from another browser or exported file.
 * `Private or incognito session mode` refers to built-in private browsing modes intended to limit what is stored locally after the private session ends.
+* `Local AI memory support` refers to whether the browser includes a profile-aware local AI memory layer rather than only stateless assistant-style features.
 * `Supported built-in streaming hub or launcher` refers to whether the browser exposes a dedicated in-browser streaming surface for supported providers rather than treating streaming services only like normal tabs or bookmarks.
 * `Streaming sign-in popup hardening` refers to whether sign-in popups for supported streaming flows are restricted with dedicated popup handling, abuse controls, or tighter window settings.
 * `Streaming navigation allowlists` refers to whether supported streaming sessions are actively restricted to trusted service domains instead of behaving like unrestricted general web tabs.
@@ -75,6 +78,7 @@ Additional notes for the comparison columns:
 * `Per-service streaming session clearing` refers to whether the browser can clear the isolated stored session data for one supported streaming provider without wiping the full default browser session.
 * `Windows-native download protection stack` refers to whether the browser exposes a local download-validation path that can cooperate with normal Windows security layers instead of only using browser-level prompts.
 * `Runtime checks or local diagnostics view` refers to whether the browser exposes a user-facing diagnostics or inspection surface rather than only hidden internal pages or crash dialogs.
+* `Built-in AI status and diagnostics panel` refers to whether the browser exposes a first-class local AI and diagnostics surface rather than leaving those capabilities buried in hidden internal tooling.
 * `Gaming or streaming-aware performance controls` is intentionally broad. It refers to browser behavior that reacts to heavier local sessions such as streaming, recording, or gaming pressure rather than acting only like a static tab-throttling model.
 * `Browser VPN or VPN integration feature` is intentionally broad. It includes built-in browser VPNs, first-party browser-integrated VPN partnerships, or local VPN-management features exposed by the browser itself.
 * `Split-view browsing built in` refers to a browser-exposed side-by-side browsing feature or comparable built-in tab tiling behavior.
@@ -100,17 +104,16 @@ Current persisted data includes:
 * Music Player opt-in state and chosen folder
 * Music Downloader consent state, queue state, cooldown timing, abuse-lock timing, recent job history, and approved output folder
 * gaming and streaming performance settings, including stream-stability preferences
+* local AI settings and current-session AI preferences
+* encrypted profile-isolated AI memory for standard profiles
 * per-site permission settings
 * service-specific persistent streaming-session partitions for supported streaming services
 * cached search results and suggestions
-* install-linked path metadata used for custom or external-drive installs and local update preferences
-* first-launch managed update follow-up state used after install
+* install-linked path metadata used for custom or external-drive installs
 
 The persisted browser-state payload is compressed before it is written to disk. When Electron safe storage is available, that payload is also protected with OS-backed encryption. If OS-backed protection is unavailable, the runtime can fall back to credential-backed AES-GCM protection when available.
 
 The application does not automatically upload this browser-state data.
-
-Installer builds can optionally be configured with an installer-based managed update flow. That flow is separate from telemetry, remains limited to update-management behavior, and does not include browsing history, bookmarks, saved passwords, or page contents in normal use. Public documentation intentionally does not describe private operational details of that update path.
 
 If the browser is installed on an external drive instead of `C:`, install-linked data and path tracking can follow that selected external location instead of being treated only as a default system-drive install.
 
@@ -124,6 +127,7 @@ Current behavior:
 * users can export an encrypted `.bdiag` diagnostics report manually
 * no automatic diagnostics upload path is implemented
 * the runtime checks panel surfaces local status for storage protection, enabled download-scan providers, ad-block counters, executable path, and performance state
+* the `AI & Diagnostics` panel surfaces current-session health, runtime analysis, encrypted profile-memory status, a `Refresh Status` action, and privacy-safe diagnostics controls
 
 This means diagnostic data stays on-device unless the user explicitly chooses to export it.
 
@@ -138,7 +142,6 @@ This browser is not offline-only. Network traffic still occurs when the user doe
 * uses external search engines directly
 * uses the bundled `bubbles://home` search experience
 * uses websites that request passkey or WebAuthn authentication through the platform browser flow
-* uses the managed update flow when the build is configured with an update server
 
 The internal Bubbles search page can contact DuckDuckGo and Google endpoints to assemble results, related searches, and suggestions after the user performs a search.
 
@@ -148,7 +151,7 @@ When the user signs in with a passkey on a supported site, the authentication fl
 
 When the user signs into a supported streaming service through the Streaming Hub, the service still receives normal web login traffic, but each supported service stays inside its own dedicated persistent Electron partition rather than the shared default browsing session.
 
-As of version `1.0.65`, the supported services are Disney+, Hulu, Max, Netflix, Paramount+, Prime Video, Apple TV+, AMC+, Peacock, Crunchyroll, YouTube TV, Sling TV, Pluto TV, The Roku Channel, Plex, Discovery+, ESPN+, MGM+, STARZ, and Tubi.
+As of version `1.1.7`, the supported services are Disney+, Hulu, Max, Netflix, Paramount+, Prime Video, Apple TV+, AMC+, Peacock, Crunchyroll, YouTube TV, Sling TV, Pluto TV, The Roku Channel, Plex, Discovery+, ESPN+, MGM+, STARZ, and Tubi.
 
 ## Music Player Privacy Model
 
@@ -190,10 +193,10 @@ Current characteristics:
 * no built-in analytics pipeline
 * no cloud sync service
 * no built-in silent auto-updater service
+* local AI worker isolation, current-session health analysis, and encrypted per-profile AI memory for standard profiles
+* non-persistent AI memory handling for incognito sessions
+* user-facing `AI & Diagnostics` controls with preview, manual send, test-send, and refresh-status actions
 * local background tab throttling, memory-pressure tab suspension, and stream-stability optimization instead of cloud-managed performance services
-* optional installer-based managed update flow for installed builds
-* managed update installs require trusted secure update validation before launch
-* installed builds can do a one-time follow-up update check without adding a silent always-on updater service
 * password save and reveal flows are restricted to secure contexts such as `https:` pages or local loopback development hosts
 * imported extensions are loaded without local file access and high-risk permissions trigger extra user warnings
 * Chromium and Electron secure-context behavior for supported passkey and WebAuthn site flows
@@ -218,18 +221,19 @@ BubblesTheDev Web Browser currently aims for a local-first privacy posture:
 * browser settings, history, bookmarks, permissions, search cache, and install-linked path metadata stay on-device
 * toolbar visibility, bookmark bar visibility, and the selected shell theme stay on-device
 * persisted state is compressed and protected locally
+* local AI memory for standard profiles stays encrypted and isolated per profile
+* incognito AI memory stays non-persistent
 * diagnostics stay local unless the user exports them
 * performance-related behaviors such as background tab sleeping, memory-pressure trimming, OBS-aware throttling, borderless-game detection, improved local session detection, fresh local detector refreshes, and adaptive local detector sampling are local runtime features rather than telemetry or remote optimization systems
-* the isolated Streaming Hub in `1.0.65` adds service-specific session separation and popup hardening without changing the browser into a credential interceptor or telemetry client
-* lighter performance-summary handling in `1.0.65` reduces repeated local metrics work during normal browsing without changing the browser's privacy posture
-* the visible media memory saver and lighter cached Runtime Checks behavior in `1.0.65` lower local overhead further without changing the browser's privacy posture
+* the isolated Streaming Hub in `1.1.7` adds service-specific session separation and popup hardening without changing the browser into a credential interceptor or telemetry client
+* lighter performance-summary handling in `1.1.7` reduces repeated local metrics work during normal browsing without changing the browser's privacy posture
+* the visible media memory saver, lighter cached Runtime Checks behavior, and lighter AI or Task Manager refresh behavior in `1.1.7` lower local overhead further without changing the browser's privacy posture
+* the `AI & Diagnostics` panel gives users a direct way to review current-session health, refresh status while browsing, and control privacy-safe diagnostics
 * music library access requires explicit consent before any scan begins
 * bookmark import and VPN profile scanning require explicit user consent before local file access begins
 * password save and reveal behavior is limited to secure contexts instead of arbitrary insecure pages
 * supported passkey sign-ins rely on site and platform authenticator flows rather than a Bubbles-operated credential cloud
 * browsing and built-in search still create normal traffic to the websites and providers the user chooses to use
-
-Developed by BubblesTheDev
 
 ## Version 1.1.7 Addendum
 
@@ -241,6 +245,8 @@ Important privacy-facing differences in `1.1.7` compared with the older `1.0.65`
 * local AI summarization and runtime analysis are available on-device
 * local AI memory can be kept in encrypted profile-isolated storage for standard profiles
 * incognito AI memory is non-persistent
+* the panel can show current-session browser health and runtime predictions
+* users can manually refresh the AI and diagnostics status while browsing
 * privacy-safe diagnostics remain opt-in and are disabled by default
 * users can preview privacy-safe diagnostics before sending
 * users can manually send a privacy-safe diagnostics report when needed
@@ -254,7 +260,7 @@ If the comparison table above were extended for `1.1.7`, the Bubbles column woul
 * `Automatic diagnostics upload` would now be better described as: `No by default; optional privacy-safe severe-event reporting only when enabled by the user`
 * `Local browser data storage` would now also include encrypted profile-isolated AI memory for standard profiles
 * `Private or incognito session mode` would now also include non-persistent local AI memory behavior for incognito sessions
-* `Runtime checks or local diagnostics view` would now also include the `AI & Diagnostics` panel with preview, manual send, and test-send controls
+* `Runtime checks or local diagnostics view` would now also include the `AI & Diagnostics` panel with current-session health, refresh-status, preview, manual send, and test-send controls
 
 ## Local AI Privacy Addendum For 1.1.7
 
@@ -267,6 +273,7 @@ Current privacy-facing characteristics of that layer are:
 * AI memory is isolated per profile
 * AI memory for standard profiles can be encrypted and stored locally
 * AI memory for incognito sessions is non-persistent
+* AI health status is session-based and can be refreshed while the browser is in use
 * AI memory contents are not intended to be part of privacy-safe diagnostics payloads
 * the local AI layer is not described as a cloud-sync feature
 
@@ -281,6 +288,7 @@ Current additional diagnostics behavior in `1.1.7`:
 * users can manually send a privacy-safe report
 * users can send a privacy-safe test report
 * users can optionally allow privacy-safe severe-event reporting
+* users can refresh the panel status manually while browsing so the local AI runtime view is more current
 * the public documentation intentionally does not expose private infrastructure details for that reporting path
 
 These additions do not change the core privacy direction of the browser into a telemetry-heavy model. The reporting path is intended to remain privacy-safe, user-controlled, and narrower than general browser data collection.
