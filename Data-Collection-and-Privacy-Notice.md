@@ -1,10 +1,10 @@
 # Data Collection and Privacy Notice
 
-Update note for readers: parts of this notice originated around version `1.0.65`. The current notice now reflects version `1.1.5`, and the later sections extend the earlier baseline with the newer local AI and privacy-safe diagnostics behavior.
+Update note for readers: parts of this notice originated around version `1.0.65`. The current notice now reflects version `1.1.7`, and the later sections extend the earlier baseline with the newer local AI and privacy-safe diagnostics behavior.
 
-This notice reflects the current privacy posture of BubblesTheDev Web Browser version `1.1.5`.
+This notice reflects the current privacy posture of BubblesTheDev Web Browser version `1.1.7`.
 
-BubblesTheDev Web Browser is designed to keep browser data local to the user's device unless the user chooses to browse external websites, use external search providers, download files, export diagnostics manually, enable privacy-safe diagnostics, or use browser update features.
+BubblesTheDev Web Browser is designed to keep browser data local to the user's device unless the user chooses to browse external websites, use external search providers, download files, export diagnostics manually, or enable privacy-safe diagnostics.
 
 The application does not include built-in telemetry, analytics SDKs, automatic crash upload services, cloud synchronization, a built-in silent auto-updater client, or AI monitoring systems.
 
@@ -18,9 +18,7 @@ Specifically:
 * No automatic diagnostics upload path is implemented.
 * No analytics or telemetry service is contacted for ordinary browser data collection purposes.
 
-Installer builds can optionally support an installer-based update flow. That update behavior is separate from telemetry and does not change the browser into a general analytics or browsing-data collection system.
-
-Version `1.1.5` includes the current browser behavior around the Streaming Hub, isolated persistent streaming-service sessions, hardened streaming login popups, service-specific navigation allowlists, blocked downloads inside streaming views, local-first media handling, the hardened Music Downloader, Windows-safe gaming and streaming performance optimization, lighter performance-summary handling during normal browser-state updates, the visible media memory saver path for heavy tabs, lighter cached Runtime Checks behavior, passkey compatibility, external-drive install handling, installer-managed automatic updates with a one-time first-launch follow-up check, and the newer local AI plus privacy-safe diagnostics controls. Those behaviors do not add built-in telemetry or analytics collection to the browser.
+Version `1.1.7` includes the current browser behavior around the Streaming Hub, isolated persistent streaming-service sessions, hardened streaming login popups, service-specific navigation allowlists, blocked downloads inside streaming views, local-first media handling, the hardened Music Downloader, Windows-safe gaming and streaming performance optimization, lighter performance-summary handling during normal browser-state updates, the visible media memory saver path for heavy tabs, lighter cached Runtime Checks behavior, passkey compatibility, external-drive install handling, and the newer local AI plus privacy-safe diagnostics controls. Those behaviors do not add built-in telemetry or analytics collection to the browser.
 
 ## Local Browser Data
 
@@ -43,24 +41,13 @@ Current persisted data includes:
 * optional Music Player opt-in state and chosen folder
 * Music Downloader consent state, queue state, cooldown timing, abuse-lock timing, recent job history, and approved output folder
 * cached search results and suggestions used by the internal home/search page
-* install-linked path metadata used to track custom or external-drive installs and related local update preferences
-* first-launch managed update follow-up state used after install
+* install-linked path metadata used to track custom or external-drive installs
 
 Current runtime-only state also includes transient Streaming Hub popup cooldown and window-tracking data held in memory while the browser is open.
 
 The persisted browser-state payload is compressed before being written to disk. When Electron safe storage is available, that payload is also protected with OS-backed encryption. If OS-backed protection is unavailable, the runtime can fall back to credential-backed AES-GCM protection when available. If neither protection path is available, the payload is still stored locally in compressed form.
 
 The application does not automatically upload this browser-state data.
-
-## Managed Update Flow
-
-Installed builds can use the automatic-update flow when update features are enabled for that build.
-
-When enabled, the installer or browser can check for newer releases and download a newer installer package through a controlled installer-based update flow. On a fresh install, the browser can also perform a one-time follow-up update check so the setup experience feels smoother while still using a normal installer flow.
-
-That update path is intended to remain separate from browsing activity. It is not meant to include browsing history, bookmarks, saved passwords, search queries, page content, imported files, or diagnostics contents.
-
-If the published installer URL points to a third-party host such as GitHub releases, that download host will see a normal installer download request in the same way it would for any direct browser download.
 
 ## Diagnostics And Runtime Checks
 
@@ -84,8 +71,6 @@ Current removable categories include:
 * browser profile data
 * saved passwords
 * diagnostics reports
-* local update preferences
-
 If a category is left unchecked during uninstall, that data remains on the device for a future reinstall or update.
 
 Uninstall cleanup also:
@@ -108,7 +93,6 @@ This browser is not offline-only. Outbound network traffic still occurs when the
 * uses external search engines directly
 * uses search from `bubbles://home`
 * uses websites that request passkey or WebAuthn authentication through the platform browser flow
-* uses browser update features when they are enabled for the build
 
 When the user performs a search from `bubbles://home`, the application may contact DuckDuckGo and Google endpoints to assemble results, related searches, and suggestions on that internal page.
 
@@ -120,7 +104,7 @@ Saved-password capture and reveal flows are limited to secure contexts such as `
 
 When the user signs into a supported streaming service through the Streaming Hub, that service still sees normal login traffic just as it would in another browser. The browser isolates each supported service into its own dedicated session partition, does not use the shared default session for those services, does not export their session data, and does not intentionally expose streaming cookies or tokens to renderer code.
 
-As of version `1.1.5`, the currently supported Streaming Hub services are Disney+, Hulu, Max, Netflix, Paramount+, Prime Video, Apple TV+, AMC+, Peacock, Crunchyroll, YouTube TV, Sling TV, Pluto TV, The Roku Channel, Plex, Discovery+, ESPN+, MGM+, STARZ, and Tubi.
+As of version `1.1.7`, the currently supported Streaming Hub services are Disney+, Hulu, Max, Netflix, Paramount+, Prime Video, Apple TV+, AMC+, Peacock, Crunchyroll, YouTube TV, Sling TV, Pluto TV, The Roku Channel, Plex, Discovery+, ESPN+, MGM+, STARZ, and Tubi.
 
 ## Music Player Privacy
 
@@ -151,26 +135,23 @@ The privacy model is local-first:
 
 * browser settings, history, bookmarks, passwords, imported extension metadata, VPN profile metadata, permissions, and search cache stay on-device
 * toolbar visibility, bookmark bar visibility, and the selected shell theme stay on-device
-* install-linked path metadata for custom or external-drive installs stays on-device except for limited update-management behavior
 * persisted browser state is compressed locally and protected when an available encryption path exists
 * diagnostics stay local unless the user exports them
 * supported streaming sessions stay isolated per service and can be cleared independently
 * music library access requires explicit consent before any scan begins
 * music downloader state, cooldown controls, and validated output handling stay on-device
 * gaming and streaming optimization logic, including OBS-aware throttling, improved borderless-game and streaming-session detection, fresh local status sampling, and adaptive detector sampling, stays on-device
-* the new first-launch managed update follow-up remains limited to update-management behavior and does not turn the browser into a silent telemetry client
-* managed updates are limited to update-management behavior and installer downloads
 * imported extensions require explicit user action, load without local file access, and may show extra warnings for higher-risk permission requests
 * download protection can consult Windows-registered antivirus status and use Windows-native attachment handling without sending browsing data to a Bubbles-operated cloud service
 * browsing, downloads, and built-in search still create normal traffic to the websites and providers the user chooses to use
 
 Any future feature that materially changes this privacy posture should be disclosed in updated privacy and release documentation.
 
-## Version 1.1.5 Addendum
+## Version 1.1.7 Addendum
 
-Version `1.1.5` keeps the same local-first privacy direction described above and adds a new local AI and privacy-safe diagnostics layer.
+Version `1.1.7` keeps the same local-first privacy direction described above and adds a new local AI and privacy-safe diagnostics layer.
 
-Important user-facing privacy changes in `1.1.5`:
+Important user-facing privacy changes in `1.1.7`:
 
 * the browser now includes an `AI & Diagnostics` panel
 * local AI summarization can run on-device
@@ -183,9 +164,9 @@ Important user-facing privacy changes in `1.1.5`:
 * users can send a privacy-safe test report
 * users can optionally allow privacy-safe severe-event reporting
 
-## Local AI Privacy Addendum For 1.1.5
+## Local AI Privacy Addendum For 1.1.7
 
-Version `1.1.5` adds optional on-device AI features.
+Version `1.1.7` adds optional on-device AI features.
 
 Current local AI privacy behavior:
 
@@ -198,11 +179,11 @@ Current local AI privacy behavior:
 * AI memory is not described as a cloud-sync feature
 * AI memory contents are not intended to be part of privacy-safe diagnostics payloads
 
-## Diagnostics Addendum For 1.1.5
+## Diagnostics Addendum For 1.1.7
 
-The earlier sections above describe the older local diagnostics and export behavior. Version `1.1.5` extends that model while keeping diagnostics user-controlled.
+The earlier sections above describe the older local diagnostics and export behavior. Version `1.1.7` extends that model while keeping diagnostics user-controlled.
 
-Current additional diagnostics behavior in `1.1.5`:
+Current additional diagnostics behavior in `1.1.7`:
 
 * privacy-safe diagnostics remain disabled by default
 * users can preview approved diagnostic data before sending
@@ -213,9 +194,9 @@ Current additional diagnostics behavior in `1.1.5`:
 
 Privacy-safe diagnostics are intended to remain narrower than general browser data collection. They are not meant to include browsing history, passwords, AI memory contents, personal documents, or website content.
 
-## Updated Summary For 1.1.5
+## Updated Summary For 1.1.7
 
-The main privacy conclusion from the earlier notice still holds in `1.1.5`:
+The main privacy conclusion from the earlier notice still holds in `1.1.7`:
 
 * browser data stays local by default
 * AI memory stays local and isolated per profile
