@@ -12,7 +12,7 @@ Security fixes are generally provided for the most recent stable release of the 
 
 | Version | Supported |
 | ------- | --------- |
-| **1.1.5** | Yes |
+| **1.1.7** | Yes |
 | Older versions | No |
 
 Users should run the latest available version of the browser to receive the newest security fixes and improvements.
@@ -25,7 +25,7 @@ If you discover a security vulnerability, please report it privately.
 
 **Do not open a public GitHub issue for security reports.**
 
-Report vulnerabilities by email:
+Report vulnerabilities through a private project security contact method.
 
 **Email:** [browser-support@bubbles-browser.fnbubbles420.org](mailto:browser-support@bubbles-browser.fnbubbles420.org)
 
@@ -54,6 +54,17 @@ When a report is received, the general process is:
 5. Share public disclosure details after a fix is available
 
 Response times can vary depending on severity, complexity, and reproducibility, but confirmed issues are handled as responsibly and as quickly as possible.
+
+## Private Handling Workflow
+
+Security reports are handled through a private workflow rather than public issue discussion.
+
+That workflow is intended to:
+
+* reduce unnecessary exposure while a fix is being prepared
+* keep reproduction details limited to the people working the issue
+* avoid publishing exploit details before affected users have a chance to update
+* move to public disclosure only after remediation work is available or the risk has been otherwise addressed
 
 ---
 
@@ -102,10 +113,10 @@ The browser is developed with a reduced-surface approach that emphasizes:
 * local-first data storage
 * reliance on Chromium sandboxing and process isolation where applicable
 * strict renderer isolation with `contextIsolation` enabled and `nodeIntegration` disabled
-* main-process ownership of higher-risk operations such as downloader execution, performance-policy control, and update verification
-* verified HTTPS-based managed update checks with SHA-256 installer validation before launch
+* main-process ownership of higher-risk operations such as downloader execution and performance-policy control
+* verified installer-package validation with SHA-256 checks before launch
 
-Current security-sensitive design points in version `1.1.5` include:
+Current security-sensitive design points in version `1.1.7` include:
 
 * sandboxed renderer processes and strict preload IPC boundaries
 * isolated persistent streaming-service partitions for supported providers such as Disney+, Hulu, Max, Netflix, Paramount+, Prime Video, Apple TV+, AMC+, Peacock, Crunchyroll, YouTube TV, Sling TV, Pluto TV, The Roku Channel, Plex, Discovery+, ESPN+, MGM+, STARZ, and Tubi
@@ -121,7 +132,10 @@ Current security-sensitive design points in version `1.1.5` include:
 * isolated local AI worker execution with startup integrity checks, authorized bootstrap validation, operation allowlisting, and timeout watchdog protection
 * profile-isolated AI memory with encrypted persistence for standard profiles, non-persistent in-memory handling for incognito sessions, and stronger path, quota, and corruption-recovery safeguards
 * local-only diagnostics generation and encrypted diagnostics export
-* privacy-safe diagnostics that remain disabled by default, use stricter allowlisted payload validation, and submit only through privileged browser-side services when the user enables reporting
+* privacy-safe diagnostics that remain disabled by default, use stricter allowlisted payload validation, support preview before send, and submit only through privileged browser-side services when the user enables reporting
+* stricter renderer-to-main IPC validation, stronger popup and opener isolation, and tighter internal-page content security rules
+* local AI worker trust manifests, approved-model path restrictions, request-size limits, and repeated-failure watchdog behavior
+* runtime trust-manifest checks and safer fail-closed handling for sensitive subsystems when integrity problems are detected
 * imported extension safeguards, secure-context password handling, and trusted-source-aware download checks
 
 This approach helps limit unnecessary network activity and reduces avoidable attack surface.
@@ -137,6 +151,3 @@ For security matters, email is the preferred contact method:
 Community channels should not be used for security reports or for sharing logs that may contain private information.
 
 ---
-
-Developed by **BubblesTheDev**
-
