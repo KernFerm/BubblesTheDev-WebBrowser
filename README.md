@@ -2,7 +2,7 @@
 
 > A browser built for privacy, control, and a smoother everyday experience. ✨
 
-[![Version](https://img.shields.io/badge/version-1.1.7-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
+[![Version](https://img.shields.io/badge/version-1.1.10-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Platform](https://img.shields.io/badge/platform-Windows%2011-0078D6)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Electron](https://img.shields.io/badge/Electron-42-47848F?logo=electron&logoColor=white)](https://www.electronjs.org/)
 
@@ -12,11 +12,11 @@ BubblesTheDev Web Browser is a Windows browser designed for everyday use while k
 
 It includes normal browsing features such as tabs, bookmarks, downloads, saved passwords, a built-in home page, split view, streaming tools, privacy protections, and Windows-focused performance controls.
 
-Version `1.1.7` expands the browser with a hardened local AI and diagnostics architecture.
+Version `1.1.10` expands the browser with a hardened local AI and diagnostics architecture.
 
 The goal is to give users a browser that still feels practical for daily use while avoiding unnecessary background collection and exposing more of the browser's privacy and diagnostics behavior in plain language.
 
-## 🆕 What's New In 1.1.7
+## 🆕 What's New In 1.1.10
 
 * Added an `AI & Diagnostics` panel
 * Added a `Refresh Status` button under the `AI & Diagnostics` panel title for a fresh live status check
@@ -128,7 +128,7 @@ These tools are meant to make the browser feel more complete without pushing mor
 
 Installer file name:
 
-`BubblesTheDev Web Browser_Installer_1.1.7.exe`
+`BubblesTheDev Web Browser_Installer_1.1.10.exe`
 
 Platform:
 
