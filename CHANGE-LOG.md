@@ -1,12 +1,34 @@
 # Changelog
 
-This changelog reconstructs the project history from version `0.0.24` through `1.0.65` using the repository's tagged compare data, release notes, versioned README changes, and current installer/update work.
+This changelog reconstructs the project history from version `0.0.24` through `1.1.7` using the repository's tagged compare data, release notes, versioned README changes, and current installer/update work.
+
+## 1.1.7
+
+### Updated
+
+- The package version was advanced to `1.1.7`.
+- Release-facing documentation was refreshed to reflect the current version number.
+- The `AI & Diagnostics` panel continues to include the newer `Refresh Status` action for live runtime checks while browsing.
+
+### Performance
+
+- The lighter background performance polling and reduced Task Manager refresh pressure remain in place for the current release.
+
+### Release
+
+- The `1.1.7` Windows installer package name is `BubblesTheDev Web Browser_Installer_1.1.7.exe`.
+- The verified installer SHA-256 for `1.1.7` is `TBD after final installer build`.
+
+### Notes
+
+- Version `1.1.7` carries forward the local AI, privacy-safe diagnostics, installer UX, and runtime optimization work introduced in the recent `1.1.x` releases.
 
 ## 1.1.5
 
 ### Added
 
 - Added an `AI & Diagnostics` panel to the browser UI.
+- Added a `Refresh Status` button under the `AI & Diagnostics` panel title so users can request a fresh runtime status snapshot while browsing.
 - Added encrypted profile-isolated local AI memory for standard profiles.
 - Added non-persistent AI memory handling for incognito sessions.
 - Added offline local summarization and isolated local AI runtime analysis.
@@ -14,17 +36,23 @@ This changelog reconstructs the project history from version `0.0.24` through `1
 - Added automatic current-session AI health recovery reset behavior after severe low-health conditions.
 - Added privacy-safe diagnostics preview, manual send, test send, and optional severe-event reporting controls.
 
+### Performance
+
+- Reduced background performance polling overhead so routine browser monitoring does less work during normal use.
+- Lowered Task Manager refresh pressure by using a slower refresh cadence and skipping unnecessary hidden-window updates.
+- Smoothed frequent browser-state updates so runtime status panels do less unnecessary churn during active browsing.
+
 ### Security And Privacy
 
 - Hardened the local AI worker with startup integrity checks, bootstrap validation, operation allowlisting, and timeout watchdog protection.
 - Hardened AI memory handling with stronger profile-context validation, path safety checks, quota enforcement, and corruption recovery behavior.
 - Hardened privacy-safe diagnostics with stricter allowlisted payload validation and browser-side submission only.
-- Kept public documentation free of private endpoint, token, and backend-routing details.
+- Kept public documentation free of private infrastructure details.
 
-### Installer And Updates
+### Installer
 
-- Updated the NSIS finish flow so post-install registration and stable-version validation are shown in a visible branded progress window.
-- Improved the finish window messaging so users can see what step is happening during registration and validation.
+- Updated the NSIS finish flow so post-install work is shown in a visible branded progress window.
+- Improved the finish window messaging so users can see what step is happening during the completion process.
 - Hid the blank PowerShell console from the visible post-install flow.
 - Extended the completion state so the result remains visible briefly before the window closes automatically.
 
@@ -427,8 +455,8 @@ This changelog reconstructs the project history from version `0.0.24` through `1
 - Chromium extension import support for Edge, Chrome, Brave, and Opera profile folders plus manual folder import
 - VPN manager support for NordVPN, ExpressVPN, ProtonVPN, and WireGuard with Proton `.conf` validation and import
 - Browser-session public IP testing with separate IPv4 and IPv6 checks in the VPN panel
-- Installer update-mode choice with `Automatic updates` and `Manual updates only`, plus an owner-run managed update server flow for installs that opt into automatic updates
-- Installer-time opt-in registration so `Automatic updates` installs can notify the update server immediately after setup
+- Installer update-mode choice with `Automatic updates` and `Manual updates only`, plus a managed update flow for installs that opt into automatic updates
+- Installer-time opt-in registration so `Automatic updates` installs can notify the managed update flow immediately after setup
 - Manual `Check for Updates` entry in the app menu with clearer version and status feedback
 - Improved uninstall flow with custom install-path tracking, external-drive install support, and better cleanup of stale install metadata
 - Uninstall options that let users choose which local data categories should be removed or kept
@@ -442,8 +470,8 @@ This changelog reconstructs the project history from version `0.0.24` through `1
 - Extension import scans supported Chromium profile locations and restores imported extensions into the persistent main session.
 - VPN integration now includes installed-client detection, external app launch shortcuts, local Proton profile import, and browser network refresh support.
 - Public IP testing now surfaces both IPv4 and IPv6 results so users can verify whether the browser session is going through the expected network path.
-- Installer builds can now record whether the user selected `Automatic updates` or `Manual updates only`, register auto-update installs with an owner-run update server immediately after setup, and fetch/download the latest published installer from that server flow.
-- The update server now restricts dashboard access, client-list access, and release publishing to the owner machine by default.
+- Installer builds can now record whether the user selected `Automatic updates` or `Manual updates only`, register auto-update installs immediately after setup, and fetch or download the latest published installer through the managed update flow.
+- Managed update administration was tightened so release-management actions stay more restricted.
 - Users can now manually run `Check for Updates` from the app menu and see installed-versus-available version feedback.
 - Custom install locations now better support external HDDs, external SSDs, and USB flash drives.
 - Uninstall now cleans up tracked custom install paths more reliably, lets users choose which local data categories to remove, and suppresses false leftover warnings when cleanup finishes successfully.
@@ -458,8 +486,8 @@ This changelog reconstructs the project history from version `0.0.24` through `1
 - Chromium extension import support for Edge, Chrome, Brave, and Opera profile folders plus manual folder import
 - VPN manager support for NordVPN, ExpressVPN, ProtonVPN, and WireGuard with Proton `.conf` validation and import
 - Browser-session public IP testing with separate IPv4 and IPv6 checks in the VPN panel
-- Installer update-mode choice with `Automatic updates` and `Manual updates only`, plus an owner-run managed update server flow for installs that opt into automatic updates
-- Installer-time opt-in registration so `Automatic updates` installs can notify the update server immediately after setup
+- Installer update-mode choice with `Automatic updates` and `Manual updates only`, plus a managed update flow for installs that opt into automatic updates
+- Installer-time opt-in registration so `Automatic updates` installs can notify the managed update flow immediately after setup
 - Manual `Check for Updates` entry in the app menu with clearer version and status feedback
 - Improved uninstall flow with custom install-path tracking, external-drive install support, and better cleanup of stale install metadata
 - Uninstall options that let users choose which local data categories should be removed or kept
@@ -473,8 +501,8 @@ This changelog reconstructs the project history from version `0.0.24` through `1
 - Extension import scans supported Chromium profile locations and restores imported extensions into the persistent main session.
 - VPN integration now includes installed-client detection, external app launch shortcuts, local Proton profile import, and browser network refresh support.
 - Public IP testing now surfaces both IPv4 and IPv6 results so users can verify whether the browser session is going through the expected network path.
-- Installer builds can now record whether the user selected `Automatic updates` or `Manual updates only`, register auto-update installs with an owner-run update server immediately after setup, and fetch/download the latest published installer from that server flow.
-- The update server now restricts dashboard access, client-list access, and release publishing to the owner machine by default.
+- Installer builds can now record whether the user selected `Automatic updates` or `Manual updates only`, register auto-update installs immediately after setup, and fetch or download the latest published installer through the managed update flow.
+- Managed update administration was tightened so release-management actions stay more restricted.
 - Users can now manually run `Check for Updates` from the app menu and see installed-versus-available version feedback.
 - Custom install locations now better support external HDDs, external SSDs, and USB flash drives.
 - Uninstall now cleans up tracked custom install paths more reliably, lets users choose which local data categories to remove, and suppresses false leftover warnings when cleanup finishes successfully.
@@ -530,13 +558,13 @@ This changelog reconstructs the project history from version `0.0.24` through `1
 
 ### Added
 
-- Installer-time auto-update check-in was added so installs that choose `Automatic updates` can register with the owner-run update server immediately after setup.
+- Installer-time auto-update check-in was added so installs that choose `Automatic updates` can register with the managed update flow immediately after setup.
 
 ### Updated
 
 - The package version was advanced to `1.0.6`.
 - Current release documentation and installer-facing version references were updated to `1.0.6`.
-- The managed update server now separates end-user client access from owner-only dashboard and release-management actions.
+- Managed update handling now separates end-user update access from release-management actions.
 
 ## 0.9.23
 
@@ -547,12 +575,12 @@ This changelog reconstructs the project history from version `0.0.24` through `1
 - Separate consent gating was added for browser bookmark-path scanning and manual bookmark-file access.
 - Chromium extension import support was added for Edge, Chrome, Brave, and Opera profile folders.
 - VPN tooling was added for installed-client detection, Proton `.conf` validation/import, and browser-session IP checks.
-- Installer update-mode selection was added for `Automatic updates` and `Manual updates only`, along with an owner-run managed updater that can register opted-in installs, publish the latest release, and let clients download and launch that installer.
+- Installer update-mode selection was added for `Automatic updates` and `Manual updates only`, along with a managed updater that can register opted-in installs, publish the latest release, and let clients download and launch that installer.
 
 ### Updated
 
 - Release, README, privacy, and architecture documentation were refreshed for version `0.9.23`.
-- Update documentation was revised to describe the owner-run managed updater, published release flow, and the limited fields it collects.
+- Update documentation was revised to describe the managed updater, published release flow, and the limited fields it collects.
 - Browser persistence behavior was updated so uninstall no longer deletes app data by default.
 - Startup logging was reduced so blocked tracker noise and low-level Chromium network spam do not flood the terminal.
 
@@ -607,7 +635,7 @@ This changelog reconstructs the project history from version `0.0.24` through `1
 - The installer package advanced from `0.0.24` to `0.0.35` with updated package naming and install instructions.
 - The project README was rewritten around a BrowserView-based tab runtime instead of a generic lightweight-browser description.
 - System requirements were tightened toward Windows 11 x64 packaging.
-- Security documentation was expanded to call out sandboxing, `contextIsolation`, disabled `nodeIntegration`, incognito session separation, restricted permissions, and no auto-updater endpoints.
+- Security documentation was expanded to call out sandboxing, `contextIsolation`, disabled `nodeIntegration`, incognito session separation, restricted permissions, and no silent auto-updater service.
 
 ### Changed
 
@@ -708,5 +736,3 @@ This file was reconstructed from:
 - the repository compare history for `0.0.24 -> 0.0.35`, `0.0.35 -> 0.0.50`, and `0.0.50 -> 0.1.5`
 - the in-repo `release.md` for version `0.1.5`
 - the repository's tagged README and documentation diffs
-
-
