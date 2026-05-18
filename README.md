@@ -2,7 +2,7 @@
 
 > A browser built for privacy, control, and a smoother everyday experience. ✨
 
-[![Version](https://img.shields.io/badge/version-1.1.10-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
+[![Version](https://img.shields.io/badge/version-1.1.15-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Platform](https://img.shields.io/badge/platform-Windows%2011-0078D6)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Electron](https://img.shields.io/badge/Electron-42-47848F?logo=electron&logoColor=white)](https://www.electronjs.org/)
 
@@ -12,10 +12,7 @@ BubblesTheDev Web Browser is a Windows browser designed for everyday browsing wh
 
 It is meant to feel like a practical daily browser, not just a privacy experiment or a stripped-down shell. The project combines familiar browser features such as tabs, bookmarks, downloads, saved passwords, a built-in home page, split view, and media tools with stronger local-first defaults, clearer diagnostics, and more visible runtime controls.
 
-Version `1.1.10` continues that direction with a hardened local AI and diagnostics architecture, lighter runtime monitoring behavior, and a clearer installer finish experience.
-
-
-## [Download Browser](https://github.com/KernFerm/BubblesTheDev-WebBrowser/blob/main/DOWNLOAD-BROWSER.md)
+Version `1.1.15` continues that direction with broader accessibility work, lighter startup behavior, improved installer registration, and refreshed bundled media tools.
 
 The overall goal is simple:
 
@@ -24,20 +21,18 @@ The overall goal is simple:
 * keep more browser behavior local and inspectable
 * give users better visibility into performance, stability, and diagnostics
 
-## 🆕 What's New In 1.1.10
+## 🆕 What's New In 1.1.15
 
-* Added an `AI & Diagnostics` panel
-* Added a `Refresh Status` button under the `AI & Diagnostics` panel title for a fresh live status check
-* Added profile-isolated local AI memory with encrypted persistence for standard profiles
-* Added non-persistent AI memory handling for incognito sessions
-* Added offline local summarization and isolated AI runtime analysis
-* Added current-session health monitoring for browser load and stability
-* Added automatic session-only AI health recovery reset behavior
-* Added opt-in privacy-safe diagnostics preview, manual send, test send, and optional severe-event reporting
-* Reduced background monitoring overhead so status checks and Task Manager updates stay lighter during normal browsing
-* Improved the installer finish flow so the completion experience is clearer and easier for end users to follow
+* Added a broader `Accessibility` panel with clearer reading, focus, contrast, motion, and recovery controls
+* Added `Reader mode`, `Read aloud`, `Selection Tools`, `Reading ruler`, `Focus mode`, and `Simplified browser UI`
+* Added persistent local accessibility settings that automatically apply on startup
+* Improved installer registration so installs can show up in managed update flows sooner
+* Reduced startup blocking so the browser window opens sooner while slower background work continues after launch
+* Updated bundled `ffmpeg.exe` and `ffprobe.exe` to the `8.1.1` essentials build pair
+* Refined the Music window so it opens faster while the music library scan continues in the background
+* Kept the earlier local AI, diagnostics, and privacy-safe reporting controls in place
 
-In practical terms, this release is focused on making the browser more transparent and more resilient. Local AI features stay on-device by default, diagnostics remain user-controlled, and the current-session health model is meant to help users understand what the browser is doing during heavier workloads.
+In practical terms, this release is focused on making the browser easier to use, faster to open, and more polished for everyday use while keeping the existing local-first privacy model in place.
 
 ## 🧰 Main Features
 
@@ -64,6 +59,7 @@ The everyday browsing layer is meant to stay familiar. You still get a normal br
 * encrypted saved-password storage
 * per-site permission controls
 * sandboxed and isolated browser runtime
+* local accessibility and reading controls
 
 The browser tries to keep privacy and security features understandable instead of burying them behind background behavior. Browser data stays local by default, sensitive operations stay in browser-controlled processes, and the renderer side is kept more restricted through sandboxing, disabled Node integration, and stricter runtime boundaries.
 
@@ -157,7 +153,7 @@ The architecture is intentionally local-first and tries to keep the browser’s 
 
 Installer file name:
 
-`BubblesTheDev Web Browser_Installer_1.1.10.exe`
+`BubblesTheDev Web Browser_Installer_1.1.15.exe`
 
 Platform:
 
