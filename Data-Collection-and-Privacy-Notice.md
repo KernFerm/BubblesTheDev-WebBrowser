@@ -1,8 +1,8 @@
 # Data Collection and Privacy Notice
 
-Update note for readers: parts of this notice originated around version `1.0.65`. The current notice now reflects version `1.1.10`, and the later sections extend the earlier baseline with the newer local AI and privacy-safe diagnostics behavior.
+Update note for readers: parts of this notice originated around version `1.0.65`. The current notice now reflects version `1.1.15`, and the later sections extend the earlier baseline with the newer local AI, privacy-safe diagnostics, accessibility, and installer-behavior updates.
 
-This notice reflects the current privacy posture of BubblesTheDev Web Browser version `1.1.10`.
+This notice reflects the current privacy posture of BubblesTheDev Web Browser version `1.1.15`.
 
 BubblesTheDev Web Browser is designed to keep browser data local to the user's device unless the user chooses to browse external websites, use external search providers, download files, export diagnostics manually, or enable privacy-safe diagnostics.
 
@@ -18,7 +18,7 @@ Specifically:
 * No automatic diagnostics upload path is implemented.
 * No analytics or telemetry service is contacted for ordinary browser data collection purposes.
 
-Version `1.1.10` includes the current browser behavior around the Streaming Hub, isolated persistent streaming-service sessions, hardened streaming login popups, service-specific navigation allowlists, blocked downloads inside streaming views, local-first media handling, the hardened Music Downloader, Windows-safe gaming and streaming performance optimization, lighter performance-summary handling during normal browser-state updates, the visible media memory saver path for heavy tabs, lighter cached Runtime Checks behavior, passkey compatibility, external-drive install handling, and the newer local AI plus privacy-safe diagnostics controls. Those behaviors do not add built-in telemetry or analytics collection to the browser.
+Version `1.1.15` includes the current browser behavior around the Streaming Hub, isolated persistent streaming-service sessions, hardened streaming login popups, service-specific navigation allowlists, blocked downloads inside streaming views, local-first media handling, the hardened Music Downloader, Windows-safe gaming and streaming performance optimization, lighter performance-summary handling during normal browser-state updates, deferred startup work, passkey compatibility, external-drive install handling, the newer local AI plus privacy-safe diagnostics controls, and persistent local accessibility settings. Those behaviors do not add built-in telemetry or analytics collection to the browser.
 
 ## Local Browser Data
 
@@ -42,6 +42,7 @@ Current persisted data includes:
 * Music Downloader consent state, queue state, cooldown timing, abuse-lock timing, recent job history, and approved output folder
 * cached search results and suggestions used by the internal home/search page
 * install-linked path metadata used to track custom or external-drive installs
+* accessibility settings such as reading, focus, motion, contrast, spacing, and related user-preference options
 
 Current runtime-only state also includes transient Streaming Hub popup cooldown and window-tracking data held in memory while the browser is open.
 
@@ -104,7 +105,7 @@ Saved-password capture and reveal flows are limited to secure contexts such as `
 
 When the user signs into a supported streaming service through the Streaming Hub, that service still sees normal login traffic just as it would in another browser. The browser isolates each supported service into its own dedicated session partition, does not use the shared default session for those services, does not export their session data, and does not intentionally expose streaming cookies or tokens to renderer code.
 
-As of version `1.1.10`, the currently supported Streaming Hub services are Disney+, Hulu, Max, Netflix, Paramount+, Prime Video, Apple TV+, AMC+, Peacock, Crunchyroll, YouTube TV, Sling TV, Pluto TV, The Roku Channel, Plex, Discovery+, ESPN+, MGM+, STARZ, and Tubi.
+As of version `1.1.15`, the currently supported Streaming Hub services are Disney+, Hulu, Max, Netflix, Paramount+, Prime Video, Apple TV+, AMC+, Peacock, Crunchyroll, YouTube TV, Sling TV, Pluto TV, The Roku Channel, Plex, Discovery+, ESPN+, MGM+, STARZ, and Tubi.
 
 ## Music Player Privacy
 
@@ -147,11 +148,11 @@ The privacy model is local-first:
 
 Any future feature that materially changes this privacy posture should be disclosed in updated privacy and release documentation.
 
-## Version 1.1.10 Addendum
+## Version 1.1.15 Addendum
 
-Version `1.1.10` keeps the same local-first privacy direction described above and adds a new local AI and privacy-safe diagnostics layer.
+Version `1.1.15` keeps the same local-first privacy direction described above while carrying forward the local AI and privacy-safe diagnostics layer and adding broader local accessibility preferences, installer-behavior refinements, and startup improvements.
 
-Important user-facing privacy changes in `1.1.10`:
+Important user-facing privacy changes in `1.1.15`:
 
 * the browser now includes an `AI & Diagnostics` panel
 * local AI summarization can run on-device
@@ -163,10 +164,11 @@ Important user-facing privacy changes in `1.1.10`:
 * users can manually send a privacy-safe report
 * users can send a privacy-safe test report
 * users can optionally allow privacy-safe severe-event reporting
+* accessibility preferences such as reading, focus, contrast, and motion settings stay local on the device
 
-## Local AI Privacy Addendum For 1.1.10
+## Local AI Privacy Addendum For 1.1.15
 
-Version `1.1.10` adds optional on-device AI features.
+Version `1.1.15` keeps optional on-device AI features in place.
 
 Current local AI privacy behavior:
 
@@ -179,11 +181,11 @@ Current local AI privacy behavior:
 * AI memory is not described as a cloud-sync feature
 * AI memory contents are not intended to be part of privacy-safe diagnostics payloads
 
-## Diagnostics Addendum For 1.1.10
+## Diagnostics Addendum For 1.1.15
 
-The earlier sections above describe the older local diagnostics and export behavior. Version `1.1.10` extends that model while keeping diagnostics user-controlled.
+The earlier sections above describe the older local diagnostics and export behavior. Version `1.1.15` keeps that extended model user-controlled.
 
-Current additional diagnostics behavior in `1.1.10`:
+Current additional diagnostics behavior in `1.1.15`:
 
 * privacy-safe diagnostics remain disabled by default
 * users can preview approved diagnostic data before sending
@@ -194,9 +196,9 @@ Current additional diagnostics behavior in `1.1.10`:
 
 Privacy-safe diagnostics are intended to remain narrower than general browser data collection. They are not meant to include browsing history, passwords, AI memory contents, personal documents, or website content.
 
-## Updated Summary For 1.1.10
+## Updated Summary For 1.1.15
 
-The main privacy conclusion from the earlier notice still holds in `1.1.10`:
+The main privacy conclusion from the earlier notice still holds in `1.1.15`:
 
 * browser data stays local by default
 * AI memory stays local and isolated per profile
