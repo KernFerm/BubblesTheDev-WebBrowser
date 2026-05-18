@@ -2,7 +2,7 @@
 
 ## Architecture Overview
 
-This document explains the high-level runtime shape of BubblesTheDev Web Browser version `1.1.10`.
+This document explains the high-level runtime shape of BubblesTheDev Web Browser version `1.1.15`.
 
 ## Design Goals
 
@@ -30,7 +30,7 @@ The main process owns:
 
 ## Local AI Architecture
 
-Version `1.1.10` adds a local AI layer that stays on-device by default.
+Version `1.1.15` keeps the local AI layer on-device by default while expanding the surrounding browser runtime with broader accessibility, startup, installer, and media-tool refinements.
 
 The current AI runtime includes:
 
@@ -60,7 +60,7 @@ The current session health system:
 
 Diagnostics are generated locally.
 
-Version `1.1.10` includes:
+Version `1.1.15` includes:
 
 * manual encrypted diagnostics export
 * an `AI & Diagnostics` panel
@@ -68,6 +68,18 @@ Version `1.1.10` includes:
 * privacy-safe manual send controls
 * privacy-safe test send controls
 * optional severe-event reporting when enabled by the user
+
+## Accessibility Model
+
+Version `1.1.15` also expands the browser accessibility layer.
+
+The current accessibility runtime includes:
+
+* a dedicated `Accessibility` panel for reading, focus, contrast, motion, and recovery settings
+* persistent local accessibility preferences that reapply on startup
+* `Reader mode`, `Read aloud`, `Selection Tools`, and `Reading ruler` support for supported browsing flows
+* `Focus mode` and `Simplified browser UI` support for lower visual noise and easier control use
+* accessibility page helpers that avoid running reading and selection tools on unsupported or internal pages
 
 The public documentation intentionally avoids private infrastructure details. At a high level, the diagnostics path is:
 
@@ -89,6 +101,8 @@ Current security-sensitive runtime characteristics include:
 * local AI worker separation from the browser UI process
 * profile-isolated encrypted AI memory
 * privacy-safe diagnostics allowlisting and validation
+* pinned bundled-binary verification for local media tools before use
+* browser-controlled installer registration and verified installer update flow
 
 ## Privacy Model
 
@@ -99,3 +113,15 @@ Current local-first characteristics include:
 * incognito AI memory does not persist across sessions
 * diagnostics remain local unless the user exports them or enables privacy-safe reporting
 * no built-in telemetry or analytics systems are part of the normal browser runtime
+* accessibility preferences stay local by default
+
+## Startup And Update Coordination
+
+Version `1.1.15` also adjusts the runtime shape so the main window can open sooner while slower background work continues after launch.
+
+Current startup and update characteristics include:
+
+* deferred post-launch initialization for slower background tasks
+* installer-based updates rather than a hidden silent updater service
+* installer registration support for installed builds where available
+* verified release metadata and installer validation inside the browser-controlled update flow
