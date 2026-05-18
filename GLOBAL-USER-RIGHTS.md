@@ -14,7 +14,7 @@ bubbles-support@bubbles-browser.fnbubbles420.org
 
 ## Current Documentation Target
 
-This document is aligned with the current public BubblesTheDev Web Browser documentation for version `1.1.10`.
+This document is aligned with the current public BubblesTheDev Web Browser documentation for version `1.1.15`.
 
 Security fixes are generally provided for the most recent stable release of the browser.
 
@@ -124,6 +124,8 @@ Cached search results and suggestions used by the internal `bubbles://home` page
 
 Install-linked path metadata used for custom or external-drive installs
 
+Accessibility settings such as reading, focus, motion, contrast, spacing, and related user-preference options
+
 This browser-state data is not designed to be automatically uploaded.
 
 ## Storage Protection
@@ -200,7 +202,7 @@ Third-party websites, search providers, and online services may process informat
 
 BubblesTheDev Web Browser may include update checking and installer-based update behavior.
 
-The update model is designed around visible update behavior, verified HTTPS endpoints, and SHA-256 checked installer launches.
+The update model is designed around visible update behavior, verified HTTPS endpoints, SHA-256 checked installer launches, and installer-time registration support for installed builds where available.
 
 The browser is not designed to silently replace itself in the background as a hidden auto-updater service.
 
@@ -322,6 +324,34 @@ It is not an advertising profile.
 
 It is not a legal, financial, employment, health, housing, insurance, or government-benefit decision system.
 
+## Accessibility And Inclusive Use
+
+BubblesTheDev Web Browser includes accessibility-focused features intended to make the browser easier to use for more people.
+
+Current public documentation for version `1.1.15` includes accessibility features such as:
+
+Reader mode
+
+Read aloud support for supported reading flows
+
+Selection-based reading tools
+
+Reading ruler support
+
+Focus mode
+
+Simplified browser UI
+
+Larger control targets in simplified browsing flows where supported
+
+Reduced-motion support
+
+High-contrast support
+
+Persistent local accessibility preferences that automatically apply on startup
+
+These features are intended to support clearer reading, lower visual noise, stronger visibility, easier control use, and better continuity across sessions.
+
 ## User Control
 
 Users should remain in control of their browser experience.
@@ -422,7 +452,7 @@ The browser is not designed to intentionally expose streaming cookies or tokens 
 
 Streaming service accounts, subscriptions, billing, content, DRM systems, login systems, recommendations, and service data are controlled by the streaming service provider.
 
-As of version `1.1.10`, the current public documentation lists supported Streaming Hub services as:
+As of version `1.1.15`, the current public documentation lists supported Streaming Hub services as:
 
 Disney+
 
