@@ -2,9 +2,9 @@
 
 ## Browser Privacy Comparison
 
-Update note for readers: the original comparison text below was written around version `1.0.65`. The browser has since moved forward to version `1.1.10`, and the addendum sections in this document extend the comparison with the newer local AI and privacy-safe diagnostics behavior without removing the earlier reference material.
+Update note for readers: the original comparison text below was written around version `1.0.65`. The browser has since moved forward to version `1.1.15`, and the addendum sections in this document extend the comparison with the newer local AI, privacy-safe diagnostics, accessibility, and installer-behavior updates without removing the earlier reference material.
 
-This document reflects the current privacy posture of BubblesTheDev Web Browser version `1.1.10`.
+This document reflects the current privacy posture of BubblesTheDev Web Browser version `1.1.15`.
 
 The goal is accuracy, not marketing language. The browser does not implement built-in telemetry, analytics SDKs, cloud sync, a built-in silent auto-updater client, or automatic diagnostics upload. It does, however, make normal network requests when the user browses the web, uses built-in search features, uses supported site authentication flows such as passkeys, or downloads files.
 
@@ -110,6 +110,7 @@ Current persisted data includes:
 * service-specific persistent streaming-session partitions for supported streaming services
 * cached search results and suggestions
 * install-linked path metadata used for custom or external-drive installs
+* accessibility settings such as reading, focus, motion, contrast, spacing, and related user-preference options
 
 The persisted browser-state payload is compressed before it is written to disk. When Electron safe storage is available, that payload is also protected with OS-backed encryption. If OS-backed protection is unavailable, the runtime can fall back to credential-backed AES-GCM protection when available.
 
@@ -151,7 +152,7 @@ When the user signs in with a passkey on a supported site, the authentication fl
 
 When the user signs into a supported streaming service through the Streaming Hub, the service still receives normal web login traffic, but each supported service stays inside its own dedicated persistent Electron partition rather than the shared default browsing session.
 
-As of version `1.1.10`, the supported services are Disney+, Hulu, Max, Netflix, Paramount+, Prime Video, Apple TV+, AMC+, Peacock, Crunchyroll, YouTube TV, Sling TV, Pluto TV, The Roku Channel, Plex, Discovery+, ESPN+, MGM+, STARZ, and Tubi.
+As of version `1.1.15`, the supported services are Disney+, Hulu, Max, Netflix, Paramount+, Prime Video, Apple TV+, AMC+, Peacock, Crunchyroll, YouTube TV, Sling TV, Pluto TV, The Roku Channel, Plex, Discovery+, ESPN+, MGM+, STARZ, and Tubi.
 
 ## Music Player Privacy Model
 
@@ -225,9 +226,9 @@ BubblesTheDev Web Browser currently aims for a local-first privacy posture:
 * incognito AI memory stays non-persistent
 * diagnostics stay local unless the user exports them
 * performance-related behaviors such as background tab sleeping, memory-pressure trimming, OBS-aware throttling, borderless-game detection, improved local session detection, fresh local detector refreshes, and adaptive local detector sampling are local runtime features rather than telemetry or remote optimization systems
-* the isolated Streaming Hub in `1.1.10` adds service-specific session separation and popup hardening without changing the browser into a credential interceptor or telemetry client
-* lighter performance-summary handling in `1.1.10` reduces repeated local metrics work during normal browsing without changing the browser's privacy posture
-* the visible media memory saver, lighter cached Runtime Checks behavior, and lighter AI or Task Manager refresh behavior in `1.1.10` lower local overhead further without changing the browser's privacy posture
+* the isolated Streaming Hub in `1.1.15` adds service-specific session separation and popup hardening without changing the browser into a credential interceptor or telemetry client
+* lighter performance-summary handling and deferred startup work in `1.1.15` reduce repeated local metrics work during normal browsing without changing the browser's privacy posture
+* the expanded accessibility settings in `1.1.15` stay local to the device and do not add built-in telemetry or analytics collection
 * the `AI & Diagnostics` panel gives users a direct way to review current-session health, refresh status while browsing, and control privacy-safe diagnostics
 * music library access requires explicit consent before any scan begins
 * bookmark import and VPN profile scanning require explicit user consent before local file access begins
@@ -235,11 +236,11 @@ BubblesTheDev Web Browser currently aims for a local-first privacy posture:
 * supported passkey sign-ins rely on site and platform authenticator flows rather than a Bubbles-operated credential cloud
 * browsing and built-in search still create normal traffic to the websites and providers the user chooses to use
 
-## Version 1.1.10 Addendum
+## Version 1.1.15 Addendum
 
-Version `1.1.10` keeps the same local-first privacy direction described above and adds a new local AI and diagnostics layer.
+Version `1.1.15` keeps the same local-first privacy direction described above while carrying forward the local AI and diagnostics layer and adding broader accessibility, startup, installer, and media-tool refinements.
 
-Important privacy-facing differences in `1.1.10` compared with the older `1.0.65` baseline described above:
+Important privacy-facing differences in `1.1.15` compared with the older `1.0.65` baseline described above:
 
 * the browser now includes an `AI & Diagnostics` panel
 * local AI summarization and runtime analysis are available on-device
@@ -252,19 +253,22 @@ Important privacy-facing differences in `1.1.10` compared with the older `1.0.65
 * users can manually send a privacy-safe diagnostics report when needed
 * users can send a privacy-safe test report for verification
 * optional severe-event privacy-safe diagnostics can be enabled by the user
+* accessibility settings such as reading, focus, contrast, and motion preferences stay local on the device
+* installer registration and update handling remain browser-controlled rather than turning into a hidden silent updater service
 
-## Additional High-Level Comparison Notes For 1.1.10
+## Additional High-Level Comparison Notes For 1.1.15
 
-If the comparison table above were extended for `1.1.10`, the Bubbles column would also include the following clarifications:
+If the comparison table above were extended for `1.1.15`, the Bubbles column would also include the following clarifications:
 
 * `Automatic diagnostics upload` would now be better described as: `No by default; optional privacy-safe severe-event reporting only when enabled by the user`
 * `Local browser data storage` would now also include encrypted profile-isolated AI memory for standard profiles
 * `Private or incognito session mode` would now also include non-persistent local AI memory behavior for incognito sessions
 * `Runtime checks or local diagnostics view` would now also include the `AI & Diagnostics` panel with current-session health, refresh-status, preview, manual send, and test-send controls
+* `Local browser data storage` would also include persistent accessibility settings that automatically reapply on startup
 
-## Local AI Privacy Addendum For 1.1.10
+## Local AI Privacy Addendum For 1.1.15
 
-Version `1.1.10` adds an optional on-device AI layer.
+Version `1.1.15` keeps the optional on-device AI layer in place.
 
 Current privacy-facing characteristics of that layer are:
 
@@ -277,11 +281,11 @@ Current privacy-facing characteristics of that layer are:
 * AI memory contents are not intended to be part of privacy-safe diagnostics payloads
 * the local AI layer is not described as a cloud-sync feature
 
-## Diagnostics Addendum For 1.1.10
+## Diagnostics Addendum For 1.1.15
 
-The older sections above describe diagnostics as local-only manual export behavior. Version `1.1.10` extends that model while keeping the privacy posture user-controlled.
+The older sections above describe diagnostics as local-only manual export behavior. Version `1.1.15` keeps that extended model user-controlled.
 
-Current additional diagnostics behavior in `1.1.10`:
+Current additional diagnostics behavior in `1.1.15`:
 
 * privacy-safe diagnostics are disabled by default
 * users can preview approved diagnostic data before sending
@@ -293,9 +297,9 @@ Current additional diagnostics behavior in `1.1.10`:
 
 These additions do not change the core privacy direction of the browser into a telemetry-heavy model. The reporting path is intended to remain privacy-safe, user-controlled, and narrower than general browser data collection.
 
-## Updated Summary For 1.1.10
+## Updated Summary For 1.1.15
 
-The broad privacy conclusion from the original comparison still holds in `1.1.10`:
+The broad privacy conclusion from the original comparison still holds in `1.1.15`:
 
 * browser data stays local by default
 * AI memory stays local and isolated per profile
