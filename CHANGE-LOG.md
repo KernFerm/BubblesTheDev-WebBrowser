@@ -1,6 +1,45 @@
 # Changelog
 
-This changelog reconstructs the project history from version `0.0.24` through `1.1.10` using the repository's tagged compare data, release notes, versioned README changes, and current installer/update work.
+This changelog reconstructs the project history from version `0.0.24` through `1.1.15` using the repository's tagged compare data, release notes, versioned README changes, and current installer/update work.
+
+## 1.1.15
+
+### Added
+
+- Added a broader `Accessibility` panel experience with clearer user guidance and more reading-focused options in one place.
+- Added `Reader mode`, `Read aloud`, `Selection Tools`, and `Reading ruler` improvements for easier reading support.
+- Added `Focus mode` and `Simplified browser UI` support aimed at reducing clutter and making controls easier to use.
+- Added persistent local accessibility preferences that reapply automatically at startup.
+- Added installer-side registration improvements so new installs can attempt managed update registration during setup.
+
+### Updated
+
+- The package version was advanced to `1.1.15`.
+- Release-facing documentation was refreshed to reflect the current version number and feature set.
+- The Accessibility panel wording was softened and clarified to be more user-friendly and less technical.
+- Desktop and Start Menu shortcut icon handling was refined for more consistent Windows behavior.
+- Bundled `ffmpeg.exe` and `ffprobe.exe` were updated to the `8.1.1` essentials build, and the pinned binary hash manifest was refreshed to match.
+
+### Performance
+
+- Startup work was reorganized so the main window can open sooner while slower initialization continues in the background.
+- The Music window now opens faster by returning an immediate loading state while the music library scan continues in the background.
+- Browser-side state refresh behavior was tightened to reduce unnecessary Accessibility panel churn and repeated re-renders.
+
+### Security And Privacy
+
+- Accessibility page helpers now avoid running reading and selection tools on unsupported or internal page types.
+- Installer registration and update validation were refined while keeping private infrastructure details out of public documentation.
+- Bundled media binaries continue to require pinned SHA-256 verification before use.
+
+### Release
+
+- The `1.1.15` Windows installer package name is `BubblesTheDev Web Browser_Installer_1.1.15.exe`.
+- The verified installer SHA-256 for `1.1.15` is `TBD after final installer build`.
+
+### Notes
+
+- Version `1.1.15` builds on the earlier `1.1.x` local AI and diagnostics work while shifting the main user-facing improvements toward accessibility, installer reliability, startup speed, and media-tool maintenance.
 
 ## 1.1.10
 
@@ -17,7 +56,7 @@ This changelog reconstructs the project history from version `0.0.24` through `1
 ### Release
 
 - The `1.1.10` Windows installer package name is `BubblesTheDev Web Browser_Installer_1.1.10.exe`.
-- The verified installer SHA-256 for `1.1.10` is `F3EECBD7868C0EB8475F7416863A8CC378DA1BD8B48C66BF0F27BFD4F68EAD3C`.
+- The verified installer SHA-256 for `1.1.10` is `TBD after final installer build`.
 
 ### Notes
 
