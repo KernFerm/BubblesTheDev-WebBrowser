@@ -4,7 +4,7 @@ Project news and community update posts are shared in the official Discord serve
 
 ## Discord
 
-[BubblesTheDev Web Browser Discord](https://discord.gg/eYBzdZVbz6)
+[(https://discord.gg/eYBzdZVbz6](https://discord.gg/eYBzdZVbz6)
 
 ---
 
