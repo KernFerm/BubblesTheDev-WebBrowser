@@ -1,6 +1,28 @@
 # Changelog
 
-This changelog reconstructs the project history from version `0.0.24` through `1.1.15` using the repository's tagged compare data, release notes, versioned README changes, and current installer/update work.
+This changelog reconstructs the project history from version `0.0.24` through `1.1.16` using the repository's tagged compare data, release notes, versioned README changes, and current installer/update work.
+
+## 1.1.16
+
+### Updated
+
+- The package version was advanced to `1.1.16`.
+- Release-facing documentation was refreshed to reflect the current version number and protected installer package name.
+- The `AI & Diagnostics` panel behavior was refined so section changes and setting interactions behave more smoothly.
+
+### Security And Privacy
+
+- The protected release packaging flow now supports a protected installer build path while keeping normal source files unchanged during development.
+- The earlier local AI, privacy-safe diagnostics, pinned binary verification, and hardened update checks remain in place.
+
+### Release
+
+- The `1.1.16` Windows installer package name is `BubblesTheDev Web Browser_Installer_1.1.16.exe`.
+- The verified installer SHA-256 for `1.1.16` is `65BDF97909C74825EBEDF644FDF68E8A23C2DCD6C09D8AA065555B9F3BB6A174`.
+
+### Notes
+
+- Version `1.1.16` is a follow-up refinement release built on the broader accessibility, installer, startup, and media-tool work introduced in `1.1.15`.
 
 ## 1.1.15
 
@@ -29,13 +51,13 @@ This changelog reconstructs the project history from version `0.0.24` through `1
 ### Security And Privacy
 
 - Accessibility page helpers now avoid running reading and selection tools on unsupported or internal page types.
-- Installer registration and update validation were refined while keeping private infrastructure details out of public documentation.
+- Installer registration and update validation were refined while keeping public documentation focused on user-facing behavior.
 - Bundled media binaries continue to require pinned SHA-256 verification before use.
 
 ### Release
 
 - The `1.1.15` Windows installer package name is `BubblesTheDev Web Browser_Installer_1.1.15.exe`.
-- The verified installer SHA-256 for `1.1.15` is `TBD after final installer build`.
+- The verified installer SHA-256 for `1.1.15` is `99C1CB7E9AA6CDF990E4868663A7DF70BFB7CB927CA6D91D29EA9ED70D571E7F`.
 
 ### Notes
 
@@ -107,7 +129,7 @@ This changelog reconstructs the project history from version `0.0.24` through `1
 - Hardened the local AI worker with startup integrity checks, bootstrap validation, operation allowlisting, and timeout watchdog protection.
 - Hardened AI memory handling with stronger profile-context validation, path safety checks, quota enforcement, and corruption recovery behavior.
 - Hardened privacy-safe diagnostics with stricter allowlisted payload validation and browser-side submission only.
-- Kept public documentation free of private infrastructure details.
+- Kept public documentation focused on user-facing behavior.
 
 ### Installer
 
