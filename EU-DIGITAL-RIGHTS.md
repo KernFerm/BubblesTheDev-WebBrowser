@@ -14,7 +14,7 @@ bubbles-support@bubbles-browser.fnbubbles420.org
 
 ## Current Documentation Target
 
-This document is aligned with the current public BubblesTheDev Web Browser documentation for version `1.1.16`.
+This document is aligned with the current public BubblesTheDev Web Browser documentation for version `1.1.30`.
 
 Security fixes are generally provided for the most recent stable release of the browser.
 
@@ -90,7 +90,7 @@ Most normal browser data is intended to remain on the user’s device unless the
 
 ## Local-First Browser Data
 
-BubblesTheDev Web Browser stores normal browser data locally on the user’s device in the Electron `userData` directory.
+BubblesTheDev Web Browser stores normal browser data locally on the user’s device in the browser's local app-data folder.
 
 Local browser data may include:
 
@@ -156,13 +156,11 @@ This browser-state data is not designed to be automatically uploaded.
 
 ## Storage Protection
 
-The browser’s persisted browser-state payload is compressed before being written to disk.
+The browser’s persisted browser-state data is compressed before being written to disk.
 
-When Electron safe storage is available, the payload is protected with operating-system-backed encryption.
+When stronger system-backed protection is available, the browser uses it.
 
-If operating-system-backed protection is unavailable, the runtime can fall back to credential-backed AES-GCM protection when available.
-
-If neither protection path is available, the payload is still stored locally in compressed form.
+If that protection is unavailable, the data is still stored locally in compressed form.
 
 Saved passwords are stored separately from the main browser data file.
 
@@ -228,13 +226,15 @@ Third-party websites and search providers may process information under their ow
 
 BubblesTheDev Web Browser may include update checking and installer-based update behavior.
 
-The browser’s update model is designed around visible update behavior, verified HTTPS endpoints, SHA-256 checked installer launches, and installer-time registration support for installed builds where available.
+The browser’s update model is designed around visible update behavior, secure update connections, verified installer launches, and installer-time registration support for installed builds where available.
 
 The browser does not silently replace itself in the background as a hidden auto-updater service.
 
 Installed builds can check for newer release metadata, download an installer, verify the installer, and launch the update flow when available.
 
-The update flow should fail closed unless the metadata URL and installer URL use `https:` and the published release includes a valid SHA-256 hash for installer verification before launch.
+Installed builds may also create or refresh a Desktop folder named `BubblesTheDev - WebBrowser Update Notes` so bundled release notes for the current version remain visible locally.
+
+The update flow is designed to stop rather than continue if required security checks do not pass before launch.
 
 Update-related technical data should be limited to update support, version support, security validation, installer reliability, and troubleshooting.
 
@@ -344,7 +344,7 @@ The `AI & Diagnostics` panel may show current-session browser health, runtime an
 
 BubblesTheDev Web Browser includes accessibility-focused features intended to make the browser easier to use for more people.
 
-Current public documentation for version `1.1.16` includes accessibility features such as:
+Current public documentation for version `1.1.30` includes accessibility features such as:
 
 Reader mode
 
@@ -428,7 +428,7 @@ The browser is not designed to intentionally expose streaming cookies or tokens 
 
 Streaming service accounts, subscriptions, billing, content, DRM systems, login systems, recommendations, and service data are controlled by the streaming service provider.
 
-As of version `1.1.16`, the current public documentation lists supported Streaming Hub services as:
+As of version `1.1.30`, the current public documentation lists supported Streaming Hub services as:
 
 Disney+
 
