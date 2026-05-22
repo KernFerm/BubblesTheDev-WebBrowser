@@ -12,7 +12,7 @@ Security fixes are generally provided for the most recent stable release of the 
 
 | Version | Supported |
 | ------- | --------- |
-| **1.1.16** | Yes |
+| **1.1.30** | Yes |
 | Older versions | No |
 
 Users should run the latest available version of the browser to receive the newest security fixes and improvements.
@@ -113,7 +113,7 @@ The browser is developed with a reduced-surface approach that emphasizes:
 * strict renderer isolation with `contextIsolation` enabled and `nodeIntegration` disabled
 * main-process ownership of higher-risk operations such as downloader execution and performance-policy control
 
-Current security-sensitive design points in version `1.1.16` include:
+Current security-sensitive design points in version `1.1.30` include:
 
 * sandboxed renderer processes and strict preload IPC boundaries
 * isolated persistent streaming-service partitions for supported providers such as Disney+, Hulu, Max, Netflix, Paramount+, Prime Video, Apple TV+, AMC+, Peacock, Crunchyroll, YouTube TV, Sling TV, Pluto TV, The Roku Channel, Plex, Discovery+, ESPN+, MGM+, STARZ, and Tubi
@@ -135,10 +135,18 @@ Current security-sensitive design points in version `1.1.16` include:
 * local AI worker trust manifests, approved-model path restrictions, request-size limits, and repeated-failure watchdog behavior
 * runtime trust-manifest checks and safer fail-closed handling for sensitive subsystems when integrity problems are detected
 * imported extension safeguards, secure-context password handling, and trusted-source-aware download checks
-* installer-based update coordination that uses visible update behavior, HTTPS validation, and installer verification rather than a hidden silent updater service
+* installer-based update coordination that can perform background checks and downloads where supported, while still using visible update behavior, HTTPS validation, and installer verification rather than a hidden silent updater service
 * installer registration and update validation improvements that keep update handling in a browser-controlled flow
 * accessibility page-tool restrictions so reading and selection helpers avoid running on unsupported or internal pages
 * deferred startup initialization so slower background work can move off the first-window path without weakening the existing hardened runtime checks
+* local-only localization loading that keeps language packs under a constrained application-owned locale root instead of exposing direct renderer file access
+* strict locale JSON parsing, schema validation, and UTF-8 decoding checks before translations are accepted
+* translation-string sanitization that strips control characters and dangerous bidirectional controls before UI rendering
+* locale path normalization and root-confinement checks that prevent traversal outside the trusted `locales` tree
+* SHA-256 locale manifest verification that can reject tampered or corrupted locale packs
+* locale fallback and inheritance resolution in the main process so malformed locale requests fail closed and safely fall back to trusted defaults
+* startup recovery in `main.js` so polluted shell state such as `ELECTRON_RUN_AS_NODE=1` cannot silently downgrade the browser into the wrong execution mode
+* development-only startup and localization performance capture hooks that remain opt-in and do not widen normal renderer privileges
 
 This approach helps limit unnecessary network activity and reduces avoidable attack surface.
 
