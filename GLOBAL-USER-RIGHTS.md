@@ -14,7 +14,7 @@ bubbles-support@bubbles-browser.fnbubbles420.org
 
 ## Current Documentation Target
 
-This document is aligned with the current public BubblesTheDev Web Browser documentation for version `1.1.16`.
+This document is aligned with the current public BubblesTheDev Web Browser documentation for version `1.1.30`.
 
 Security fixes are generally provided for the most recent stable release of the browser.
 
@@ -64,7 +64,7 @@ Right to clear documentation
 
 BubblesTheDev Web Browser is designed so normal browser data stays on the user’s device by default.
 
-Browser data is stored in the Electron `userData` directory.
+Browser data is stored in the browser's local app-data folder.
 
 Local browser data may include:
 
@@ -130,13 +130,11 @@ This browser-state data is not designed to be automatically uploaded.
 
 ## Storage Protection
 
-The persisted browser-state payload is compressed before it is written to disk.
+The persisted browser-state data is compressed before it is written to disk.
 
-When Electron safe storage is available, the payload is protected with operating-system-backed encryption.
+When stronger system-backed protection is available, the browser uses it.
 
-If operating-system-backed protection is unavailable, the runtime can fall back to credential-backed AES-GCM protection when available.
-
-If neither protection path is available, the payload is still stored locally in compressed form.
+If that protection is unavailable, the data is still stored locally in compressed form.
 
 Saved passwords are stored separately from the main browser data file.
 
@@ -162,7 +160,7 @@ The browser is not designed to create built-in advertising profiles by itself.
 
 The browser is not designed to include cloud synchronization by default.
 
-The browser is not designed to automatically upload diagnostics for ordinary diagnostics behavior.
+The browser is not designed to automatically upload ordinary diagnostics by default.
 
 The browser does not include a built-in silent auto-updater client.
 
@@ -200,15 +198,17 @@ Third-party websites, search providers, and online services may process informat
 
 ## Updates
 
-BubblesTheDev Web Browser may include update checking and installer-based update behavior.
+BubblesTheDev Web Browser may include background update checking, background installer download behavior, and installer-based update handling.
 
-The update model is designed around visible update behavior, verified HTTPS endpoints, SHA-256 checked installer launches, and installer-time registration support for installed builds where available.
+The update model is designed around visible update behavior, secure update connections, verified installer launches, and installer-time registration support for installed builds where available.
 
 The browser is not designed to silently replace itself in the background as a hidden auto-updater service.
 
-Installed builds can check for newer release metadata, download an installer, verify the installer, and launch the update flow when available.
+Installed builds can check for newer release metadata, download an installer in the background where supported, verify the installer, and launch the visible update flow when available. The browser is intended to show `Restart to Update` only after the update is ready.
 
-The update flow should fail closed unless the metadata URL and installer URL use `https:` and the published release includes a valid SHA-256 hash for installer verification before launch.
+Installed builds may also create or refresh a Desktop folder named `BubblesTheDev - WebBrowser Update Notes` so bundled release notes for the current version remain visible locally.
+
+The update flow is designed to stop rather than continue if required security checks do not pass before launch.
 
 Update-related technical data should be limited to update support, version support, security validation, installer reliability, and troubleshooting.
 
@@ -328,7 +328,7 @@ It is not a legal, financial, employment, health, housing, insurance, or governm
 
 BubblesTheDev Web Browser includes accessibility-focused features intended to make the browser easier to use for more people.
 
-Current public documentation for version `1.1.16` includes accessibility features such as:
+Current public documentation for version `1.1.30` includes accessibility features such as:
 
 Reader mode
 
@@ -452,7 +452,7 @@ The browser is not designed to intentionally expose streaming cookies or tokens 
 
 Streaming service accounts, subscriptions, billing, content, DRM systems, login systems, recommendations, and service data are controlled by the streaming service provider.
 
-As of version `1.1.16`, the current public documentation lists supported Streaming Hub services as:
+As of version `1.1.30`, the current public documentation lists supported Streaming Hub services as:
 
 Disney+
 
