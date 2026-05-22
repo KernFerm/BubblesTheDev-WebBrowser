@@ -124,10 +124,10 @@ Specifically:
 * No behavioral tracking mechanisms are included.
 * No advertising identifiers are generated or transmitted.
 * No cloud-based synchronization features are implemented.
-* No automatic diagnostics upload path is enabled for ordinary diagnostics behavior.
+* Automatic diagnostics upload is not enabled by default for ordinary diagnostics behavior.
 * No built-in silent auto-updater service is included.
 
-Normal browser data is intended to remain on the user’s device unless the user chooses to interact with external websites, external search providers, downloads, supported streaming services, privacy-safe diagnostics features, update flows, or other third-party services through normal browser use.
+Normal browser data is intended to remain on the user's device unless the user chooses to interact with external websites, external search providers, downloads, supported streaming services, privacy-safe diagnostics features, update flows, or other third-party services through normal browser use.
 
 Local browser data may include, where applicable, settings, history, bookmarks, saved-password metadata, encrypted saved-password vault entries, imported extension metadata, imported VPN profile metadata, toolbar visibility, bookmark bar visibility, selected shell theme, per-site permission settings, Streaming Hub session partitions, Music Player settings, Music Downloader state, gaming and streaming performance settings, local AI settings, current-session AI preferences, encrypted profile-isolated AI memory for standard profiles, cached internal search suggestions, install-linked path metadata, and accessibility preferences such as reading, focus, contrast, motion, spacing, and related user-preference options.
 
@@ -139,9 +139,9 @@ Diagnostics are generated locally. Runtime diagnostic entries may be written to 
 
 Optional local AI features, if included, are intended to support on-device behavior where available. Standard profiles may keep encrypted AI memory locally, while incognito or other ephemeral contexts are intended to avoid persistent AI memory.
 
-The browser may include accessibility-focused features intended to improve reading comfort, visibility, motion reduction, control size, and continuity across sessions. Accessibility preferences are intended to remain local to the user’s device by default.
+The browser may include accessibility-focused features intended to improve reading comfort, visibility, motion reduction, control size, and continuity across sessions. Accessibility preferences are intended to remain local to the user's device by default.
 
-The browser may include installer-based update behavior. That update model is intended to use visible update handling, verified HTTPS endpoints, SHA-256 checked installer launches, and installer-time registration support where available rather than a hidden silent updater service.
+The browser may include background update checks and background installer downloads where supported, while keeping installer-based update behavior. That update model is intended to use visible update handling, verified HTTPS endpoints, SHA-256 checked installer launches, installer-time registration support where available, and a visible `Restart to Update` step rather than a hidden silent updater service.
 
 The browser may still generate normal network traffic when the user opens websites, signs into services, downloads files, uses search features, uses passkeys or WebAuthn, uses update checks, manually sends approved diagnostics, or uses supported online features. Third-party websites and services may process information under their own privacy policies, cookie policies, and terms.
 
