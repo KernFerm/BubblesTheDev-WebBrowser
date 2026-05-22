@@ -1,1 +1,851 @@
+# Changelog
 
+This changelog reconstructs the project history from version `0.0.24` through `1.1.30` using the repository's tagged compare data, release notes, versioned README changes, and current installer/update work.
+
+## 1.1.30
+
+### Added
+
+- Added a stronger main-process localization architecture with a centralized locale registry, locale metadata model, and locale inheritance-aware fallback handling.
+- Added stronger built-in language coverage checks to help keep translations more complete and consistent.
+- Added locale-aware formatter utilities for dates, times, numbers, currencies, plural rules, relative time, and list formatting.
+- Improved startup reliability so the browser can recover more cleanly from unusual launch environments.
+- Added internal benchmarking support to help improve startup and language-switch responsiveness.
+- Added large multilingual expansion waves that brought the browser to `679` supported locale packs and `453` base language families.
+
+### Updated
+
+- The release-facing documentation was refreshed to reflect version `1.1.30` and the current multilingual architecture.
+- The current user-facing docs now more clearly call out the installer-based update path, browser-controlled registration support, and the Desktop `BubblesTheDev - WebBrowser Update Notes` folder behavior.
+- Localization handling was improved for language, script, region, and right-to-left display differences.
+- Language tools and formatting support were expanded without changing the browser's local-first design.
+- The localization startup path now defers heavier registry diagnostics so the first browser window can open sooner.
+- Language switching now feels faster and smoother during live use.
+
+### Security And Privacy
+
+- Language packs remain local-only and now include stronger safety checks and more reliable fallback behavior.
+- Localization diagnostics remain on-device and do not upload locale choices, language usage, or accessibility-related multilingual state.
+
+### Performance
+
+- Localization performance was tuned so broader language coverage adds less startup and runtime overhead.
+- Service-level localization profiling now shows fast startup, low first-switch cost, and negligible memory growth under repeated locale changes.
+- Additional internal testing was added to verify startup speed and language-switch performance.
+
+## 1.1.16
+
+### Updated
+
+- The package version was advanced to `1.1.16`.
+- Release-facing documentation was refreshed to reflect the current version number and protected installer package name.
+- The `AI & Diagnostics` panel behavior was refined so section changes and setting interactions behave more smoothly.
+
+### Security And Privacy
+
+- The protected release packaging flow was refined for more reliable installer preparation.
+- The earlier local AI, privacy-safe diagnostics, pinned binary verification, and hardened update checks remain in place.
+
+### Release
+
+- The `1.1.16` Windows installer package name is `BubblesTheDev Web Browser_Installer_1.1.16.exe`.
+- The verified installer SHA-256 for `1.1.16` is `65BDF97909C74825EBEDF644FDF68E8A23C2DCD6C09D8AA065555B9F3BB6A174`.
+
+### Notes
+
+- Version `1.1.16` is a follow-up refinement release built on the broader accessibility, installer, startup, and media-tool work introduced in `1.1.15`.
+
+## 1.1.15
+
+### Added
+
+- Added a broader `Accessibility` panel experience with clearer user guidance and more reading-focused options in one place.
+- Added `Reader mode`, `Read aloud`, `Selection Tools`, and `Reading ruler` improvements for easier reading support.
+- Added `Focus mode` and `Simplified browser UI` support aimed at reducing clutter and making controls easier to use.
+- Added persistent local accessibility preferences that reapply automatically at startup.
+- Added installer-side registration improvements so new installs can attempt managed update registration during setup.
+
+### Updated
+
+- The package version was advanced to `1.1.15`.
+- Release-facing documentation was refreshed to reflect the current version number and feature set.
+- The Accessibility panel wording was softened and clarified to be more user-friendly and less technical.
+- Desktop and Start Menu shortcut icon handling was refined for more consistent Windows behavior.
+- Bundled media tools were updated to the current verified build.
+
+### Performance
+
+- Startup work was reorganized so the main window can open sooner while slower initialization continues in the background.
+- The Music window now opens faster by returning an immediate loading state while the music library scan continues in the background.
+- Browser-side state refresh behavior was tightened to reduce unnecessary Accessibility panel churn and repeated re-renders.
+
+### Security And Privacy
+
+- Accessibility page helpers now avoid running reading and selection tools on unsupported or internal page types.
+- Installer registration and update handling were refined for more reliable setup behavior.
+- Bundled media tools continue to use verified binaries before they run.
+
+### Release
+
+- The `1.1.15` Windows installer package name is `BubblesTheDev Web Browser_Installer_1.1.15.exe`.
+- The verified installer SHA-256 for `1.1.15` is `99C1CB7E9AA6CDF990E4868663A7DF70BFB7CB927CA6D91D29EA9ED70D571E7F`.
+
+### Notes
+
+- Version `1.1.15` builds on the earlier `1.1.x` local AI and diagnostics work while shifting the main user-facing improvements toward accessibility, installer reliability, startup speed, and media-tool maintenance.
+
+## 1.1.10
+
+### Updated
+
+- The package version was advanced to `1.1.10`.
+- Release-facing documentation was refreshed to reflect the current version number.
+- The `AI & Diagnostics` panel continues to include the newer `Refresh Status` action for live runtime checks while browsing.
+
+### Performance
+
+- The lighter background performance polling and reduced Task Manager refresh pressure remain in place for the current release.
+
+### Release
+
+- The `1.1.10` Windows installer package name is `BubblesTheDev Web Browser_Installer_1.1.10.exe`.
+- The verified installer SHA-256 for `1.1.10` is `TBD after final installer build`.
+
+### Notes
+
+- Version `1.1.10` carries forward the local AI, privacy-safe diagnostics, installer UX, and runtime optimization work introduced in the recent `1.1.x` releases.
+
+## 1.1.7
+
+### Updated
+
+- The package version was advanced to `1.1.7`.
+- Release-facing documentation was refreshed to reflect the current version number.
+- The `AI & Diagnostics` panel continues to include the newer `Refresh Status` action for live runtime checks while browsing.
+
+### Performance
+
+- The lighter background performance polling and reduced Task Manager refresh pressure remain in place for the current release.
+
+### Release
+
+- The `1.1.7` Windows installer package name is `BubblesTheDev Web Browser_Installer_1.1.7.exe`.
+- The verified installer SHA-256 for `1.1.7` is `TBD after final installer build`.
+
+### Notes
+
+- Version `1.1.7` carries forward the local AI, privacy-safe diagnostics, installer UX, and runtime optimization work introduced in the recent `1.1.x` releases.
+
+## 1.1.5
+
+### Added
+
+- Added an `AI & Diagnostics` panel to the browser UI.
+- Added a `Refresh Status` button under the `AI & Diagnostics` panel title so users can request a fresh runtime status snapshot while browsing.
+- Added encrypted profile-isolated local AI memory for standard profiles.
+- Added non-persistent AI memory handling for incognito sessions.
+- Added offline local summarization and isolated local AI runtime analysis.
+- Added current-session AI health monitoring.
+- Added automatic current-session AI health recovery reset behavior after severe low-health conditions.
+- Added privacy-safe diagnostics preview, manual send, test send, and optional severe-event reporting controls.
+
+### Performance
+
+- Reduced background performance polling overhead so routine browser monitoring does less work during normal use.
+- Lowered Task Manager refresh pressure by using a slower refresh cadence and skipping unnecessary hidden-window updates.
+- Smoothed frequent browser-state updates so runtime status panels do less unnecessary churn during active browsing.
+
+### Security And Privacy
+
+- Improved local AI safety and reliability safeguards.
+- Improved local AI memory protection and recovery behavior.
+- Strengthened privacy-safe diagnostics protections.
+- Kept public documentation focused on user-facing behavior.
+
+### Installer
+
+- Updated the NSIS finish flow so post-install work is shown in a visible branded progress window.
+- Improved the finish window messaging so users can see what step is happening during the completion process.
+- Hid the blank PowerShell console from the visible post-install flow.
+- Extended the completion state so the result remains visible briefly before the window closes automatically.
+
+### Documentation
+
+- Refreshed `README`, release, architecture, privacy, security, changelog, and comparison documentation for version `1.1.5`.
+- Updated public privacy and comparison documentation to describe the new local AI and privacy-safe diagnostics behavior without exposing sensitive infrastructure details.
+
+### Release
+
+- The `1.1.5` Windows installer package name is `BubblesTheDev Web Browser_Installer_1.1.5.exe`.
+- The verified installer SHA-256 for `1.1.5` is `C49CF258BAA084522060386798FC3ED961EC226618EF6719D4FE2AC7253361E0`.
+
+### Notes
+
+- Version `1.1.5` expands the browser's local-first privacy model with on-device AI features while keeping diagnostics user-controlled and privacy-safe by default.
+
+## 1.0.65
+
+### Updated
+
+- The package version was advanced to 1.0.65.
+- Locked dependency versions were refreshed for the current packaged build.
+- Release, README, privacy, security, comparison, changelog, architecture, and project update documentation were refreshed for 1.0.65.
+
+### Release
+
+- The 1.0.65 Windows installer package name is BubblesTheDev Web Browser_Installer_1.0.65.exe.
+- The installer `ED32325BF17EE6F63B45329275515019654A1AD92235014647125F22B9DBE3FF` after final installer build.
+
+### Notes
+
+- Version 1.0.65 is a security-focused maintenance release with no new headline browser features.
+
+## 1.0.61
+
+### Updated
+
+- The package version was advanced to `1.0.61`.
+- Release, README, privacy, comparison, changelog, and architecture documentation were refreshed for `1.0.61`.
+- The browser's normal UI state pipeline was adjusted so everyday browser-state updates no longer rebuild full performance summaries every time.
+
+### Performance
+
+- Routine browser updates now do less background performance work unless the user opens or refreshes the Performance panel.
+- App metrics and performance summaries now use short-lived caching so repeated tab, title, or audio-state updates do less background work.
+- The Performance panel now keeps detailed results more smoothly during normal browsing updates.
+
+### Release
+
+- The `1.0.61` Windows installer package name is `BubblesTheDev Web Browser_Installer_1.0.61.exe`.
+- The installer SHA-256 is `0190C9C2856D3B2582012146CC17852DF00F2446F8BDE95E8469A7DDDDDFCEB5`.
+
+### Notes
+
+- Version `1.0.61` keeps the Streaming Hub, isolated streaming sessions, Windows-native download protection, AMC+ support, diagnostics tooling, and the hardened Music Downloader from `1.0.60`.
+
+## 1.0.60
+
+### Updated
+
+- The package version was advanced to `1.0.60`.
+- Architecture, privacy, security, README, release, and comparison documentation were refreshed for `1.0.60`.
+- The browser now includes a dedicated Streaming Hub for isolated in-browser access to supported streaming services.
+- The `1.0.60` documentation set now consistently describes the current Streaming Hub behavior, Windows-native download protection path, and local-first privacy model.
+
+### Streaming Hub
+
+- Added a new Streaming Hub entry in the browser UI for Disney+, Hulu, Max, Netflix, Paramount+, Prime Video, Apple TV+, AMC+, Peacock, Crunchyroll, YouTube TV, Sling TV, Pluto TV, The Roku Channel, Plex, Discovery+, ESPN+, MGM+, STARZ, and Tubi.
+- Each supported streaming service now uses its own dedicated isolated session instead of the shared default browser session.
+- Streaming tabs can now be reopened from the hub and their isolated service session can be cleared directly from the browser UI.
+
+### Security
+
+- Streaming views now use stronger built-in isolation and safer embedded-browser protections.
+- Streaming navigation is now more tightly limited to trusted service destinations.
+- Streaming sign-in popups now use dedicated hardened windows with one-popup-per-service enforcement and popup cooldown protection to reduce abuse.
+- Streaming sessions now use tighter download, permission, and session protections.
+- Streaming controls now use stricter browser-side safety rules.
+- `Bubbles Safe Browsing` was simplified from the earlier custom-list model into a Windows-native download protection stack.
+- Download protection now detects Windows-registered antivirus products through Windows Security Center and surfaces that status in Runtime Checks.
+- Download save and open flows now work more closely with Windows security checks before sensitive file actions continue.
+- Downloaded files now receive Mark of the Web tagging alongside the existing Windows Defender, Authenticode, and heuristic protection chain.
+
+### Notes
+
+- Version `1.0.60` keeps the existing gaming and streaming performance manager, Music Downloader hardening, diagnostics tooling, and passkey compatibility.
+- Version `1.0.60` shifts the streaming story from performance-only tuning toward a privacy-first embedded streaming architecture with stronger session isolation and navigation controls.
+
+## 1.0.52
+
+### Updated
+
+- The package version was advanced to `1.0.52`.
+- Architecture, privacy, security, README, release, and release-note documentation were refreshed for `1.0.52`.
+- The Music Downloader URL validation was refined to better handle normal single-video YouTube watch-page links.
+
+### Music Downloader
+
+- Certain YouTube watch URLs that include auto-added radio parameters such as `list=RD<videoId>&start_radio=1` are now normalized back to the canonical single-video watch URL.
+- This keeps support focused on approved single-video audio downloads rather than enabling playlist or bulk-download behavior.
+- Playlist-only, channel, Shorts, livestream, malformed, and bulk-style URLs remain blocked.
+
+### Performance
+
+- The fresher performance-panel refresh behavior and stronger OBS fallback detection path from `1.0.50` remain in place.
+- Performance mode continues using improved OBS detection and more forgiving borderless-game detection from `1.0.49`.
+
+### Release
+
+- The `1.0.52` Windows installer package name is `BubblesTheDev Web Browser_Installer_1.0.52.exe`.
+- The installer SHA-256 is `FEA78338816A1D0B9326A3CF9C42C5F4680137565AA69A0F057B9DCE96134590`.
+
+### Notes
+
+- Version `1.0.52` keeps the earlier installer and release-flow polish added in `1.0.48`.
+- Version `1.0.52` builds on the gaming and streaming optimization work introduced in `1.0.45` and the downloader hardening introduced in `1.0.37`.
+
+## 1.0.50
+
+### Updated
+
+- The package version was advanced to `1.0.50`.
+- Release, README, and release-note documentation were refreshed for `1.0.50`.
+- The performance-mode status flow was adjusted so the UI requests a fresh detector sample instead of only showing cached state.
+
+### Performance
+
+- Opening the Performance panel or using `Refresh Status` now forces a new detection pass.
+- OBS detection was improved so streaming activity is recognized more reliably.
+- Performance mode should now surface OBS activity more reliably in the UI while keeping the earlier `1.0.49` detection improvements in place.
+
+### Release
+
+- The `1.0.50` Windows installer package name is `BubblesTheDev Web Browser_Installer_1.0.50.exe`.
+- The installer SHA-256 is `6F3A996A5230E6C434D41134FE5BEA85C42E7C831B6513206C2A257DA44AC33D`.
+
+### Notes
+
+- Version `1.0.50` keeps the earlier installer and release-flow polish added in `1.0.48`.
+- Version `1.0.50` builds directly on the detection reliability work added in `1.0.49`.
+
+## 1.0.49
+
+### Updated
+
+- The package version was advanced to `1.0.49`.
+- Release, README, architecture, privacy-comparison, security, and release-note documentation were refreshed for `1.0.49`.
+- The gaming and streaming detection layer was adjusted to better match real OBS and Fortnite-style gameplay sessions.
+
+### Performance
+
+- OBS detection was broadened to catch more real-world process-name variants.
+- Process discovery was made more reliable so active streaming sessions are less likely to be missed.
+- Borderless-window detection was made more forgiving for games that do not present as strict fullscreen windows.
+- Performance mode should now activate more consistently during active OBS and borderless gaming sessions.
+
+### Release
+
+- The `1.0.49` Windows installer package name is `BubblesTheDev Web Browser_Installer_1.0.49.exe`.
+- The installer SHA-256 is `D8BDAA03A6327C2B0128A9A8147D9A00029426E6E417104ED87EBF74F8B5BCAA`.
+
+### Notes
+
+- Version `1.0.49` keeps the earlier installer and release-flow polish added in `1.0.48`.
+- Version `1.0.49` continues the gaming and streaming optimization work introduced in `1.0.45` and refined in `1.0.46` through `1.0.48`.
+
+## 1.0.48
+
+### Updated
+
+- The package version was advanced to `1.0.48`.
+- Architecture, privacy, comparison, README, release, and release-note documentation were refreshed for `1.0.48`.
+- The installer flow was refined to feel more like a normal mainstream-browser install experience.
+
+### Installer And Updates
+
+- The installer and browser now work together for a more Chrome-like update feel.
+- Fresh installs now have a smoother post-install follow-up experience after the installer finishes.
+- The installer and browser release flow remain aligned for installed builds.
+- The installer continues to require the license page and separate legal acknowledgement before setup continues.
+
+### Notes
+
+- Version `1.0.48` keeps the lighter adaptive gaming and streaming detector behavior introduced in `1.0.47`.
+- Version `1.0.48` also keeps the stronger OBS-aware throttling and borderless-window gaming support added across `1.0.45` and `1.0.46`.
+
+### Release
+
+- The `1.0.48` Windows installer package name is `BubblesTheDev Web Browser_Installer_1.0.48.exe`.
+- The installer SHA-256 is `971275F89EEF68AAA6A7D35CEC65A054F541A8741B4779591AE548086B987FD6`.
+
+## 1.0.47
+
+### Updated
+
+- The package version was advanced to `1.0.47`.
+- Architecture, privacy, comparison, and changelog documentation were refreshed for `1.0.47`.
+- The gaming and streaming performance detector was tuned to sample less aggressively during active sessions.
+
+### Performance
+
+- Detection now runs less often overall to reduce overhead during gameplay.
+- Heavy polling is reduced once a gaming or streaming session is already detected.
+- Expensive GPU counter sampling no longer runs every cycle.
+- The browser now shifts into a lighter "do less checking" mode while gaming is active to reduce hitching and frame-drop risk.
+
+### Release
+
+- The `1.0.47` Windows installer package name is `BubblesTheDev Web Browser_Installer_1.0.47.exe`.
+- The installer SHA-256 is `TBD after final installer build`.
+
+### Notes
+
+- Version `1.0.47` continues refining the adaptive gaming and streaming optimization work introduced in `1.0.45` and extended in `1.0.46`.
+
+## 1.0.46
+
+### Updated
+
+- The package version was advanced to `1.0.46`.
+- Release, README, privacy, architecture, and changelog documentation were refreshed for `1.0.46`.
+- The current `1.0.46` release documentation reflects the latest gaming and streaming optimization additions, including stronger OBS-aware throttling, stream-stability controls, and borderless-window gaming detection.
+
+### Release
+
+- The `1.0.46` Windows installer package name is `BubblesTheDev Web Browser_Installer_1.0.46.exe`.
+- The installer SHA-256 is `DBC3CABA5588FBA3D5E2D68F5EB4458DEC799690C522E6D5DB34D5630BAD1F5C`.
+
+### Notes
+
+- Version `1.0.46` continues the adaptive gaming and streaming optimization work introduced in `1.0.45`.
+
+## 1.0.45
+
+### Added
+
+- A Windows-focused gaming and streaming performance manager was added to detect OBS Studio, Streamlabs Desktop, fullscreen-like and borderless-window foreground apps, and sustained CPU or GPU pressure through local system checks only.
+- A new Performance panel and status indicator were added so users can see when optimization mode is active and adjust gaming or streaming behavior from the browser UI.
+- New user-facing settings were added for gaming optimization mode, streaming optimization mode, aggressive tab sleeping, lower GPU usage mode, stream-stability prioritization, reduced background activity, auto-detection for OBS and Streamlabs, and performance notifications.
+
+### Performance
+
+- Hidden-tab frame rates, tab sleeping thresholds, and background activity are now adjusted dynamically during gaming or streaming sessions.
+- Renderer-process priority behavior is now reduced more safely for inactive tabs during heavier sessions to help lower browser interference.
+- Browser memory safeguards now integrate with the performance manager so tab suspension and background work can react more aggressively under streaming or gameplay pressure.
+- The browser now backs off more aggressively during active OBS or Streamlabs sessions, including lower background browser FPS caps intended to reduce frame drops while gaming.
+
+### Security
+
+- The performance optimization layer stays local-only and uses Windows-safe process and foreground-window monitoring rather than hooking games, injecting into processes, or interfering with anti-cheat systems.
+- Performance controls remain browser-managed rather than page-managed.
+
+### Release
+
+- The package version was advanced to `1.0.45`.
+- Release, README, privacy, architecture, and security documentation were updated to match the `1.0.45` feature set.
+- The `1.0.45` Windows installer package name is `BubblesTheDev Web Browser_Installer_1.0.45.exe`.
+- The latest verified installer SHA-256 for `1.0.45` is `D6A7E534C3D966543DAA906DA696932A506ED89070B0E04671EE2F0371AABD9F`.
+
+### Notes
+
+- Version `1.0.45` builds on the hardened Music Downloader from `1.0.37` while adding a new adaptive performance layer for gamers and streamers.
+- Existing browser capabilities remain in place, including bookmark bar support, split-view browsing, ad and tracker blocking, trusted-source-aware downloads, diagnostics tools, passkey compatibility, VPN tools, and the local-only Music Player.
+
+## 1.0.37
+
+### Added
+
+- A hardened Music Downloader was added for approved YouTube single-video audio downloads only.
+- Bundled media download and conversion support was added with verified tool integrity checks.
+- A dedicated queue manager was added with a maximum of 3 concurrent downloads, duplicate blocking, abuse controls, and persisted cooldown state.
+- Responsible-use consent gating, approved-folder selection, and isolated temp-directory processing were added to the Music Downloader flow.
+
+### Security
+
+- The Music Downloader now uses a more restricted and safer browser-controlled execution path.
+- The Music Downloader was restricted to approved YouTube single-video audio flows and continues blocking playlists, channels, livestreams, Shorts, malformed links, and bulk-style use.
+- Media validation and cleanup were added to make downloads more consistent and safer.
+
+### Privacy
+
+- Music Downloader processing remains local-first with no telemetry, no analytics, and no cloud-side media processing.
+- Downloader state such as consent, approved folder, queue metadata, and cooldown timing is stored locally and restored across restarts.
+
+### Release
+
+- The package version was advanced to `1.0.37`.
+- Release documentation and installer-facing version references were refreshed for `1.0.37`.
+
+### Notes
+
+- The Music Downloader is intentionally controlled and restricted rather than acting like a bulk downloader, scraper, or unrestricted ffmpeg front end.
+
+## 1.0.32
+
+### Updated
+
+- The package version was advanced to `1.0.32`.
+- Release documentation and installer-facing version references were refreshed for `1.0.32`.
+- Project dependencies were refreshed to the current locked versions used by this build.
+- The packaged dependency tree was updated for the `1.0.32` release.
+- No major user-facing workflow changes were introduced in this maintenance release.
+
+### Security
+
+- Version `1.0.32` ships as a dependency security update focused on package freshness and lower-risk maintenance.
+- A local `npm audit` pass reported `0` known vulnerabilities in the current dependency tree for version `1.0.32`.
+- Supporting libraries for networking, sanitization, cookie handling, parsing, and secure storage remain updated in the packaged app.
+
+### Release
+
+- The `1.0.32` Windows installer package name is `BubblesTheDev Web Browser_Installer_1.0.32.exe`.
+- The verified installer SHA-256 for `1.0.32` is `91E45C5855CAC8A83762ED73DB409A86C7D92D8C340E34241806B9092B155F73`.
+
+### Notes
+
+- Existing browser features remain in place, including bookmark bar support, split-view browsing, ad blocking, download protection, saved passwords, passkey compatibility, VPN tools, diagnostics, and the local-only Music Player.
+- The browser continues to follow a local-first privacy approach with no built-in telemetry or analytics services configured.
+
+## 1.0.65
+
+### Updated
+
+- The package version was advanced to `1.0.65`.
+- The browser runtime was updated to the current supported Electron base.
+- Release documentation and installer-facing version references were refreshed for `1.0.65`.
+- The installer no longer presents a manual-update-only setup choice. Automatic updates are now the standard setup behavior for installed builds.
+- Manual `Check for Updates` remains available from the app menu for user-initiated version and status checks.
+
+### Performance
+
+- Browser UI update churn was reduced by coalescing autocomplete, task-manager refresh, tab-strip rerender, and split-view drag work more aggressively.
+- Browser-state synchronization was refined to reduce unnecessary high-frequency updates during normal browsing.
+- Heavy media pages such as Twitch and YouTube now use a softer browser-state debounce path for noisy tab metadata updates.
+
+### Memory
+
+- Background tab sleeping now activates earlier under memory pressure and trims more tabs per pass to reduce long-session memory growth.
+- In-memory history, downloads, diagnostics, and search caches were capped more aggressively to keep retained browser state smaller over time.
+
+### Notes
+
+- Trusted-source-aware downloads, passkey compatibility, external-drive install handling, and diagnostics tools remain part of the current browser build.
+- Existing browser features remain in place, including bookmark bar support, split-view browsing, site permissions, ad blocking, download protection, sleeping tabs, runtime diagnostics, password storage, VPN tools, and the local-only Music Player.
+
+## 1.0.27
+
+### Added
+
+- The shell theme menu now supports multiple muted built-in color themes: `Graphite`, `Slate Blue`, `Forest Ash`, and `Mocha`.
+- A persistent toolbar-visibility state was added so users can hide the main shortcut row while keeping the address bar and quick-access `»` menu available.
+- Keyboard shortcuts were added for `Toggle Bookmark Bar` (`Ctrl+Shift+B`) and `Toggle Toolbar` (`Ctrl+Alt+T`), and the shortcut guide was updated to match.
+
+### Updated
+
+- The `Bookmarks` and `»` toolbar menus now use native popup menus instead of in-page dropdown overlays.
+- The toolbar layout was refined so hidden-toolbar mode still keeps the omnibox accessible and the quick-access menu visible.
+- The `Theme` app menu was expanded from a single dark-mode toggle into a muted multi-theme selector with `Ctrl+Shift+D` cycling between themes.
+- `ARCHITECTURE.md` and `Browser-Privacy-Comparison.md` were updated to reflect the current browser behavior.
+
+### Security
+
+- Managed updates now use stricter validation before an installer can be launched.
+- Imported extensions now load without local file access, reject symlinked folders, require Manifest V2 or V3 structure, and warn the user before importing extensions with broad or higher-risk permissions.
+- Password save and reveal behavior is now limited to safer secure contexts.
+- Built-in browser page security rules were tightened.
+- Several browser UI paths were cleaned up for safer and more reliable behavior.
+
+### Dependency Audit
+
+- A local `npm audit` pass reported `0` known vulnerabilities in the current dependency tree.
+
+## 1.0.25
+
+### Updated
+
+- The package version was advanced to `1.0.25`.
+- Release and README documentation were updated to match the `1.0.25` installer package name and current feature set.
+- Download handling was refined so files from trusted sources such as GitHub can complete more reliably while browser security protections remain in place.
+- The page context menu and tab context menu were refined toward a cleaner Chromium-style workflow.
+- Passkey and WebAuthn sign-in compatibility for supported websites was improved.
+- Install-path handling was updated so external-drive installs can move install-linked browser data off `C:` and onto the selected external drive.
+
+### Performance
+
+- Memory usage was reduced on streaming-heavy sites such as Twitch and Kick to improve responsiveness and stability.
+
+### Notes
+
+- `Automatic updates` remains the default installer selection, while `Manual updates only` remains available.
+
+# 1.0.17
+- Dependency Security Update
+
+  ## Highlights
+
+- Encrypted saved-password vault with on-demand reveal, manual add and remove controls, and strong-password generation
+- Bookmark import from Edge, Chrome, Brave, Opera, or a user-chosen bookmark file with explicit consent gating for path scans and manual file access
+- Chromium extension import support for Edge, Chrome, Brave, and Opera profile folders plus manual folder import
+- VPN manager support for NordVPN, ExpressVPN, ProtonVPN, and WireGuard with Proton profile import support
+- Browser-session public IP testing with separate IPv4 and IPv6 checks in the VPN panel
+- Installer update-mode choice with `Automatic updates` and `Manual updates only`
+- Clearer installer-time update preference handling during setup
+- Manual `Check for Updates` entry in the app menu with clearer version and status feedback
+- Improved uninstall flow with custom install-path tracking, external-drive install support, and better cleanup of stale install metadata
+- Uninstall options that let users choose which local data categories should be removed or kept
+- Existing browser shell features remain in place, including bookmark bar, split-view browsing, site permissions, ad blocking, download protection, sleepable tabs, and runtime diagnostics
+
+## What's New In 1.0.17
+
+- Password capture from supported login forms now stores encrypted entries locally and keeps passwords hidden until the user explicitly reveals them.
+- The browser can suggest strong passwords both from the passwords panel and on supported password forms.
+- Bookmark import now separates consent for browser-path scanning and manual bookmark-file browsing.
+- Extension import scans supported Chromium profile locations and restores imported extensions into the persistent main session.
+- VPN integration now includes installed-client detection, external app launch shortcuts, local Proton profile import, and browser network refresh support.
+- Public IP testing now surfaces both IPv4 and IPv6 results so users can verify whether the browser session is going through the expected network path.
+- Installer builds can now record whether the user selected `Automatic updates` or `Manual updates only` and keep that local preference available after setup.
+- Release handling was tightened so administrative actions stay more restricted.
+- Users can now manually run `Check for Updates` from the app menu and see installed-versus-available version feedback.
+- Custom install locations now better support external HDDs, external SSDs, and USB flash drives.
+- Uninstall now cleans up tracked custom install paths more reliably, lets users choose which local data categories to remove, and suppresses false leftover warnings when cleanup finishes successfully.
+- `Automatic updates` is now the default installer selection, while `Manual updates only` remains available as an opt-out choice.
+
+# 1.0.15 
+
+## Highlights
+
+- Encrypted saved-password vault with on-demand reveal, manual add and remove controls, and strong-password generation
+- Bookmark import from Edge, Chrome, Brave, Opera, or a user-chosen bookmark file with explicit consent gating for path scans and manual file access
+- Chromium extension import support for Edge, Chrome, Brave, and Opera profile folders plus manual folder import
+- VPN manager support for NordVPN, ExpressVPN, ProtonVPN, and WireGuard with Proton profile import support
+- Browser-session public IP testing with separate IPv4 and IPv6 checks in the VPN panel
+- Installer update-mode choice with `Automatic updates` and `Manual updates only`
+- Clearer installer-time update preference handling during setup
+- Manual `Check for Updates` entry in the app menu with clearer version and status feedback
+- Improved uninstall flow with custom install-path tracking, external-drive install support, and better cleanup of stale install metadata
+- Uninstall options that let users choose which local data categories should be removed or kept
+- Existing browser shell features remain in place, including bookmark bar, split-view browsing, site permissions, ad blocking, download protection, sleepable tabs, and runtime diagnostics
+
+## What's New In 1.0.15
+
+- Password capture from supported login forms now stores encrypted entries locally and keeps passwords hidden until the user explicitly reveals them.
+- The browser can suggest strong passwords both from the passwords panel and on supported password forms.
+- Bookmark import now separates consent for browser-path scanning and manual bookmark-file browsing.
+- Extension import scans supported Chromium profile locations and restores imported extensions into the persistent main session.
+- VPN integration now includes installed-client detection, external app launch shortcuts, local Proton profile import, and browser network refresh support.
+- Public IP testing now surfaces both IPv4 and IPv6 results so users can verify whether the browser session is going through the expected network path.
+- Installer builds can now record whether the user selected `Automatic updates` or `Manual updates only` and keep that local preference available after setup.
+- Release handling was tightened so administrative actions stay more restricted.
+- Users can now manually run `Check for Updates` from the app menu and see installed-versus-available version feedback.
+- Custom install locations now better support external HDDs, external SSDs, and USB flash drives.
+- Uninstall now cleans up tracked custom install paths more reliably, lets users choose which local data categories to remove, and suppresses false leftover warnings when cleanup finishes successfully.
+- `Automatic updates` is now the default installer selection, while `Manual updates only` remains available as an opt-out choice.
+
+## 1.0.13
+
+### Added
+
+- A manual `Check for Updates` menu entry was added so users can trigger update checks on demand and see clearer version/status feedback.
+- Custom install locations now explicitly support external HDDs, external SSDs, and USB flash drives during setup.
+- Uninstall now prompts the user to choose whether local browser data should be removed or kept for a future reinstall or update.
+
+### Updated
+
+- The package version was advanced to `1.0.13`.
+- Current release documentation and installer-facing version references were updated to `1.0.13`.
+- Installer metadata tracking was expanded to record install root and drive-type details for custom install paths.
+- Update preference persistence now keeps custom install-path metadata in sync after launch.
+
+### Fixed
+
+- Uninstall cleanup now better targets tracked custom install directories instead of relying only on default locations.
+- Ghost-install cleanup was improved by removing stale install metadata and validating remaining leftovers after uninstall.
+
+# 1.0.1-0.10
+- Security Update Dependency
+
+# 1.0.1-0.7
+- Security Update Dependency
+
+# 1.0.1-0.5
+- Security Update Dependency
+
+# 1.0.1-0.3
+- Security Update Dependency
+
+# 1.0.10-01
+- Security Update Dependency
+
+## 1.0.10
+- Security Update Dependency
+- minor updates
+
+## 1.0.8
+
+### Updated
+
+- The package version was advanced to `1.0.8`.
+- Current release documentation and installer-facing version references were updated to `1.0.8`.
+
+## 1.0.6
+
+### Added
+
+- Installer-time update preference handling was added for installs that choose `Automatic updates`.
+
+### Updated
+
+- The package version was advanced to `1.0.6`.
+- Current release documentation and installer-facing version references were updated to `1.0.6`.
+- Release handling now separates end-user update access from administrative actions.
+
+## 0.9.23
+
+### Added
+
+- Encrypted saved-password storage was added with manual add, reveal, remove, and strong-password generation flows.
+- Bookmark import was expanded to supported Chromium browser paths plus manual bookmark-file import.
+- Separate consent gating was added for browser bookmark-path scanning and manual bookmark-file access.
+- Chromium extension import support was added for Edge, Chrome, Brave, and Opera profile folders.
+- VPN tooling was added for installed-client detection, Proton profile import, and browser-session IP checks.
+- Installer update-mode selection was added for `Automatic updates` and `Manual updates only`, along with a clearer installer-based release path for end users.
+
+### Updated
+
+- Release, README, privacy, and architecture documentation were refreshed for version `0.9.23`.
+- Update documentation was revised to describe the installer-based release flow in simpler public terms.
+- Browser persistence behavior was updated so uninstall no longer deletes app data by default.
+- Startup logging was reduced so blocked tracker noise and low-level Chromium network spam do not flood the terminal.
+
+### Fixed
+
+- Bookmark import consent rules now apply correctly to both browser-path scanning and manual bookmark-file browsing.
+- VPN `.conf` scanning was tightened so there is no automatic common-folder scan path.
+
+## 0.6.3
+
+### Added
+
+- Bookmark bar support was added to the main browser shell with persistent saved-page chips, one-click navigation, and inline removal.
+- Chrome-style tab context actions were added for new tab, duplicate tab, close tab, and split-view replacement.
+- Split-view browsing was added so two tabs can be displayed side-by-side with a draggable divider.
+- Site permission controls were added from the address bar shell for camera, microphone, notifications, location, popups, clipboard, automatic downloads, and fullscreen.
+- The Bubbles home page now keeps provider results on-page while switching between Bubbles, Google-backed, and DuckDuckGo-backed result sources.
+
+### Updated
+
+- Download protection now uses multiple Windows-aware safety checks with fallback protection behavior.
+- Ad-block diagnostics now show loaded-rule status and per-page blocked counters in addition to the existing Bubbles home verification page.
+- Full-screen handling now uses a clean `F11` toggle path plus an in-shell exit control.
+- Local browser state and exported diagnostics now use compressed local storage, with OS-backed protection when available.
+- A runtime checks panel was added to the browser shell so users can inspect security, download protection, ad blocking, executable path, and performance state in-app.
+
+### Fixed
+
+- Full-screen exit reliability was improved so the window can still be closed or exited cleanly while full-screen is active.
+
+### Performance
+
+- Hidden tabs now use background throttling so inactive pages use less CPU and memory during normal browsing.
+- Background tabs can now be put to sleep automatically under memory pressure, and the Task Manager can manually sleep or wake eligible tabs.
+
+## Version Range Summary
+
+- Start version: `0.0.24`
+- Intermediate milestones found in repository history: `0.0.35`, `0.0.50`
+- End version: `0.1.5`
+
+## 0.0.24 -> 0.0.35
+
+### Added
+
+- Exportable diagnostics and local crash logging were introduced.
+- A documented crash-report workflow was added through `Tools > Export Diagnostics Report` with a private support contact path.
+- `Data-Collection-and-Privacy-Notice.md` was added to formalize the browser's no-telemetry and no-analytics position.
+
+### Updated
+
+- The installer package advanced from `0.0.24` to `0.0.35` with updated package naming and install instructions.
+- The project README was rewritten to better reflect the browser's real feature set and design.
+- System requirements were tightened toward Windows 11 x64 packaging.
+- Security documentation was expanded to better explain the browser's privacy and safety protections.
+
+### Changed
+
+- Feature wording was cleaned up for task manager behavior, shortcuts, and packaging details.
+- Manual update guidance was clarified for installer-based upgrades.
+
+### Notes
+
+- An `info` status file was introduced as a simple project update marker.
+
+## 0.0.35 -> 0.0.50
+
+### Added
+
+- Download protection for risky file types was added, including optional Windows Defender scan integration after downloads complete.
+- A clear recent downloads action was added to the Downloads window.
+- `ARCHITECTURE.md` was added to document the browser's overall design, local storage, diagnostics, and security model.
+- `Browser-Privacy-Comparison.md` was added to explain privacy posture versus mainstream browsers.
+- `SECURITY.md` was added with vulnerability reporting guidance and support policy.
+- A privacy-proof section was added to the README to show that diagnostics and browser data remain local unless exported manually.
+
+### Updated
+
+- The main README was renamed from `Readme.md` to `README.md`.
+- Installer naming changed to the `0.0.50` setup package format.
+- Install and update instructions were revised to explicitly remove `0.0.35` before installing `0.0.50`.
+- Privacy and data-collection documentation links were added to the README.
+
+### Fixed
+
+- A formatting issue in the diagnostics directory helper (`ensureDiagnosticsDir`) was corrected.
+
+### Notes
+
+- The temporary `info` file was renamed to `UPDATES`.
+- The repository became much more documentation-driven in this release, especially around privacy, security, and architecture.
+
+## 0.0.50 -> 0.1.5
+
+### Added
+
+- `bubbles://home` became the default home page.
+- Bubbles Search Engine support was added, with background DuckDuckGo results and Google suggestions.
+- Direct URLs and bare domains remained separate from search input in the address bar.
+- Live home-page counters were added for ads blocked, trackers blocked, bookmarks saved, and history count.
+- Ad and tracker request filtering was expanded, including YouTube-focused blocking behavior.
+- Popup-based login compatibility was improved for sign-in flows used by sites such as Google, Twitch, and Facebook.
+- A local-only Music Player window was added with explicit user opt-in before any folder scan begins.
+- Edit menu roles and a shortcut/help guide were added for common browser actions.
+
+### Updated
+
+- Download management messaging was updated to reflect recent-download management.
+- The architecture documentation was rewritten to better match the browser's real structure and feature set.
+- The privacy comparison document was revised to better distinguish local-first behavior from normal web traffic and search-provider traffic.
+- The data collection notice was expanded to document local storage for history, bookmarks, homepage settings, and Music Player settings.
+- Update instructions were generalized to uninstall any older installed version before installing `0.1.5`.
+
+### Changed
+
+- The project README shifted from a general browser package description to a release overview centered on search, privacy, popup auth compatibility, and local-only media features.
+- Security documentation now calls out ad and tracker filtering as part of the browser protection model.
+- Privacy language was refined to explicitly state that the browser avoids first-party telemetry while still making normal website and search-provider requests when the user initiates those actions.
+
+### Notes
+
+- The official `0.1.5` release notes describe this release as the point where the browser's identity moved from a general Electron browser package to a branded Bubbles search-and-privacy focused desktop browser.
+
+## Overall Changes From 0.0.24 To 0.1.5
+
+### Added Across The Range
+
+- Exportable diagnostics and local crash logging
+- Download protection with Windows Defender integration
+- Privacy, architecture, and security documentation
+- Bubbles Search Engine and default internal home page
+- Ad and tracker filtering with live counters
+- Popup login compatibility improvements
+- Local-only Music Player with explicit opt-in
+- Edit menu roles and shortcut/help coverage
+
+### Updated Across The Range
+
+- Installer naming, packaging language, and upgrade instructions
+- System requirement messaging toward Windows 11 x64
+- README and release documentation quality and depth
+- Privacy disclosures to better reflect actual app behavior
+
+### Fixed Across The Range
+
+- Diagnostics helper formatting issues
+- Login-flow handling around popup-based authentication
+
+## Source Basis
+
+This file was reconstructed from:
+
+- the repository compare history for `0.0.24 -> 0.0.35`, `0.0.35 -> 0.0.50`, and `0.0.50 -> 0.1.5`
+- the in-repo `release.md` for version `0.1.5`
+- the repository's tagged README and documentation diffs
