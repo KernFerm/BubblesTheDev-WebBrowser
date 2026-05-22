@@ -1,12 +1,12 @@
 # BubblesTheDev Web Browser
 
-> A browser built for privacy, control, and a smoother everyday experience.
+> A browser built for privacy, control, and a smoother everyday experience. 🌐
 
 [![Version](https://img.shields.io/badge/version-1.1.30-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Platform](https://img.shields.io/badge/platform-Windows%2011-0078D6)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Electron](https://img.shields.io/badge/Electron-42-47848F?logo=electron&logoColor=white)](https://www.electronjs.org/)
 
-## What Is It?
+## What Is It? 👋
 
 BubblesTheDev Web Browser is a Windows browser designed for everyday browsing while keeping browser data local-first and user controls easier to understand.
 
@@ -21,7 +21,7 @@ The overall goal is simple:
 * keep more browser behavior local and inspectable
 * give users better visibility into performance, stability, and diagnostics
 
-## What's New In 1.1.30
+## What's New In 1.1.30 ✨
 
 * Added a stronger multilingual system with smarter local language fallback and validation
 * Expanded browser localization coverage to `679` locale packs across `453` base languages
@@ -34,9 +34,9 @@ The overall goal is simple:
 
 In practical terms, this release is focused on turning the browser into a more globally scalable multilingual platform without weakening the local-first privacy model, the hardened runtime boundaries, or the recent accessibility work.
 
-## Main Features
+## Main Features 🚀
 
-### Everyday Browsing
+### Everyday Browsing 🧭
 
 * multi-tab browsing
 * built-in `bubbles://home` start page
@@ -49,7 +49,7 @@ In practical terms, this release is focused on turning the browser into a more g
 
 The everyday browsing layer is meant to stay familiar. You still get a normal browser shell with address bar navigation, bookmarks, history, and utility panels, but the surrounding browser behavior is designed to stay more understandable and more local-first than many mainstream browser experiences.
 
-### Privacy And Security
+### Privacy And Security 🔒
 
 * local-first browser data handling
 * no built-in telemetry or analytics
@@ -65,7 +65,7 @@ The browser tries to keep privacy and security features understandable instead o
 
 It is not an offline-only browser, and it does not pretend normal web traffic is the same thing as telemetry. The privacy model is local-first, user-controlled, and intentionally more explicit about what stays on-device.
 
-### Local AI And Diagnostics
+### Local AI And Diagnostics 🤖
 
 * `AI & Diagnostics` panel in the browser UI
 * offline local summarization
@@ -82,7 +82,7 @@ This part of the browser is intended to stay local-first. The AI layer is used f
 
 The diagnostics side is designed to be more transparent than a hidden crash-upload model. Users can inspect what would be sent before sending it, keep reporting disabled, or manually send a report only when needed. Privacy-safe diagnostics are intended to focus on browser stability and system health rather than personal browsing content.
 
-### Multilingual Platform
+### Multilingual Platform 🌍
 
 * automatic locale detection
 * manual language override
@@ -95,7 +95,7 @@ The diagnostics side is designed to be more transparent than a hidden crash-uplo
 
 The multilingual layer is designed to scale without turning into a cloud translation system. Language data stays local, translation packs are checked before use, and the browser applies translated interface text in a safer way.
 
-### Streaming Hub
+### Streaming Hub 🎬
 
 The browser includes an isolated Streaming Hub for supported providers. Supported services currently include:
 
@@ -122,7 +122,7 @@ The browser includes an isolated Streaming Hub for supported providers. Supporte
 
 Each supported streaming service is intended to run in its own isolated session instead of the shared normal browsing session. That helps keep streaming sign-in state more separated, reduces cross-service mixing, and allows service sessions to be managed more independently from normal browsing activity.
 
-### Performance And Power Features
+### Performance And Power Features ⚡
 
 * gaming and streaming performance mode
 * background tab throttling
@@ -134,7 +134,7 @@ Each supported streaming service is intended to run in its own isolated session 
 
 These features are aimed at keeping the browser usable during heavier sessions such as gaming, streaming, multitasking, or long browsing runs. The browser can back off more aggressively in the background, reduce unnecessary work, and surface a current-session health view so users can see when the browser is under more pressure.
 
-### Extra Tools
+### Extra Tools 🛠️
 
 * extension import support
 * VPN tools and public IP checks
@@ -144,7 +144,7 @@ These features are aimed at keeping the browser usable during heavier sessions s
 
 These tools are meant to make the browser feel more complete without turning it into a cloud-heavy utility platform. Where possible, these features stay local, use explicit user action, and expose their behavior through the browser UI instead of hidden background collection.
 
-## Architecture At A Glance
+## Architecture At A Glance 🏗️
 
 The browser is built on Electron and keeps higher-risk parts of the app under browser-controlled protection.
 
@@ -158,7 +158,7 @@ At a high level:
 
 The architecture is intentionally local-first and tries to keep the browser's more sensitive features inside the trusted runtime side of the app.
 
-## Installer
+## Installer 📦
 
 Installer file name:
 
@@ -170,7 +170,7 @@ Platform:
 
 The current installer uses a normal visible Windows installer flow instead of a silent always-on update model. Recent builds also include a clearer visible post-install completion flow so end users can better understand what the installer is doing before it closes.
 
-## Updating
+## Updating 🔄
 
 The browser does not rely on a silent always-on updater.
 
@@ -185,7 +185,7 @@ Instead:
 
 That means updates are still visible and installer-based instead of behaving like a hidden background patch service. The browser can help with background update checks and downloads where supported, but the overall update experience is still built around a normal Windows installer flow and a visible restart step.
 
-## Privacy Summary
+## Privacy Summary 🛡️
 
 This browser is built to keep things simple and local-first.
 
@@ -201,7 +201,7 @@ It does:
 
 It does not promise zero network activity, because websites, search, downloads, passkeys, streaming services, and updates can still use the network when the user chooses those features. The privacy goal is not "offline-only"; it is "local-first, transparent, and limited by default."
 
-## Related Docs
+## Related Docs 📚
 
 If you want more detail, the repo also includes:
 
