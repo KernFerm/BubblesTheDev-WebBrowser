@@ -1,8 +1,8 @@
 # Data Collection and Privacy Notice
 
-Update note for readers: parts of this notice originated around version `1.0.65`. The current notice now reflects version `1.1.16`, and the later sections extend the earlier baseline with the newer local AI, privacy-safe diagnostics, accessibility, installer-behavior, and panel-polish updates.
+Update note for readers: parts of this notice originated around version `1.0.65`. The current notice now reflects version `1.1.30`, and the later sections extend the earlier baseline with the newer local AI, privacy-safe diagnostics, accessibility, installer-behavior, multilingual localization, and panel-polish updates.
 
-This notice reflects the current privacy posture of BubblesTheDev Web Browser version `1.1.16`.
+This notice reflects the current privacy posture of BubblesTheDev Web Browser version `1.1.30`.
 
 BubblesTheDev Web Browser is designed to keep browser data local to the user's device unless the user chooses to browse external websites, use external search providers, download files, export diagnostics manually, or enable privacy-safe diagnostics.
 
@@ -15,14 +15,14 @@ Specifically:
 * No behavioral tracking mechanisms are included by the application itself.
 * No advertising identifiers are generated or transmitted by the application itself.
 * No cloud-based synchronization features are implemented.
-* No automatic diagnostics upload path is implemented.
+* Automatic diagnostics upload is not enabled by default.
 * No analytics or telemetry service is contacted for ordinary browser data collection purposes.
 
-Version `1.1.16` includes the current browser behavior around the Streaming Hub, isolated persistent streaming-service sessions, hardened streaming login popups, service-specific navigation allowlists, blocked downloads inside streaming views, local-first media handling, the hardened Music Downloader, Windows-safe gaming and streaming performance optimization, lighter performance-summary handling during normal browser-state updates, deferred startup work, passkey compatibility, external-drive install handling, the newer local AI plus privacy-safe diagnostics controls, smoother `AI & Diagnostics` panel behavior, and persistent local accessibility settings. Those behaviors do not add built-in telemetry or analytics collection to the browser.
+Version `1.1.30` includes the current browser behavior around the Streaming Hub, isolated streaming sessions, stronger sign-in popup protections, tighter streaming safety rules, local-first media handling, the hardened Music Downloader, gaming and streaming performance controls, lighter background performance handling, deferred startup work, passkey compatibility, external-drive install handling, the newer local AI plus privacy-safe diagnostics controls, smoother `AI & Diagnostics` panel behavior, persistent local accessibility settings, and the expanded local-only multilingual language system. Those behaviors do not add built-in telemetry or analytics collection to the browser.
 
 ## Local Browser Data
 
-Browser data is stored on the user's device in the Electron `userData` directory.
+Browser data is stored on the user's device in the browser's local app-data folder.
 
 Current persisted data includes:
 
@@ -43,12 +43,20 @@ Current persisted data includes:
 * cached search results and suggestions used by the internal home/search page
 * install-linked path metadata used to track custom or external-drive installs
 * accessibility settings such as reading, focus, motion, contrast, spacing, and related user-preference options
+* language preferences, locale override choices, and local localization integrity metadata
+* a user-visible Desktop folder named `BubblesTheDev - WebBrowser Update Notes` and versioned release-notes text file when the installed update flow refreshes bundled release notes
 
 Current runtime-only state also includes transient Streaming Hub popup cooldown and window-tracking data held in memory while the browser is open.
 
-The persisted browser-state payload is compressed before being written to disk. When Electron safe storage is available, that payload is also protected with OS-backed encryption. If OS-backed protection is unavailable, the runtime can fall back to credential-backed AES-GCM protection when available. If neither protection path is available, the payload is still stored locally in compressed form.
+Language detection, language fallback, formatting, and language diagnostics remain on-device. The browser does not upload language usage, keyboard behavior, translation choices, or regional formatting data.
+
+The current multilingual registry now includes hundreds of supported locale packs and hundreds of base language families. That broader language footprint remains local-only. Expanding the supported language list does not add cloud translation, remote locale fetching, telemetry, analytics, or user-language upload behavior.
+
+Stored browser data is compressed before it is written to disk. When stronger system-backed protection is available, the browser uses it. If that protection is unavailable, the data still remains stored locally in compressed form.
 
 The application does not automatically upload this browser-state data.
+
+Installed update behavior may also write bundled release notes into a Desktop folder so the current release notes remain user-visible locally. That behavior is part of the local installer and update experience rather than a telemetry or analytics mechanism.
 
 ## Diagnostics And Runtime Checks
 
@@ -58,10 +66,11 @@ Current behavior:
 
 * runtime diagnostic entries are written to a local diagnostics directory
 * users can manually export an encrypted `.bdiag` diagnostics report
-* no automatic diagnostics upload path is implemented
+* privacy-safe diagnostics remain disabled by default unless the user enables them
+* users can optionally allow privacy-safe severe-event reporting where supported
 * the runtime checks panel shows local status for storage protection, performance mode state, and other on-device runtime state
 
-Diagnostic data remains on-device unless the user explicitly chooses to export it.
+Diagnostic data remains on-device unless the user explicitly chooses to export it or explicitly enables privacy-safe reporting.
 
 ## Uninstall And Data Retention
 
@@ -97,15 +106,15 @@ This browser is not offline-only. Outbound network traffic still occurs when the
 
 When the user performs a search from `bubbles://home`, the application may contact DuckDuckGo and Google services to assemble results, related searches, and suggestions on that internal page.
 
-When the user downloads files, the browser may perform normal download-related handling such as trusted-source checks, Windows Security Center antivirus detection, Windows Attachment Services validation, Mark of the Web tagging, protection-provider checks, destination selection, and local save operations. That behavior is separate from telemetry and is part of the browser's on-device download protection and file-handling flow.
+When the user downloads files, the browser may perform normal download-related handling such as trusted-source checks, Windows-aware safety checks, destination selection, and local save operations. That behavior is separate from telemetry and is part of the browser's on-device download protection and file-handling flow.
 
 When the user signs in with a passkey on a supported website, the authentication request is between the user, the operating system or authenticator, and that website's login flow. The browser's role is compatibility and secure-context support; it does not create a separate Bubbles-operated passkey cloud service.
 
 Saved-password capture and reveal flows are limited to secure contexts such as `https:` pages and local loopback development hosts. The browser does not intentionally offer those flows to arbitrary insecure pages.
 
-When the user signs into a supported streaming service through the Streaming Hub, that service still sees normal login traffic just as it would in another browser. The browser isolates each supported service into its own dedicated session partition, does not use the shared default session for those services, does not export their session data, and does not intentionally expose streaming cookies or tokens to renderer code.
+When the user signs into a supported streaming service through the Streaming Hub, that service still sees normal login traffic just as it would in another browser. The browser keeps each supported service in its own dedicated session, does not use the shared default session for those services, and does not intentionally expose streaming cookies or tokens to normal page code.
 
-As of version `1.1.16`, the currently supported Streaming Hub services are Disney+, Hulu, Max, Netflix, Paramount+, Prime Video, Apple TV+, AMC+, Peacock, Crunchyroll, YouTube TV, Sling TV, Pluto TV, The Roku Channel, Plex, Discovery+, ESPN+, MGM+, STARZ, and Tubi.
+As of version `1.1.30`, the currently supported Streaming Hub services are Disney+, Hulu, Max, Netflix, Paramount+, Prime Video, Apple TV+, AMC+, Peacock, Crunchyroll, YouTube TV, Sling TV, Pluto TV, The Roku Channel, Plex, Discovery+, ESPN+, MGM+, STARZ, and Tubi.
 
 ## Music Player Privacy
 
@@ -130,14 +139,14 @@ The Music Downloader is also local-first and intentionally restricted.
 
 ## Summary
 
-BubblesTheDev Web Browser is intentionally designed without built-in surveillance, telemetry, analytics, automatic remote reporting, cloud sync, or a built-in silent auto-update client.
+BubblesTheDev Web Browser is intentionally designed without built-in surveillance, telemetry, analytics, automatic remote reporting by default, cloud sync, or a built-in silent auto-update client.
 
 The privacy model is local-first:
 
 * browser settings, history, bookmarks, passwords, imported extension metadata, VPN profile metadata, permissions, and search cache stay on-device
 * toolbar visibility, bookmark bar visibility, and the selected shell theme stay on-device
 * persisted browser state is compressed locally and protected when an available encryption path exists
-* diagnostics stay local unless the user exports them
+* diagnostics stay local unless the user exports them or explicitly enables privacy-safe reporting
 * supported streaming sessions stay isolated per service and can be cleared independently
 * music library access requires explicit consent before any scan begins
 * music downloader state, cooldown controls, and validated output handling stay on-device
