@@ -1,8 +1,8 @@
 # Data Collection and Privacy Notice
 
-Update note for readers: parts of this notice originated around version `1.0.65`. The current notice now reflects version `1.1.32`, and the later sections extend the earlier baseline with the newer local AI, privacy-safe diagnostics, accessibility, installer-behavior, multilingual localization, and panel-polish updates.
+Update note for readers: parts of this notice originated around version `1.0.65`. The current notice now reflects version `1.1.33`, and the later sections extend the earlier baseline with the newer local AI, privacy-safe diagnostics, accessibility, installer-behavior, multilingual localization, and panel-polish updates.
 
-This notice reflects the current privacy posture of BubblesTheDev Web Browser version `1.1.32`.
+This notice reflects the current privacy posture of BubblesTheDev Web Browser version `1.1.33`.
 
 BubblesTheDev Web Browser is designed to keep browser data local to the user's device unless the user chooses to browse external websites, use external search providers, download files, export diagnostics manually, or enable privacy-safe diagnostics.
 
@@ -18,7 +18,7 @@ Specifically:
 * Automatic diagnostics upload is not enabled by default.
 * No analytics or telemetry service is contacted for ordinary browser data collection purposes.
 
-Version `1.1.32` includes the current browser behavior around the Streaming Hub, isolated streaming sessions, stronger sign-in popup protections, tighter streaming safety rules, local-first media handling, the hardened Music Downloader, gaming and streaming performance controls, lighter background performance handling, deferred startup work, passkey compatibility, external-drive install handling, the newer local AI plus privacy-safe diagnostics controls, smoother `AI & Diagnostics` panel behavior, persistent local accessibility settings, and the expanded local-only multilingual language system. Those behaviors do not add built-in telemetry or analytics collection to the browser.
+Version `1.1.33` includes the current browser behavior around the Streaming Hub, isolated streaming sessions, stronger sign-in popup protections, tighter streaming safety rules, local-first media handling, the hardened Music Downloader, gaming and streaming performance controls, lighter background performance handling, deferred startup work, passkey compatibility, external-drive install handling, the newer local AI plus privacy-safe diagnostics controls, smoother `AI & Diagnostics` panel behavior, persistent local accessibility settings, and the expanded local-only multilingual language system. Those behaviors do not add built-in telemetry or analytics collection to the browser.
 
 ## Local Browser Data
 
@@ -114,7 +114,7 @@ Saved-password capture and reveal flows are limited to secure contexts such as `
 
 When the user signs into a supported streaming service through the Streaming Hub, that service still sees normal login traffic just as it would in another browser. The browser keeps each supported service in its own dedicated session, does not use the shared default session for those services, and does not intentionally expose streaming cookies or tokens to normal page code.
 
-As of version `1.1.32`, the currently supported Streaming Hub services are Disney+, Hulu, Max, Netflix, Paramount+, Prime Video, Apple TV+, AMC+, Peacock, Crunchyroll, YouTube TV, Sling TV, Pluto TV, The Roku Channel, Plex, Discovery+, ESPN+, MGM+, STARZ, and Tubi.
+As of version `1.1.33`, the currently supported Streaming Hub services are Disney+, Hulu, Max, Netflix, Paramount+, Prime Video, Apple TV+, AMC+, Peacock, Crunchyroll, YouTube TV, Sling TV, Pluto TV, The Roku Channel, Plex, Discovery+, ESPN+, MGM+, STARZ, and Tubi.
 
 ## Music Player Privacy
 
