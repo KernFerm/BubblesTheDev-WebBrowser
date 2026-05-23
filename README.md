@@ -2,7 +2,7 @@
 
 > A browser built for privacy, control, and a smoother everyday experience. 🌐
 
-[![Version](https://img.shields.io/badge/version-1.1.30-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
+[![Version](https://img.shields.io/badge/version-1.1.32-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Platform](https://img.shields.io/badge/platform-Windows%2011-0078D6)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Electron](https://img.shields.io/badge/Electron-42-47848F?logo=electron&logoColor=white)](https://www.electronjs.org/)
 
@@ -12,7 +12,7 @@ BubblesTheDev Web Browser is a Windows browser designed for everyday browsing wh
 
 It is meant to feel like a practical daily browser, not just a privacy experiment or a stripped-down shell. The project combines familiar browser features such as tabs, bookmarks, downloads, saved passwords, a built-in home page, split view, and media tools with stronger local-first defaults, clearer diagnostics, and more visible runtime controls.
 
-Version `1.1.30` continues that direction with a hardened multilingual architecture, broader accessibility support, lighter localization startup behavior, safer runtime locale switching, and smoother diagnostics and browser-control surfaces.
+Version `1.1.32` continues that direction with a hardened multilingual architecture, broader accessibility support, lighter localization startup behavior, safer runtime locale switching, and smoother diagnostics and browser-control surfaces.
 
 The overall goal is simple:
 
@@ -21,7 +21,7 @@ The overall goal is simple:
 * keep more browser behavior local and inspectable
 * give users better visibility into performance, stability, and diagnostics
 
-## What's New In 1.1.30 ✨
+## What's New In 1.1.32 ✨
 
 * Added a stronger multilingual system with smarter local language fallback and validation
 * Expanded browser localization coverage to `679` locale packs across `453` base languages
@@ -162,7 +162,7 @@ The architecture is intentionally local-first and tries to keep the browser's mo
 
 Installer file name:
 
-`BubblesTheDev Web Browser_Installer_1.1.30.exe`
+`BubblesTheDev Web Browser_Installer_1.1.32.exe`
 
 Platform:
 
