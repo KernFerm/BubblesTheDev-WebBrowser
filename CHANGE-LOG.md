@@ -1,8 +1,8 @@
 # Changelog
 
-This changelog reconstructs the project history from version `0.0.24` through `1.1.30` using the repository's tagged compare data, release notes, versioned README changes, and current installer/update work.
+This changelog reconstructs the project history from version `0.0.24` through `1.1.32` using the repository's tagged compare data, release notes, versioned README changes, and current installer/update work.
 
-## 1.1.30
+## 1.1.32
 
 ### Added
 
@@ -15,7 +15,8 @@ This changelog reconstructs the project history from version `0.0.24` through `1
 
 ### Updated
 
-- The release-facing documentation was refreshed to reflect version `1.1.30` and the current multilingual architecture.
+- The release-facing documentation was refreshed to reflect version `1.1.32` and the current multilingual architecture.
+- The verified installer SHA-256 for `1.1.32` is `A55106B3487E384414FD24FC0F6A45BE49EDDC5C9BF17B8D19948D2F30958EBB`.
 - The current user-facing docs now more clearly call out the installer-based update path, browser-controlled registration support, and the Desktop `BubblesTheDev - WebBrowser Update Notes` folder behavior.
 - Localization handling was improved for language, script, region, and right-to-left display differences.
 - Language tools and formatting support were expanded without changing the browser's local-first design.
