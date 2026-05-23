@@ -16,7 +16,7 @@ This changelog reconstructs the project history from version `0.0.24` through `1
 ### Updated
 
 - The release-facing documentation was refreshed to reflect version `1.1.32` and the current multilingual architecture.
-- The verified installer SHA-256 for `1.1.32` is `A55106B3487E384414FD24FC0F6A45BE49EDDC5C9BF17B8D19948D2F30958EBB`.
+- The verified installer SHA-256 for `1.1.32` is `190139CB47B7F7FB8CE82DCF4CEE057A872552F17688DF375E346BD51BB2DA18`.
 - The current user-facing docs now more clearly call out the installer-based update path, browser-controlled registration support, and the Desktop `BubblesTheDev - WebBrowser Update Notes` folder behavior.
 - Localization handling was improved for language, script, region, and right-to-left display differences.
 - Language tools and formatting support were expanded without changing the browser's local-first design.
