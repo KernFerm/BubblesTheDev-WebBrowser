@@ -4,6 +4,16 @@ This changelog reconstructs the project history from version `0.0.24` through `1
 
 ## 1.1.33
 
+### Updated
+
+- The release-facing documentation was refreshed to reflect version `1.1.33`.
+- The verified installer SHA-256 for `1.1.33` is `TBD after final installer build`.
+- Installer-time Desktop update-note creation now targets the installing user's Desktop more reliably and bundles the release note as a direct app resource.
+- The installer now warns users before the Windows certificate trust confirmation appears and reminds them at the end of install to review the Desktop update notes.
+- Active visible streaming tabs are no longer throttled as aggressively during OBS/Streamlabs-oriented performance optimization, reducing the risk of stream-source stutter while the browser is unfocused.
+
+## 1.1.32
+
 ### Added
 
 - Added a stronger main-process localization architecture with a centralized locale registry, locale metadata model, and locale inheritance-aware fallback handling.
@@ -15,16 +25,13 @@ This changelog reconstructs the project history from version `0.0.24` through `1
 
 ### Updated
 
-- The release-facing documentation was refreshed to reflect version `1.1.33` and the current multilingual architecture.
-- The verified installer SHA-256 for `1.1.33` is `TBD after final installer build`.
+- The release-facing documentation was refreshed to reflect version `1.1.32` and the current multilingual architecture.
+- The verified installer SHA-256 for `1.1.32` is `A55106B3487E384414FD24FC0F6A45BE49EDDC5C9BF17B8D19948D2F30958EBB`.
 - The current user-facing docs now more clearly call out the installer-based update path, browser-controlled registration support, and the Desktop `BubblesTheDev - WebBrowser Update Notes` folder behavior.
 - Localization handling was improved for language, script, region, and right-to-left display differences.
 - Language tools and formatting support were expanded without changing the browser's local-first design.
 - The localization startup path now defers heavier registry diagnostics so the first browser window can open sooner.
 - Language switching now feels faster and smoother during live use.
-- Installer-time Desktop update-note creation now targets the installing user's Desktop more reliably and bundles the release note as a direct app resource.
-- The installer now warns users before the Windows certificate trust confirmation appears and reminds them at the end of install to review the Desktop update notes.
-- Active visible streaming tabs are no longer throttled as aggressively during OBS/Streamlabs-oriented performance optimization, reducing the risk of stream-source stutter while the browser is unfocused.
 
 ### Security And Privacy
 
