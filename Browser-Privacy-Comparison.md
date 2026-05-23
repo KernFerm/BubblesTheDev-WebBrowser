@@ -2,9 +2,9 @@
 
 ## Browser Privacy Comparison
 
-Update note for readers: the original comparison text below was written around version `1.0.65`. The browser has since moved forward to version `1.1.30`, and the addendum sections in this document extend the comparison with the newer local AI, privacy-safe diagnostics, accessibility, installer-behavior, multilingual localization, and panel-polish updates without removing the earlier reference material.
+Update note for readers: the original comparison text below was written around version `1.0.65`. The browser has since moved forward to version `1.1.32`, and the addendum sections in this document extend the comparison with the newer local AI, privacy-safe diagnostics, accessibility, installer-behavior, multilingual localization, and panel-polish updates without removing the earlier reference material.
 
-This document reflects the current privacy posture of BubblesTheDev Web Browser version `1.1.30`.
+This document reflects the current privacy posture of BubblesTheDev Web Browser version `1.1.32`.
 
 The goal is accuracy, not marketing language. The browser does not implement built-in telemetry, analytics SDKs, cloud sync, or a built-in silent auto-updater client. Automatic diagnostics upload is not enabled by default, though optional privacy-safe severe-event reporting can be enabled by the user. It does, however, make normal network requests when the user browses the web, uses built-in search features, uses supported site authentication flows such as passkeys, or downloads files.
 
@@ -153,7 +153,7 @@ When the user signs in with a passkey on a supported site, the authentication fl
 
 When the user signs into a supported streaming service through the Streaming Hub, the service still receives normal web login traffic, but each supported service stays inside its own dedicated persistent Electron partition rather than the shared default browsing session.
 
-As of version `1.1.30`, the supported services are Disney+, Hulu, Max, Netflix, Paramount+, Prime Video, Apple TV+, AMC+, Peacock, Crunchyroll, YouTube TV, Sling TV, Pluto TV, The Roku Channel, Plex, Discovery+, ESPN+, MGM+, STARZ, and Tubi.
+As of version `1.1.32`, the supported services are Disney+, Hulu, Max, Netflix, Paramount+, Prime Video, Apple TV+, AMC+, Peacock, Crunchyroll, YouTube TV, Sling TV, Pluto TV, The Roku Channel, Plex, Discovery+, ESPN+, MGM+, STARZ, and Tubi.
 
 ## Music Player Privacy Model
 
