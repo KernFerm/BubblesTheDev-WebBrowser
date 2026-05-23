@@ -1,8 +1,8 @@
 # Changelog
 
-This changelog reconstructs the project history from version `0.0.24` through `1.1.32` using the repository's tagged compare data, release notes, versioned README changes, and current installer/update work.
+This changelog reconstructs the project history from version `0.0.24` through `1.1.33` using the repository's tagged compare data, release notes, versioned README changes, and current installer/update work.
 
-## 1.1.32
+## 1.1.33
 
 ### Added
 
@@ -15,13 +15,16 @@ This changelog reconstructs the project history from version `0.0.24` through `1
 
 ### Updated
 
-- The release-facing documentation was refreshed to reflect version `1.1.32` and the current multilingual architecture.
-- The verified installer SHA-256 for `1.1.32` is `190139CB47B7F7FB8CE82DCF4CEE057A872552F17688DF375E346BD51BB2DA18`.
+- The release-facing documentation was refreshed to reflect version `1.1.33` and the current multilingual architecture.
+- The verified installer SHA-256 for `1.1.33` is `TBD after final installer build`.
 - The current user-facing docs now more clearly call out the installer-based update path, browser-controlled registration support, and the Desktop `BubblesTheDev - WebBrowser Update Notes` folder behavior.
 - Localization handling was improved for language, script, region, and right-to-left display differences.
 - Language tools and formatting support were expanded without changing the browser's local-first design.
 - The localization startup path now defers heavier registry diagnostics so the first browser window can open sooner.
 - Language switching now feels faster and smoother during live use.
+- Installer-time Desktop update-note creation now targets the installing user's Desktop more reliably and bundles the release note as a direct app resource.
+- The installer now warns users before the Windows certificate trust confirmation appears and reminds them at the end of install to review the Desktop update notes.
+- Active visible streaming tabs are no longer throttled as aggressively during OBS/Streamlabs-oriented performance optimization, reducing the risk of stream-source stutter while the browser is unfocused.
 
 ### Security And Privacy
 
