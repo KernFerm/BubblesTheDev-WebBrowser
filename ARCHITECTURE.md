@@ -2,7 +2,7 @@
 
 ## Architecture Overview
 
-This document explains the high-level runtime shape of BubblesTheDev Web Browser version `1.1.30`.
+This document explains the high-level runtime shape of BubblesTheDev Web Browser version `1.1.32`.
 
 ## Design Goals
 
@@ -33,7 +33,7 @@ The main process owns:
 
 ## Local AI Architecture
 
-Version `1.1.30` keeps the local AI layer on-device by default while carrying forward the broader accessibility, startup, installer, media-tool, and multilingual refinements from the earlier `1.1.x` releases.
+Version `1.1.32` keeps the local AI layer on-device by default while carrying forward the broader accessibility, startup, installer, media-tool, and multilingual refinements from the earlier `1.1.x` releases.
 
 The current AI runtime includes:
 
@@ -63,7 +63,7 @@ The current session health system:
 
 Diagnostics are generated locally.
 
-Version `1.1.30` includes:
+Version `1.1.32` includes:
 
 * manual encrypted diagnostics export
 * an `AI & Diagnostics` panel
@@ -74,7 +74,7 @@ Version `1.1.30` includes:
 
 ## Accessibility Model
 
-Version `1.1.30` also keeps the expanded browser accessibility layer.
+Version `1.1.32` also keeps the expanded browser accessibility layer.
 
 The current accessibility runtime includes:
 
@@ -86,7 +86,7 @@ The current accessibility runtime includes:
 
 ## Localization Architecture
 
-Version `1.1.30` adds a centralized localization manager in the main process.
+Version `1.1.32` adds a centralized localization manager in the main process.
 
 The localization runtime now includes:
 
@@ -153,7 +153,7 @@ Current local-first characteristics include:
 
 ## Startup And Update Coordination
 
-Version `1.1.30` also keeps the runtime shape where the main window can open sooner while slower background work continues after launch.
+Version `1.1.32` also keeps the runtime shape where the main window can open sooner while slower background work continues after launch.
 
 Current startup and update characteristics include:
 
