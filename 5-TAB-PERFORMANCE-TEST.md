@@ -5,8 +5,8 @@ This document summarizes the automated 5-tab browser benchmark for BubblesTheDev
 ## Test Overview
 
 Browser: BubblesTheDev Web Browser  
-Build Target: `1.1.30`  
-Package Version: `1.1.30`  
+Build Target: `1.1.32`  
+Package Version: `1.1.32`  
 Platform: Windows 11 x64  
 Engine: Electron / Chromium  
 Test Type: Automated real-world 5-tab usage test  
@@ -67,11 +67,11 @@ During the latest automated run, BubblesTheDev Web Browser produced the followin
 
 ## Baseline Policy
 
-Version `1.1.30` is the starting baseline for future 5-tab performance comparisons in this project.
+Version `1.1.32` is the starting baseline for future 5-tab performance comparisons in this project.
 
 - Older manual comparison notes have been removed from this document
 - Future comparisons should use the same automated harness and the same test conditions
-- Version-to-version performance tracking should move forward from `1.1.30`
+- Version-to-version performance tracking should move forward from `1.1.32`
 
 ## Why This Test Matters
 
@@ -93,7 +93,7 @@ In the latest automated run, BubblesTheDev Web Browser remained stable with appr
 
 ## Built-In Performance Behavior
 
-Build `1.1.30` includes performance-related behavior intended to improve longer browsing sessions, including:
+Build `1.1.32` includes performance-related behavior intended to improve longer browsing sessions, including:
 
 - background tab throttling for inactive tabs
 - automatic sleeping tabs under memory pressure
@@ -114,9 +114,9 @@ These features help provide additional context for the results shown in this doc
 
 ## Comparison Direction
 
-This report now treats version `1.1.30` as the first clean automated reference point for future comparisons.
+This report now treats version `1.1.32` as the first clean automated reference point for future comparisons.
 
-When newer versions are tested, their results should be compared against the automated `1.1.30` baseline rather than older manual notes.
+When newer versions are tested, their results should be compared against the automated `1.1.32` baseline rather than older manual notes.
 
 ## Raw Output
 
