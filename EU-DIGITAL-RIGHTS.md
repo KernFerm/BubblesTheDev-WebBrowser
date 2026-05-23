@@ -14,7 +14,7 @@ bubbles-support@bubbles-browser.fnbubbles420.org
 
 ## Current Documentation Target
 
-This document is aligned with the current public BubblesTheDev Web Browser documentation for version `1.1.30`.
+This document is aligned with the current public BubblesTheDev Web Browser documentation for version `1.1.32`.
 
 Security fixes are generally provided for the most recent stable release of the browser.
 
@@ -344,7 +344,7 @@ The `AI & Diagnostics` panel may show current-session browser health, runtime an
 
 BubblesTheDev Web Browser includes accessibility-focused features intended to make the browser easier to use for more people.
 
-Current public documentation for version `1.1.30` includes accessibility features such as:
+Current public documentation for version `1.1.32` includes accessibility features such as:
 
 Reader mode
 
@@ -428,7 +428,7 @@ The browser is not designed to intentionally expose streaming cookies or tokens 
 
 Streaming service accounts, subscriptions, billing, content, DRM systems, login systems, recommendations, and service data are controlled by the streaming service provider.
 
-As of version `1.1.30`, the current public documentation lists supported Streaming Hub services as:
+As of version `1.1.32`, the current public documentation lists supported Streaming Hub services as:
 
 Disney+
 
