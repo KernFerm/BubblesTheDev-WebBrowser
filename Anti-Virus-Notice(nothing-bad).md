@@ -10,7 +10,6 @@ It happens because:
 
 - The application is **new**
 - It does not yet have a long **download reputation**
-- It is **not code-signed** (yet)
 - Antivirus systems are **overly cautious** with unknown software
 
 This is very common for independent developers and new releases.
