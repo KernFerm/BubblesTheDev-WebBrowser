@@ -47,6 +47,7 @@ Local browser data may include:
 * saved-password metadata and encrypted password storage
 * per-site permission settings
 * profile preferences and recovery data
+* one linked connected-account identity per profile where the user chooses to use it, including provider, email, display name, and avatar presentation
 * supported streaming-session data
 * optional Music Player and Music Downloader settings
 * language and accessibility preferences
@@ -152,6 +153,8 @@ That may include control over:
 * diagnostics export and supported privacy-safe diagnostics controls
 * update checks where available
 * uninstall data-removal choices
+
+If a user chooses to link a supported provider account such as GitHub, Discord, or Google to a browser profile, the user can generally revoke that provider access later from the provider's own account settings or authorized-applications page.
 
 ## Important Limitations
 
