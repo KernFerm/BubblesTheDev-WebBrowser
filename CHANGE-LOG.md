@@ -1,15 +1,78 @@
 # Changelog
 
-This changelog reconstructs the project history from version `0.0.24` through `1.1.33` using the repository's tagged compare data, release notes, versioned README changes, and current installer/update work.
+This changelog summarizes notable public release changes through version `1.2.1`.
+
+## 1.2.1
+
+### Updated
+
+- The release-facing documentation was refreshed to reflect version `1.2.1`.
+- Connected-account profile cards were improved so linked identities can surface the account display name and avatar more clearly.
+- The profile sign-in flow was cleaned up so account linking behaves more predictably for end users.
+- Profile-management actions such as edit, backup, and delete guidance were refined so the current profile experience is clearer for end users.
+- The newer profile and auth surfaces remain routed through the browser localization pipeline and current supported locale coverage.
+
+### Security And Privacy
+
+- The browser keeps the local-first profile protections introduced in recent releases.
+- Public documentation for this release continues to avoid sensitive operational details and personal information.
+
+### Release
+
+- The `1.2.1` Windows installer package name is `BubblesTheDev Web Browser_Installer_1.2.1.exe`.
+
+### Notes
+
+- Version `1.2.1` refines the profile-system release with smoother connected-account behavior and clearer end-user profile identity handling.
+
+## 1.2.0
+
+### Added
+
+- Added a broader browser profile system with isolated profile storage, profile switching, and per-profile session restoration.
+- Added Guest Mode with non-persistent cleanup behavior on close.
+- Added optional profile PIN protection, clearer lock or unlock handling, and profile edit or delete flows.
+- Added encrypted profile secrets, encrypted profile session snapshots, restore points, and safer profile backup or restore behavior.
+- Added a profile security surface with visibility into sessions, permissions, recovery, and import-related profile actions.
+- Added broader profile recovery, profile repair, and session-restore behavior aimed at safer restarts after failures.
+
+### Updated
+
+- The release-facing documentation was refreshed to reflect version `1.2.0`.
+- Profile and auth browser UI strings were routed through the browser localization pipeline instead of relying on hardcoded English-only text.
+- The browser-side import and recovery surfaces were expanded for the newer profile model.
+- The new profile and auth UI strings were synced across the supported locale set, with broader direct translation coverage added for major language families.
+
+### Security And Privacy
+
+- Browser profiles now keep more browser state isolated by default instead of relying only on the earlier shared-session model.
+- Guest Mode remains non-persistent and profile secrets remain encrypted in browser-controlled storage.
+- The profile identity flow was refined to keep local profile handling clearer and more isolated.
+- Public documentation for this release continues to avoid sensitive operational details and personal information.
+
+### Performance
+
+- Profile session restoration and browser-state recovery were tightened so switching and relaunching profiles does less repeated setup work.
+- The newer profile-management and localization surfaces were tuned so the expanded multilingual profile UI adds less live runtime churn.
+
+### Documentation
+
+- Refreshed `README`, release, architecture, privacy, security, changelog, rights, performance, and update documentation for the `1.2.0` profile-system release.
+
+### Release
+
+- The `1.2.0` Windows installer package name is `BubblesTheDev Web Browser_Installer_1.2.0.exe`.
+
+### Notes
+
+- Version `1.2.0` turns the newer local-first browser profile system into the headline browser-management feature while keeping the existing multilingual, accessibility, diagnostics, streaming isolation, local AI, and Windows protection work in place.
 
 ## 1.1.33
 
 ### Updated
 
 - The release-facing documentation was refreshed to reflect version `1.1.33`.
-- The verified installer SHA-256 for `1.1.33` is `TBD after final installer build`.
-- Installer-time Desktop update-note creation now targets the installing user's Desktop more reliably and bundles the release note as a direct app resource.
-- The installer now warns users before the Windows certificate trust confirmation appears and reminds them at the end of install to review the Desktop update notes.
+- Installer-side update-note handling was refined for a clearer Windows install experience.
 - Active visible streaming tabs are no longer throttled as aggressively during OBS/Streamlabs-oriented performance optimization, reducing the risk of stream-source stutter while the browser is unfocused.
 
 ## 1.1.32
@@ -20,14 +83,13 @@ This changelog reconstructs the project history from version `0.0.24` through `1
 - Added stronger built-in language coverage checks to help keep translations more complete and consistent.
 - Added locale-aware formatter utilities for dates, times, numbers, currencies, plural rules, relative time, and list formatting.
 - Improved startup reliability so the browser can recover more cleanly from unusual launch environments.
-- Added internal benchmarking support to help improve startup and language-switch responsiveness.
+- Added more internal performance testing to improve startup and language-switch responsiveness.
 - Added large multilingual expansion waves that brought the browser to `679` supported locale packs and `453` base language families.
 
 ### Updated
 
 - The release-facing documentation was refreshed to reflect version `1.1.32` and the current multilingual architecture.
-- The verified installer SHA-256 for `1.1.32` is `A55106B3487E384414FD24FC0F6A45BE49EDDC5C9BF17B8D19948D2F30958EBB`.
-- The current user-facing docs now more clearly call out the installer-based update path, browser-controlled registration support, and the Desktop `BubblesTheDev - WebBrowser Update Notes` folder behavior.
+- The current user-facing docs were updated to better explain the installer-based update path.
 - Localization handling was improved for language, script, region, and right-to-left display differences.
 - Language tools and formatting support were expanded without changing the browser's local-first design.
 - The localization startup path now defers heavier registry diagnostics so the first browser window can open sooner.
@@ -54,13 +116,12 @@ This changelog reconstructs the project history from version `0.0.24` through `1
 
 ### Security And Privacy
 
-- The protected release packaging flow was refined for more reliable installer preparation.
+- The release packaging flow was refined for a more reliable installer preparation process.
 - The earlier local AI, privacy-safe diagnostics, pinned binary verification, and hardened update checks remain in place.
 
 ### Release
 
 - The `1.1.16` Windows installer package name is `BubblesTheDev Web Browser_Installer_1.1.16.exe`.
-- The verified installer SHA-256 for `1.1.16` is `65BDF97909C74825EBEDF644FDF68E8A23C2DCD6C09D8AA065555B9F3BB6A174`.
 
 ### Notes
 
@@ -99,7 +160,6 @@ This changelog reconstructs the project history from version `0.0.24` through `1
 ### Release
 
 - The `1.1.15` Windows installer package name is `BubblesTheDev Web Browser_Installer_1.1.15.exe`.
-- The verified installer SHA-256 for `1.1.15` is `99C1CB7E9AA6CDF990E4868663A7DF70BFB7CB927CA6D91D29EA9ED70D571E7F`.
 
 ### Notes
 
@@ -120,7 +180,6 @@ This changelog reconstructs the project history from version `0.0.24` through `1
 ### Release
 
 - The `1.1.10` Windows installer package name is `BubblesTheDev Web Browser_Installer_1.1.10.exe`.
-- The verified installer SHA-256 for `1.1.10` is `TBD after final installer build`.
 
 ### Notes
 
@@ -141,7 +200,6 @@ This changelog reconstructs the project history from version `0.0.24` through `1
 ### Release
 
 - The `1.1.7` Windows installer package name is `BubblesTheDev Web Browser_Installer_1.1.7.exe`.
-- The verified installer SHA-256 for `1.1.7` is `TBD after final installer build`.
 
 ### Notes
 
@@ -188,7 +246,6 @@ This changelog reconstructs the project history from version `0.0.24` through `1
 ### Release
 
 - The `1.1.5` Windows installer package name is `BubblesTheDev Web Browser_Installer_1.1.5.exe`.
-- The verified installer SHA-256 for `1.1.5` is `C49CF258BAA084522060386798FC3ED961EC226618EF6719D4FE2AC7253361E0`.
 
 ### Notes
 
@@ -228,7 +285,6 @@ This changelog reconstructs the project history from version `0.0.24` through `1
 ### Release
 
 - The `1.0.61` Windows installer package name is `BubblesTheDev Web Browser_Installer_1.0.61.exe`.
-- The installer SHA-256 is `0190C9C2856D3B2582012146CC17852DF00F2446F8BDE95E8469A7DDDDDFCEB5`.
 
 ### Notes
 
@@ -288,7 +344,6 @@ This changelog reconstructs the project history from version `0.0.24` through `1
 ### Release
 
 - The `1.0.52` Windows installer package name is `BubblesTheDev Web Browser_Installer_1.0.52.exe`.
-- The installer SHA-256 is `FEA78338816A1D0B9326A3CF9C42C5F4680137565AA69A0F057B9DCE96134590`.
 
 ### Notes
 
@@ -312,7 +367,6 @@ This changelog reconstructs the project history from version `0.0.24` through `1
 ### Release
 
 - The `1.0.50` Windows installer package name is `BubblesTheDev Web Browser_Installer_1.0.50.exe`.
-- The installer SHA-256 is `6F3A996A5230E6C434D41134FE5BEA85C42E7C831B6513206C2A257DA44AC33D`.
 
 ### Notes
 
@@ -337,7 +391,6 @@ This changelog reconstructs the project history from version `0.0.24` through `1
 ### Release
 
 - The `1.0.49` Windows installer package name is `BubblesTheDev Web Browser_Installer_1.0.49.exe`.
-- The installer SHA-256 is `D8BDAA03A6327C2B0128A9A8147D9A00029426E6E417104ED87EBF74F8B5BCAA`.
 
 ### Notes
 
@@ -367,7 +420,6 @@ This changelog reconstructs the project history from version `0.0.24` through `1
 ### Release
 
 - The `1.0.48` Windows installer package name is `BubblesTheDev Web Browser_Installer_1.0.48.exe`.
-- The installer SHA-256 is `971275F89EEF68AAA6A7D35CEC65A054F541A8741B4779591AE548086B987FD6`.
 
 ## 1.0.47
 
@@ -387,7 +439,6 @@ This changelog reconstructs the project history from version `0.0.24` through `1
 ### Release
 
 - The `1.0.47` Windows installer package name is `BubblesTheDev Web Browser_Installer_1.0.47.exe`.
-- The installer SHA-256 is `TBD after final installer build`.
 
 ### Notes
 
@@ -404,7 +455,6 @@ This changelog reconstructs the project history from version `0.0.24` through `1
 ### Release
 
 - The `1.0.46` Windows installer package name is `BubblesTheDev Web Browser_Installer_1.0.46.exe`.
-- The installer SHA-256 is `DBC3CABA5588FBA3D5E2D68F5EB4458DEC799690C522E6D5DB34D5630BAD1F5C`.
 
 ### Notes
 
@@ -435,7 +485,6 @@ This changelog reconstructs the project history from version `0.0.24` through `1
 - The package version was advanced to `1.0.45`.
 - Release, README, privacy, architecture, and security documentation were updated to match the `1.0.45` feature set.
 - The `1.0.45` Windows installer package name is `BubblesTheDev Web Browser_Installer_1.0.45.exe`.
-- The latest verified installer SHA-256 for `1.0.45` is `D6A7E534C3D966543DAA906DA696932A506ED89070B0E04671EE2F0371AABD9F`.
 
 ### Notes
 
@@ -490,7 +539,6 @@ This changelog reconstructs the project history from version `0.0.24` through `1
 ### Release
 
 - The `1.0.32` Windows installer package name is `BubblesTheDev Web Browser_Installer_1.0.32.exe`.
-- The verified installer SHA-256 for `1.0.32` is `91E45C5855CAC8A83762ED73DB409A86C7D92D8C340E34241806B9092B155F73`.
 
 ### Notes
 
