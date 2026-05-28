@@ -1,8 +1,8 @@
 # BubblesTheDev Web Browser
 
-> A browser built for privacy, control, and a smoother everyday experience. 🌐
+> A browser built for privacy, control, and a smoother everyday experience.
 
-[![Version](https://img.shields.io/badge/version-1.1.33-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
+[![Version](https://img.shields.io/badge/version-1.2.1-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Platform](https://img.shields.io/badge/platform-Windows%2011-0078D6)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Electron](https://img.shields.io/badge/Electron-42-47848F?logo=electron&logoColor=white)](https://www.electronjs.org/)
 
@@ -12,7 +12,7 @@ BubblesTheDev Web Browser is a Windows browser designed for everyday browsing wh
 
 It is meant to feel like a practical daily browser, not just a privacy experiment or a stripped-down shell. The project combines familiar browser features such as tabs, bookmarks, downloads, saved passwords, a built-in home page, split view, and media tools with stronger local-first defaults, clearer diagnostics, and more visible runtime controls.
 
-Version `1.1.33` continues that direction with a hardened multilingual architecture, broader accessibility support, lighter localization startup behavior, safer runtime locale switching, and smoother diagnostics and browser-control surfaces.
+Version `1.2.1` continues that direction with a production-grade browser profile system, isolated profile sessions, guest browsing, optional profile PIN protection, localized profile surfaces, stronger recovery and profile-security controls, and smoother connected-account profile behavior.
 
 The overall goal is simple:
 
@@ -21,18 +21,20 @@ The overall goal is simple:
 * keep more browser behavior local and inspectable
 * give users better visibility into performance, stability, and diagnostics
 
-## What's New In 1.1.33 ✨
+## What's New In 1.2.1 ✨
 
-* Added a stronger multilingual system with smarter local language fallback and validation
-* Expanded browser localization coverage to `679` locale packs across `453` base languages
-* Kept runtime language switching local-first and more efficient
-* Added locale-aware formatting support for dates, times, numbers, currencies, plurals, relative time, and lists
-* Kept the broader accessibility layer with reader mode, per-site reading controls, keyboard-first navigation, reduced motion, and stronger contrast options
-* Reduced localization startup cost by deferring heavier diagnostics work off the normal launch path
-* Improved live language-switching performance
-* Kept the local AI, diagnostics, streaming isolation, and Windows-focused browser protections in place
+* Added a full browser profile manager with isolated profile storage, profile switching, and per-profile session restoration
+* Set the browser profile system around up to `10` local profiles per installation
+* Added Guest Mode with non-persistent browsing cleanup on close
+* Added optional profile PIN protection, profile lock handling, and clearer profile-management controls
+* Added encrypted profile secrets, encrypted profile session snapshots, restore points, and safer backup or restore behavior
+* Expanded the profile security surface with clearer visibility into sessions, permissions, imports, and profile recovery state
+* Improved connected-account profile cards so linked identities can surface the account display name and avatar more clearly
+* Improved account-link popups so fresh sign-in windows behave more cleanly and abandoned auth windows release their local callback handling safely
+* Kept the broader multilingual system and extended the newer profile and auth UI strings through the browser localization pipeline
+* Kept the existing accessibility, local AI, diagnostics, streaming isolation, and Windows-focused protection work in place
 
-In practical terms, this release is focused on turning the browser into a more globally scalable multilingual platform without weakening the local-first privacy model, the hardened runtime boundaries, or the recent accessibility work.
+In practical terms, this release is focused on turning the browser into a more complete local-first daily browser with stronger user-controlled profile separation, clearer connected-account behavior, and broader multilingual coverage for the newer browser-management surfaces.
 
 ## Main Features 🚀
 
@@ -53,10 +55,14 @@ The everyday browsing layer is meant to stay familiar. You still get a normal br
 
 * local-first browser data handling
 * no built-in telemetry or analytics
+* isolated browser profiles
 * incognito browsing
+* Guest Mode
+* optional profile PIN protection
 * built-in ad and tracker blocking
 * Windows-friendly download protection
 * encrypted saved-password storage
+* encrypted profile secrets and backups
 * per-site permission controls
 * sandboxed and isolated browser runtime
 * local accessibility and reading controls
@@ -64,6 +70,20 @@ The everyday browsing layer is meant to stay familiar. You still get a normal br
 The browser tries to keep privacy and security features understandable instead of burying them behind background behavior. Browser data stays local by default, and higher-risk browser actions stay under tighter browser-controlled protection.
 
 It is not an offline-only browser, and it does not pretend normal web traffic is the same thing as telemetry. The privacy model is local-first, user-controlled, and intentionally more explicit about what stays on-device.
+
+### Profiles And Recovery 🧩
+
+* profile manager UI
+* isolated profile sessions
+* profile switching
+* per-profile session snapshots
+* restore points and repair tools
+* profile backup and restore
+* profile security panel
+* connected-account profile identities with clearer linked-avatar and linked-name behavior
+* up to `10` local browser profiles per installation
+
+The profile layer is designed to keep ordinary browsing, saved state, and recovery flows more separated and easier to manage. Standard profiles keep their own session and browser data, while Guest Mode stays temporary and non-persistent. The current model supports up to `10` local browser profiles per installation, and each profile can present one linked connected-account identity for clearer profile-card name and avatar display.
 
 ### Local AI And Diagnostics 🤖
 
@@ -79,8 +99,6 @@ It is not an offline-only browser, and it does not pretend normal web traffic is
 * optional automatic severe-event reporting when enabled by the user
 
 This part of the browser is intended to stay local-first. The AI layer is used for offline summaries, runtime analysis, and current-session health feedback rather than cloud-based assistant behavior. Standard profiles can keep encrypted AI memory locally, while incognito sessions do not persist that memory across sessions.
-
-The diagnostics side is designed to be more transparent than a hidden crash-upload model. Users can inspect what would be sent before sending it, keep reporting disabled, or manually send a report only when needed. Privacy-safe diagnostics are intended to focus on browser stability and system health rather than personal browsing content.
 
 ### Multilingual Platform 🌍
 
@@ -130,8 +148,8 @@ Each supported streaming service is intended to run in its own isolated session 
 * stream-stability controls
 * built-in Task Manager
 * runtime checks panel
+* Profile Security panel
 * multiple built-in themes
-
 These features are aimed at keeping the browser usable during heavier sessions such as gaming, streaming, multitasking, or long browsing runs. The browser can back off more aggressively in the background, reduce unnecessary work, and surface a current-session health view so users can see when the browser is under more pressure.
 
 ### Extra Tools 🛠️
@@ -141,6 +159,7 @@ These features are aimed at keeping the browser usable during heavier sessions s
 * passkey compatibility for supported sites
 * local-only Music Player
 * hardened Music Downloader
+* profile backup, restore, and recovery tools
 
 These tools are meant to make the browser feel more complete without turning it into a cloud-heavy utility platform. Where possible, these features stay local, use explicit user action, and expose their behavior through the browser UI instead of hidden background collection.
 
@@ -152,8 +171,9 @@ At a high level:
 
 * browser windows and tabs are managed by the trusted browser side
 * web content stays separated from privileged browser operations
-* downloads, diagnostics, localization orchestration, and performance-policy behavior stay in browser-controlled services
+* downloads, diagnostics, localization orchestration, profile isolation, and performance-policy behavior stay in browser-controlled services
 * local AI runs through an isolated worker process instead of directly inside the normal browser UI flow
+* profile session state, encrypted profile secrets, and restore-point handling stay in browser-controlled services
 * profile-local AI memory stays isolated per profile and is non-persistent for incognito sessions
 
 The architecture is intentionally local-first and tries to keep the browser's more sensitive features inside the trusted runtime side of the app.
@@ -162,7 +182,7 @@ The architecture is intentionally local-first and tries to keep the browser's mo
 
 Installer file name:
 
-`BubblesTheDev Web Browser_Installer_1.1.33.exe`
+`BubblesTheDev Web Browser_Installer_1.2.1.exe`
 
 Platform:
 
@@ -193,9 +213,11 @@ It does:
 
 * keep browser data local on the device by default
 * avoid built-in telemetry and analytics systems
+* keep profile data isolated per profile by default
 * keep localization processing and language preferences local on-device
 * keep local AI memory isolated per profile
 * keep incognito AI memory non-persistent
+* keep Guest Mode non-persistent
 * keep diagnostics local unless the user exports them or enables privacy-safe reporting
 * give users clear controls over diagnostics behavior
 
