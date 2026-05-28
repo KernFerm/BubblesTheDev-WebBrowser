@@ -23,26 +23,40 @@ Related project documents:
 
 This table is intentionally high-level. Mainstream browsers change over time, and the non-Bubbles columns should be read as broad summaries rather than legal or vendor-authoritative claims.
 
-| Feature | BubblesTheDev Web Browser | Google Chrome | Microsoft Edge | Brave | Firefox | Safari | Opera | Vivaldi |
+| Capability | BubblesTheDev Web Browser | Google Chrome | Microsoft Edge | Brave | Firefox | Safari | Opera | Vivaldi |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| First-party telemetry | Not implemented | Yes | Yes | Limited | Limited | Limited | Limited | Limited |
-| Analytics SDKs in app code | None | Yes | Yes | Limited | Limited | Limited | Limited | Limited |
-| Automatic diagnostics upload | No by default | Yes | Yes | Limited | Limited | Limited | Limited | Limited |
-| Cloud sync requirement | None | Optional | Optional | Optional | Optional | Optional | Optional | Optional |
-| Silent background updater | No | Present | Present | Present | Present | OS-managed | Present | Present |
-| Local browser data storage | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
-| Isolated browser profile support | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
-| Local AI memory support | Yes, where supported by the browser feature set | Varies | Varies | Varies | Varies | Varies | Varies | Varies |
-| Manual diagnostics export | Yes | Varies | Varies | Varies | Varies | Varies | Varies | Varies |
-| Per-site permission controls | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
-| Built-in ad or tracker filtering | Yes | Limited | Limited | Yes | Limited | Limited | Yes | Yes |
-| Private or incognito mode | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
-| Built-in streaming session isolation | Yes, for supported services | No | No | No | No | No | No | No |
-| Runtime diagnostics view | Yes | Varies | Varies | Varies | Varies | Varies | Varies | Varies |
-| Passkey and WebAuthn compatibility | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
-| Gaming or streaming-aware performance controls | Yes | Varies | Varies | Varies | Varies | Varies | Varies | Varies |
-| Built-in task or process manager | Yes | Yes | Yes | Yes | Yes | Varies | Yes | Yes |
-| Split-view browsing | Yes | Varies | Yes | Yes | Yes | Varies | Yes | Yes |
+| Sync model | No built-in cloud sync requirement | Google Account sync | Microsoft account sync | Brave Sync | Mozilla account sync | iCloud sync | Opera Sync | Vivaldi Sync |
+| Browser profiles | Isolated local browser profiles | Chrome profiles | Edge profiles | Brave profiles | Firefox profiles | Safari profiles | Multiple browser profiles | User profiles |
+| Profile count model | The browser currently supports up to `10` local profiles in one installed browser setup | Varies by browser and platform | Varies by browser and platform | Varies by browser and platform | Varies by browser and platform | Varies by browser and platform | Varies by browser and platform | Varies by browser and platform |
+| Guest / temporary browsing | Guest Mode plus incognito-style browsing | Guest and Incognito | InPrivate | Private Window | Private Browsing | Private Browsing | Private mode | Private Window |
+| Connected-account identity per profile | One linked connected-account identity can be attached to a profile for profile-card name and avatar display | Browser sign-in and sync models vary | Browser sign-in and sync models vary | Browser sign-in and sync models vary | Browser sign-in and sync models vary | Browser sign-in and sync models vary | Browser sign-in and sync models vary | Browser sign-in and sync models vary |
+| Split view / tab tiling | Built-in split-view browsing | No built-in split view documented | Split screen features available | No built-in split view documented | No built-in split view documented | No built-in split view documented | Split Screen | Tab Tiling |
+| Built-in home / browser surface | Built-in `bubbles://home` page | New Tab / Google surfaces | Edge new tab and Microsoft surfaces | Brave new tab surfaces | Firefox new tab surfaces | Safari start page | Opera start page | Vivaldi start page |
+| Task / process visibility | Built-in Task Manager and runtime surfaces | Chrome Task Manager | Edge Browser Task Manager | No equivalent documented here | Firefox Task Manager / `about:processes` | No comparable built-in task manager documented here | No comparable built-in task manager documented here | No comparable built-in task manager documented here |
+| Local-first browser data | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
+| Built-in telemetry by default | No | Yes | Yes | Limited | Limited | Limited | Limited | Limited |
+| Built-in ad / tracker controls | Built-in ad and tracker blocking | Ad Privacy controls, not a built-in blocker | Tracking Prevention | Brave Shields | Enhanced Tracking Protection | Privacy Report and cross-site tracking protections | Built-in Ad Blocker and Tracker blocker | Built-in Tracker and Ad Blocker |
+| Per-site permissions | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
+| Passkey / WebAuthn support | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
+| Download protection model | Windows-native browser-managed download protection | Safe Browsing and download protections | Microsoft Defender SmartScreen and browser protections | Safe Browsing plus Brave protections | Safe Browsing and browser protections | Platform and Safari protections | Browser protections | Browser protections |
+| Streaming hub | Built-in Streaming Hub for supported services | No built-in equivalent documented | No built-in equivalent documented | No built-in equivalent documented | No built-in equivalent documented | No built-in equivalent documented | No built-in equivalent documented | No built-in equivalent documented |
+| Streaming session isolation | Supported services run in isolated browser-managed sessions | No built-in equivalent documented | No built-in equivalent documented | No built-in equivalent documented | No built-in equivalent documented | No built-in equivalent documented | No built-in equivalent documented | No built-in equivalent documented |
+| Streaming sign-in hardening | Browser-managed popup limits and sign-in controls for supported services | No built-in equivalent documented | No built-in equivalent documented | No built-in equivalent documented | No built-in equivalent documented | No built-in equivalent documented | No built-in equivalent documented | No built-in equivalent documented |
+| Per-service session clearing | Supported for built-in streaming sessions | No built-in equivalent documented | No built-in equivalent documented | No built-in equivalent documented | No built-in equivalent documented | No built-in equivalent documented | No built-in equivalent documented | No built-in equivalent documented |
+| AI panel / in-browser AI controls | `AI & Diagnostics` panel | AI features exist, but not as a direct equivalent | AI features exist, but not as a direct equivalent | AI features vary by Brave services | AI features vary by Mozilla services | AI features vary by Apple platform features | No comparable built-in AI panel documented here | No comparable built-in AI panel documented here |
+| Local AI memory model | Encrypted profile-isolated local AI memory where supported | No direct equivalent documented here | No direct equivalent documented here | No direct equivalent documented here | No direct equivalent documented here | No direct equivalent documented here | No direct equivalent documented here | No direct equivalent documented here |
+| Diagnostics surface | In-browser diagnostics and runtime status surfaces | Performance and crash-reporting controls | Performance and browser-management tools | No comparable diagnostics surface documented here | Firefox Task Manager / `about:processes` and troubleshooting tools | Privacy Report, but not the same type of diagnostics surface | No comparable diagnostics surface documented here | No comparable diagnostics surface documented here |
+| Manual diagnostics export | Encrypted manual diagnostics export where supported | Reporting tools vary | Reporting tools vary | Reporting tools vary | Troubleshooting / reporting tools vary | No comparable export flow documented here | Reporting tools vary | Reporting tools vary |
+| Performance controls | Gaming / streaming mode, sleeping tabs, stream-stability tuning, runtime checks | Chrome Performance settings | Sleeping Tabs and Efficiency / Energy Saver controls | Performance tools vary | Performance tools vary | Performance behavior varies | Performance tools vary | Performance tools vary |
+| Accessibility reading tools | Reader mode, Read aloud, Selection Tools, Reading ruler, Focus mode, Simplified browser UI | Reader-related features vary | Reader-related features vary | Reader-related features vary | Reader-related features vary | Reader-related features vary | Reader-related features vary | Reader-related features vary |
+| Language and locale system | Local-only multilingual system with runtime switching and locale-aware formatting | Standard browser localization | Standard browser localization | Standard browser localization | Standard browser localization | Standard browser localization | Standard browser localization | Standard browser localization |
+| VPN integration | Local VPN tools, public IP checks, and profile import support | No built-in browser VPN documented | Edge Secure Network | Brave VPN is a separate paid feature | Mozilla VPN is a separate service | No built-in browser VPN documented | Opera VPN | No built-in browser VPN documented |
+| Local music features | Local-only Music Player and restricted Music Downloader flows | No built-in equivalent documented | No built-in equivalent documented | No built-in equivalent documented | No built-in equivalent documented | No built-in equivalent documented | No built-in equivalent documented | No built-in equivalent documented |
+| Update model | Visible installer-based update flow | Background updater present | Background updater present | Background updater present | Background updater present | OS-managed | Background updater present | Background updater present |
+
+Additional note:
+
+The Bubbles column is intended to describe the current browser directly. The non-Bubbles columns are high-level summaries of vendor-documented features and should be read as broad product comparisons, not exhaustive legal or platform matrices.
 
 ## What Bubbles Tries To Do Differently
 
@@ -50,6 +64,8 @@ BubblesTheDev Web Browser is designed around a local-first model:
 
 * normal browser data stays on the device by default
 * browser profiles remain isolated from one another
+* up to `10` local browser profiles can exist per installation
+* each profile can carry one connected-account identity for clearer name and avatar presentation without turning the browser into a required cloud-sync platform
 * diagnostics stay local unless the user explicitly exports them or enables privacy-safe reporting
 * local AI features are designed to stay on-device where supported
 * guest browsing remains non-persistent
