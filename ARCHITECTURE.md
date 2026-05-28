@@ -2,7 +2,7 @@
 
 ## Architecture Overview
 
-This document explains the high-level runtime shape of BubblesTheDev Web Browser version `1.1.33`.
+This document explains the high-level runtime shape of BubblesTheDev Web Browser version `1.2.1`.
 
 ## Design Goals
 
@@ -13,6 +13,7 @@ The current architecture is built around:
 * Electron security best practices
 * minimal unnecessary background services
 * clear separation between browser UI, privileged runtime work, and web content
+* profile isolation and local profile recovery
 * scalable internationalization and localization
 * Unicode-safe multilingual rendering
 * privacy-safe on-device diagnostics only
@@ -25,15 +26,34 @@ The main process owns:
 * BrowserWindow and BrowserView creation
 * navigation and session setup
 * local persistence
+* profile lifecycle and profile partition management
 * downloads and diagnostics windows
 * performance-management policy
 * Streaming Hub isolation
 * installer and update coordination
 * local AI and diagnostics service orchestration
 
+## Profile Architecture
+
+Version `1.2.1` adds a broader browser profile system while keeping the browser local-first.
+
+The current profile runtime includes:
+
+* a main-process profile service that owns profile creation, update, deletion, and profile-limit enforcement
+* isolated persistent partitions for standard profiles instead of shared browser-session state
+* profile-local storage roots for browser data, settings, history, permissions, and imported browser content
+* a current limit of up to `10` local browser profiles per installation
+* one optional connected-account identity bundle per profile for provider, email, display name, and avatar presentation
+* optional profile PIN state with browser-side lock validation and rate-limited unlock handling
+* Guest Mode with non-persistent cleanup behavior
+* encrypted profile secret bundles for browser-controlled profile identity and session material
+* encrypted session-snapshot handling for restoring profile tabs and selected browsing state
+* profile restore points, integrity checks, repair paths, and safer rollback handling
+* profile backup and restore behavior that stays local and browser-controlled
+
 ## Local AI Architecture
 
-Version `1.1.33` keeps the local AI layer on-device by default while carrying forward the broader accessibility, startup, installer, media-tool, and multilingual refinements from the earlier `1.1.x` releases.
+Version `1.2.1` keeps the local AI layer on-device by default while carrying forward the broader accessibility, startup, installer, media-tool, multilingual, and newer profile-system refinements from the earlier `1.1.x` releases.
 
 The current AI runtime includes:
 
@@ -63,7 +83,7 @@ The current session health system:
 
 Diagnostics are generated locally.
 
-Version `1.1.33` includes:
+Version `1.2.1` includes:
 
 * manual encrypted diagnostics export
 * an `AI & Diagnostics` panel
@@ -71,10 +91,11 @@ Version `1.1.33` includes:
 * privacy-safe manual send controls
 * privacy-safe test send controls
 * optional severe-event reporting when enabled by the user
+* profile-aware diagnostics summaries for profile security and recovery surfaces
 
 ## Accessibility Model
 
-Version `1.1.33` also keeps the expanded browser accessibility layer.
+Version `1.2.1` also keeps the expanded browser accessibility layer.
 
 The current accessibility runtime includes:
 
@@ -86,7 +107,7 @@ The current accessibility runtime includes:
 
 ## Localization Architecture
 
-Version `1.1.33` adds a centralized localization manager in the main process.
+Version `1.2.1` keeps the centralized localization manager in the main process and now routes the newer profile and auth UI strings through that same protected pipeline.
 
 The localization runtime now includes:
 
@@ -106,20 +127,13 @@ The localization runtime now includes:
 
 The browser detects preferred system locales from Electron and Chromium APIs, resolves aliases and parent locales locally, and then broadcasts the effective locale state to browser windows through the hardened preload bridge. Locale processing stays isolated in the privileged runtime and does not allow renderer-controlled filesystem access.
 
-The current multilingual foundation is now significantly larger than the earlier minimal bundle set. At this stage the browser carries:
+The current multilingual foundation now carries:
 
 * `679` supported locale packs
 * `453` base language families
 * inheritance-first locale growth so new language or regional entries can reuse trusted local bundles instead of duplicating full translation trees
 
 This is intentionally a strong starting point for future expansion rather than a claim of fully human-translated parity across every supported language family. The architecture is built so translation depth can continue growing without redesigning the renderer or weakening the browser's security model.
-
-The public documentation intentionally avoids private infrastructure details. At a high level, the diagnostics path is:
-
-* disabled by default
-* limited to approved system and browser-stability fields
-* validated and submitted through privileged browser-side services only
-* isolated from renderer-controlled network submission
 
 ## Security Model
 
@@ -132,9 +146,12 @@ Current security-sensitive runtime characteristics include:
 * sandboxed localization loading through the main process only
 * locale manifest integrity validation and path confinement under the local `locales` root
 * isolated streaming-service sessions
+* isolated standard-profile partitions and non-persistent guest sessions
 * Windows-native download protection
+* encrypted profile secret handling and encrypted session-snapshot storage
 * local AI worker separation from the browser UI process
 * profile-isolated encrypted AI memory
+* profile restore points, integrity repair, and safer backup or restore validation
 * privacy-safe diagnostics allowlisting and validation
 * pinned bundled-binary verification for local media tools before use
 * browser-controlled installer registration and verified installer update flow
@@ -144,8 +161,10 @@ Current security-sensitive runtime characteristics include:
 Current local-first characteristics include:
 
 * browser settings and browsing data stay local by default
+* browser profiles stay isolated by default
 * AI memory stays local and isolated per profile
 * incognito AI memory does not persist across sessions
+* guest profile state does not persist after close
 * diagnostics remain local unless the user exports them or enables privacy-safe reporting
 * no built-in telemetry or analytics systems are part of the normal browser runtime
 * accessibility preferences stay local by default
@@ -153,11 +172,12 @@ Current local-first characteristics include:
 
 ## Startup And Update Coordination
 
-Version `1.1.33` also keeps the runtime shape where the main window can open sooner while slower background work continues after launch.
+Version `1.2.1` also keeps the runtime shape where the main window can open sooner while slower background work continues after launch.
 
 Current startup and update characteristics include:
 
 * deferred post-launch initialization for slower background tasks
+* profile compatibility checks and profile-state validation during startup selection
 * a lighter localization startup path that avoids full locale-registry diagnostics before the first usable browser window
 * installer-based updates rather than a hidden silent updater service
 * installer registration support for installed builds where available
