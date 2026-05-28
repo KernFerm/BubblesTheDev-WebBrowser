@@ -45,6 +45,20 @@ The current profile system supports up to `10` local browser profiles per instal
 
 Stored browser data is designed to remain local. Where stronger system-backed protection is available, the browser uses it. If that protection is unavailable, the data is still intended to remain on-device.
 
+## Connected Accounts
+
+Connected-account identity linking is optional.
+
+Current browser-connected identity support may include providers such as GitHub, Discord, and Google where that feature is enabled in the browser build.
+
+If a user chooses to link one of those accounts to a browser profile, the user can generally revoke that access later from the provider's own account settings or authorized-application page:
+
+* GitHub account settings
+* Discord authorized apps settings
+* Google account security or connected-app settings
+
+Revoking provider access from the user's own account remains under the user's control and does not require the browser to keep a cloud sync relationship.
+
 ## Diagnostics
 
 Diagnostics are generated locally.
