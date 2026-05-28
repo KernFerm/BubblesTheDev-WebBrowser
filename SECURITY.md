@@ -12,7 +12,7 @@ Security fixes are generally provided for the most recent stable release of the 
 
 | Version | Supported |
 | ------- | --------- |
-| **1.1.33** | Yes |
+| **1.2.1** | Yes |
 | Older versions | No |
 
 Users should run the latest available version of the browser to receive the newest security fixes and improvements.
@@ -113,7 +113,7 @@ The browser is developed with a reduced-surface approach that emphasizes:
 * strict renderer isolation with `contextIsolation` enabled and `nodeIntegration` disabled
 * main-process ownership of higher-risk operations such as downloader execution and performance-policy control
 
-Current security-sensitive design points in version `1.1.33` include:
+Current security-sensitive design points in version `1.2.1` include:
 
 * sandboxed renderer processes and strict preload IPC boundaries
 * isolated persistent streaming-service partitions for supported providers such as Disney+, Hulu, Max, Netflix, Paramount+, Prime Video, Apple TV+, AMC+, Peacock, Crunchyroll, YouTube TV, Sling TV, Pluto TV, The Roku Channel, Plex, Discovery+, ESPN+, MGM+, STARZ, and Tubi
@@ -145,6 +145,10 @@ Current security-sensitive design points in version `1.1.33` include:
 * locale path normalization and root-confinement checks that prevent traversal outside the trusted `locales` tree
 * SHA-256 locale manifest verification that can reject tampered or corrupted locale packs
 * locale fallback and inheritance resolution in the main process so malformed locale requests fail closed and safely fall back to trusted defaults
+* isolated standard-profile partitions, non-persistent guest sessions, and profile-state validation before profile switching
+* encrypted profile secret bundles, encrypted session snapshots, and browser-controlled profile restore-point handling
+* optional profile PIN lock validation, failed-unlock rate limiting, and safer profile deletion handling
+* profile-integrity repair behavior, profile backup or restore validation, and safer profile-recovery flows
 * startup recovery in `main.js` so polluted shell state such as `ELECTRON_RUN_AS_NODE=1` cannot silently downgrade the browser into the wrong execution mode
 * development-only startup and localization performance capture hooks that remain opt-in and do not widen normal renderer privileges
 
