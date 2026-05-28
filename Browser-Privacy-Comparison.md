@@ -71,6 +71,8 @@ BubblesTheDev Web Browser is designed around a local-first model:
 * guest browsing remains non-persistent
 * update behavior stays visible and installer-based rather than fully silent
 
+Connected-account identity linking is optional. Where a profile is linked to a provider such as GitHub, Discord, or Google, the user can generally revoke that provider access later from the provider's own account settings or authorized-applications page.
+
 This does not mean the browser is offline-only. Websites, search providers, streaming services, authentication systems, and download destinations still receive normal network traffic when the user chooses to use them.
 
 ## Local-First Behavior
