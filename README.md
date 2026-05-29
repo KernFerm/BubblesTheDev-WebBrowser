@@ -85,6 +85,8 @@ It is not an offline-only browser, and it does not pretend normal web traffic is
 
 The profile layer is designed to keep ordinary browsing, saved state, and recovery flows more separated and easier to manage. Standard profiles keep their own session and browser data, while Guest Mode stays temporary and non-persistent. The current model supports up to `10` local browser profiles per installation, and each profile can present one linked connected-account identity for clearer profile-card name and avatar display.
 
+Connected-account identity linking is optional. Where supported, profiles may link identities from providers such as GitHub, Discord, or Google. End users can generally revoke that provider access later from the provider's own account settings or authorized-applications page.
+
 ### Local AI And Diagnostics 🤖
 
 * `AI & Diagnostics` panel in the browser UI
