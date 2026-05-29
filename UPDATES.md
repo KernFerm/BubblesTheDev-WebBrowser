@@ -4,7 +4,7 @@ Project news and community update posts are shared in the official Discord serve
 
 ## Discord
 
-[Join My Nonprofit Discord Server For help or to support](https://discord.gg/zQbJJgwbUv)
+[Join My Nonprofit Discord Server FNBubbles420 Org 501(c)(3) - To contribute ideas to the browser or to support the non profit](https://discord.gg/zQbJJgwbUv)
 
 ---
 
