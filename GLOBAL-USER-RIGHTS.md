@@ -8,7 +8,7 @@ Official website and support contact details are published through the project's
 
 ## Current Documentation Target
 
-This document is aligned with the current public BubblesTheDev Web Browser documentation for version `1.2.1`.
+This document is aligned with the current public BubblesTheDev Web Browser documentation for version `1.2.3`.
 
 Security fixes are generally provided for the most recent stable release of the browser. Older versions are not supported for current security fixes.
 
@@ -75,7 +75,7 @@ It is not designed to automatically upload:
 * ordinary browser settings
 * local AI memory contents
 
-The browser also does not include a built-in silent auto-updater client.
+The browser also does not include a built-in always-on hidden auto-updater client.
 
 ## Network Activity
 
@@ -96,9 +96,13 @@ This is part of normal browser use and should not be confused with built-in tele
 
 ## Updates
 
-The browser may include installer-based update behavior, background update checks, or background installer downloads where supported.
+The browser may include a browser-controlled installer update flow with visible progress and automatic install handoff where supported, along with background update checks and background installer downloads.
 
 The update model is intended to remain visible and user-controlled rather than a hidden silent update service.
+
+If the browser bundle includes the same trusted-root certificate that is already present in the current user's trusted-root store, the installer can skip repeating the certificate-install prompt. If a later build includes a different bundled replacement certificate, Windows may still require the user to confirm trust for that new certificate.
+
+Installed update flows are also intended to preserve ordinary browser data during normal version replacement by performing an extra local save and session-flush pass before the browser closes for installation.
 
 ## Diagnostics And Runtime Checks
 
@@ -123,6 +127,7 @@ Current public expectations include:
 * profile-isolated AI memory where supported
 * non-persistent AI memory for incognito or other ephemeral contexts where supported
 * no cloud-sync expectation for AI memory
+* local `AI & Diagnostics` panel state can remain available when that panel is closed and reopened within the browser
 
 If a current-session AI health or runtime-status feature is present, it should be treated as a browser runtime indicator rather than a permanent user score.
 
