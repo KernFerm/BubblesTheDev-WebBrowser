@@ -4,24 +4,22 @@ Project news and community update posts are shared in the official Discord serve
 
 ## Discord
 
-[Join My Nonprofit Discord Server FNBubbles420 Org 501(c)(3) - To contribute ideas to the browser or to support the non profit](https://discord.gg/zQbJJgwbUv)
+[https://discord.gg/eYBzdZVbz6](https://discord.gg/eYBzdZVbz6)
 
 ---
 
 ## Current Release
 
-- Version `1.2.1` is the current release.
+- Version `1.2.3` is the current release.
 - Older versions are not supported for current fixes and improvements.
 
 Current documentation highlights for this release:
 
-- the browser now includes a broader isolated browser profile system with profile switching, Guest Mode, optional profile PIN protection, and profile recovery controls
-- the browser currently supports up to `10` local profiles per installation
-- each profile can carry one linked connected-account identity for clearer profile-card name and avatar display
-- encrypted profile secrets, session snapshots, restore points, and profile backup or restore behavior are now part of the local-first browser model
-- the multilingual foundation still includes `679` supported locale packs and `453` base language families, and the newer profile or auth browser UI strings now flow through that localization system too
-- connected-account profile cards now surface linked account names and avatars more clearly
-- account-link popups now behave more cleanly during fresh sign-in attempts and after abandoned auth windows
+- the current release is a maintenance update focused on dependency freshness
+- browser profiles, Guest Mode, optional profile PIN protection, and profile recovery controls remain part of the current browser build
+- encrypted profile secrets, session snapshots, restore points, and profile backup or restore behavior remain part of the local-first browser model
+- the multilingual foundation still includes `679` supported locale packs and `453` base language families
 - the browser keeps its local-first privacy posture with no built-in telemetry or analytics
+- managed updates can now show download and install progress, run the installer silently where supported, and notify the user after the new version is installed
 
 For the latest browser announcements, release posts, and community updates, check the Discord server above.
