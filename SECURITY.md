@@ -12,7 +12,7 @@ Security fixes are generally provided for the most recent stable release of the 
 
 | Version | Supported |
 | ------- | --------- |
-| **1.2.1** | Yes |
+| **1.2.3** | Yes |
 | Older versions | No |
 
 Users should run the latest available version of the browser to receive the newest security fixes and improvements.
@@ -111,7 +111,7 @@ The browser is developed with a reduced-surface approach that emphasizes:
 * Chromium sandboxing and process isolation where applicable
 * strict separation between web content and privileged browser operations
 * tighter controls around downloads, diagnostics, profile handling, and other higher-risk browser features
-* visible, user-controlled update behavior rather than a hidden silent updater model
+* visible, user-controlled, browser-controlled installer update behavior with progress visibility and automatic install handoff rather than a hidden always-on updater model
 
 Public security documentation is intentionally kept high-level. Detailed implementation behavior may change between releases and is documented separately where appropriate.
 
