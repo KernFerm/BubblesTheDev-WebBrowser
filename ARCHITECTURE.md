@@ -2,7 +2,7 @@
 
 ## Architecture Overview
 
-This document explains the high-level runtime shape of BubblesTheDev Web Browser version `1.2.1`.
+This document explains the high-level runtime shape of BubblesTheDev Web Browser version `1.2.3`.
 
 ## Design Goals
 
@@ -35,7 +35,7 @@ The main process owns:
 
 ## Profile Architecture
 
-Version `1.2.1` adds a broader browser profile system while keeping the browser local-first.
+Version `1.2.3` keeps the broader browser profile system while keeping the browser local-first.
 
 The current profile runtime includes:
 
@@ -53,7 +53,7 @@ The current profile runtime includes:
 
 ## Local AI Architecture
 
-Version `1.2.1` keeps the local AI layer on-device by default while carrying forward the broader accessibility, startup, installer, media-tool, multilingual, and newer profile-system refinements from the earlier `1.1.x` releases.
+Version `1.2.3` keeps the local AI layer on-device by default while carrying forward the broader accessibility, startup, installer, media-tool, multilingual, and newer profile-system refinements from the earlier `1.1.x` releases.
 
 The current AI runtime includes:
 
@@ -83,7 +83,7 @@ The current session health system:
 
 Diagnostics are generated locally.
 
-Version `1.2.1` includes:
+Version `1.2.3` includes:
 
 * manual encrypted diagnostics export
 * an `AI & Diagnostics` panel
@@ -95,7 +95,7 @@ Version `1.2.1` includes:
 
 ## Accessibility Model
 
-Version `1.2.1` also keeps the expanded browser accessibility layer.
+Version `1.2.3` also keeps the expanded browser accessibility layer.
 
 The current accessibility runtime includes:
 
@@ -107,7 +107,7 @@ The current accessibility runtime includes:
 
 ## Localization Architecture
 
-Version `1.2.1` keeps the centralized localization manager in the main process and now routes the newer profile and auth UI strings through that same protected pipeline.
+Version `1.2.3` keeps the centralized localization manager in the main process and now routes the newer profile and auth UI strings through that same protected pipeline.
 
 The localization runtime now includes:
 
@@ -172,14 +172,18 @@ Current local-first characteristics include:
 
 ## Startup And Update Coordination
 
-Version `1.2.1` also keeps the runtime shape where the main window can open sooner while slower background work continues after launch.
+Version `1.2.3` also keeps the runtime shape where the main window can open sooner while slower background work continues after launch.
 
 Current startup and update characteristics include:
 
 * deferred post-launch initialization for slower background tasks
 * profile compatibility checks and profile-state validation during startup selection
 * a lighter localization startup path that avoids full locale-registry diagnostics before the first usable browser window
-* installer-based updates rather than a hidden silent updater service
+* installer-based updates rather than a hidden always-on patch service
 * installer registration support for installed builds where available
 * user-visible update-note handling that can create or refresh a Desktop folder named `BubblesTheDev - WebBrowser Update Notes` with the bundled release notes for the installed version
 * verified release metadata and installer validation inside the browser-controlled update flow
+* managed-update progress windows for download and install state, plus silent installer handoff where supported
+* explicit browser-state, password, profile-restore-point, and session-storage saves before managed update installs close the browser
+* current-user trusted-root certificate inspection that can skip repeated certificate prompts when the same bundled certificate is already trusted, while still surfacing the Windows confirmation step for a newly bundled replacement certificate
+* renderer-side persistence for local `AI & Diagnostics` panel query, preview, summary, and scroll state when the panel is closed and reopened
