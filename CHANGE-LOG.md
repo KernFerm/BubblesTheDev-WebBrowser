@@ -11,8 +11,12 @@ This changelog summarizes notable public release changes through version `1.2.3`
 - Release-facing documentation was updated to reflect version `1.2.3`.
 - Managed update installs were refined so installed builds can show download and install progress, hand off to a silent installer run, and notify the user when the new version is ready to open.
 - Current-user trusted-root certificate handling was refined so installs can skip the repeated certificate prompt when the same bundled certificate is already trusted, while still prompting Windows confirmation for a newly bundled replacement certificate.
+
+### Fixed
+
 - Managed update installs now run an extra local save and session-flush pass before the browser closes for installation so normal user data is better preserved during updates.
 - The `AI & Diagnostics` panel now preserves its local draft, preview, summary, and scroll state when the panel is closed and reopened.
+- Managed update installs now keep the bundled license visible during installation and close that license window when install completion is confirmed.
 
 ### Security And Privacy
 
