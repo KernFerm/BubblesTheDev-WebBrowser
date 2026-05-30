@@ -141,7 +141,7 @@ Optional local AI features, if included, are intended to support on-device behav
 
 The browser may include accessibility-focused features intended to improve reading comfort, visibility, motion reduction, control size, and continuity across sessions. Accessibility preferences are intended to remain local to the user's device by default.
 
-The browser may include background update checks and background installer downloads where supported, while keeping installer-based update behavior. That update model is intended to remain visible and user-controlled rather than a hidden silent updater service.
+The browser may include background update checks and background installer downloads where supported, while keeping a browser-controlled installer-based update model. Where supported, installed builds may show update download and install progress, perform an extra local save and session-flush pass before update installation closes the browser, and hand off to a quieter automatic installer execution path. That update model is intended to remain visible and user-controlled rather than a hidden silent updater service.
 
 The browser may still generate normal network traffic when the user opens websites, signs into services, downloads files, uses search features, uses passkeys or WebAuthn, uses update checks, manually sends approved diagnostics, or uses supported online features. Third-party websites and services may process information under their own privacy policies, cookie policies, and terms.
 
