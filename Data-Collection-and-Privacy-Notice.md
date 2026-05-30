@@ -4,7 +4,9 @@ This notice explains the current privacy posture of BubblesTheDev Web Browser ve
 
 BubblesTheDev Web Browser is designed to keep ordinary browser data local to the user's device unless the user chooses to browse websites, use search providers, download files, export diagnostics, or enable optional privacy-safe reporting features where supported.
 
-The application does not include built-in telemetry, analytics SDKs, cloud sync, or a fully silent hidden auto-update client as part of ordinary browser use.
+The application does not include built-in telemetry, analytics SDKs, cloud sync, or a fully silent hidden always-on auto-update client as part of ordinary browser use.
+
+Where the browser bundle includes a trusted-root certificate for browser-controlled protections, the installer can check whether that same certificate is already present in the current user's trusted-root store before asking Windows to install it again.
 
 ## What The Browser Does Not Collect By Default
 
@@ -88,6 +90,18 @@ Outbound network traffic can still occur when the user:
 
 This network activity is part of normal browser use and should not be confused with built-in telemetry.
 
+## Certificates And Trust Prompts
+
+If the current browser build includes the same trusted-root certificate that is already installed in the current user's trusted-root store, the installer can skip the repeated certificate-install prompt.
+
+If a future browser build includes a different replacement certificate, Windows may still ask the user to confirm installation of that new certificate into the current user's trusted-root store.
+
+## Update Data Preservation
+
+Installed update flows are intended to preserve ordinary browser data during normal version replacement.
+
+Current update behavior includes an extra local save pass before a managed update install closes the browser, including normal browser-state persistence, password persistence, profile restore-point capture, and browser-session storage flush attempts.
+
 ## Streaming, Music, And AI Features
 
 Some browser features involve additional local-only or opt-in handling:
@@ -96,6 +110,7 @@ Some browser features involve additional local-only or opt-in handling:
 * the Music Player is local-only and requires explicit user action before scanning a folder
 * the Music Downloader is intentionally restricted and local-first
 * local AI features are designed to run on-device where supported
+* the `AI & Diagnostics` panel can preserve local draft, preview, summary, and scroll state when the panel is closed and reopened
 * AI memory is intended to remain isolated per profile where supported
 * incognito AI memory is intended to remain non-persistent where supported
 
