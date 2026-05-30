@@ -1,6 +1,30 @@
 # Changelog
 
-This changelog summarizes notable public release changes through version `1.2.1`.
+This changelog summarizes notable public release changes through version `1.2.3`.
+
+## 1.2.3
+
+### Updated
+
+- The package version was advanced to `1.2.3`.
+- Locked dependencies were refreshed for the current packaged build.
+- Release-facing documentation was updated to reflect version `1.2.3`.
+- Managed update installs were refined so installed builds can show download and install progress, hand off to a silent installer run, and notify the user when the new version is ready to open.
+- Current-user trusted-root certificate handling was refined so installs can skip the repeated certificate prompt when the same bundled certificate is already trusted, while still prompting Windows confirmation for a newly bundled replacement certificate.
+- Managed update installs now run an extra local save and session-flush pass before the browser closes for installation so normal user data is better preserved during updates.
+- The `AI & Diagnostics` panel now preserves its local draft, preview, summary, and scroll state when the panel is closed and reopened.
+
+### Security And Privacy
+
+- This maintenance release continues the browser's local-first privacy posture with no new public-facing data collection behavior.
+
+### Release
+
+- The `1.2.3` Windows installer package name is `BubblesTheDev Web Browser_Installer_1.2.3.exe`.
+
+### Notes
+
+- Version `1.2.3` is a dependency-update maintenance release with no new headline browser features, while also refining the installed update experience.
 
 ## 1.2.1
 
