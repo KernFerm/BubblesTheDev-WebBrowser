@@ -4,9 +4,9 @@
 
 This document gives a high-level privacy comparison between BubblesTheDev Web Browser and other mainstream browsers. It is intentionally broad and user-facing.
 
-This document reflects the current privacy posture of BubblesTheDev Web Browser version `1.2.1`.
+This document reflects the current privacy posture of BubblesTheDev Web Browser version `1.2.3`.
 
-The goal is accuracy, not marketing language. The browser does not include built-in telemetry, analytics SDKs, cloud sync, or a fully silent hidden auto-updater client. It still makes normal network requests when the user browses the web, searches, signs into websites, uses supported authentication flows, or downloads files.
+The goal is accuracy, not marketing language. The browser does not include built-in telemetry, analytics SDKs, cloud sync, or a fully silent hidden always-on auto-updater client. It still makes normal network requests when the user browses the web, searches, signs into websites, uses supported authentication flows, or downloads files.
 
 ## Scope And Related Documents
 
@@ -52,7 +52,7 @@ This table is intentionally high-level. Mainstream browsers change over time, an
 | Language and locale system | Local-only multilingual system with runtime switching and locale-aware formatting | Standard browser localization | Standard browser localization | Standard browser localization | Standard browser localization | Standard browser localization | Standard browser localization | Standard browser localization |
 | VPN integration | Local VPN tools, public IP checks, and profile import support | No built-in browser VPN documented | Edge Secure Network | Brave VPN is a separate paid feature | Mozilla VPN is a separate service | No built-in browser VPN documented | Opera VPN | No built-in browser VPN documented |
 | Local music features | Local-only Music Player and restricted Music Downloader flows | No built-in equivalent documented | No built-in equivalent documented | No built-in equivalent documented | No built-in equivalent documented | No built-in equivalent documented | No built-in equivalent documented | No built-in equivalent documented |
-| Update model | Visible installer-based update flow | Background updater present | Background updater present | Background updater present | Background updater present | OS-managed | Background updater present | Background updater present |
+| Update model | Browser-controlled installer update flow with visible progress and automatic install handoff | Background updater present | Background updater present | Background updater present | Background updater present | OS-managed | Background updater present | Background updater present |
 
 Additional note:
 
@@ -69,7 +69,10 @@ BubblesTheDev Web Browser is designed around a local-first model:
 * diagnostics stay local unless the user explicitly exports them or enables privacy-safe reporting
 * local AI features are designed to stay on-device where supported
 * guest browsing remains non-persistent
-* update behavior stays visible and installer-based rather than fully silent
+* update behavior stays browser-controlled and installer-based rather than a hidden always-on patch service
+* certificate trust prompts can be skipped when the same bundled trusted-root certificate is already present, while new bundled replacement certificates may still require Windows confirmation
+* installed update handoff now performs an extra local save pass before closing so normal browser data is less likely to be lost during update installation
+* the local `AI & Diagnostics` panel now keeps its local draft and preview state when reopened instead of resetting that renderer-side state immediately
 
 Connected-account identity linking is optional. Where a profile is linked to a provider such as GitHub, Discord, or Google, the user can generally revoke that provider access later from the provider's own account settings or authorized-applications page.
 
