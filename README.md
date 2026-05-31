@@ -6,6 +6,71 @@
 [![Platform](https://img.shields.io/badge/platform-Windows%2011-0078D6)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Electron](https://img.shields.io/badge/Electron-42-47848F?logo=electron&logoColor=white)](https://www.electronjs.org/)
 
+## Why Choose BubblesTheDev Web Browser?
+
+BubblesTheDev Web Browser is built around a local-first browser design that aims to work for the user rather than collect information about the user.
+
+The project focuses on privacy, transparency, accessibility, performance, user control, and long-term user trust. Instead of centering the browser experience around background collection, behavioral analysis, or ecosystem lock-in, the browser is designed to keep more browsing behavior understandable, visible, and local to the device wherever practical.
+
+That means the browser is intended to feel usable as an everyday browser while still giving people clearer control over how profiles behave, how diagnostics work, how browser data is stored, and how runtime behavior can be inspected.
+
+## Privacy First
+
+Privacy in BubblesTheDev Web Browser starts with local-first browser data handling and a simpler promise: browser data remains on the device by default unless the user explicitly chooses a feature that needs the network.
+
+The browser emphasizes:
+
+* no built-in telemetry
+* no built-in analytics
+* no behavioral profiling
+* no selling user data
+* local-first browser data handling
+* isolated browser profiles
+* user-controlled diagnostics
+* Local AI and Diagnostics
+* Guest Mode support
+* incognito browsing
+* encrypted profile secrets and backups
+
+Privacy controls are designed to be understandable and visible rather than hidden behind unclear settings or background behavior. Standard profiles keep their own local state, Guest Mode stays temporary, incognito browsing is available for non-persistent sessions, and diagnostics behavior stays under the user's control.
+
+The browser's local AI and diagnostics tooling is also meant to stay privacy-aware. Local summaries, health feedback, and diagnostic previews are designed to happen on-device by default, with privacy-safe reporting only where the user chooses to enable or export it.
+
+## Transparency Matters
+
+Trust is earned through transparency and documentation, not just slogans.
+
+BubblesTheDev Web Browser supports that trust model through public documentation, architecture visibility, security visibility, privacy visibility, data handling visibility, and release history visibility. The goal is to make it easier for users to understand what the browser is built to do, how sensitive features are handled, how updates work, and where browser data lives by default.
+
+That is why the project documents its architecture, update model, privacy approach, and release history in plain repository documentation instead of treating those areas like hidden implementation details.
+
+## What Makes It Different?
+
+What makes the browser different is not a claim to be invisible or magical. It is the combination of a local-first philosophy, stronger user control, accessibility-minded features, diagnostics visibility, profile management, security controls, and clearer performance visibility.
+
+The goal is not to build user profiles, drive behavioral tracking, or lock users into an ecosystem. The goal is to provide a practical Windows browser that still gives people more control over their own browser environment, clearer ways to inspect behavior, and better separation between everyday browsing, profile management, and higher-risk actions.
+
+## Built For Real Everyday Use
+
+BubblesTheDev Web Browser is designed to be privacy-focused without feeling stripped down.
+
+It includes:
+
+* multi-tab browsing
+* bookmarks and history
+* Split View
+* built-in ad and tracker blocking
+* up to 10 isolated profiles
+* Local AI & Diagnostics
+* Streaming Hub
+* Gaming & Streaming Performance Mode
+* accessibility tools
+* language support
+* backup and recovery tools
+* profile security controls
+
+The result is a browser meant for real daily use: browsing, organizing tabs, separating profiles, watching streaming services, managing performance during heavier sessions, using accessibility features, and recovering local browser state when something goes wrong, all without making background data collection the center of the product.
+
 ## What Is It? 👋
 
 BubblesTheDev Web Browser is a Windows browser designed for everyday browsing while keeping browser data local-first and user controls easier to understand.
@@ -230,4 +295,3 @@ If you want more detail, the repo also includes:
 * `Data-Collection-and-Privacy-Notice.md` for the plain-language privacy notice
 * `Browser-Privacy-Comparison.md` for the broader privacy comparison view
 * `CHANGELOG.md` for release-to-release changes
-
