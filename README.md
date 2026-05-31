@@ -2,7 +2,7 @@
 
 > A browser built for privacy, control, and a smoother everyday experience.
 
-[![Version](https://img.shields.io/badge/version-1.2.1-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
+[![Version](https://img.shields.io/badge/version-1.2.3-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Platform](https://img.shields.io/badge/platform-Windows%2011-0078D6)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Electron](https://img.shields.io/badge/Electron-42-47848F?logo=electron&logoColor=white)](https://www.electronjs.org/)
 
@@ -12,7 +12,7 @@ BubblesTheDev Web Browser is a Windows browser designed for everyday browsing wh
 
 It is meant to feel like a practical daily browser, not just a privacy experiment or a stripped-down shell. The project combines familiar browser features such as tabs, bookmarks, downloads, saved passwords, a built-in home page, split view, and media tools with stronger local-first defaults, clearer diagnostics, and more visible runtime controls.
 
-Version `1.2.1` continues that direction with a production-grade browser profile system, isolated profile sessions, guest browsing, optional profile PIN protection, localized profile surfaces, stronger recovery and profile-security controls, and smoother connected-account profile behavior.
+Version `1.2.3` continues that direction as a maintenance release focused on dependency updates while also refining the update flow, trusted-root certificate handling, and AI panel persistence behavior.
 
 The overall goal is simple:
 
@@ -21,20 +21,15 @@ The overall goal is simple:
 * keep more browser behavior local and inspectable
 * give users better visibility into performance, stability, and diagnostics
 
-## What's New In 1.2.1 ✨
+## What's New In 1.2.3 ✨
 
-* Added a full browser profile manager with isolated profile storage, profile switching, and per-profile session restoration
-* Set the browser profile system around up to `10` local profiles per installation
-* Added Guest Mode with non-persistent browsing cleanup on close
-* Added optional profile PIN protection, profile lock handling, and clearer profile-management controls
-* Added encrypted profile secrets, encrypted profile session snapshots, restore points, and safer backup or restore behavior
-* Expanded the profile security surface with clearer visibility into sessions, permissions, imports, and profile recovery state
-* Improved connected-account profile cards so linked identities can surface the account display name and avatar more clearly
-* Improved account-link popups so fresh sign-in windows behave more cleanly and abandoned auth windows release their local callback handling safely
-* Kept the broader multilingual system and extended the newer profile and auth UI strings through the browser localization pipeline
-* Kept the existing accessibility, local AI, diagnostics, streaming isolation, and Windows-focused protection work in place
+* Refreshed project dependencies for the current packaged build
+* Improved managed updates so installed builds can show download and install progress, hand off to automatic installer execution, and notify the user after installation
+* Improved trusted-root certificate handling so the browser can skip repeated prompts when the same bundled certificate is already trusted
+* Added an extra pre-install local save and session-flush pass during managed updates to better preserve ordinary browser data
+* Preserved local `AI & Diagnostics` panel draft, preview, summary, and scroll state when the panel is closed and reopened
 
-In practical terms, this release is focused on turning the browser into a more complete local-first daily browser with stronger user-controlled profile separation, clearer connected-account behavior, and broader multilingual coverage for the newer browser-management surfaces.
+In practical terms, this release is focused on maintenance, update-flow polish, and day-to-day reliability improvements rather than a new headline browser feature.
 
 ## Main Features 🚀
 
@@ -184,13 +179,13 @@ The architecture is intentionally local-first and tries to keep the browser's mo
 
 Installer file name:
 
-`BubblesTheDev Web Browser_Installer_1.2.1.exe`
+`BubblesTheDev Web Browser_Installer_1.2.3.exe`
 
 Platform:
 
 `Windows 11 x64`
 
-The current installer uses a normal visible Windows installer flow instead of a silent always-on update model. Recent builds also include a clearer visible post-install completion flow so end users can better understand what the installer is doing before it closes.
+The current installer still uses a Windows installer package instead of a silent always-on patch service. Recent builds now let installed versions show update download and install progress more clearly, hand off to a silent installer run where supported, and notify the user after the new version is installed.
 
 ## Updating 🔄
 
@@ -202,10 +197,11 @@ Instead:
 * the browser can check for newer releases from the app menu
 * installed builds can perform background update checks and background installer downloads when the managed update flow is available
 * installed builds can keep browser-controlled update registration support where available
-* the browser only shows `Restart to Update` after the installer is downloaded and ready
+* installed builds can now move from a downloaded update into a silent installer handoff instead of relying on a repeated full installer prompt for every update
+* installed builds can perform an extra local save and session-flush pass before update installation closes the browser
 * installed update behavior can create or refresh a Desktop folder named `BubblesTheDev - WebBrowser Update Notes` so the current bundled release notes stay visible locally
 
-That means updates are still visible and installer-based instead of behaving like a hidden background patch service. The browser can help with background update checks and downloads where supported, but the overall update experience is still built around a normal Windows installer flow and a visible restart step.
+That means updates are still browser-controlled and installer-based instead of behaving like a hidden background patch service. The browser can help with background update checks, downloads, visible progress, and a quieter installer handoff where supported, while still relying on the packaged installer model underneath.
 
 ## Privacy Summary 🛡️
 
@@ -234,3 +230,4 @@ If you want more detail, the repo also includes:
 * `Data-Collection-and-Privacy-Notice.md` for the plain-language privacy notice
 * `Browser-Privacy-Comparison.md` for the broader privacy comparison view
 * `CHANGELOG.md` for release-to-release changes
+
