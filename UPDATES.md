@@ -10,7 +10,7 @@ Project news and community update posts are shared in the official Discord serve
 
 ## Current Release
 
-- Version `1.2.3` is the current release.
+- Version `1.2.5` is the current release.
 - Older versions are not supported for current fixes and improvements.
 
 Current documentation highlights for this release:
@@ -20,6 +20,8 @@ Current documentation highlights for this release:
 - encrypted profile secrets, session snapshots, restore points, and profile backup or restore behavior remain part of the local-first browser model
 - the multilingual foundation still includes `679` supported locale packs and `453` base language families
 - the browser keeps its local-first privacy posture with no built-in telemetry or analytics
-- managed updates can now show download and install progress, run the installer silently where supported, and notify the user after the new version is installed
+- managed updates can now save whether installs should continue automatically when possible or ask before installation begins
+- managed updates now support both automatic and prompt-based post-download install paths while keeping that saved choice for future updates
+- managed updates now pause background updater activity while `OBS` or `Streamlabs` is active and resume once that session ends
 
 For the latest browser announcements, release posts, and community updates, check the Discord server above.
