@@ -8,7 +8,7 @@ Official website and support contact details are published through the project's
 
 ## Current Documentation Target
 
-This document is aligned with the current public BubblesTheDev Web Browser documentation for version `1.2.3`.
+This document is aligned with the current public BubblesTheDev Web Browser documentation for version `1.2.5`.
 
 Security fixes are generally provided for the most recent stable release of the browser. Older versions are not supported for current security fixes.
 
@@ -115,7 +115,7 @@ This is part of normal browser use and should not be confused with built-in tele
 
 ## Updates
 
-The browser may include a browser-controlled installer update flow with visible progress and automatic install handoff where supported, along with background update checks and background installer downloads.
+The browser may include a browser-controlled installer update flow with visible progress, saved install preference support, and automatic or ask-before-installing behavior, along with background update checks and background installer downloads.
 
 The update model is intended to remain visible and user-controlled rather than a hidden silent update service.
 
