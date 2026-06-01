@@ -1,6 +1,62 @@
 # Changelog
 
-This changelog summarizes notable public release changes through version `1.2.3`.
+This changelog summarizes notable public release changes through version `1.2.5`.
+
+## 1.2.5
+
+### Updated
+
+- The package version was advanced to `1.2.5`.
+- Release-facing documentation was updated to reflect version `1.2.5`.
+- Managed update installs now save the user's preferred install behavior for future updates: `Install updates automatically when possible` or `Ask before installing updates`.
+- Managed updates now support both automatic and prompt-based post-download install paths while keeping that saved choice local to the device for future updates.
+- The browser now surfaces a clearer end-of-update message that the new version is ready to open.
+- Managed update behavior now pauses background updater activity while `OBS` or `Streamlabs` is active, reducing the risk of updater traffic competing with active streaming sessions.
+- The browser now surfaces a visible update-status indicator when managed updates are paused because `OBS` or `Streamlabs` is active.
+
+### Fixed
+
+- `OBS` or `Streamlabs` close detection now clears the update-pause state faster so the browser does not appear stuck in a paused-update state for an extended period after streaming software closes.
+
+### Security And Privacy
+
+- This maintenance release continues the browser's local-first privacy posture with no new public-facing data collection behavior.
+
+### Release
+
+- The `1.2.5` Windows installer package name is `BubblesTheDev Web Browser_Installer_1.2.5.exe`.
+
+### Notes
+
+- Version `1.2.5` keeps the current browser feature set while refining update behavior, saved install preferences, and streaming-aware updater safety.
+
+## 1.2.4
+
+### Updated
+
+- The package version was advanced to `1.2.4`.
+- Release-facing documentation was updated to reflect version `1.2.4`.
+- Managed update behavior now saves the user's preferred install behavior for future updates: `Install updates automatically when possible` or `Ask before installing updates`.
+- Managed update installs now support both automatic and prompt-based post-download install paths while keeping that choice local to the device for future updates.
+- Managed update behavior now defers background update activity while `OBS` or `Streamlabs` is active, reducing the risk of updater traffic competing with active gaming or streaming sessions.
+- The browser now surfaces a visible update-status indicator when managed updates are paused because `OBS` or `Streamlabs` is active.
+
+### Fixed
+
+- `OBS` or `Streamlabs` close detection now clears the update-pause state faster so the browser does not appear stuck in a paused-update state for an extended period after streaming software closes.
+- Managed update completion messaging now ends with a clearer end-user notification that the new browser version is ready to open.
+
+### Security And Privacy
+
+- This maintenance release continues the browser's local-first privacy posture with no new public-facing data collection behavior.
+
+### Release
+
+- The `1.2.4` Windows installer package name is `BubblesTheDev Web Browser_Installer_1.2.4.exe`.
+
+### Notes
+
+- Version `1.2.4` keeps the current browser feature set while refining update behavior around active streaming and gaming workflows.
 
 ## 1.2.3
 
