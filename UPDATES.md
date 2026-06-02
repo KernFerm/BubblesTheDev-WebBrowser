@@ -20,8 +20,8 @@ Current documentation highlights for this release:
 - encrypted profile secrets, session snapshots, restore points, and profile backup or restore behavior remain part of the local-first browser model
 - the multilingual foundation still includes `679` supported locale packs and `453` base language families
 - the browser keeps its local-first privacy posture with no built-in telemetry or analytics
-- update downloads can still be handled by the browser, but install handoff now returns to the regular installer flow
-- users may see the normal installer prompt during updates again depending on their system
+- update downloads can still be handled automatically by the browser, but install handoff now returns to the regular installer flow
+- after the browser downloads the new version, the regular installer opens and the end user goes through the installer prompts
 - the browser keeps its current local-first privacy and security posture without new headline browser features
 
 For the latest browser announcements, release posts, and community updates, check the Discord server above.
