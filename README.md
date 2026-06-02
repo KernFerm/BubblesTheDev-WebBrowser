@@ -2,7 +2,7 @@
 
 > A browser built for privacy, control, and a smoother everyday experience.
 
-[![Version](https://img.shields.io/badge/version-1.2.5-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
+[![Version](https://img.shields.io/badge/version-1.2.7-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Platform](https://img.shields.io/badge/platform-Windows%2011-0078D6)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Electron](https://img.shields.io/badge/Electron-42-47848F?logo=electron&logoColor=white)](https://www.electronjs.org/)
 
@@ -77,7 +77,7 @@ BubblesTheDev Web Browser is a Windows browser designed for everyday browsing wh
 
 It is meant to feel like a practical daily browser, not just a privacy experiment or a stripped-down shell. The project combines familiar browser features such as tabs, bookmarks, downloads, saved passwords, a built-in home page, split view, and media tools with stronger local-first defaults, clearer diagnostics, and more visible runtime controls.
 
-Version `1.2.5` continues that direction as a maintenance release focused on refining the update flow, saved install preferences, and streaming-aware updater behavior.
+Version `1.2.7` continues that direction as a maintenance release focused on dependency security updates and keeping the packaged browser build current.
 
 The overall goal is simple:
 
@@ -86,13 +86,12 @@ The overall goal is simple:
 * keep more browser behavior local and inspectable
 * give users better visibility into performance, stability, and diagnostics
 
-## What's New In 1.2.5 ✨
+## What's New In 1.2.7 ✨
 
 * Refreshed project dependencies for the current packaged build
-* Improved managed updates so installed builds can show download and install progress, hand off to automatic installer execution, and notify the user after installation
-* Improved trusted-root certificate handling so the browser can skip repeated prompts when the same bundled certificate is already trusted
-* Added an extra pre-install local save and session-flush pass during managed updates to better preserve ordinary browser data
-* Preserved local `AI & Diagnostics` panel draft, preview, summary, and scroll state when the panel is closed and reopened
+* Applied a dependency security update for the current release line
+* Kept the browser's current local-first privacy, profile, accessibility, and diagnostics feature set intact
+* Continued current installer-based update behavior without adding new headline browser features
 
 In practical terms, this release is focused on maintenance, update-flow polish, and day-to-day reliability improvements rather than a new headline browser feature.
 
@@ -244,7 +243,7 @@ The architecture is intentionally local-first and tries to keep the browser's mo
 
 Installer file name:
 
-`BubblesTheDev Web Browser_Installer_1.2.5.exe`
+`BubblesTheDev Web Browser_Installer_1.2.7.exe`
 
 Platform:
 
