@@ -183,7 +183,7 @@ Current startup and update characteristics include:
 * installer registration support for installed builds where available
 * user-visible update-note handling that can create or refresh a Desktop folder named `BubblesTheDev - WebBrowser Update Notes` with the bundled release notes for the installed version
 * verified release metadata and installer validation inside the browser-controlled update flow
-* managed-update progress windows for download and install state, plus silent installer handoff where supported
+* managed-update progress windows for download state, followed by regular installer handoff after the new version is downloaded
 * explicit browser-state, password, profile-restore-point, and session-storage saves before managed update installs close the browser
 * current-user trusted-root certificate inspection that can skip repeated certificate prompts when the same bundled certificate is already trusted, while still surfacing the Windows confirmation step for a newly bundled replacement certificate
 * renderer-side persistence for local `AI & Diagnostics` panel query, preview, summary, and scroll state when the panel is closed and reopened
