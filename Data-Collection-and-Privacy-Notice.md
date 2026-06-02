@@ -1,6 +1,6 @@
 # Data Collection and Privacy Notice
 
-This notice explains the current privacy posture of BubblesTheDev Web Browser version `1.2.7`.
+This notice explains the current privacy posture of BubblesTheDev Web Browser version `1.2.8`.
 
 BubblesTheDev Web Browser is designed to keep ordinary browser data local to the user's device unless the user chooses to browse websites, use search providers, download files, export diagnostics, or enable optional privacy-safe reporting features where supported.
 
