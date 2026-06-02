@@ -4,7 +4,7 @@
 
 This document gives a high-level privacy comparison between BubblesTheDev Web Browser and other mainstream browsers. It is intentionally broad and user-facing.
 
-This document reflects the current privacy posture of BubblesTheDev Web Browser version `1.2.7`.
+This document reflects the current privacy posture of BubblesTheDev Web Browser version `1.2.8`.
 
 The goal is accuracy, not marketing language. The browser does not include built-in telemetry, analytics SDKs, cloud sync, or a fully silent hidden always-on auto-updater client. It still makes normal network requests when the user browses the web, searches, signs into websites, uses supported authentication flows, or downloads files.
 
@@ -52,7 +52,7 @@ This table is intentionally high-level. Mainstream browsers change over time, an
 | Language and locale system | Local-only multilingual system with runtime switching and locale-aware formatting | Standard browser localization | Standard browser localization | Standard browser localization | Standard browser localization | Standard browser localization | Standard browser localization | Standard browser localization |
 | VPN integration | Local VPN tools, public IP checks, and profile import support | No built-in browser VPN documented | Edge Secure Network | Brave VPN is a separate paid feature | Mozilla VPN is a separate service | No built-in browser VPN documented | Opera VPN | No built-in browser VPN documented |
 | Local music features | Local-only Music Player and restricted Music Downloader flows | No built-in equivalent documented | No built-in equivalent documented | No built-in equivalent documented | No built-in equivalent documented | No built-in equivalent documented | No built-in equivalent documented | No built-in equivalent documented |
-| Update model | Browser-controlled installer update flow with visible progress, saved install preference support, and automatic or ask-before-installing behavior | Background updater present | Background updater present | Background updater present | Background updater present | OS-managed | Background updater present | Background updater present |
+| Update model | Browser-controlled update download followed by the regular installer, with the end user going through the installer prompts after the browser downloads the new version | Background updater present | Background updater present | Background updater present | Background updater present | OS-managed | Background updater present | Background updater present |
 
 Additional note:
 
