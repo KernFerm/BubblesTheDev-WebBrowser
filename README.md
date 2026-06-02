@@ -2,7 +2,7 @@
 
 > A browser built for privacy, control, and a smoother everyday experience.
 
-[![Version](https://img.shields.io/badge/version-1.2.7-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
+[![Version](https://img.shields.io/badge/version-1.2.8-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Platform](https://img.shields.io/badge/platform-Windows%2011-0078D6)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Electron](https://img.shields.io/badge/Electron-42-47848F?logo=electron&logoColor=white)](https://www.electronjs.org/)
 
@@ -77,7 +77,7 @@ BubblesTheDev Web Browser is a Windows browser designed for everyday browsing wh
 
 It is meant to feel like a practical daily browser, not just a privacy experiment or a stripped-down shell. The project combines familiar browser features such as tabs, bookmarks, downloads, saved passwords, a built-in home page, split view, and media tools with stronger local-first defaults, clearer diagnostics, and more visible runtime controls.
 
-Version `1.2.7` continues that direction as a maintenance release focused on dependency security updates and keeping the packaged browser build current.
+Version `1.2.8` continues that direction as a maintenance release focused on restoring the earlier installer-based update flow while keeping the packaged browser build current.
 
 The overall goal is simple:
 
@@ -86,10 +86,10 @@ The overall goal is simple:
 * keep more browser behavior local and inspectable
 * give users better visibility into performance, stability, and diagnostics
 
-## What's New In 1.2.7 ✨
+## What's New In 1.2.8 ✨
 
-* Refreshed project dependencies for the current packaged build
-* Applied a dependency security update for the current release line
+* Restored the older regular-installer update handoff instead of the newer silent-wrapper install path
+* Kept browser-controlled update downloads while returning installation to the normal installer flow
 * Kept the browser's current local-first privacy, profile, accessibility, and diagnostics feature set intact
 * Continued current installer-based update behavior without adding new headline browser features
 
@@ -243,7 +243,7 @@ The architecture is intentionally local-first and tries to keep the browser's mo
 
 Installer file name:
 
-`BubblesTheDev Web Browser_Installer_1.2.7.exe`
+`BubblesTheDev Web Browser_Installer_1.2.8.exe`
 
 Platform:
 
