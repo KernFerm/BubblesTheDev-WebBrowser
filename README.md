@@ -249,7 +249,7 @@ Platform:
 
 `Windows 11 x64`
 
-The current installer still uses a Windows installer package instead of a silent always-on patch service. Recent builds now let installed versions show update download and install progress more clearly, hand off to a silent installer run where supported, and notify the user after the new version is installed.
+The current installer still uses a Windows installer package instead of a silent always-on patch service. Recent builds let installed versions show update download progress more clearly, download the new version automatically where supported, and then open the regular installer so the user can complete the installer prompts.
 
 ## Updating 🔄
 
@@ -261,11 +261,11 @@ Instead:
 * the browser can check for newer releases from the app menu
 * installed builds can perform background update checks and background installer downloads when the managed update flow is available
 * installed builds can keep browser-controlled update registration support where available
-* installed builds can now save the user's preferred install behavior for future updates: `Install updates automatically when possible` or `Ask before installing updates`
+* installed builds download updates first and then open the regular installer so the user can complete the installer prompts
 * installed builds can perform an extra local save and session-flush pass before update installation closes the browser
 * installed update behavior can create or refresh a Desktop folder named `BubblesTheDev - WebBrowser Update Notes` so the current bundled release notes stay visible locally
 
-That means updates are still browser-controlled and installer-based instead of behaving like a hidden background patch service. The browser can help with background update checks, downloads, visible progress, saved install preferences, and automatic or ask-before-installing behavior while still relying on the packaged installer model underneath.
+That means updates are still browser-controlled and installer-based instead of behaving like a hidden background patch service. The browser can help with background update checks, automatic downloads where supported, visible progress, and regular installer handoff while still relying on the packaged installer model underneath.
 
 ## Privacy Summary 🛡️
 
