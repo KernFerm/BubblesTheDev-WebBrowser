@@ -1,1 +1,1 @@
-# [Get Bubbles Browser](https://bubbles-browser.fnbubbles420.org/)
+# [Get Bubbles Browser](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
