@@ -115,7 +115,7 @@ This is part of normal browser use and should not be confused with built-in tele
 
 ## Updates
 
-The browser may include a browser-controlled installer update flow with visible progress, saved install preference support, and automatic or ask-before-installing behavior, along with background update checks and background installer downloads.
+The browser may include a browser-controlled installer update flow with visible progress, along with background update checks and background installer downloads. After the browser downloads a new version, the regular installer opens and the end user completes the installer prompts.
 
 The update model is intended to remain visible and user-controlled rather than a hidden silent update service.
 
