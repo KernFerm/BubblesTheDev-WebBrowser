@@ -1,6 +1,30 @@
 # Changelog
 
-This changelog summarizes notable public release changes through version `1.2.7`.
+This changelog summarizes notable public release changes through version `1.2.8`.
+
+## 1.2.8
+
+### Updated
+
+- The package version was advanced to `1.2.8`.
+- Release-facing documentation was updated to reflect version `1.2.8`.
+- The managed update install handoff now returns to the regular installer flow instead of the newer silent-wrapper path.
+
+### Fixed
+
+- Automatic update installs now fall back to the older installer-driven behavior that was working more reliably in practice.
+
+### Security And Privacy
+
+- This maintenance release keeps the browser's local-first privacy posture with no new public-facing telemetry or analytics behavior.
+
+### Release
+
+- The `1.2.8` Windows installer package name is `BubblesTheDev Web Browser_Installer_1.2.8.exe`.
+
+### Notes
+
+- Version `1.2.8` is a maintenance release focused on restoring the earlier installer-based update behavior.
 
 ## 1.2.7
 
