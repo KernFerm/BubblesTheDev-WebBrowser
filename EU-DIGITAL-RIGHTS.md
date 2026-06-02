@@ -8,7 +8,7 @@ Official website and support contact details are published through the project's
 
 ## Current Documentation Target
 
-This document is aligned with the current public BubblesTheDev Web Browser documentation for version `1.2.7`.
+This document is aligned with the current public BubblesTheDev Web Browser documentation for version `1.2.8`.
 
 Security fixes are generally provided for the most recent stable release of the browser. Older versions are not supported for current security fixes.
 
