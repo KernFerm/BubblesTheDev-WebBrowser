@@ -95,7 +95,7 @@ The overall goal is simple:
 
 In practical terms, this release is focused on maintenance, update-flow polish, and day-to-day reliability improvements rather than a new headline browser feature.
 
-- [Download BubblesTheDev - WebBrowser](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases/download/V128-BubblesTheDev-WebBrowser/BubblesTheDev.Web.Browser_Installer_1.2.8.exe)
+- ### [Download BubblesTheDev - WebBrowser](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases/download/V128-BubblesTheDev-WebBrowser/BubblesTheDev.Web.Browser_Installer_1.2.8.exe)
 
 ## Main Features 🚀
 
