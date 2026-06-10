@@ -1,6 +1,27 @@
 # Changelog
 
-This changelog summarizes notable public release changes through version `1.2.10`.
+This changelog summarizes notable public release changes through version `1.2.13`.
+
+## 1.2.13
+
+### Updated
+
+- The package version was advanced to `1.2.13`.
+- Release-facing documentation was updated to reflect version `1.2.13`.
+- Locked dependencies were refreshed for the current packaged build.
+
+### Security And Privacy
+
+- This maintenance release is focused on dependency security updates.
+- The browser continues its local-first privacy posture with no new public-facing telemetry or analytics behavior.
+
+### Release
+
+- The `1.2.13` Windows installer package name is `BubblesTheDev Web Browser_Installer_1.2.13.exe`.
+
+### Notes
+
+- Version `1.2.13` is a dependency security maintenance release with no new headline browser features.
 
 ## 1.2.10
 
