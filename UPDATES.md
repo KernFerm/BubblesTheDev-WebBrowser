@@ -10,7 +10,7 @@ Project news and community update posts are shared in the official Discord serve
 
 ## Current Release
 
-- Version `1.2.10` is the current release.
+- Version `1.2.13` is the current release.
 - Older versions are not supported for current fixes and improvements.
 
 Current documentation highlights for this release:
