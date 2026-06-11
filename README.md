@@ -2,11 +2,11 @@
 
 > A browser built for privacy, control, and a smoother everyday experience.
 
-[![Version](https://img.shields.io/badge/version-1.2.13-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
+[![Version](https://img.shields.io/badge/version-1.2.15-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Platform](https://img.shields.io/badge/platform-Windows%2011-0078D6)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Electron](https://img.shields.io/badge/Electron-42-47848F?logo=electron&logoColor=white)](https://www.electronjs.org/)
 
-## Why Choose BubblesTheDev Web Browser?
+## Why Choose BubblesTheDev Web Browser? 🌟
 
 BubblesTheDev Web Browser is built around a local-first browser design that aims to work for the user rather than collect information about the user.
 
@@ -14,7 +14,7 @@ The project focuses on privacy, transparency, accessibility, performance, user c
 
 That means the browser is intended to feel usable as an everyday browser while still giving people clearer control over how profiles behave, how diagnostics work, how browser data is stored, and how runtime behavior can be inspected.
 
-## Privacy First
+## Privacy First 🔐
 
 Privacy in BubblesTheDev Web Browser starts with local-first browser data handling and a simpler promise: browser data remains on the device by default unless the user explicitly chooses a feature that needs the network.
 
@@ -36,7 +36,7 @@ Privacy controls are designed to be understandable and visible rather than hidde
 
 The browser's local AI and diagnostics tooling is also meant to stay privacy-aware. Local summaries, health feedback, and diagnostic previews are designed to happen on-device by default, with privacy-safe reporting only where the user chooses to enable or export it.
 
-## Transparency Matters
+## Transparency Matters 🪟
 
 Trust is earned through transparency and documentation, not just slogans.
 
@@ -44,13 +44,13 @@ BubblesTheDev Web Browser supports that trust model through public documentation
 
 That is why the project documents its architecture, update model, privacy approach, and release history in plain repository documentation instead of treating those areas like hidden implementation details.
 
-## What Makes It Different?
+## What Makes It Different? 🧠
 
 What makes the browser different is not a claim to be invisible or magical. It is the combination of a local-first philosophy, stronger user control, accessibility-minded features, diagnostics visibility, profile management, security controls, and clearer performance visibility.
 
 The goal is not to build user profiles, drive behavioral tracking, or lock users into an ecosystem. The goal is to provide a practical Windows browser that still gives people more control over their own browser environment, clearer ways to inspect behavior, and better separation between everyday browsing, profile management, and higher-risk actions.
 
-## Built For Real Everyday Use
+## Built For Real Everyday Use 💻
 
 BubblesTheDev Web Browser is designed to be privacy-focused without feeling stripped down.
 
@@ -77,7 +77,7 @@ BubblesTheDev Web Browser is a Windows browser designed for everyday browsing wh
 
 It is meant to feel like a practical daily browser, not just a privacy experiment or a stripped-down shell. The project combines familiar browser features such as tabs, bookmarks, downloads, saved passwords, a built-in home page, split view, and media tools with stronger local-first defaults, clearer diagnostics, and more visible runtime controls.
 
-Version `1.2.13` continues that direction as a maintenance release focused on dependency security updates while keeping the packaged browser build current.
+Version `1.2.15` continues that direction as a maintenance release focused on dependency updates and the bundled `yt-dlp.exe 2026.6.9` refresh while keeping the packaged browser build current.
 
 The overall goal is simple:
 
@@ -86,9 +86,10 @@ The overall goal is simple:
 * keep more browser behavior local and inspectable
 * give users better visibility into performance, stability, and diagnostics
 
-## What's New In 1.2.13 ✨
+## What's New In 1.2.15 ✨
 
 * Refreshed locked dependencies for the current packaged build
+* Updated bundled `yt-dlp.exe` to `2026.6.9`
 * Kept browser-controlled update downloads with the regular installer flow completed by the end user
 * Kept the browser's current local-first privacy, profile, accessibility, and diagnostics feature set intact
 * Continued current installer-based update behavior without adding new headline browser features
@@ -243,7 +244,7 @@ The architecture is intentionally local-first and tries to keep the browser's mo
 
 Installer file name:
 
-`BubblesTheDev Web Browser_Installer_1.2.13.exe`
+`BubblesTheDev Web Browser_Installer_1.2.15.exe`
 
 Platform:
 
