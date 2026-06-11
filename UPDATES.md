@@ -10,12 +10,12 @@ Project news and community update posts are shared in the official Discord serve
 
 ## Current Release
 
-- Version `1.2.13` is the current release.
+- Version `1.2.15` is the current release.
 - Older versions are not supported for current fixes and improvements.
 
 Current documentation highlights for this release:
 
-- the current release is a maintenance update focused on dependency security updates
+- the current release is a maintenance update focused on dependency updates and the bundled `yt-dlp.exe 2026.6.9` refresh
 - browser profiles, Guest Mode, optional profile PIN protection, and profile recovery controls remain part of the current browser build
 - encrypted profile secrets, session snapshots, restore points, and profile backup or restore behavior remain part of the local-first browser model
 - the multilingual foundation still includes `679` supported locale packs and `453` base language families
