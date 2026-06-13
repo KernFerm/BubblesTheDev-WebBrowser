@@ -2,7 +2,7 @@
 
 > A browser built for privacy, control, and a smoother everyday experience.
 
-[![Version](https://img.shields.io/badge/version-1.2.15-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
+[![Version](https://img.shields.io/badge/version-1.2.40-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Platform](https://img.shields.io/badge/platform-Windows%2011-0078D6)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Electron](https://img.shields.io/badge/Electron-42-47848F?logo=electron&logoColor=white)](https://www.electronjs.org/)
 
@@ -77,7 +77,7 @@ BubblesTheDev Web Browser is a Windows browser designed for everyday browsing wh
 
 It is meant to feel like a practical daily browser, not just a privacy experiment or a stripped-down shell. The project combines familiar browser features such as tabs, bookmarks, downloads, saved passwords, a built-in home page, split view, and media tools with stronger local-first defaults, clearer diagnostics, and more visible runtime controls.
 
-Version `1.2.15` continues that direction as a maintenance release focused on dependency updates and the bundled `yt-dlp.exe 2026.6.9` refresh while keeping the packaged browser build current.
+Version `1.2.40` continues that direction as a bug-fix and reliability release focused on `12` fixes across AI behavior, diagnostics handling, update resilience, renderer safety, and settings consistency.
 
 The overall goal is simple:
 
@@ -86,15 +86,17 @@ The overall goal is simple:
 * keep more browser behavior local and inspectable
 * give users better visibility into performance, stability, and diagnostics
 
-## What's New In 1.2.15 ✨
+## What's New In 1.2.40 ✨
 
-* Refreshed locked dependencies for the current packaged build
-* Updated bundled `yt-dlp.exe` to `2026.6.9`
+* Fixed `12` browser bugs across AI, diagnostics, updates, renderer safety, and settings behavior
+* Fixed local AI, diagnostics, and updater fail-closed behavior so ordinary warnings no longer disable those systems for the session
+* Fixed privileged renderer UI paths that were still using `innerHTML`
+* Fixed AI and diagnostics toggle sync and placeholder-state issues in the browser panel
 * Kept browser-controlled update downloads with the regular installer flow completed by the end user
 * Kept the browser's current local-first privacy, profile, accessibility, and diagnostics feature set intact
-* Continued current installer-based update behavior without adding new headline browser features
+* Continued current installer-based update behavior without adding a new headline browser feature
 
-In practical terms, this release is focused on maintenance, update-flow polish, and day-to-day reliability improvements rather than a new headline browser feature.
+In practical terms, this release is focused on bug fixes, runtime resilience, and day-to-day reliability improvements rather than a new headline browser feature.
 
 ## Main Features 🚀
 
@@ -244,7 +246,7 @@ The architecture is intentionally local-first and tries to keep the browser's mo
 
 Installer file name:
 
-`BubblesTheDev Web Browser_Installer_1.2.15.exe`
+`BubblesTheDev Web Browser_Installer_1.2.40.exe`
 
 Platform:
 
@@ -295,3 +297,4 @@ If you want more detail, the repo also includes:
 * `Data-Collection-and-Privacy-Notice.md` for the plain-language privacy notice
 * `Browser-Privacy-Comparison.md` for the broader privacy comparison view
 * `CHANGELOG.md` for release-to-release changes
+
