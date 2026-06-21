@@ -1,13 +1,28 @@
 # Changelog
 
-This changelog summarizes notable public release changes through version `1.2.40`.
+This changelog summarizes notable public release changes through version `1.2.80`.
 
-## 1.2.40
+## Unreleased
+
+### Fixed
+
+- Fixed browser history import so supported local Edge, Chrome, Brave, Opera, and Firefox history sources are read from temporary safe copies of their databases instead of the live database path.
+- Fixed browser history import source discovery so supported Chromium profile-based history locations can be found beyond a single default profile.
+- Fixed extension import scanning so supported Chromium browser profiles are searched more broadly for importable extensions.
+- Fixed manual extension import so the user can select an extension file and the browser resolves the owning extension root from its `manifest.json`.
 
 ### Updated
 
-- The package version was advanced to `1.2.40`.
-- Release-facing documentation was updated to reflect version `1.2.40`.
+- Updated the browser-side extensions panel copy to use simpler end-user wording for scan and manual import behavior.
+- Updated the manual extension import flow to guide the user toward the extension `manifest.json` file instead of a generic folder-only instruction.
+- Updated the shipped `locales` folders so current module-level locale packs are fully translated instead of relying on broad English placeholder coverage.
+
+## 1.2.80
+
+### Updated
+
+- The package version was advanced to `1.2.80`.
+- Release-facing documentation was updated to reflect version `1.2.80`.
 - Public release messaging now reflects a bug-fix and reliability release instead of the earlier dependency-refresh messaging.
 
 ### Fixed
@@ -32,11 +47,11 @@ This changelog summarizes notable public release changes through version `1.2.40
 
 ### Release
 
-- The `1.2.40` Windows installer package name is `BubblesTheDev Web Browser_Installer_1.2.40.exe`.
+- The `1.2.80` Windows installer package name is `BubblesTheDev Web Browser_Installer_1.2.80.exe`.
 
 ### Notes
 
-- Version `1.2.40` is a bug-fix and reliability release focused on `12` fixes across local AI behavior, diagnostics handling, update resilience, and privileged renderer safety.
+- Version `1.2.80` is a bug-fix and reliability release focused on `12` fixes across local AI behavior, diagnostics handling, update resilience, and privileged renderer safety.
 
 ## 1.2.15
 
