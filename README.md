@@ -2,7 +2,7 @@
 
 > A browser built for privacy, control, and a smoother everyday experience.
 
-[![Version](https://img.shields.io/badge/version-1.2.40-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
+[![Version](https://img.shields.io/badge/version-1.2.80-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Platform](https://img.shields.io/badge/platform-Windows%2011-0078D6)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Electron](https://img.shields.io/badge/Electron-42-47848F?logo=electron&logoColor=white)](https://www.electronjs.org/)
 
@@ -77,7 +77,7 @@ BubblesTheDev Web Browser is a Windows browser designed for everyday browsing wh
 
 It is meant to feel like a practical daily browser, not just a privacy experiment or a stripped-down shell. The project combines familiar browser features such as tabs, bookmarks, downloads, saved passwords, a built-in home page, split view, and media tools with stronger local-first defaults, clearer diagnostics, and more visible runtime controls.
 
-Version `1.2.40` continues that direction as a bug-fix and reliability release focused on `12` fixes across AI behavior, diagnostics handling, update resilience, renderer safety, and settings consistency.
+Version `1.2.80` continues that direction as a bug-fix and reliability release focused on `12` fixes across AI behavior, diagnostics handling, update resilience, renderer safety, and settings consistency.
 
 The overall goal is simple:
 
@@ -86,7 +86,7 @@ The overall goal is simple:
 * keep more browser behavior local and inspectable
 * give users better visibility into performance, stability, and diagnostics
 
-## What's New In 1.2.40 ✨
+## What's New In 1.2.80 ✨
 
 * Fixed `12` browser bugs across AI, diagnostics, updates, renderer safety, and settings behavior
 * Fixed local AI, diagnostics, and updater fail-closed behavior so ordinary warnings no longer disable those systems for the session
@@ -177,6 +177,8 @@ This part of the browser is intended to stay local-first. The AI layer is used f
 
 The multilingual layer is designed to scale without turning into a cloud translation system. Language data stays local, translation packs are checked before use, and the browser applies translated interface text in a safer way.
 
+The local `locales` folder has also been refreshed across the shipped modules so the current locale packs are fully translated for the browser's supported interface surfaces instead of being left as partial English-first placeholders.
+
 ### Streaming Hub 🎬
 
 The browser includes an isolated Streaming Hub for supported providers. Supported services currently include:
@@ -219,6 +221,7 @@ These features are aimed at keeping the browser usable during heavier sessions s
 ### Extra Tools 🛠️
 
 * extension import support
+* browser history import support
 * VPN tools and public IP checks
 * passkey compatibility for supported sites
 * local-only Music Player
@@ -226,6 +229,15 @@ These features are aimed at keeping the browser usable during heavier sessions s
 * profile backup, restore, and recovery tools
 
 These tools are meant to make the browser feel more complete without turning it into a cloud-heavy utility platform. Where possible, these features stay local, use explicit user action, and expose their behavior through the browser UI instead of hidden background collection.
+
+History import can read supported local browser history from Edge, Chrome, Brave, Opera, and Firefox, or from a user-chosen history file. The browser-side importer works from a temporary safe copy of supported local history databases instead of trying to modify or depend on the live browser database in place.
+
+Extension import supports two paths:
+
+* scan installed Edge, Chrome, Brave, and Opera browser profiles for importable Chromium extensions
+* manually select an extension `manifest.json` file when the user wants to import a specific extension from disk
+
+For manual extension import, the browser UI explains the plain-English path: open the old browser's extensions page, enable Developer Mode, find the extension, open its folder on disk, and choose that extension's `manifest.json` file.
 
 ## Architecture At A Glance 🏗️
 
@@ -246,7 +258,7 @@ The architecture is intentionally local-first and tries to keep the browser's mo
 
 Installer file name:
 
-`BubblesTheDev Web Browser_Installer_1.2.40.exe`
+`BubblesTheDev Web Browser_Installer_1.2.80.exe`
 
 Platform:
 
