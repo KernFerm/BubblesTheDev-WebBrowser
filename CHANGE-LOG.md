@@ -2,7 +2,6 @@
 
 This changelog summarizes notable public release changes through version `1.2.80`.
 
-## Unreleased
 
 ### Fixed
 
@@ -23,27 +22,11 @@ This changelog summarizes notable public release changes through version `1.2.80
 
 - The package version was advanced to `1.2.80`.
 - Release-facing documentation was updated to reflect version `1.2.80`.
-- Public release messaging now reflects a bug-fix and reliability release instead of the earlier dependency-refresh messaging.
-
-### Fixed
-
-- Fixed `12` browser bugs across the AI, diagnostics, update, renderer, and settings flows.
-- Fixed local AI fail-closed handling so routine runtime warnings no longer disable the whole AI subsystem.
-- Fixed local AI recovery so successful health review resets the local AI failure counter for the current session.
-- Fixed the `Privacy-Safe Problem Reporting` checkbox so it now reflects the real saved diagnostics setting.
-- Fixed AI and diagnostics toggles so failed async updates roll back cleanly instead of leaving the checkbox visually out of sync.
-- Fixed initial AI and diagnostics panel placeholder state so it no longer briefly shows the wrong saved setting while live state is loading.
-- Fixed the shared toggle renderer so privileged UI text no longer uses the earlier `innerHTML` sink.
-- Fixed the diagnostics IPC validator so `maxReportsPerDay` is accepted consistently with the diagnostics service.
-- Fixed the remaining privileged renderer `innerHTML` sinks in the toolbar clock and language panel.
-- Fixed diagnostics fail-closed handling so normal skipped sends, rate limits, and ordinary report failures no longer shut diagnostics off for the session.
-- Fixed diagnostics recovery so successful diagnostics sends reset the diagnostics failure counter.
-- Fixed update fail-closed handling so normal update-server connectivity warnings no longer disable updates for the session.
+- Public release documentation was aligned with the current `1.2.80` release.
 
 ### Security And Privacy
 
-- The browser continues its local-first privacy posture with no new public-facing telemetry or analytics behavior.
-- Privileged renderer UI now avoids the remaining known `innerHTML` sinks that were still present in the browser chrome.
+- The browser continues its local-first privacy posture with no new public-facing telemetry or analytics behavior documented for this release.
 
 ### Release
 
@@ -51,7 +34,7 @@ This changelog summarizes notable public release changes through version `1.2.80
 
 ### Notes
 
-- Version `1.2.80` is a bug-fix and reliability release focused on `12` fixes across local AI behavior, diagnostics handling, update resilience, and privileged renderer safety.
+- Version `1.2.80` is the current documented public release in this changelog.
 
 ## 1.2.15
 
