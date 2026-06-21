@@ -2,7 +2,7 @@
 
 ## Architecture Overview
 
-This document explains the high-level runtime shape of BubblesTheDev Web Browser version `1.2.40`.
+This document explains the high-level runtime shape of BubblesTheDev Web Browser version `1.2.80`.
 
 ## Design Goals
 
@@ -35,7 +35,7 @@ The main process owns:
 
 ## Profile Architecture
 
-Version `1.2.40` keeps the broader browser profile system while keeping the browser local-first.
+Version `1.2.80` keeps the broader browser profile system while keeping the browser local-first.
 
 The current profile runtime includes:
 
@@ -51,9 +51,22 @@ The current profile runtime includes:
 * profile restore points, integrity checks, repair paths, and safer rollback handling
 * profile backup and restore behavior that stays local and browser-controlled
 
+## Import Surfaces
+
+The current browser import surfaces stay inside the trusted browser side and are designed to be explicit about local file and profile access.
+
+The current import behavior includes:
+
+* bookmark import from supported local browser paths or a user-chosen bookmark file
+* history import from supported local browser profiles or a user-chosen history file
+* temporary safe-copy handling for supported Chromium and Firefox history databases before reading them
+* extension import scanning across supported Chromium profile roots instead of only a single default profile path
+* manual extension import through a selected `manifest.json` file that resolves back to the owning extension folder
+* explicit user consent gates before browser-path scanning or manual file selection
+
 ## Local AI Architecture
 
-Version `1.2.40` keeps the local AI layer on-device by default while carrying forward the broader accessibility, startup, installer, media-tool, multilingual, and newer profile-system refinements from the earlier `1.1.x` releases.
+Version `1.2.80` keeps the local AI layer on-device by default while carrying forward the broader accessibility, startup, installer, media-tool, multilingual, and newer profile-system refinements from the earlier `1.1.x` releases.
 
 The current AI runtime includes:
 
@@ -83,7 +96,7 @@ The current session health system:
 
 Diagnostics are generated locally.
 
-Version `1.2.40` includes:
+Version `1.2.80` includes:
 
 * manual encrypted diagnostics export
 * an `AI & Diagnostics` panel
@@ -95,7 +108,7 @@ Version `1.2.40` includes:
 
 ## Accessibility Model
 
-Version `1.2.40` also keeps the expanded browser accessibility layer.
+Version `1.2.80` also keeps the expanded browser accessibility layer.
 
 The current accessibility runtime includes:
 
@@ -107,7 +120,7 @@ The current accessibility runtime includes:
 
 ## Localization Architecture
 
-Version `1.2.40` keeps the centralized localization manager in the main process and now routes the newer profile and auth UI strings through that same protected pipeline.
+Version `1.2.80` keeps the centralized localization manager in the main process and now routes the newer profile and auth UI strings through that same protected pipeline.
 
 The localization runtime now includes:
 
@@ -132,8 +145,9 @@ The current multilingual foundation now carries:
 * `679` supported locale packs
 * `453` base language families
 * inheritance-first locale growth so new language or regional entries can reuse trusted local bundles instead of duplicating full translation trees
+* refreshed locale-module coverage across the shipped `locales` folders so the current interface packs are fully translated at the module level
 
-This is intentionally a strong starting point for future expansion rather than a claim of fully human-translated parity across every supported language family. The architecture is built so translation depth can continue growing without redesigning the renderer or weakening the browser's security model.
+This remains a strong starting point for future expansion, but the current shipped locale folders have been updated so the browser's module-level interface coverage is no longer relying on broad placeholder English fallbacks. The architecture is still built so translation depth can continue growing without redesigning the renderer or weakening the browser's security model.
 
 ## Security Model
 
@@ -172,7 +186,7 @@ Current local-first characteristics include:
 
 ## Startup And Update Coordination
 
-Version `1.2.40` also keeps the runtime shape where the main window can open sooner while slower background work continues after launch.
+Version `1.2.80` also keeps the runtime shape where the main window can open sooner while slower background work continues after launch.
 
 Current startup and update characteristics include:
 
