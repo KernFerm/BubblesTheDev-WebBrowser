@@ -1,6 +1,6 @@
-# Global User Rights Notice
+# EU Digital Rights Notice
 
-This document explains the privacy, security, transparency, and user-control principles behind BubblesTheDev Web Browser for users worldwide.
+This document explains how BubblesTheDev Web Browser is designed to support privacy, user control, transparency, accessibility, and data-protection expectations for users in the European Union and European Economic Area.
 
 This document is informational only and does not replace legal advice.
 
@@ -16,29 +16,52 @@ Security fixes are generally provided for the most recent stable release of the 
 
 BubblesTheDev Web Browser is a desktop web browser project.
 
-It is designed for users who want clearer control, privacy-focused defaults, local-first browser data handling, and visible documentation around browser behavior.
+It is not a social media platform, marketplace, app store, advertising network, cloud storage provider, or public content-hosting service.
 
-The browser is not a social media platform, marketplace, app store, cloud storage provider, advertising network, government identity service, or public content-hosting service.
+The browser is designed around:
 
-## Core User Rights Supported By The Browser
+* local-first browser data handling
+* privacy-focused defaults
+* user-controlled diagnostics behavior
+* isolated browser profile support
+* accessibility-focused improvements
+* browser-controlled installer-based update behavior
 
-The browser is designed around user-first principles such as:
+## EU Digital Rights Principles
 
-* the right to privacy
-* the right to transparency
-* the right to control local browser data
-* the right to understand update behavior
-* the right to manage site permissions
-* the right to use the browser without built-in behavioral analytics
-* the right to use the browser without built-in advertising profiles
-* the right to local-first features where possible
-* the right to understand diagnostics behavior
-* the right to understand local AI behavior
-* the right to accessibility-focused improvements
+The browser is designed to support user-first principles such as:
 
-## Local-First Design
+* privacy
+* transparency
+* user control
+* accessibility
+* local-first data handling
+* clear permission behavior
+* clear update behavior
+* clear diagnostics behavior
 
-The browser is designed so ordinary browser data stays on the user's device by default.
+The browser is also designed to avoid built-in telemetry, built-in analytics for ordinary browsing, built-in behavioral advertising profiles, and cloud synchronization by default.
+
+## GDPR-Related User Rights
+
+Users in the European Union and European Economic Area may have rights under data-protection law when personal data is processed.
+
+Depending on the situation, those rights may include:
+
+* the right to be informed
+* the right of access
+* the right to rectification
+* the right to erasure
+* the right to restriction of processing
+* the right to data portability
+* the right to object
+* rights related to automated decision-making and profiling
+
+The browser is designed to reduce the amount of personal data processed by the browser project itself by keeping ordinary browser data local by default.
+
+## Local-First Browser Data
+
+Normal browser data is intended to remain on the user's device by default.
 
 Local browser data may include:
 
@@ -46,7 +69,7 @@ Local browser data may include:
 * browsing history and bookmarks
 * saved-password metadata and encrypted password storage
 * per-site permission settings
-* profile preferences and recovery data
+* browser profile preferences and recovery data
 * one linked connected-account identity per profile where the user chooses to use it, including provider, email, display name, and avatar presentation
 * supported streaming-session data
 * optional Music Player and Music Downloader settings
@@ -54,13 +77,9 @@ Local browser data may include:
 * local diagnostics data
 * install-linked metadata for custom or external-drive installs
 
-Standard profiles are intended to remain isolated from one another. Guest browsing is intended to remain non-persistent.
+Standard browser profiles are intended to remain isolated from one another. Guest browsing is intended to remain non-persistent.
 
-## Storage Protection
-
-Browser-state data is designed to remain local.
-
-Where stronger system-backed protection is available, the browser uses it. Saved-password values are intended to be encrypted before being written to disk.
+Stored browser data is designed to remain local. Where stronger system-backed protection is available, the browser uses it.
 
 ## No Built-In Telemetry Or Analytics For Ordinary Browsing
 
@@ -100,7 +119,7 @@ The browser may include a browser-controlled installer update flow with visible 
 
 The update model is intended to remain visible and user-controlled rather than a hidden silent update service.
 
-If the browser bundle includes the same trusted-root certificate that is already present in the current user's trusted-root store, the installer can skip repeating the certificate-install prompt. If a later build includes a different bundled replacement certificate, Windows may still require the user to confirm trust for that new certificate.
+If the browser bundle includes the same trusted-root certificate that is already present in the current user's trusted-root store, the installer can skip repeating the certificate-install prompt. If the bundled certificate changes in a later build, Windows may still require the user to confirm trust for that replacement certificate.
 
 Installed update flows are also intended to preserve ordinary browser data during normal version replacement by performing an extra local save and session-flush pass before the browser closes for installation.
 
@@ -129,11 +148,9 @@ Current public expectations include:
 * no cloud-sync expectation for AI memory
 * local `AI & Diagnostics` panel state can remain available when that panel is closed and reopened within the browser
 
-If a current-session AI health or runtime-status feature is present, it should be treated as a browser runtime indicator rather than a permanent user score.
-
 ## Accessibility And Inclusive Use
 
-The browser includes accessibility-focused features intended to make browsing easier to use for more people.
+The browser includes accessibility-focused features intended to improve usability for more people.
 
 Current public documentation includes support for features such as:
 
@@ -142,28 +159,30 @@ Current public documentation includes support for features such as:
 * reduced-motion and high-contrast support
 * persistent local accessibility preferences
 
-## User Control
+## Automated Decision-Making And Profiling
 
-Users should remain in control of their browser experience.
+The browser is not designed to make legal, employment, housing, credit, health, insurance, government-benefit, or similarly significant automated decisions about users.
 
-That may include control over:
+It is not designed to create behavioral advertising profiles.
 
-* browser settings
-* browsing history and bookmarks
-* site permissions
-* downloads
-* saved passwords
-* supported streaming sessions
-* profile creation, switching, and recovery actions where supported
-* diagnostics export and supported privacy-safe diagnostics controls
-* update checks where available
-* uninstall data-removal choices
+If a current-session AI health or runtime-status feature is present, it should be treated as a browser runtime indicator rather than a permanent user score or decision system.
+
+## Site Permissions And Profile Controls
+
+The browser may support:
+
+* per-site permission settings
+* profile creation and switching
+* optional profile locking
+* backup, restore, and recovery actions where supported
+
+Users should review site permissions carefully when a website requests sensitive access.
 
 If a user chooses to link a supported provider account such as GitHub, Discord, or Google to a browser profile, the user can generally revoke that provider access later from the provider's own account settings or authorized-applications page.
 
 ## Important Limitations
 
-No browser can control every part of the internet.
+No browser can make every website private.
 
 Websites, internet service providers, operating systems, extensions, VPN providers, search engines, streaming services, authenticators, payment services, and other third parties may still process information depending on how the user chooses to use the web.
 
