@@ -1,6 +1,69 @@
 # Changelog
 
-This changelog summarizes notable public release changes through version `1.2.80`.
+This changelog summarizes notable public release changes through version `1.2.100`.
+
+## 1.2.100
+
+### Updated
+
+- The package version was advanced to `1.2.100`.
+- Release-facing documentation was updated to reflect version `1.2.100`.
+- Public update documentation was clarified so normal browser clients can still receive updates without shipping a shared client update secret in the browser files.
+- Public security and privacy documentation was refreshed to describe direct provider sign-in by default and the reduced update-check data posture in simpler language.
+
+### Security And Privacy
+
+- The browser no longer ships a default shared client update secret in public configuration.
+- Public-facing docs now reflect that ordinary installed browser clients can still check for updates while admin-only release management remains separate.
+- Public-facing docs continue to avoid sensitive operational details and personal information.
+
+### Release
+
+- The `1.2.100` Windows installer package name is `BubblesTheDev Web Browser_Installer_1.2.100.exe`.
+
+### Notes
+
+- Version `1.2.100` is the current documented public release in this changelog.
+
+## 1.2.85
+
+### Updated
+
+- The package version was advanced to `1.2.85`.
+- Release-facing documentation was updated to reflect version `1.2.85`.
+- Locked dependencies were refreshed for the current packaged build.
+
+### Security And Privacy
+
+- This maintenance release keeps the browser's current local-first privacy posture with no new public-facing telemetry or analytics behavior documented for this release.
+
+### Release
+
+- The `1.2.85` Windows installer package name is `BubblesTheDev Web Browser_Installer_1.2.85.exe`.
+
+### Notes
+
+- Version `1.2.85` was the documented public release before `1.2.100`.
+
+## 1.2.83
+
+### Updated
+
+- The package version was advanced to `1.2.83`.
+- Release-facing documentation was updated to reflect version `1.2.83`.
+- Locked dependencies were refreshed for the current packaged build.
+
+### Security And Privacy
+
+- This maintenance release keeps the browser's current local-first privacy posture with no new public-facing telemetry or analytics behavior documented for this release.
+
+### Release
+
+- The `1.2.83` Windows installer package name is `BubblesTheDev Web Browser_Installer_1.2.83.exe`.
+
+### Notes
+
+- Version `1.2.83` was the documented public release before `1.2.85`.
 
 
 ### Fixed
@@ -34,7 +97,7 @@ This changelog summarizes notable public release changes through version `1.2.80
 
 ### Notes
 
-- Version `1.2.80` is the current documented public release in this changelog.
+- Version `1.2.80` was the documented public release before `1.2.83`.
 
 ## 1.2.15
 
