@@ -12,7 +12,7 @@ Security fixes are generally provided for the most recent stable release of the 
 
 | Version | Supported |
 | ------- | --------- |
-| **1.2.80** | Yes |
+| **1.2.100** | Yes |
 | Older versions | No |
 
 Users should run the latest available version of the browser to receive the newest security fixes and improvements.
@@ -112,6 +112,7 @@ The browser is developed with a reduced-surface approach that emphasizes:
 * strict separation between web content and privileged browser operations
 * tighter controls around downloads, diagnostics, profile handling, and other higher-risk browser features
 * visible, user-controlled, browser-controlled installer update behavior with progress visibility and regular installer handoff rather than a hidden always-on updater model
+* direct provider sign-in by default unless a separate brokered flow is explicitly enabled by the browser operator
 
 Public security documentation is intentionally kept high-level. Detailed implementation behavior may change between releases and is documented separately where appropriate.
 
