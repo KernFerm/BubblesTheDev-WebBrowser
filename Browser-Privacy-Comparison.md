@@ -4,7 +4,7 @@
 
 This document gives a high-level privacy comparison between BubblesTheDev Web Browser and other mainstream browsers. It is intentionally broad and user-facing.
 
-This document reflects the current privacy posture of BubblesTheDev Web Browser version `1.2.80`.
+This document reflects the current privacy posture of BubblesTheDev Web Browser version `1.2.100`.
 
 The goal is accuracy, not marketing language. The browser does not include built-in telemetry, analytics SDKs, cloud sync, or a fully silent hidden always-on auto-updater client. It still makes normal network requests when the user browses the web, searches, signs into websites, uses supported authentication flows, or downloads files.
 
@@ -70,6 +70,7 @@ BubblesTheDev Web Browser is designed around a local-first model:
 * local AI features are designed to stay on-device where supported
 * guest browsing remains non-persistent
 * update behavior stays browser-controlled and installer-based rather than a hidden always-on patch service
+* normal installed browser clients can reach update-check and client check-in routes without depending on a bundled shared client secret in the shipped app files
 * certificate trust prompts can be skipped when the same bundled trusted-root certificate is already present, while new bundled replacement certificates may still require Windows confirmation
 * installed update handoff now performs an extra local save pass before closing so normal browser data is less likely to be lost during update installation
 * the local `AI & Diagnostics` panel now keeps its local draft and preview state when reopened instead of resetting that renderer-side state immediately
