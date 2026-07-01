@@ -2,7 +2,7 @@
 
 > A Windows 11 browser for people who want clearer privacy controls, visible project docs, and a more understandable daily browser.
 
-[![Version](https://img.shields.io/badge/version-1.2.80-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
+[![Version](https://img.shields.io/badge/version-1.2.100-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Platform](https://img.shields.io/badge/platform-Windows%2011-0078D6)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Electron](https://img.shields.io/badge/Electron-42-47848F?logo=electron&logoColor=white)](https://www.electronjs.org/)
 
@@ -87,7 +87,7 @@ BubblesTheDev Web Browser is a Windows browser built around a simple idea: peopl
 
 It keeps familiar browser features like tabs, bookmarks, downloads, saved passwords, a built-in home page, split view, and media tools, but pairs them with stronger local-first defaults, clearer runtime visibility, and a more inspectable project surface.
 
-Version `1.2.80` continues that direction with better import tooling and stronger shipped locale coverage while keeping the browser's local-first privacy, profile, accessibility, multilingual, and everyday browsing feature set.
+Version `1.2.100` continues that direction as a maintenance release that keeps the browser current while preserving its local-first privacy, profile, accessibility, multilingual, and everyday browsing feature set.
 
 The overall goal is simple:
 
@@ -96,16 +96,15 @@ The overall goal is simple:
 * make sensitive features easier to inspect and control
 * reduce the amount of hidden behavior users have to trust blindly
 
-## What's New In 1.2.80 ✨
+## What's New In 1.2.100 ✨
 
-* Improved browser history import so supported Edge, Chrome, Brave, Opera, and Firefox history sources are read more safely from temporary copies instead of the live database path
-* Improved browser history source discovery so supported Chromium-based profile history can be found beyond a single default profile
-* Improved extension import scanning so supported Edge, Chrome, Brave, and Opera browser profiles are searched more broadly for importable extensions
-* Improved manual extension import so the user can choose an extension `manifest.json` file and the browser resolves the correct extension root automatically
-* Updated the extension import wording in the browser UI so manual import steps are clearer in plain English for end users
-* Refreshed the shipped `locales` folders so current module-level locale packs are fully translated instead of leaning on broad English placeholder coverage
+* Advanced the packaged browser version to `1.2.100`
+* Refreshed release-facing documentation so the current public docs match the packaged build
+* Clarified that normal installed browser clients can still receive updates without shipping a shared client update secret in the browser files
+* Clarified that supported provider sign-in uses the direct browser flow by default unless a separate brokered setup is explicitly enabled
+* Kept the current profile, diagnostics, accessibility, localization, import, and streaming feature set in place
 
-In practical terms, version `1.2.80` improves migration and localization work without changing the browser's broader local-first direction.
+In practical terms, version `1.2.100` is a maintenance release that keeps the browser current while better documenting the browser's safer current auth and update behavior.
 
 ## Main Features 🚀
 
@@ -267,7 +266,7 @@ The architecture is intentionally local-first and tries to keep the browser's mo
 
 Installer file name:
 
-`BubblesTheDev Web Browser_Installer_1.2.80.exe`
+`BubblesTheDev Web Browser_Installer_1.2.100.exe`
 
 Platform:
 
@@ -288,6 +287,7 @@ Instead:
 * installed builds download updates first and then open the regular installer so the user can complete the installer prompts
 * installed builds can perform an extra local save and session-flush pass before update installation closes the browser
 * installed update behavior can create or refresh a Desktop folder named `BubblesTheDev - WebBrowser Update Notes` so the current bundled release notes stay visible locally
+* the public browser package does not need to ship a shared client update secret just to let normal users receive updates
 
 That means updates are still browser-controlled and installer-based instead of behaving like a hidden background patch service. The browser can help with background update checks, automatic downloads where supported, visible progress, and regular installer handoff while still relying on the packaged installer model underneath.
 
