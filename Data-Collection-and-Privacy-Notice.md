@@ -1,6 +1,6 @@
 # Data Collection and Privacy Notice
 
-This notice explains the current privacy posture of BubblesTheDev Web Browser version `1.2.80`.
+This notice explains the current privacy posture of BubblesTheDev Web Browser version `1.2.100`.
 
 BubblesTheDev Web Browser is designed to keep ordinary browser data local to the user's device unless the user chooses to browse websites, use search providers, download files, export diagnostics, or enable optional privacy-safe reporting features where supported.
 
@@ -101,6 +101,8 @@ If a future browser build includes a different replacement certificate, Windows 
 Installed update flows are intended to preserve ordinary browser data during normal version replacement.
 
 Current update behavior includes an extra local save pass before a managed update install closes the browser, including normal browser-state persistence, password persistence, profile restore-point capture, and browser-session storage flush attempts.
+
+The shipped browser application is also no longer expected to carry a shared client update secret in its public configuration files just to let normal installed users check for updates.
 
 ## Streaming, Music, And AI Features
 
