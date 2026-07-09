@@ -1,6 +1,54 @@
 # Changelog
 
-This changelog summarizes notable public release changes through version `1.2.100`.
+This changelog summarizes notable public release changes through version `1.2.110`.
+
+## 1.2.110
+
+### Updated
+
+- The package version was advanced to `1.2.110`.
+- Release-facing documentation was updated to reflect version `1.2.110`.
+- The Bubbles Search Engine now blends real on-page results from DuckDuckGo and Google instead of relying on a single-provider-first flow.
+- Search results rendered on `bubbles://home` now show which provider supplied each result card.
+
+### Features
+
+- Added the lightweight animated `Aurora Drift` shell theme.
+- Removed the older `Casual` shell theme from the current built-in theme list.
+- Improved the custom local-image banner theme flow so banner images present more cleanly across the browser shell.
+- Refined the Bubbles home search experience so `Bubbles` mode uses both DuckDuckGo and Google together.
+
+### Release
+
+- The `1.2.110` Windows installer package name is `BubblesTheDev Web Browser_Installer_1.2.110.exe`.
+
+### Notes
+
+- Version `1.2.110` is the current documented public release in this changelog.
+
+## 1.2.105
+
+### Updated
+
+- The package version was advanced to `1.2.105`.
+- The Electron dependency line was refreshed to `43.1.0`.
+- Bundled `yt-dlp.exe` was updated to `2026.07.04`.
+- Bundled `ffmpeg.exe` and `ffprobe.exe` were updated to `8.1.2`.
+- Release-facing documentation was updated to reflect version `1.2.105`.
+
+### Features
+
+- Added more built-in shell themes, including `Aurora Glow`, `Ember Night`, and `Ocean Mist`.
+- Added a custom local-image banner theme so the user can choose a picture from their own computer.
+- Improved custom theme image fitting so uploaded images present more cleanly across the browser shell.
+
+### Release
+
+- The `1.2.105` Windows installer package name is `BubblesTheDev Web Browser_Installer_1.2.105.exe`.
+
+### Notes
+
+- Version `1.2.105` was the documented public release before `1.2.110`.
 
 ## 1.2.100
 
@@ -23,7 +71,7 @@ This changelog summarizes notable public release changes through version `1.2.10
 
 ### Notes
 
-- Version `1.2.100` is the current documented public release in this changelog.
+- Version `1.2.100` was the documented public release before `1.2.105`.
 
 ## 1.2.85
 
