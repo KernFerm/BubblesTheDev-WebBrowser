@@ -2,9 +2,9 @@
 
 > A Windows 11 browser for people who want clearer privacy controls, visible project docs, and a more understandable daily browser.
 
-[![Version](https://img.shields.io/badge/version-1.2.100-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
+[![Version](https://img.shields.io/badge/version-1.2.110-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Platform](https://img.shields.io/badge/platform-Windows%2011-0078D6)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
-[![Electron](https://img.shields.io/badge/Electron-42-47848F?logo=electron&logoColor=white)](https://www.electronjs.org/)
+[![Electron](https://img.shields.io/badge/Electron-43-47848F?logo=electron&logoColor=white)](https://www.electronjs.org/)
 
 ## Why Choose BubblesTheDev Web Browser? 🌟
 
@@ -87,7 +87,7 @@ BubblesTheDev Web Browser is a Windows browser built around a simple idea: peopl
 
 It keeps familiar browser features like tabs, bookmarks, downloads, saved passwords, a built-in home page, split view, and media tools, but pairs them with stronger local-first defaults, clearer runtime visibility, and a more inspectable project surface.
 
-Version `1.2.100` continues that direction as a maintenance release that keeps the browser current while preserving its local-first privacy, profile, accessibility, multilingual, and everyday browsing feature set.
+Version `1.2.110` continues that direction as a maintenance release that keeps the browser current while preserving its local-first privacy, profile, accessibility, multilingual, and everyday browsing feature set.
 
 The overall goal is simple:
 
@@ -96,15 +96,19 @@ The overall goal is simple:
 * make sensitive features easier to inspect and control
 * reduce the amount of hidden behavior users have to trust blindly
 
-## What's New In 1.2.100 ✨
+## What's New In 1.2.110 ✨
 
-* Advanced the packaged browser version to `1.2.100`
+* Advanced the packaged browser version to `1.2.110`
+* Updated the browser runtime to the current Electron `43.1.0` package line
+* Expanded shell-theme personalization with `Aurora Glow`, `Aurora Drift`, `Ember Night`, and `Ocean Mist`
+* Added a custom local-image banner theme so end users can choose a picture from their own computer
+* Improved custom theme image fitting so less-wide images are presented more cleanly instead of looking scrunched into the top bar
+* Removed the older `Casual` shell theme from the current built-in theme list
+* Improved `bubbles://home` so Bubbles search now blends DuckDuckGo and Google results on-page and labels the result source
+* Refreshed bundled media tools to `yt-dlp.exe 2026.07.04` and `ffmpeg.exe` / `ffprobe.exe 8.1.2`
 * Refreshed release-facing documentation so the current public docs match the packaged build
-* Clarified that normal installed browser clients can still receive updates without shipping a shared client update secret in the browser files
-* Clarified that supported provider sign-in uses the direct browser flow by default unless a separate brokered setup is explicitly enabled
-* Kept the current profile, diagnostics, accessibility, localization, import, and streaming feature set in place
 
-In practical terms, version `1.2.100` is a maintenance release that keeps the browser current while better documenting the browser's safer current auth and update behavior.
+In practical terms, version `1.2.110` is a maintenance release that keeps the browser current while also improving desktop theme personalization and refreshing the bundled browser toolchain.
 
 ## Main Features 🚀
 
@@ -112,6 +116,7 @@ In practical terms, version `1.2.100` is a maintenance release that keeps the br
 
 * multi-tab browsing
 * built-in `bubbles://home` start page
+* Bubbles Search Engine with blended provider-backed results
 * bookmarks and bookmark bar
 * browsing history
 * pinned tabs
@@ -223,7 +228,8 @@ Each supported streaming service is intended to run in its own isolated session 
 * built-in Task Manager
 * runtime checks panel
 * Profile Security panel
-* multiple built-in themes
+* multiple built-in themes, including an animated `Aurora Drift` option
+* custom local-image banner themes
 These features are aimed at keeping the browser usable during heavier sessions such as gaming, streaming, multitasking, or long browsing runs. The browser can back off more aggressively in the background, reduce unnecessary work, and surface a current-session health view so users can see when the browser is under more pressure.
 
 ### Extra Tools 🛠️
@@ -266,7 +272,7 @@ The architecture is intentionally local-first and tries to keep the browser's mo
 
 Installer file name:
 
-`BubblesTheDev Web Browser_Installer_1.2.100.exe`
+`BubblesTheDev Web Browser_Installer_1.2.110.exe`
 
 Platform:
 
