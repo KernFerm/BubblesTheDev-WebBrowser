@@ -2,7 +2,7 @@
 
 > A Windows 11 browser for people who want clearer privacy controls, visible project docs, and a more understandable daily browser.
 
-[![Version](https://img.shields.io/badge/version-1.2.110-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
+[![Version](https://img.shields.io/badge/version-1.2.130-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Platform](https://img.shields.io/badge/platform-Windows%2011-0078D6)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Electron](https://img.shields.io/badge/Electron-43-47848F?logo=electron&logoColor=white)](https://www.electronjs.org/)
 
@@ -87,7 +87,7 @@ BubblesTheDev Web Browser is a Windows browser built around a simple idea: peopl
 
 It keeps familiar browser features like tabs, bookmarks, downloads, saved passwords, a built-in home page, split view, and media tools, but pairs them with stronger local-first defaults, clearer runtime visibility, and a more inspectable project surface.
 
-Version `1.2.110` continues that direction as a maintenance release that keeps the browser current while preserving its local-first privacy, profile, accessibility, multilingual, and everyday browsing feature set.
+Version `1.2.130` continues that direction as a maintenance release that keeps the browser current while preserving its local-first privacy, profile, accessibility, multilingual, and everyday browsing feature set.
 
 The overall goal is simple:
 
@@ -96,19 +96,18 @@ The overall goal is simple:
 * make sensitive features easier to inspect and control
 * reduce the amount of hidden behavior users have to trust blindly
 
-## What's New In 1.2.110 ✨
+## What's New In 1.2.130 ✨
 
-* Advanced the packaged browser version to `1.2.110`
-* Updated the browser runtime to the current Electron `43.1.0` package line
-* Expanded shell-theme personalization with `Aurora Glow`, `Aurora Drift`, `Ember Night`, and `Ocean Mist`
-* Added a custom local-image banner theme so end users can choose a picture from their own computer
-* Improved custom theme image fitting so less-wide images are presented more cleanly instead of looking scrunched into the top bar
-* Removed the older `Casual` shell theme from the current built-in theme list
-* Improved `bubbles://home` so Bubbles search now blends DuckDuckGo and Google results on-page and labels the result source
-* Refreshed bundled media tools to `yt-dlp.exe 2026.07.04` and `ffmpeg.exe` / `ffprobe.exe 8.1.2`
+* Advanced the packaged browser version to `1.2.130`
+* Refreshed locked dependencies for the current packaged build
+* Moved the top menu structure into `More tools` so in-browser menu access is easier to reach
+* Added a top-menu enable or disable toggle from `More tools`
+* Added zoom controls to `More tools` and to the page right-click menu
+* Expanded the page right-click menu so `Cut`, `Copy`, and `Paste` are surfaced more clearly
+* Removed the performance-panel update-installation card because the current updater flow is already automatic
 * Refreshed release-facing documentation so the current public docs match the packaged build
 
-In practical terms, version `1.2.110` is a maintenance release that keeps the browser current while also improving desktop theme personalization and refreshing the bundled browser toolchain.
+In practical terms, version `1.2.130` is a maintenance release that keeps the browser current while also refining how everyday browser controls and menus are surfaced in the UI.
 
 ## Main Features 🚀
 
@@ -272,7 +271,7 @@ The architecture is intentionally local-first and tries to keep the browser's mo
 
 Installer file name:
 
-`BubblesTheDev Web Browser_Installer_1.2.110.exe`
+`BubblesTheDev Web Browser_Installer_1.2.130.exe`
 
 Platform:
 
