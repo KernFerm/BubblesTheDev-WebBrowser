@@ -1,6 +1,51 @@
 # Changelog
 
-This changelog summarizes notable public release changes through version `1.2.110`.
+This changelog summarizes notable public release changes through version `1.2.130`.
+
+## 1.2.130
+
+### Updated
+
+- The package version was advanced to `1.2.130`.
+- Locked dependencies were refreshed for the current packaged build.
+- Release-facing documentation was updated to reflect version `1.2.130`.
+- The top menu structure is now also accessible from `More tools` for easier in-app access.
+
+### Changed
+
+- The `Update Installation` card was removed from the performance panel because the current updater flow already runs in automatic installer-handoff mode.
+- `More tools` now includes a top-menu visibility toggle so the native menu bar can be enabled or disabled from inside the browser.
+- Zoom controls are now available from `More tools` and from the page right-click context menu.
+- The page right-click context menu now surfaces `Cut`, `Copy`, and `Paste` actions more clearly.
+
+### Release
+
+- The `1.2.130` Windows installer package name is `BubblesTheDev Web Browser_Installer_1.2.130.exe`.
+
+### Notes
+
+- Version `1.2.130` is the current documented public release in this changelog.
+
+## 1.2.115
+
+### Updated
+
+- The package version was advanced to `1.2.115`.
+- Locked dependencies were refreshed for the current packaged build.
+- Release-facing documentation was updated to reflect version `1.2.115`.
+- Package author metadata was normalized to a cleaner npm-compatible format while keeping the same name, brand, and support email.
+
+### Installer
+
+- Desktop and Start Menu shortcuts were updated so future rebuilt Windows installers can create shortcuts with the hover description `Access the Internet with privacy.`
+
+### Release
+
+- The `1.2.115` Windows installer package name is `BubblesTheDev Web Browser_Installer_1.2.115.exe`.
+
+### Notes
+
+- Version `1.2.115` was the documented public release before `1.2.130`.
 
 ## 1.2.110
 
@@ -24,7 +69,7 @@ This changelog summarizes notable public release changes through version `1.2.11
 
 ### Notes
 
-- Version `1.2.110` is the current documented public release in this changelog.
+- Version `1.2.110` was the documented public release before `1.2.115`.
 
 ## 1.2.105
 
