@@ -4,7 +4,7 @@
 
 This document gives a high-level privacy comparison between BubblesTheDev Web Browser and other mainstream browsers. It is intentionally broad and user-facing.
 
-This document reflects the current privacy posture of BubblesTheDev Web Browser version `1.2.110`.
+This document reflects the current privacy posture of BubblesTheDev Web Browser version `1.2.130`.
 
 The goal is accuracy, not marketing language. The browser does not include built-in telemetry, analytics SDKs, cloud sync, or a fully silent hidden always-on auto-updater client. It still makes normal network requests when the user browses the web, searches, signs into websites, uses supported authentication flows, or downloads files.
 
