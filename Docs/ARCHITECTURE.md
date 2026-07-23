@@ -2,7 +2,7 @@
 
 ## Architecture Overview
 
-This document explains the high-level runtime shape of BubblesTheDev Web Browser version `1.2.145`.
+This document explains the high-level runtime shape of BubblesTheDev Web Browser version `1.2.160`.
 
 ## Design Goals
 
@@ -30,12 +30,14 @@ The main process owns:
 * downloads and diagnostics windows
 * performance-management policy
 * Streaming Hub isolation
+* Secure DNS preference normalization and restart prompting
+* local-network Send to Device discovery and delivery
 * installer and update coordination
 * local AI and diagnostics service orchestration
 
 ## Profile Architecture
 
-Version `1.2.145` keeps the broader browser profile system while keeping the browser local-first.
+Version `1.2.160` keeps the broader browser profile system while keeping the browser local-first.
 
 The current profile runtime includes:
 
@@ -66,7 +68,7 @@ The current import behavior includes:
 
 ## Local AI Architecture
 
-Version `1.2.145` keeps the local AI layer on-device by default while carrying forward the broader accessibility, startup, installer, media-tool, multilingual, and newer profile-system refinements from the earlier `1.1.x` releases.
+Version `1.2.160` keeps the local AI layer on-device by default while carrying forward the broader accessibility, startup, installer, media-tool, multilingual, and newer profile-system refinements from the earlier `1.1.x` releases.
 
 The current AI runtime includes:
 
@@ -96,7 +98,7 @@ The current session health system:
 
 Diagnostics are generated locally.
 
-Version `1.2.145` includes:
+Version `1.2.160` includes:
 
 * manual encrypted diagnostics export
 * an `AI & Diagnostics` panel
@@ -108,10 +110,11 @@ Version `1.2.145` includes:
 * local shell-theme customization, including a custom local-image banner theme path
 * a lightweight animated shell-theme path through the built-in `Aurora Drift` theme
 * blended internal search results on `bubbles://home` using DuckDuckGo and Google together
+* security-panel controls for Secure DNS providers, visible DNS addresses, and password breach warning settings
 
 ## Accessibility Model
 
-Version `1.2.145` also keeps the expanded browser accessibility layer.
+Version `1.2.160` also keeps the expanded browser accessibility layer.
 
 The current accessibility runtime includes:
 
@@ -123,7 +126,7 @@ The current accessibility runtime includes:
 
 ## Localization Architecture
 
-Version `1.2.145` keeps the centralized localization manager in the main process and now routes the newer profile and auth UI strings through that same protected pipeline.
+Version `1.2.160` keeps the centralized localization manager in the main process and now routes the newer profile and auth UI strings through that same protected pipeline.
 
 The localization runtime now includes:
 
@@ -186,13 +189,15 @@ Current local-first characteristics include:
 * guest profile state does not persist after close
 * diagnostics remain local unless the user exports them or enables privacy-safe reporting
 * no built-in telemetry or analytics systems are part of the normal browser runtime
+* local Send to Device traffic is designed for same-Wi-Fi or same-LAN discovery instead of cloud account sync
+* Secure DNS remains user-controlled and requires a browser restart when DNS settings change
 * accessibility preferences stay local by default
 * locale preferences, locale diagnostics, and translation validation stay local by default
 * installed update checks no longer need a bundled shared client secret in the shipped browser files
 
 ## Startup And Update Coordination
 
-Version `1.2.145` also keeps the runtime shape where the main window can open sooner while slower background work continues after launch.
+Version `1.2.160` also keeps the runtime shape where the main window can open sooner while slower background work continues after launch.
 
 Current startup and update characteristics include:
 
