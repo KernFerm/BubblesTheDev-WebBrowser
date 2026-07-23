@@ -4,7 +4,7 @@
 
 This document gives a high-level privacy comparison between BubblesTheDev Web Browser and other mainstream browsers. It is intentionally broad and user-facing.
 
-This document reflects the current privacy posture of BubblesTheDev Web Browser version `1.2.145`.
+This document reflects the current privacy posture of BubblesTheDev Web Browser version `1.2.160`.
 
 The goal is accuracy, not marketing language. The browser does not include built-in telemetry, analytics SDKs, cloud sync, or a fully silent hidden always-on auto-updater client. It still makes normal network requests when the user browses the web, searches, signs into websites, uses supported authentication flows, or downloads files.
 
@@ -38,6 +38,8 @@ This table is intentionally high-level. Mainstream browsers change over time, an
 | Built-in ad / tracker controls | Built-in ad and tracker blocking | Ad Privacy controls, not a built-in blocker | Tracking Prevention | Brave Shields | Enhanced Tracking Protection | Privacy Report and cross-site tracking protections | Built-in Ad Blocker and Tracker blocker | Built-in Tracker and Ad Blocker |
 | Per-site permissions | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
 | Passkey / WebAuthn support | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
+| Secure DNS controls | Provider selection with visible DNS addresses and restart prompt when changes need to apply | Secure DNS controls | Secure DNS controls | Secure DNS controls | DNS over HTTPS controls | Platform/browser DNS behavior varies | Secure DNS controls vary | Secure DNS controls |
+| Same-network Send to Device | Local LAN sharing for devices on the same Wi-Fi/network, without Google account sync or built-in telemetry | Google account/device sharing features | Microsoft account/device sharing features | Sync/device behavior varies | Firefox account/device sharing features | Apple ecosystem sharing features | Sync/device behavior varies | Sync/device behavior varies |
 | Download protection model | Windows-native browser-managed download protection | Safe Browsing and download protections | Microsoft Defender SmartScreen and browser protections | Safe Browsing plus Brave protections | Safe Browsing and browser protections | Platform and Safari protections | Browser protections | Browser protections |
 | Streaming hub | Built-in Streaming Hub for supported services | No built-in equivalent documented | No built-in equivalent documented | No built-in equivalent documented | No built-in equivalent documented | No built-in equivalent documented | No built-in equivalent documented | No built-in equivalent documented |
 | Streaming session isolation | Supported services run in isolated browser-managed sessions | No built-in equivalent documented | No built-in equivalent documented | No built-in equivalent documented | No built-in equivalent documented | No built-in equivalent documented | No built-in equivalent documented | No built-in equivalent documented |
@@ -67,6 +69,8 @@ BubblesTheDev Web Browser is designed around a local-first model:
 * up to `10` local browser profiles can exist per installation
 * each profile can carry one connected-account identity for clearer name and avatar presentation without turning the browser into a required cloud-sync platform
 * diagnostics stay local unless the user explicitly exports them or enables privacy-safe reporting
+* Local Send to Device uses same-Wi-Fi or local-network discovery rather than a required Google account or cloud sync dependency
+* Secure DNS settings are user-controlled and show the selected provider's DNS addresses where available
 * local AI features are designed to stay on-device where supported
 * guest browsing remains non-persistent
 * update behavior stays browser-controlled and installer-based rather than a hidden always-on patch service
