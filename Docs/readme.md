@@ -1,12 +1,12 @@
-﻿# BubblesTheDev Web Browser
+# BubblesTheDev Web Browser
 
 > A Windows 11 browser for people who want clearer privacy controls, visible project docs, and a more understandable daily browser.
 
-[![Version](https://img.shields.io/badge/version-1.2.145-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
+[![Version](https://img.shields.io/badge/version-1.2.160-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Platform](https://img.shields.io/badge/platform-Windows%2011-0078D6)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Electron](https://img.shields.io/badge/Electron-43-47848F?logo=electron&logoColor=white)](https://www.electronjs.org/)
 
-## Why Choose BubblesTheDev Web Browser? 🌟
+## Why Choose BubblesTheDev Web Browser?
 
 Most people do not need a magical browser. They need one they can understand.
 
@@ -14,7 +14,7 @@ BubblesTheDev Web Browser is built for users who want a browser that still feels
 
 The point is not to promise invisibility. The point is to give people a browser they can review before they install, understand while they use it, and manage without guessing what it is doing in the background.
 
-## Privacy First 🔐
+## Privacy First
 
 Privacy here is framed as a design choice, not a marketing slogan.
 
@@ -38,7 +38,7 @@ The browser is meant to surface privacy behavior in a more direct way. Standard 
 
 The same idea applies to local AI and diagnostics. Summaries, health feedback, and diagnostic previews are intended to happen on-device by default, with privacy-safe reporting only when the user explicitly enables or exports it.
 
-## Transparency Matters 🪟
+## Transparency Matters
 
 Trust has to be earned before a browser asks to be downloaded.
 
@@ -46,7 +46,7 @@ That is why this project keeps public documentation for privacy behavior, archit
 
 Instead of hiding the important parts behind vague promises, the project tries to keep those details visible in plain repository documentation.
 
-## What Makes It Different? 🧠
+## What Makes It Different?
 
 What makes the browser different is not one single feature. It is the combination of:
 
@@ -60,7 +60,7 @@ What makes the browser different is not one single feature. It is the combinatio
 
 The browser is not trying to become a tracking platform, an ecosystem lock-in tool, or a vague "privacy brand." It is trying to be a browser that stays usable while giving people more ownership over their own browsing environment.
 
-## Built For Real Everyday Use 💻
+## Built For Real Everyday Use
 
 This is meant to be a browser people can actually use, not just admire as a privacy concept.
 
@@ -81,13 +81,13 @@ It includes:
 
 The result is a browser aimed at real daily use: browsing, managing tabs, separating profiles, using streaming services, handling heavier sessions, using accessibility features, and recovering local browser state when something goes wrong without turning hidden background collection into the center of the product.
 
-## What Is It? 👋
+## What Is It?
 
 BubblesTheDev Web Browser is a Windows browser built around a simple idea: people should be able to use a modern browser without giving up clear control over privacy, profiles, diagnostics, accessibility, and local browser data.
 
 It keeps familiar browser features like tabs, bookmarks, downloads, saved passwords, a built-in home page, split view, and media tools, but pairs them with stronger local-first defaults, clearer runtime visibility, and a more inspectable project surface.
 
-Version `1.2.145` continues that direction as a maintenance release that keeps the browser current while preserving its local-first privacy, profile, accessibility, multilingual, and everyday browsing feature set.
+Version `1.2.160` continues that direction as a browser-polish and privacy-control release that keeps the browser current while preserving its local-first privacy, profile, accessibility, multilingual, and everyday browsing feature set.
 
 The overall goal is simple:
 
@@ -96,33 +96,47 @@ The overall goal is simple:
 * make sensitive features easier to inspect and control
 * reduce the amount of hidden behavior users have to trust blindly
 
-## What's New In 1.2.145 ✨
+## What's New In 1.2.160
 
-* Advanced the packaged browser version to `1.2.145`
-* Updated the bundled `yt-dlp.exe` to `2026.07.04`
+* Advanced the packaged browser version to `1.2.160`
+* Updated the bundled `yt-dlp.exe` to `2026.07.05`
 * Refreshed release-facing documentation so the current public docs match the packaged build
 * Fixed Streaming Hub provider connect pages so they no longer open zoomed out
 * Fixed normal website zoom behavior so unrelated pages no longer inherit a stale zoomed-out tab state
+* Added persistent pinned sites with real site icons where available
+* Added a scrollable saved-bookmarks list to the bookmarks menu
+* Added local same-network Send to Device support with no Google account dependency or telemetry, plus clearer setup notes that both devices need BubblesTheDev WebBrowser installed
+* Added Privacy & Security panel improvements, including Secure DNS provider address details and a restart-browser prompt for DNS changes
+* Enabled password breach warnings by default for normalized security settings
+* Added QR code page sharing and a Create Shortcut option for saving the current page as a Windows shortcut
+* Refined the Profile Manager with a larger default window, friendlier wording, and a more polished desktop visual design
+* Refined the main browser toolbar into a cleaner primary row with a round icon-only Tools button and grouped navigation controls
+* Updated the keyboard shortcuts guide with Profile Manager (`Ctrl+Shift+P`), Focus Mode (`F10`), and Windows exit (`Alt+F4`)
 
-In practical terms, version `1.2.145` is a maintenance release that keeps the browser current while also keeping the public docs aligned with the packaged build.
+In practical terms, version `1.2.160` keeps the browser current while improving daily browsing polish, local sharing, and security-setting clarity.
 
-## Main Features 🚀
+## Main Features
 
-### Everyday Browsing 🧭
+### Everyday Browsing
 
 * multi-tab browsing
 * built-in `bubbles://home` start page
 * Bubbles Search Engine with blended provider-backed results
 * bookmarks and bookmark bar
+* scrollable bookmarks menu list
 * browsing history
-* pinned tabs
+* pinned tabs and persistent pinned sites
 * tab mute controls
 * split-view browsing
 * full-screen support
+* QR code page sharing
+* Create Shortcut page sharing
+* updated keyboard shortcuts guide
+* same-network Send to Device setup notes for Windows 11 PCs, with mobile support coming soon
 
 The everyday browsing layer is meant to stay familiar. You still get a normal browser shell with address bar navigation, bookmarks, history, and utility panels, but the surrounding browser behavior is designed to stay more understandable and more local-first than many mainstream browser experiences.
 
-### Privacy And Security 🔒
+### Privacy And Security
 
 * local-first browser data handling
 * no built-in telemetry or analytics
@@ -134,6 +148,9 @@ The everyday browsing layer is meant to stay familiar. You still get a normal br
 * Windows-friendly download protection
 * encrypted saved-password storage
 * encrypted profile secrets and backups
+* Secure DNS controls with visible provider addresses
+* password breach warning controls
+* Privacy & Security panel controls
 * per-site permission controls
 * sandboxed and isolated browser runtime
 * local accessibility and reading controls
@@ -142,9 +159,10 @@ The browser tries to keep privacy and security features understandable instead o
 
 It is not an offline-only browser, and it does not pretend normal web traffic is the same thing as telemetry. The privacy model is local-first, user-controlled, and intentionally more explicit about what stays on-device.
 
-### Profiles And Recovery 🧩
+### Profiles And Recovery
 
 * profile manager UI
+* larger polished Profile Manager window
 * isolated profile sessions
 * profile switching
 * per-profile session snapshots
@@ -158,7 +176,7 @@ The profile layer is designed to keep ordinary browsing, saved state, and recove
 
 Connected-account identity linking is optional. Where supported, profiles may link identities from providers such as GitHub, Discord, or Google. End users can generally revoke that provider access later from the provider's own account settings or authorized-applications page.
 
-### Local AI And Diagnostics 🤖
+### Local AI And Diagnostics
 
 * `AI & Diagnostics` panel in the browser UI
 * offline local summarization
@@ -173,7 +191,7 @@ Connected-account identity linking is optional. Where supported, profiles may li
 
 This part of the browser is intended to stay local-first. The AI layer is used for offline summaries, runtime analysis, and current-session health feedback rather than cloud-based assistant behavior. Standard profiles can keep encrypted AI memory locally, while incognito sessions do not persist that memory across sessions.
 
-### Multilingual Platform 🌍
+### Multilingual Platform
 
 * automatic locale detection
 * manual language override
@@ -188,7 +206,7 @@ The multilingual layer is designed to scale without turning into a cloud transla
 
 The local `locales` folder has also been refreshed across the shipped modules so the current locale packs are fully translated for the browser's supported interface surfaces instead of being left as partial English-first placeholders.
 
-### Streaming Hub 🎬
+### Streaming Hub
 
 The browser includes an isolated Streaming Hub for supported providers. Supported services currently include:
 
@@ -215,7 +233,7 @@ The browser includes an isolated Streaming Hub for supported providers. Supporte
 
 Each supported streaming service is intended to run in its own isolated session instead of the shared normal browsing session. That helps keep streaming sign-in state more separated, reduces cross-service mixing, and allows service sessions to be managed more independently from normal browsing activity.
 
-### Performance And Power Features ⚡
+### Performance And Power Features
 
 * gaming and streaming performance mode
 * background tab throttling
@@ -228,7 +246,7 @@ Each supported streaming service is intended to run in its own isolated session 
 * custom local-image banner themes
 These features are aimed at keeping the browser usable during heavier sessions such as gaming, streaming, multitasking, or long browsing runs. The browser can back off more aggressively in the background, reduce unnecessary work, and surface a current-session health view so users can see when the browser is under more pressure.
 
-### Extra Tools 🛠️
+### Extra Tools
 
 * extension import support
 * browser history import support
@@ -249,7 +267,7 @@ Extension import supports two paths:
 
 For manual extension import, the browser UI explains the plain-English path: open the old browser's extensions page, enable Developer Mode, find the extension, open its folder on disk, and choose that extension's `manifest.json` file.
 
-## Architecture At A Glance 🏗️
+## Architecture At A Glance
 
 The browser is built on Electron and keeps higher-risk parts of the app under browser-controlled protection.
 
@@ -264,11 +282,11 @@ At a high level:
 
 The architecture is intentionally local-first and tries to keep the browser's more sensitive features inside the trusted runtime side of the app.
 
-## Installer 📦
+## Installer
 
 Installer file name:
 
-`BubblesTheDev Web Browser_Installer_1.2.145.exe`
+`BubblesTheDev Web Browser_Installer_1.2.160.exe`
 
 Platform:
 
@@ -276,7 +294,7 @@ Platform:
 
 The current installer still uses a Windows installer package instead of a silent always-on patch service. Recent builds let installed versions show update download progress more clearly, download the new version automatically where supported, and then open the regular installer so the user can complete the installer prompts.
 
-## Updating 🔄
+## Updating
 
 The browser does not rely on a silent always-on updater.
 
@@ -293,7 +311,7 @@ Instead:
 
 That means updates are still browser-controlled and installer-based instead of behaving like a hidden background patch service. The browser can help with background update checks, automatic downloads where supported, visible progress, and regular installer handoff while still relying on the packaged installer model underneath.
 
-## Privacy Summary 🛡️
+## Privacy Summary
 
 This browser is built to keep things simple and local-first.
 
@@ -311,7 +329,7 @@ It does:
 
 It does not promise zero network activity, because websites, search, downloads, passkeys, streaming services, and updates can still use the network when the user chooses those features. The privacy goal is not "offline-only"; it is "local-first, transparent, and limited by default."
 
-## Related Docs 📚
+## Related Docs
 
 If you want more detail, the repo also includes:
 
