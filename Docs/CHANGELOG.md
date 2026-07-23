@@ -1,6 +1,35 @@
 # Changelog
 
-This changelog summarizes notable public release changes through version `1.2.145`.
+This changelog summarizes notable public release changes through version `1.2.160`.
+
+## 1.2.160
+
+### Updated
+
+- The package version was advanced to `1.2.160`.
+- Release-facing documentation was updated to reflect version `1.2.160`.
+- Bundled `yt-dlp.exe` is now version `2026.07.05`.
+- Secure DNS settings now show provider DNS addresses in the security panel.
+- Password breach warnings are enabled by default for newly normalized security settings.
+- The Privacy & Security panel now includes clearer Secure DNS provider details, password breach warning controls, and restart guidance for DNS changes.
+- Local Send to Device support now uses same-Wi-Fi LAN discovery without Google account dependency or telemetry, with clearer panel notes that both devices need BubblesTheDev WebBrowser installed.
+- Page sharing now includes QR code generation and a `Create Shortcut` option for saving the current page as a Windows shortcut.
+- The Profile Manager page has a cleaner desktop layout and friendlier end-user wording for profiles, PINs, and local data.
+- The Profile Manager now opens in a larger default window and uses a more polished grey desktop background with stronger blue/orange neon panel accents.
+- The main browser toolbar layout was refined so the clock, Tools button, navigation controls, address bar, user-agent selector, Go button, and status pills sit in a cleaner primary row.
+- The keyboard shortcuts guide now documents `Ctrl+Shift+P` for Profile Manager, `F10` for Focus Mode, and `Alt+F4` for exiting the browser on Windows.
+
+### Fixed
+
+- Fixed pinned sites so they can use the site's icon instead of falling back to a single-letter tile, and pinned sites persist across browser restarts.
+- Fixed the bookmarks menu so users can see and scroll their saved bookmark list from the menu.
+- Added a restart-browser prompt after Secure DNS changes so users can apply DNS settings without guessing what to do next.
+- Fixed QR code generation reliability so page-share QR codes scan correctly on phones, with safer QR popup copy-button handling.
+- Fixed the toolbar Tools button so it uses a round icon-only control while keeping the existing toolbar actions available.
+
+### Notes
+
+- Version `1.2.160` is the current documented public release in this changelog.
 
 ## 1.2.145
 
@@ -19,7 +48,7 @@ This changelog summarizes notable public release changes through version `1.2.14
 
 ### Notes
 
-- Version `1.2.145` is the current documented public release in this changelog.
+- Version `1.2.145` was the documented public release before `1.2.160`.
 
 ## 1.2.140
 
