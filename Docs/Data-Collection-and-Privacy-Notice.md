@@ -1,6 +1,6 @@
 # Data Collection and Privacy Notice
 
-This notice explains the current privacy posture of BubblesTheDev Web Browser version `1.2.145`.
+This notice explains the current privacy posture of BubblesTheDev Web Browser version `1.2.160`.
 
 BubblesTheDev Web Browser is designed to keep ordinary browser data local to the user's device unless the user chooses to browse websites, use search providers, download files, export diagnostics, or enable optional privacy-safe reporting features where supported.
 
@@ -87,8 +87,12 @@ Outbound network traffic can still occur when the user:
 * uses passkey or WebAuthn sign-in flows on supported sites
 * signs into supported streaming services
 * checks for or downloads updates where that feature is available
+* uses Local Send to Device on the same Wi-Fi or local network
+* enables Secure DNS, which routes DNS lookups through the selected DNS-over-HTTPS provider where supported
 
 This network activity is part of normal browser use and should not be confused with built-in telemetry.
+
+Local Send to Device is designed for local network discovery and delivery. It does not require a Google account, browser cloud sync, or built-in telemetry service, and both devices must be connected to the same Wi-Fi or local network for it to work correctly.
 
 ## Certificates And Trust Prompts
 
@@ -115,6 +119,7 @@ Some browser features involve additional local-only or opt-in handling:
 * the `AI & Diagnostics` panel can preserve local draft, preview, summary, and scroll state when the panel is closed and reopened
 * AI memory is intended to remain isolated per profile where supported
 * incognito AI memory is intended to remain non-persistent where supported
+* Local Send to Device is designed for private same-network sharing instead of cloud account sync
 
 ## Uninstall And Data Retention
 
@@ -138,6 +143,7 @@ In practical terms, that means:
 * built-in telemetry and analytics are not part of normal browser use
 * diagnostics stay local unless the user explicitly chooses otherwise
 * guest browsing is intended to remain non-persistent
+* same-network device sharing is local and does not use Google account sync
 * supported AI and accessibility features are designed to remain local where supported
 * websites, search providers, streaming services, and download sources still receive normal traffic when the user chooses to use them
 
