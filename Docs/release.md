@@ -1,24 +1,23 @@
-# BubblesTheDev Web Browser 1.2.210
+# BubblesTheDev Web Browser 1.2.211
 
 Planned release: Week of July 26, 2026
 
-`1.2.210` is the next planned browser update. It builds on the previous documented `1.2.200` release and focuses on making Strict JavaScript fingerprint protection the default for upgraded installs while keeping major media sites compatible.
+`1.2.211` is the next planned browser update. It builds on the previous documented `1.2.210` release and focuses on making the Strict JavaScript fingerprint protection default apply reliably on upgraded PCs that already have saved browser settings.
 
 ## Highlights
 
-* The packaged browser version is now `1.2.210`
-* JavaScript fingerprint protection now has its own Privacy & Security setting
-* JavaScript fingerprint protection defaults to Strict for new and upgraded profiles when the setting is missing
-* New tabs now receive separate Canvas and JavaScript fingerprint protection modes
-* BrowserLeaks-style JavaScript surfaces remain reduced by default, including Client Hints, plugins, Web Audio, and other high-entropy APIs
-* Twitch player compatibility was improved so stream playback controls, pause, and volume controls keep working
-* Release-facing documentation now reflects the planned `1.2.210` update
+* The packaged browser version is now `1.2.211`
+* Security settings now include a versioned privacy-default marker
+* Upgraded installs with missing JavaScript fingerprint protection settings now migrate to Strict on first launch
+* Migrated privacy defaults are saved back to disk so other PCs keep the new Strict setting after restart
+* The Privacy & Security panel still lets users change JavaScript fingerprint protection afterward
+* Release-facing documentation now reflects the planned `1.2.211` update
 
 ## What This Release Means
 
-This is a fingerprint-protection compatibility update.
+This is a fingerprint-protection upgrade-migration update.
 
-If you are already on `1.2.200`, this update keeps the existing stream-stability, blocker, Canvas protection, memory-pressure, menu cleanup, and dependency-audit improvements while making JavaScript fingerprint protection explicit, defaulted to Strict, and easier to control.
+If you are already on `1.2.210`, this update keeps the separate JavaScript fingerprint protection control and Twitch compatibility improvements while making sure older saved settings on other PCs receive the new Strict default.
 
 ## Upgrade Notes
 
@@ -31,25 +30,23 @@ If you are already on `1.2.200`, this update keeps the existing stream-stability
 * Users may see the normal installer window and Windows UAC prompt during updates depending on their system
 * Local Send to Device still requires both devices to be on the same Wi-Fi or local network with BubblesTheDev WebBrowser installed
 
-## New And Fixed In 1.2.210
+## New And Fixed In 1.2.211
 
-* Updated the package version to `1.2.210`
-* Added a separate JavaScript fingerprint protection setting with Strict, Balanced, and Off modes
-* Defaulted missing JavaScript fingerprint protection settings to Strict for upgraded installs
-* Passed separate Canvas and JavaScript fingerprint protection modes into new browser tabs
-* Added live update handling for both Canvas and JavaScript protection modes
-* Added Twitch compatibility handling so Twitch-owned player resources and controls keep working
-* Updated release-facing documentation so the docs reflect the planned `1.2.210` release
+* Updated the package version to `1.2.211`
+* Added a versioned privacy-default marker to saved security settings
+* Migrated missing JavaScript fingerprint protection values to Strict for upgraded installs
+* Persisted migrated privacy defaults after loading saved browser settings
+* Updated release-facing documentation so the docs reflect the planned `1.2.211` release
 
 ## Previous Release
 
-The broader stream-stability, blocker, memory-pressure, Canvas protection, JavaScript surface reduction, and dependency-audit feature set was documented in `1.2.200`.
+The broader separate JavaScript fingerprint protection setting, Twitch compatibility, and live Canvas/JavaScript protection update handling were documented in `1.2.210`.
 
 ## Package
 
 Installer:
 
-`BubblesTheDev Web Browser_Installer_1.2.210.exe`
+`BubblesTheDev Web Browser_Installer_1.2.211.exe`
 
 SHA-256:
 
