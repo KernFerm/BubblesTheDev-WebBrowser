@@ -2,7 +2,7 @@
 
 > A Windows 11 browser for people who want clearer privacy controls, visible project docs, and a more understandable daily browser.
 
-[![Version](https://img.shields.io/badge/version-1.2.200-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
+[![Version](https://img.shields.io/badge/version-1.2.210-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Platform](https://img.shields.io/badge/platform-Windows%2011-0078D6)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Electron](https://img.shields.io/badge/Electron-43-47848F?logo=electron&logoColor=white)](https://www.electronjs.org/)
 
@@ -87,7 +87,7 @@ BubblesTheDev Web Browser is a Windows browser built around a simple idea: peopl
 
 It keeps familiar browser features like tabs, bookmarks, downloads, saved passwords, a built-in home page, split view, and media tools, but pairs them with stronger local-first defaults, clearer runtime visibility, and a more inspectable project surface.
 
-Version `1.2.200` continues that direction as a stream-stability, blocker, and fingerprint-protection update on top of the previous `1.2.160` browser-polish and privacy-control release.
+Version `1.2.210` continues that direction as a JavaScript fingerprint-protection compatibility update on top of the previous `1.2.200` stream-stability, blocker, and fingerprint-protection release.
 
 The overall goal is simple:
 
@@ -96,20 +96,17 @@ The overall goal is simple:
 * make sensitive features easier to inspect and control
 * reduce the amount of hidden behavior users have to trust blindly
 
-## What's New In 1.2.200
+## What's New In 1.2.210
 
-* Advanced the packaged browser version to `1.2.200`
-* Refreshed release-facing documentation so the planned `1.2.200` docs match the packaged build
-* Tuned OBS, Streamlabs, and fullscreen-game detection so browser background checks run less aggressively while streaming
-* Lowered the memory pressure target so inactive background tabs sleep before the browser approaches `1 GB`
-* Slowed Local AI runtime review cadence to reduce background wakeups
-* Avoided GPU counter sampling during heavy game-plus-stream contexts
-* Expanded built-in ad and tracker blocking with broader local rules
-* Added Canvas fingerprint protection with Strict as the default mode, plus Balanced and Off compatibility options in Privacy & Security
-* Reduced JavaScript fingerprinting surfaces for BrowserLeaks-style `navigator`, Client Hints, and `iframe.contentWindow` checks
-* Cleaned vulnerable npm transitive build-tool dependencies so `npm audit` reports zero known vulnerabilities
+* Advanced the packaged browser version to `1.2.210`
+* Refreshed release-facing documentation so the planned `1.2.210` docs match the packaged build
+* Added a separate JavaScript fingerprint protection setting in Privacy & Security
+* Defaulted missing JavaScript fingerprint protection settings to Strict for upgraded installs
+* Passed separate Canvas and JavaScript fingerprint protection modes into new browser tabs
+* Kept BrowserLeaks-style JavaScript surfaces reduced by default, including Client Hints, plugins, Web Audio, and other high-entropy APIs
+* Improved Twitch compatibility so stream pause and volume controls keep working
 
-In practical terms, version `1.2.200` keeps the `1.2.160` feature set in place while improving browser behavior during game streaming and reducing stable browser fingerprinting signals.
+In practical terms, version `1.2.210` keeps the `1.2.200` feature set in place while making Strict JavaScript fingerprint protection explicit, defaulted, and easier to control.
 
 ## Main Features
 
@@ -282,7 +279,7 @@ The architecture is intentionally local-first and tries to keep the browser's mo
 
 Installer file name:
 
-`BubblesTheDev Web Browser_Installer_1.2.200.exe`
+`BubblesTheDev Web Browser_Installer_1.2.210.exe`
 
 Platform:
 
