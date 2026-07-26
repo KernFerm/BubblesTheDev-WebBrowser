@@ -1,28 +1,24 @@
-# BubblesTheDev Web Browser 1.2.200
+# BubblesTheDev Web Browser 1.2.210
 
 Planned release: Week of July 26, 2026
 
-`1.2.200` is the next planned browser update. It builds on the previous documented `1.2.160` release and focuses on reducing browser-side background pressure while gaming, streaming, or using OBS/Streamlabs while also expanding local privacy protections.
+`1.2.210` is the next planned browser update. It builds on the previous documented `1.2.200` release and focuses on making Strict JavaScript fingerprint protection the default for upgraded installs while keeping major media sites compatible.
 
 ## Highlights
 
-* The packaged browser version is now `1.2.200`
-* Gaming and streaming performance checks are less aggressive while OBS, Streamlabs, or a fullscreen game is active
-* Memory pressure cleanup now starts earlier, around `650 MB`, instead of waiting until the browser is closer to `1 GB`
-* OBS/Streamlabs detection polling now runs less often during live sessions
-* GPU counter sampling is avoided during heavy game-plus-stream contexts
-* Local AI runtime reviews now run less often during normal browser use
-* Built-in ad and tracker blocking now covers broader local host, path, beacon, error-monitoring, YouTube, and ad-asset rules
-* Canvas fingerprint protection now defaults to Strict, with Balanced and Off available for users who need more site compatibility
-* JavaScript fingerprinting surfaces are reduced for common BrowserLeaks-style `navigator` and `iframe.contentWindow` checks
-* Dependency audit cleanup was completed so `npm audit` reports zero known vulnerabilities
-* Release-facing documentation now reflects the planned `1.2.200` update
+* The packaged browser version is now `1.2.210`
+* JavaScript fingerprint protection now has its own Privacy & Security setting
+* JavaScript fingerprint protection defaults to Strict for new and upgraded profiles when the setting is missing
+* New tabs now receive separate Canvas and JavaScript fingerprint protection modes
+* BrowserLeaks-style JavaScript surfaces remain reduced by default, including Client Hints, plugins, Web Audio, and other high-entropy APIs
+* Twitch player compatibility was improved so stream playback controls, pause, and volume controls keep working
+* Release-facing documentation now reflects the planned `1.2.210` update
 
 ## What This Release Means
 
-This is a stream-stability, blocker, fingerprint-protection, and dependency-hygiene update.
+This is a fingerprint-protection compatibility update.
 
-If you are already on `1.2.160`, this update keeps the existing profile, privacy, pinned site, bookmark, QR sharing, Secure DNS, password warning, Send to Device, and toolbar improvements from `1.2.160`, while making the browser less likely to compete with OBS, Streamlabs, Fortnite, or other fullscreen games and reducing stable browser fingerprinting signals.
+If you are already on `1.2.200`, this update keeps the existing stream-stability, blocker, Canvas protection, memory-pressure, menu cleanup, and dependency-audit improvements while making JavaScript fingerprint protection explicit, defaulted to Strict, and easier to control.
 
 ## Upgrade Notes
 
@@ -35,29 +31,25 @@ If you are already on `1.2.160`, this update keeps the existing profile, privacy
 * Users may see the normal installer window and Windows UAC prompt during updates depending on their system
 * Local Send to Device still requires both devices to be on the same Wi-Fi or local network with BubblesTheDev WebBrowser installed
 
-## New And Fixed In 1.2.200
+## New And Fixed In 1.2.210
 
-* Updated the package version to `1.2.200`
-* Reduced browser-side background polling during OBS, Streamlabs, and fullscreen gaming sessions
-* Lowered the default memory pressure target and idle background-tab sleep timing
-* Slowed Local AI runtime review cadence to reduce background wakeups
-* Avoided GPU counter sampling during heavy stream-and-game contexts
-* Expanded built-in ad/tracker blocking with broader local request and cosmetic rules
-* Added Canvas fingerprint protection with Strict, Balanced, and Off modes in Privacy & Security
-* Added Chromium canvas-readback blocking when Canvas protection is not Off
-* Reduced exposed JavaScript fingerprinting APIs including Client Hints, Battery, Network Information, Web Bluetooth, WebGPU, WebUSB, Web Serial, WebHID, WebXR, plugins, speech voices, Web Audio, and ad-auction APIs
-* Cleaned vulnerable npm transitive build-tool dependencies so the current audit is clean
-* Updated release-facing documentation so the docs reflect the planned `1.2.200` release
+* Updated the package version to `1.2.210`
+* Added a separate JavaScript fingerprint protection setting with Strict, Balanced, and Off modes
+* Defaulted missing JavaScript fingerprint protection settings to Strict for upgraded installs
+* Passed separate Canvas and JavaScript fingerprint protection modes into new browser tabs
+* Added live update handling for both Canvas and JavaScript protection modes
+* Added Twitch compatibility handling so Twitch-owned player resources and controls keep working
+* Updated release-facing documentation so the docs reflect the planned `1.2.210` release
 
 ## Previous Release
 
-The broader browser-polish and privacy-control feature set was documented in `1.2.160`. That release included the Profile Manager polish, pinned site persistence, scrollable bookmarks menu, Secure DNS details, password breach warning defaults, QR sharing, Create Shortcut support, same-network Send to Device, toolbar refinements, and keyboard shortcut documentation updates.
+The broader stream-stability, blocker, memory-pressure, Canvas protection, JavaScript surface reduction, and dependency-audit feature set was documented in `1.2.200`.
 
 ## Package
 
 Installer:
 
-`BubblesTheDev Web Browser_Installer_1.2.200.exe`
+`BubblesTheDev Web Browser_Installer_1.2.210.exe`
 
 SHA-256:
 
