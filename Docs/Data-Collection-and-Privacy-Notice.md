@@ -1,6 +1,6 @@
 # Data Collection and Privacy Notice
 
-This notice explains the current privacy posture of BubblesTheDev Web Browser version `1.2.211`.
+This notice explains the current privacy posture of BubblesTheDev Web Browser version `1.2.212`.
 
 BubblesTheDev Web Browser is designed to keep ordinary browser data local to the user's device unless the user chooses to browse websites, use search providers, download files, export diagnostics, or enable optional privacy-safe reporting features where supported.
 
@@ -89,7 +89,7 @@ The blocker is not designed to upload visited URLs, browsing history, or page co
 
 ## Fingerprinting Protection
 
-Version `1.2.211` defaults to Strict Canvas and JavaScript fingerprinting protection. These protections reduce local browser surfaces such as Canvas readouts, Client Hints, Battery Status, Network Information, Web Bluetooth, WebGPU, WebUSB, Web Serial, WebHID, WebXR, plugins, speech voices, Web Audio, and ad-auction APIs where possible.
+Version `1.2.212` defaults to Strict Canvas and JavaScript fingerprinting protection. These protections reduce local browser surfaces such as Canvas readouts, Client Hints, Battery Status, Network Information, Web Bluetooth, WebGPU, WebUSB, Web Serial, WebHID, WebXR, plugins, speech voices, Web Audio, and ad-auction APIs where possible.
 
 Fingerprinting protection runs locally in the browser and is not designed to upload canvas images, page contents, visited URLs, browsing history, or fingerprint values to a remote service. Users can switch to Balanced or Off in Privacy & Security if a site needs more compatibility.
 
