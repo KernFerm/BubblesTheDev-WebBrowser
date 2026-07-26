@@ -4,7 +4,7 @@
 
 This document gives a high-level privacy comparison between BubblesTheDev Web Browser and other mainstream browsers. It is intentionally broad and user-facing.
 
-This document reflects the current privacy posture of BubblesTheDev Web Browser version `1.2.160`.
+This document reflects the current privacy posture of BubblesTheDev Web Browser version `1.2.200`.
 
 The goal is accuracy, not marketing language. The browser does not include built-in telemetry, analytics SDKs, cloud sync, or a fully silent hidden always-on auto-updater client. It still makes normal network requests when the user browses the web, searches, signs into websites, uses supported authentication flows, or downloads files.
 
@@ -35,7 +35,8 @@ This table is intentionally high-level. Mainstream browsers change over time, an
 | Task / process visibility | Built-in Task Manager and runtime surfaces | Chrome Task Manager | Edge Browser Task Manager | No equivalent documented here | Firefox Task Manager / `about:processes` | No comparable built-in task manager documented here | No comparable built-in task manager documented here | No comparable built-in task manager documented here |
 | Local-first browser data | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
 | Built-in telemetry by default | No | Yes | Yes | Limited | Limited | Limited | Limited | Limited |
-| Built-in ad / tracker controls | Built-in ad and tracker blocking | Ad Privacy controls, not a built-in blocker | Tracking Prevention | Brave Shields | Enhanced Tracking Protection | Privacy Report and cross-site tracking protections | Built-in Ad Blocker and Tracker blocker | Built-in Tracker and Ad Blocker |
+| Built-in ad / tracker controls | Built-in local ad and tracker blocking with third-party host, path, beacon, error-monitoring, YouTube, and cosmetic rules | Ad Privacy controls, not a built-in blocker | Tracking Prevention | Brave Shields | Enhanced Tracking Protection | Privacy Report and cross-site tracking protections | Built-in Ad Blocker and Tracker blocker | Built-in Tracker and Ad Blocker |
+| Fingerprinting controls | Strict-by-default Canvas and JavaScript fingerprinting reductions with Balanced and Off compatibility modes | Standard Chromium behavior unless changed by settings/extensions | Standard Chromium behavior plus Edge privacy features | Brave fingerprinting protections | Firefox privacy/fingerprinting settings vary by mode | Safari anti-fingerprinting behavior varies by platform | Browser privacy features vary | Browser privacy features vary |
 | Per-site permissions | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
 | Passkey / WebAuthn support | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
 | Secure DNS controls | Provider selection with visible DNS addresses and restart prompt when changes need to apply | Secure DNS controls | Secure DNS controls | Secure DNS controls | DNS over HTTPS controls | Platform/browser DNS behavior varies | Secure DNS controls vary | Secure DNS controls |
@@ -72,6 +73,8 @@ BubblesTheDev Web Browser is designed around a local-first model:
 * Local Send to Device uses same-Wi-Fi or local-network discovery rather than a required Google account or cloud sync dependency
 * Secure DNS settings are user-controlled and show the selected provider's DNS addresses where available
 * local AI features are designed to stay on-device where supported
+* built-in ad and tracker blocking uses local rules and counters rather than a remote URL-scanning service
+* strict-by-default Canvas and JavaScript fingerprinting protections reduce high-entropy browser surfaces locally
 * guest browsing remains non-persistent
 * update behavior stays browser-controlled and installer-based rather than a hidden always-on patch service
 * normal installed browser clients can reach update-check and client check-in routes without depending on a bundled shared client secret in the shipped app files
