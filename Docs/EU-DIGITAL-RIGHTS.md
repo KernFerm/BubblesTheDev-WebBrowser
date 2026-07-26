@@ -8,7 +8,7 @@ Official website and support contact details are published through the project's
 
 ## Current Documentation Target
 
-This document is aligned with the current public BubblesTheDev Web Browser documentation for version `1.2.160`.
+This document is aligned with the current public BubblesTheDev Web Browser documentation for version `1.2.200`.
 
 Security fixes are generally provided for the most recent stable release of the browser. Older versions are not supported for current security fixes.
 
@@ -26,6 +26,8 @@ The browser is designed around:
 * isolated browser profile support
 * accessibility-focused improvements
 * browser-controlled installer-based update behavior
+* local ad and tracker blocking without remote URL-scanning telemetry
+* local Canvas and JavaScript fingerprinting protection with Strict as the default mode
 
 ## EU Digital Rights Principles
 
@@ -59,6 +61,12 @@ Depending on the situation, those rights may include:
 
 The browser is designed to reduce the amount of personal data processed by the browser project itself by keeping ordinary browser data local by default.
 
+## Fingerprinting Protection
+
+Version `1.2.200` defaults to Strict Canvas and JavaScript fingerprinting protection. These protections reduce high-entropy browser surfaces locally and can be relaxed to Balanced or Off by the user for site compatibility.
+
+The browser does not upload canvas images, page contents, visited URLs, browsing history, or fingerprint values to a remote fingerprinting service.
+
 ## Local-First Browser Data
 
 Normal browser data is intended to remain on the user's device by default.
@@ -75,6 +83,7 @@ Local browser data may include:
 * optional Music Player and Music Downloader settings
 * language and accessibility preferences
 * local diagnostics data
+* local ad and tracker blocking counters
 * install-linked metadata for custom or external-drive installs
 
 Standard browser profiles are intended to remain isolated from one another. Guest browsing is intended to remain non-persistent.
@@ -135,6 +144,14 @@ Current public behavior includes:
 * no ordinary automatic diagnostics upload by default
 
 Diagnostics are intended to remain on-device unless the user explicitly exports them or enables a supported privacy-safe reporting feature.
+
+## Ad And Tracker Blocking
+
+The built-in ad and tracker blocker is designed to run locally.
+
+Current public behavior includes local rules for known ad hosts, tracker hosts, tracking beacon paths, error-monitoring collectors, YouTube ad or tracking endpoints, and obvious ad-slot cosmetic hiding.
+
+Blocked-request counters are local browser status indicators. The blocker is not designed to send visited URLs or page contents to a remote filter service.
 
 ## Local AI Privacy
 
