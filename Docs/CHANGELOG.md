@@ -1,6 +1,24 @@
 # Changelog
 
-This changelog summarizes notable public release changes through version `1.2.210`.
+This changelog summarizes notable public release changes through version `1.2.211`.
+
+## 1.2.211
+
+### Updated
+
+- The package version was advanced to `1.2.211`.
+- Release-facing documentation was updated for the planned `1.2.211` update.
+- Security settings now include a versioned privacy-default marker so upgraded installs can receive new fingerprinting defaults reliably.
+
+### Fixed
+
+- Fixed upgraded PCs that already had saved browser settings so missing JavaScript fingerprint protection now migrates to `Strict` on first launch after update.
+- Persisted migrated privacy defaults back to disk so the Strict JavaScript protection state survives browser restarts on other PCs.
+
+### Notes
+
+- Version `1.2.211` is the next documented release planned for publication this week.
+- Version `1.2.210` was the documented public release before `1.2.211`.
 
 ## 1.2.210
 
@@ -20,7 +38,7 @@ This changelog summarizes notable public release changes through version `1.2.21
 
 ### Notes
 
-- Version `1.2.210` is the next documented release planned for publication this week.
+- Version `1.2.210` was the documented public release before `1.2.211`.
 - Version `1.2.200` was the documented public release before `1.2.210`.
 
 ## 1.2.200
