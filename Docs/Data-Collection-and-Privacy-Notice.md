@@ -1,6 +1,6 @@
 # Data Collection and Privacy Notice
 
-This notice explains the current privacy posture of BubblesTheDev Web Browser version `1.2.160`.
+This notice explains the current privacy posture of BubblesTheDev Web Browser version `1.2.200`.
 
 BubblesTheDev Web Browser is designed to keep ordinary browser data local to the user's device unless the user chooses to browse websites, use search providers, download files, export diagnostics, or enable optional privacy-safe reporting features where supported.
 
@@ -40,6 +40,7 @@ Current local browser data may include:
 * optional Music Player and Music Downloader settings
 * supported streaming-session data
 * cached search results and suggestions used by the browser's internal search experience
+* local ad and tracker blocking counters
 * install-linked metadata for custom or external-drive installs
 
 Guest browsing is intended to remain non-persistent. Standard profiles are intended to remain isolated from one another.
@@ -73,6 +74,24 @@ Current behavior includes:
 * no ordinary automatic diagnostics upload by default
 
 Diagnostic data is intended to remain on-device unless the user explicitly exports it or explicitly enables a supported privacy-safe reporting feature.
+
+## Ad And Tracker Blocking
+
+The built-in ad and tracker blocker runs locally in the browser.
+
+Current behavior includes:
+
+* local request blocking for known ad networks, tracker hosts, error-monitoring collectors, tracking beacon paths, and selected YouTube ad or tracking endpoints
+* local cosmetic hiding for obvious ad slots and blocked banner shells
+* local per-tab and session counters for blocked ads and trackers
+
+The blocker is not designed to upload visited URLs, browsing history, or page contents to a remote filtering service.
+
+## Fingerprinting Protection
+
+Version `1.2.200` defaults to Strict Canvas and JavaScript fingerprinting protection. These protections reduce local browser surfaces such as Canvas readouts, Client Hints, Battery Status, Network Information, Web Bluetooth, WebGPU, WebUSB, Web Serial, WebHID, WebXR, plugins, speech voices, Web Audio, and ad-auction APIs where possible.
+
+Fingerprinting protection runs locally in the browser and is not designed to upload canvas images, page contents, visited URLs, browsing history, or fingerprint values to a remote service. Users can switch to Balanced or Off in Privacy & Security if a site needs more compatibility.
 
 ## Network Activity
 
