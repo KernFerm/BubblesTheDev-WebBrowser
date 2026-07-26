@@ -1,6 +1,27 @@
 # Changelog
 
-This changelog summarizes notable public release changes through version `1.2.200`.
+This changelog summarizes notable public release changes through version `1.2.210`.
+
+## 1.2.210
+
+### Updated
+
+- The package version was advanced to `1.2.210`.
+- Release-facing documentation was updated for the planned `1.2.210` update.
+- JavaScript fingerprint protection is now tracked as its own Privacy & Security setting and defaults to `Strict`.
+- New tabs now receive separate Canvas and JavaScript fingerprint protection modes so older profiles normalize missing JavaScript protection to `Strict`.
+- Privacy & Security now includes a separate JavaScript fingerprint protection dropdown with Strict, Balanced, and Off modes.
+
+### Fixed
+
+- Fixed older installs that could keep JavaScript fingerprint protection from defaulting to `Strict` after an update.
+- Added Twitch media-site compatibility so Twitch player modules, pause controls, and volume controls can keep working while privacy protection remains enabled.
+- Kept Twitch-owned resources out of the generic ad/tracker blocking path to avoid breaking the Twitch player UI.
+
+### Notes
+
+- Version `1.2.210` is the next documented release planned for publication this week.
+- Version `1.2.200` was the documented public release before `1.2.210`.
 
 ## 1.2.200
 
@@ -30,7 +51,7 @@ This changelog summarizes notable public release changes through version `1.2.20
 
 ### Notes
 
-- Version `1.2.200` is the next documented release planned for publication this week.
+- Version `1.2.200` was the documented public release before `1.2.210`.
 - Version `1.2.160` was the documented public release before `1.2.200`.
 
 ## 1.2.160
