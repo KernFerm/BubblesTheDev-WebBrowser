@@ -12,7 +12,7 @@ Security fixes are generally provided for the most recent stable release of the 
 
 | Version | Supported |
 | ------- | --------- |
-| **1.2.160** | Yes |
+| **1.2.200** | Yes |
 | Older versions | No |
 
 Users should run the latest available version of the browser to receive the newest security fixes and improvements.
@@ -111,10 +111,21 @@ The browser is developed with a reduced-surface approach that emphasizes:
 * Chromium sandboxing and process isolation where applicable
 * strict separation between web content and privileged browser operations
 * tighter controls around downloads, diagnostics, profile handling, and other higher-risk browser features
+* local ad and tracker blocking rules that avoid remote URL-scanning services
+* local Canvas fingerprint protection modes that change canvas readouts without remote telemetry
+* local JavaScript fingerprinting reductions for high-entropy browser APIs with Strict as the default mode
 * visible, user-controlled, browser-controlled installer update behavior with progress visibility and regular installer handoff rather than a hidden always-on updater model
 * direct provider sign-in by default unless a separate brokered flow is explicitly enabled by the browser operator
 
 Public security documentation is intentionally kept high-level. Detailed implementation behavior may change between releases and is documented separately where appropriate.
+
+---
+
+## Dependency And Runtime Verification
+
+Version `1.2.200` keeps the dependency audit clean with targeted dependency overrides for vulnerable transitive build-tool packages. The current project audit reports zero known npm vulnerabilities.
+
+The browser also keeps runtime trust-manifest checks for sensitive runtime files, including the main browser runtime and preload surfaces.
 
 ---
 
