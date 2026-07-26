@@ -8,7 +8,7 @@ Official website and support contact details are published through the project's
 
 ## Current Documentation Target
 
-This document is aligned with the current public BubblesTheDev Web Browser documentation for version `1.2.211`.
+This document is aligned with the current public BubblesTheDev Web Browser documentation for version `1.2.212`.
 
 Security fixes are generally provided for the most recent stable release of the browser. Older versions are not supported for current security fixes.
 
@@ -63,7 +63,7 @@ The browser is designed to reduce the amount of personal data processed by the b
 
 ## Fingerprinting Protection
 
-Version `1.2.211` defaults to Strict Canvas and JavaScript fingerprinting protection. These protections reduce high-entropy browser surfaces locally and can be relaxed to Balanced or Off by the user for site compatibility.
+Version `1.2.212` defaults to Strict Canvas and JavaScript fingerprinting protection. These protections reduce high-entropy browser surfaces locally and can be relaxed to Balanced or Off by the user for site compatibility.
 
 The browser does not upload canvas images, page contents, visited URLs, browsing history, or fingerprint values to a remote fingerprinting service.
 
