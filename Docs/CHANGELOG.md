@@ -1,6 +1,24 @@
 # Changelog
 
-This changelog summarizes notable public release changes through version `1.2.211`.
+This changelog summarizes notable public release changes through version `1.2.212`.
+
+## 1.2.212
+
+### Updated
+
+- The package version was advanced to `1.2.212`.
+- Release-facing documentation was updated for the planned `1.2.212` update.
+- Protected release builds now leave `browserview_preload.js` unobfuscated so page-injected privacy functions can run reliably in packaged installers.
+
+### Fixed
+
+- Fixed a protected-build-only issue where JavaScript fingerprint protection could work during `npm start` but fail on another PC after installing the protected build.
+- Kept the BrowserLeaks JavaScript privacy preload serializable so Client Hints, plugins, Web Audio, and other high-entropy JavaScript surfaces are reduced in packaged builds.
+
+### Notes
+
+- Version `1.2.212` is the next documented release planned for publication this week.
+- Version `1.2.211` was the documented public release before `1.2.212`.
 
 ## 1.2.211
 
@@ -17,7 +35,7 @@ This changelog summarizes notable public release changes through version `1.2.21
 
 ### Notes
 
-- Version `1.2.211` is the next documented release planned for publication this week.
+- Version `1.2.211` was the documented public release before `1.2.212`.
 - Version `1.2.210` was the documented public release before `1.2.211`.
 
 ## 1.2.210
