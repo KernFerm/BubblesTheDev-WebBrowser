@@ -10,5 +10,5 @@ Project news and community update posts are shared in the official Discord serve
 
 ## Planned Release
 
-- Version `1.2.211` is the next planned release.
+- Version `1.2.212` is the next planned release.
 - Older versions are not supported for current fixes and improvements.
