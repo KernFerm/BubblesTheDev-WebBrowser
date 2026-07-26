@@ -1,23 +1,23 @@
-# BubblesTheDev Web Browser 1.2.211
+# BubblesTheDev Web Browser 1.2.212
 
 Planned release: Week of July 26, 2026
 
-`1.2.211` is the next planned browser update. It builds on the previous documented `1.2.210` release and focuses on making the Strict JavaScript fingerprint protection default apply reliably on upgraded PCs that already have saved browser settings.
+`1.2.212` is the next planned browser update. It builds on the previous documented `1.2.211` release and focuses on making JavaScript fingerprint protection work reliably in protected installer builds, not only during `npm start`.
 
 ## Highlights
 
-* The packaged browser version is now `1.2.211`
-* Security settings now include a versioned privacy-default marker
-* Upgraded installs with missing JavaScript fingerprint protection settings now migrate to Strict on first launch
-* Migrated privacy defaults are saved back to disk so other PCs keep the new Strict setting after restart
-* The Privacy & Security panel still lets users change JavaScript fingerprint protection afterward
-* Release-facing documentation now reflects the planned `1.2.211` update
+* The packaged browser version is now `1.2.212`
+* Protected release builds now keep `browserview_preload.js` unobfuscated
+* Page-injected JavaScript privacy functions remain serializable in packaged installers
+* BrowserLeaks-style JavaScript reductions should now work the same in installed builds as they do during `npm start`
+* The Strict JavaScript fingerprint protection migration from `1.2.211` remains in place
+* Release-facing documentation now reflects the planned `1.2.212` update
 
 ## What This Release Means
 
-This is a fingerprint-protection upgrade-migration update.
+This is a protected-build fingerprint-protection reliability update.
 
-If you are already on `1.2.210`, this update keeps the separate JavaScript fingerprint protection control and Twitch compatibility improvements while making sure older saved settings on other PCs receive the new Strict default.
+If you are already on `1.2.211`, this update keeps the saved-settings migration while fixing the protected-build path that can prevent the JavaScript privacy preload from running correctly after installation on another PC.
 
 ## Upgrade Notes
 
@@ -30,23 +30,23 @@ If you are already on `1.2.210`, this update keeps the separate JavaScript finge
 * Users may see the normal installer window and Windows UAC prompt during updates depending on their system
 * Local Send to Device still requires both devices to be on the same Wi-Fi or local network with BubblesTheDev WebBrowser installed
 
-## New And Fixed In 1.2.211
+## New And Fixed In 1.2.212
 
-* Updated the package version to `1.2.211`
-* Added a versioned privacy-default marker to saved security settings
-* Migrated missing JavaScript fingerprint protection values to Strict for upgraded installs
-* Persisted migrated privacy defaults after loading saved browser settings
-* Updated release-facing documentation so the docs reflect the planned `1.2.211` release
+* Updated the package version to `1.2.212`
+* Updated the protected-release builder so `browserview_preload.js` is no longer obfuscated
+* Preserved page-injected privacy function serialization for packaged builds
+* Fixed the difference between `npm start` behavior and protected installer behavior for JavaScript fingerprint protection
+* Updated release-facing documentation so the docs reflect the planned `1.2.212` release
 
 ## Previous Release
 
-The broader separate JavaScript fingerprint protection setting, Twitch compatibility, and live Canvas/JavaScript protection update handling were documented in `1.2.210`.
+The broader JavaScript fingerprint protection upgrade migration was documented in `1.2.211`.
 
 ## Package
 
 Installer:
 
-`BubblesTheDev Web Browser_Installer_1.2.211.exe`
+`BubblesTheDev Web Browser_Installer_1.2.212.exe`
 
 SHA-256:
 
