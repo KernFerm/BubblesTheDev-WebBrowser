@@ -2,7 +2,7 @@
 
 ## Architecture Overview
 
-This document explains the high-level runtime shape of BubblesTheDev Web Browser version `1.2.160`.
+This document explains the high-level runtime shape of BubblesTheDev Web Browser version `1.2.200`.
 
 ## Design Goals
 
@@ -29,6 +29,7 @@ The main process owns:
 * profile lifecycle and profile partition management
 * downloads and diagnostics windows
 * performance-management policy
+* ad and tracker request classification
 * Streaming Hub isolation
 * Secure DNS preference normalization and restart prompting
 * local-network Send to Device discovery and delivery
@@ -37,7 +38,7 @@ The main process owns:
 
 ## Profile Architecture
 
-Version `1.2.160` keeps the broader browser profile system while keeping the browser local-first.
+Version `1.2.200` keeps the broader browser profile system while keeping the browser local-first.
 
 The current profile runtime includes:
 
@@ -68,7 +69,7 @@ The current import behavior includes:
 
 ## Local AI Architecture
 
-Version `1.2.160` keeps the local AI layer on-device by default while carrying forward the broader accessibility, startup, installer, media-tool, multilingual, and newer profile-system refinements from the earlier `1.1.x` releases.
+Version `1.2.200` keeps the local AI layer on-device by default while carrying forward the broader accessibility, startup, installer, media-tool, multilingual, and newer profile-system refinements from the earlier `1.1.x` releases.
 
 The current AI runtime includes:
 
@@ -98,7 +99,7 @@ The current session health system:
 
 Diagnostics are generated locally.
 
-Version `1.2.160` includes:
+Version `1.2.200` includes:
 
 * manual encrypted diagnostics export
 * an `AI & Diagnostics` panel
@@ -114,7 +115,7 @@ Version `1.2.160` includes:
 
 ## Accessibility Model
 
-Version `1.2.160` also keeps the expanded browser accessibility layer.
+Version `1.2.200` also keeps the expanded browser accessibility layer.
 
 The current accessibility runtime includes:
 
@@ -126,7 +127,7 @@ The current accessibility runtime includes:
 
 ## Localization Architecture
 
-Version `1.2.160` keeps the centralized localization manager in the main process and now routes the newer profile and auth UI strings through that same protected pipeline.
+Version `1.2.200` keeps the centralized localization manager in the main process and now routes the newer profile and auth UI strings through that same protected pipeline.
 
 The localization runtime now includes:
 
@@ -178,6 +179,37 @@ Current security-sensitive runtime characteristics include:
 * browser-controlled installer registration and verified installer update flow
 * direct provider sign-in by default unless a separate brokered flow is explicitly enabled by the browser operator
 
+## Ad And Tracker Blocking Model
+
+Version `1.2.200` expands the built-in blocker while keeping it local and lightweight.
+
+The blocker currently uses:
+
+* main-process network request classification before web content loads
+* static local host and path rules for common ad networks, tracker hosts, error-monitoring collectors, and YouTube ad or tracking endpoints
+* third-party request checks so broad tracker and ad rules are less likely to break normal first-party site resources
+* resource-type guarded ad asset rules for obvious banner, advertising, and ad-size image or embedded-object paths
+* renderer-side cosmetic rules for obvious ad containers and blocked banner shells
+* local per-tab and global blocked-request counters
+
+The browser does not download remote filter lists or send visited URLs to a blocking service. Rule matching happens locally inside the browser runtime.
+
+## Canvas Fingerprint Protection
+
+Version `1.2.200` adds local Canvas fingerprint protection with Strict, Balanced, and Off modes in Privacy & Security. Strict is the default for new users, and users can relax the mode if a canvas-heavy or media-heavy site needs compatibility.
+
+The protection is applied in the browser page preload and wraps Canvas readout methods such as `toDataURL`, `toBlob`, and `getImageData`. Balanced mode keeps normal drawing behavior intact while changing small readout samples per browser session. Strict mode changes more readout samples for stronger testing coverage and may affect canvas-heavy sites such as image editors, games, or design tools. When Canvas protection is not Off, the browser also enables Chromium's canvas-readback blocking at startup, so a restart is required for the strongest engine-level protection to apply.
+
+Canvas protection runs locally and does not upload page contents, canvas images, browsing history, or visited URLs to a remote service.
+
+The same protection mode also reduces JavaScript fingerprinting surfaces exposed through `window`, `navigator`, and same-origin `iframe.contentWindow` checks. When enabled, the browser reports generic CPU and memory values, enables local GPC/DNT signals, normalizes Client Hints in Balanced mode, and hides high-entropy APIs such as Battery Status, Network Information, Web Bluetooth, WebGPU, WebHID, WebUSB, Web Serial, WebXR, plugins, MIME types, speech voices, app badges, protocol handlers, scheduling APIs, storage bucket APIs, and Protected Audience ad-auction APIs where possible. Strict mode also hides or blanks additional optional surfaces such as Web Audio constructors and several heavier browser integration APIs.
+
+## Memory Pressure Behavior
+
+Version `1.2.200` lowers the default memory pressure target to about `650 MB` so inactive background tabs are put to sleep before the browser approaches `1 GB` of working set usage. Browser-owned search, suggestion, localization, and session caches are kept smaller or trimmed under pressure.
+
+This does not eliminate Chromium's normal per-tab memory cost. Active pages, video, WebGL/WebGPU pages, extensions, and multiple renderer processes can still use substantial memory while they are live.
+
 ## Privacy Model
 
 Current local-first characteristics include:
@@ -189,6 +221,7 @@ Current local-first characteristics include:
 * guest profile state does not persist after close
 * diagnostics remain local unless the user exports them or enables privacy-safe reporting
 * no built-in telemetry or analytics systems are part of the normal browser runtime
+* ad and tracker blocking decisions are made locally without uploading browsing activity to a remote filter service
 * local Send to Device traffic is designed for same-Wi-Fi or same-LAN discovery instead of cloud account sync
 * Secure DNS remains user-controlled and requires a browser restart when DNS settings change
 * accessibility preferences stay local by default
@@ -197,7 +230,7 @@ Current local-first characteristics include:
 
 ## Startup And Update Coordination
 
-Version `1.2.160` also keeps the runtime shape where the main window can open sooner while slower background work continues after launch.
+Version `1.2.200` also keeps the runtime shape where the main window can open sooner while slower background work continues after launch.
 
 Current startup and update characteristics include:
 
