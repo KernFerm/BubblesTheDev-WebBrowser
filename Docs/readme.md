@@ -2,7 +2,7 @@
 
 > A Windows 11 browser for people who want clearer privacy controls, visible project docs, and a more understandable daily browser.
 
-[![Version](https://img.shields.io/badge/version-1.2.210-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
+[![Version](https://img.shields.io/badge/version-1.2.211-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Platform](https://img.shields.io/badge/platform-Windows%2011-0078D6)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Electron](https://img.shields.io/badge/Electron-43-47848F?logo=electron&logoColor=white)](https://www.electronjs.org/)
 
@@ -87,7 +87,7 @@ BubblesTheDev Web Browser is a Windows browser built around a simple idea: peopl
 
 It keeps familiar browser features like tabs, bookmarks, downloads, saved passwords, a built-in home page, split view, and media tools, but pairs them with stronger local-first defaults, clearer runtime visibility, and a more inspectable project surface.
 
-Version `1.2.210` continues that direction as a JavaScript fingerprint-protection compatibility update on top of the previous `1.2.200` stream-stability, blocker, and fingerprint-protection release.
+Version `1.2.211` continues that direction as a JavaScript fingerprint-protection upgrade-migration update on top of the previous `1.2.210` compatibility release.
 
 The overall goal is simple:
 
@@ -96,17 +96,16 @@ The overall goal is simple:
 * make sensitive features easier to inspect and control
 * reduce the amount of hidden behavior users have to trust blindly
 
-## What's New In 1.2.210
+## What's New In 1.2.211
 
-* Advanced the packaged browser version to `1.2.210`
-* Refreshed release-facing documentation so the planned `1.2.210` docs match the packaged build
-* Added a separate JavaScript fingerprint protection setting in Privacy & Security
-* Defaulted missing JavaScript fingerprint protection settings to Strict for upgraded installs
-* Passed separate Canvas and JavaScript fingerprint protection modes into new browser tabs
-* Kept BrowserLeaks-style JavaScript surfaces reduced by default, including Client Hints, plugins, Web Audio, and other high-entropy APIs
-* Improved Twitch compatibility so stream pause and volume controls keep working
+* Advanced the packaged browser version to `1.2.211`
+* Refreshed release-facing documentation so the planned `1.2.211` docs match the packaged build
+* Added a versioned privacy-default marker to saved security settings
+* Migrated older saved settings so missing JavaScript fingerprint protection becomes Strict on first launch after update
+* Persisted migrated privacy defaults back to disk so other PCs keep the new Strict setting after restart
+* Kept the Privacy & Security control available so users can still change JavaScript fingerprint protection afterward
 
-In practical terms, version `1.2.210` keeps the `1.2.200` feature set in place while making Strict JavaScript fingerprint protection explicit, defaulted, and easier to control.
+In practical terms, version `1.2.211` keeps the `1.2.210` feature set in place while making the Strict JavaScript fingerprint protection default apply reliably to upgraded installs.
 
 ## Main Features
 
@@ -279,7 +278,7 @@ The architecture is intentionally local-first and tries to keep the browser's mo
 
 Installer file name:
 
-`BubblesTheDev Web Browser_Installer_1.2.210.exe`
+`BubblesTheDev Web Browser_Installer_1.2.211.exe`
 
 Platform:
 
