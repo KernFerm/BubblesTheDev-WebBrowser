@@ -2,7 +2,7 @@
 
 > A Windows 11 browser for people who want clearer privacy controls, visible project docs, and a more understandable daily browser.
 
-[![Version](https://img.shields.io/badge/version-1.2.211-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
+[![Version](https://img.shields.io/badge/version-1.2.212-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Platform](https://img.shields.io/badge/platform-Windows%2011-0078D6)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Electron](https://img.shields.io/badge/Electron-43-47848F?logo=electron&logoColor=white)](https://www.electronjs.org/)
 
@@ -87,7 +87,7 @@ BubblesTheDev Web Browser is a Windows browser built around a simple idea: peopl
 
 It keeps familiar browser features like tabs, bookmarks, downloads, saved passwords, a built-in home page, split view, and media tools, but pairs them with stronger local-first defaults, clearer runtime visibility, and a more inspectable project surface.
 
-Version `1.2.211` continues that direction as a JavaScript fingerprint-protection upgrade-migration update on top of the previous `1.2.210` compatibility release.
+Version `1.2.212` continues that direction as a protected-build JavaScript fingerprint-protection reliability update on top of the previous `1.2.211` migration release.
 
 The overall goal is simple:
 
@@ -96,16 +96,16 @@ The overall goal is simple:
 * make sensitive features easier to inspect and control
 * reduce the amount of hidden behavior users have to trust blindly
 
-## What's New In 1.2.211
+## What's New In 1.2.212
 
-* Advanced the packaged browser version to `1.2.211`
-* Refreshed release-facing documentation so the planned `1.2.211` docs match the packaged build
-* Added a versioned privacy-default marker to saved security settings
-* Migrated older saved settings so missing JavaScript fingerprint protection becomes Strict on first launch after update
-* Persisted migrated privacy defaults back to disk so other PCs keep the new Strict setting after restart
-* Kept the Privacy & Security control available so users can still change JavaScript fingerprint protection afterward
+* Advanced the packaged browser version to `1.2.212`
+* Refreshed release-facing documentation so the planned `1.2.212` docs match the packaged build
+* Updated protected release builds so `browserview_preload.js` is no longer obfuscated
+* Preserved page-injected JavaScript privacy function serialization in packaged installers
+* Fixed the difference between `npm start` behavior and protected installer behavior for JavaScript fingerprint protection
+* Kept the Strict JavaScript fingerprint protection migration from `1.2.211`
 
-In practical terms, version `1.2.211` keeps the `1.2.210` feature set in place while making the Strict JavaScript fingerprint protection default apply reliably to upgraded installs.
+In practical terms, version `1.2.212` keeps the `1.2.211` feature set in place while making BrowserLeaks-style JavaScript privacy reductions work reliably in protected builds.
 
 ## Main Features
 
@@ -278,7 +278,7 @@ The architecture is intentionally local-first and tries to keep the browser's mo
 
 Installer file name:
 
-`BubblesTheDev Web Browser_Installer_1.2.211.exe`
+`BubblesTheDev Web Browser_Installer_1.2.212.exe`
 
 Platform:
 
