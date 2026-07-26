@@ -2,7 +2,7 @@
 
 ## Architecture Overview
 
-This document explains the high-level runtime shape of BubblesTheDev Web Browser version `1.2.211`.
+This document explains the high-level runtime shape of BubblesTheDev Web Browser version `1.2.212`.
 
 ## Design Goals
 
@@ -38,7 +38,7 @@ The main process owns:
 
 ## Profile Architecture
 
-Version `1.2.211` keeps the broader browser profile system while keeping the browser local-first.
+Version `1.2.212` keeps the broader browser profile system while keeping the browser local-first.
 
 The current profile runtime includes:
 
@@ -69,7 +69,7 @@ The current import behavior includes:
 
 ## Local AI Architecture
 
-Version `1.2.211` keeps the local AI layer on-device by default while carrying forward the broader accessibility, startup, installer, media-tool, multilingual, and newer profile-system refinements from the earlier `1.1.x` releases.
+Version `1.2.212` keeps the local AI layer on-device by default while carrying forward the broader accessibility, startup, installer, media-tool, multilingual, and newer profile-system refinements from the earlier `1.1.x` releases.
 
 The current AI runtime includes:
 
@@ -99,7 +99,7 @@ The current session health system:
 
 Diagnostics are generated locally.
 
-Version `1.2.211` includes:
+Version `1.2.212` includes:
 
 * manual encrypted diagnostics export
 * an `AI & Diagnostics` panel
@@ -115,7 +115,7 @@ Version `1.2.211` includes:
 
 ## Accessibility Model
 
-Version `1.2.211` also keeps the expanded browser accessibility layer.
+Version `1.2.212` also keeps the expanded browser accessibility layer.
 
 The current accessibility runtime includes:
 
@@ -127,7 +127,7 @@ The current accessibility runtime includes:
 
 ## Localization Architecture
 
-Version `1.2.211` keeps the centralized localization manager in the main process and now routes the newer profile and auth UI strings through that same protected pipeline.
+Version `1.2.212` keeps the centralized localization manager in the main process and now routes the newer profile and auth UI strings through that same protected pipeline.
 
 The localization runtime now includes:
 
@@ -181,7 +181,7 @@ Current security-sensitive runtime characteristics include:
 
 ## Ad And Tracker Blocking Model
 
-Version `1.2.211` expands the built-in blocker while keeping it local and lightweight.
+Version `1.2.212` expands the built-in blocker while keeping it local and lightweight.
 
 The blocker currently uses:
 
@@ -196,7 +196,7 @@ The browser does not download remote filter lists or send visited URLs to a bloc
 
 ## Canvas Fingerprint Protection
 
-Version `1.2.211` adds local Canvas fingerprint protection with Strict, Balanced, and Off modes in Privacy & Security. Strict is the default for new users, and users can relax the mode if a canvas-heavy or media-heavy site needs compatibility.
+Version `1.2.212` adds local Canvas fingerprint protection with Strict, Balanced, and Off modes in Privacy & Security. Strict is the default for new users, and users can relax the mode if a canvas-heavy or media-heavy site needs compatibility.
 
 The protection is applied in the browser page preload and wraps Canvas readout methods such as `toDataURL`, `toBlob`, and `getImageData`. Balanced mode keeps normal drawing behavior intact while changing small readout samples per browser session. Strict mode changes more readout samples for stronger testing coverage and may affect canvas-heavy sites such as image editors, games, or design tools. When Canvas protection is not Off, the browser also enables Chromium's canvas-readback blocking at startup, so a restart is required for the strongest engine-level protection to apply.
 
@@ -206,7 +206,7 @@ The same protection mode also reduces JavaScript fingerprinting surfaces exposed
 
 ## Memory Pressure Behavior
 
-Version `1.2.211` lowers the default memory pressure target to about `650 MB` so inactive background tabs are put to sleep before the browser approaches `1 GB` of working set usage. Browser-owned search, suggestion, localization, and session caches are kept smaller or trimmed under pressure.
+Version `1.2.212` lowers the default memory pressure target to about `650 MB` so inactive background tabs are put to sleep before the browser approaches `1 GB` of working set usage. Browser-owned search, suggestion, localization, and session caches are kept smaller or trimmed under pressure.
 
 This does not eliminate Chromium's normal per-tab memory cost. Active pages, video, WebGL/WebGPU pages, extensions, and multiple renderer processes can still use substantial memory while they are live.
 
@@ -230,7 +230,7 @@ Current local-first characteristics include:
 
 ## Startup And Update Coordination
 
-Version `1.2.211` also keeps the runtime shape where the main window can open sooner while slower background work continues after launch.
+Version `1.2.212` also keeps the runtime shape where the main window can open sooner while slower background work continues after launch.
 
 Current startup and update characteristics include:
 
