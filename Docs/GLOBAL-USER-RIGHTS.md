@@ -8,7 +8,7 @@ Official website and support contact details are published through the project's
 
 ## Current Documentation Target
 
-This document is aligned with the current public BubblesTheDev Web Browser documentation for version `1.2.160`.
+This document is aligned with the current public BubblesTheDev Web Browser documentation for version `1.2.200`.
 
 Security fixes are generally provided for the most recent stable release of the browser. Older versions are not supported for current security fixes.
 
@@ -31,6 +31,8 @@ The browser is designed around user-first principles such as:
 * the right to manage site permissions
 * the right to use the browser without built-in behavioral analytics
 * the right to use the browser without built-in advertising profiles
+* the right to local ad and tracker blocking behavior that does not require remote URL-scanning telemetry
+* the right to strict-by-default local fingerprinting protection that can be relaxed for site compatibility
 * the right to local-first features where possible
 * the right to understand diagnostics behavior
 * the right to understand local AI behavior
@@ -52,6 +54,7 @@ Local browser data may include:
 * optional Music Player and Music Downloader settings
 * language and accessibility preferences
 * local diagnostics data
+* local ad and tracker blocking counters
 * install-linked metadata for custom or external-drive installs
 
 Standard profiles are intended to remain isolated from one another. Guest browsing is intended to remain non-persistent.
@@ -61,6 +64,12 @@ Standard profiles are intended to remain isolated from one another. Guest browsi
 Browser-state data is designed to remain local.
 
 Where stronger system-backed protection is available, the browser uses it. Saved-password values are intended to be encrypted before being written to disk.
+
+## Fingerprinting Protection
+
+Version `1.2.200` defaults to Strict Canvas and JavaScript fingerprinting protection. These protections reduce high-entropy browser surfaces locally and can be changed to Balanced or Off by the user for site compatibility.
+
+The browser does not upload canvas images, page contents, visited URLs, browsing history, or fingerprint values to a remote fingerprinting service.
 
 ## No Built-In Telemetry Or Analytics For Ordinary Browsing
 
@@ -116,6 +125,12 @@ Current public behavior includes:
 * no ordinary automatic diagnostics upload by default
 
 Diagnostics are intended to remain on-device unless the user explicitly exports them or enables a supported privacy-safe reporting feature.
+
+## Ad And Tracker Blocking
+
+The built-in ad and tracker blocker uses local browser rules for known ad hosts, tracker hosts, tracking beacon paths, error-monitoring collectors, YouTube ad or tracking endpoints, and obvious ad-slot cosmetic hiding.
+
+Blocked ad and tracker counts are local browser status counters. The blocker is not designed to upload visited URLs, page contents, or browsing history to a remote filtering service.
 
 ## Local AI Privacy
 
