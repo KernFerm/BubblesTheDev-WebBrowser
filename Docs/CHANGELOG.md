@@ -1,6 +1,37 @@
 # Changelog
 
-This changelog summarizes notable public release changes through version `1.2.160`.
+This changelog summarizes notable public release changes through version `1.2.200`.
+
+## 1.2.200
+
+### Updated
+
+- The package version was advanced to `1.2.200`.
+- Release-facing documentation was updated for the planned `1.2.200` update.
+- Gaming and streaming performance behavior was tuned to reduce browser-side background pressure while OBS, Streamlabs, or a fullscreen game is active.
+- Memory pressure handling now sleeps inactive background tabs earlier and trims browser-owned caches more aggressively.
+- Local AI runtime reviews now run less frequently during normal browser use.
+- Built-in ad and tracker blocking was expanded with broader local host, path, beacon, error-monitoring, and ad-asset rules.
+- Canvas fingerprint protection was added with Strict as the default mode, plus Balanced and Off options in Privacy & Security.
+- JavaScript fingerprinting surfaces were reduced for `navigator`, Client Hints, Battery, Network Information, Web Bluetooth, WebGPU, WebUSB, Web Serial, WebHID, WebXR, plugins, speech voices, Web Audio, and ad-auction APIs.
+- Dependency audit cleanup was completed with targeted overrides for vulnerable build-tool transitive dependencies.
+
+### Fixed
+
+- Reduced OBS/Streamlabs detection polling frequency to avoid unnecessary periodic PowerShell sampling during live sessions.
+- Avoided GPU counter sampling during heavy game-plus-stream contexts so the browser is less likely to create extra GPU/driver pressure.
+- Kept browser performance optimization active while making its background checks less aggressive.
+- Lowered the default memory pressure target from about `850 MB` to about `650 MB` so cleanup starts before the browser approaches `1 GB`.
+- Added cosmetic hiding for obvious ad slots and blocked banner shells.
+- Added local Canvas readout protection for `toDataURL`, `toBlob`, and `getImageData`.
+- Added same-origin `iframe.contentWindow` coverage for JavaScript privacy patches.
+- Fixed the current dependency audit state so `npm audit` reports zero vulnerabilities.
+- Cleaned up the toolbar More Tools dropdown so it keeps the full menu categories while removing the duplicated long action list.
+
+### Notes
+
+- Version `1.2.200` is the next documented release planned for publication this week.
+- Version `1.2.160` was the documented public release before `1.2.200`.
 
 ## 1.2.160
 
@@ -29,7 +60,7 @@ This changelog summarizes notable public release changes through version `1.2.16
 
 ### Notes
 
-- Version `1.2.160` is the current documented public release in this changelog.
+- Version `1.2.160` was the documented public release before `1.2.200`.
 
 ## 1.2.145
 
