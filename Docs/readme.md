@@ -2,7 +2,7 @@
 
 > A Windows 11 browser for people who want clearer privacy controls, visible project docs, and a more understandable daily browser.
 
-[![Version](https://img.shields.io/badge/version-1.2.160-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
+[![Version](https://img.shields.io/badge/version-1.2.200-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Platform](https://img.shields.io/badge/platform-Windows%2011-0078D6)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Electron](https://img.shields.io/badge/Electron-43-47848F?logo=electron&logoColor=white)](https://www.electronjs.org/)
 
@@ -87,7 +87,7 @@ BubblesTheDev Web Browser is a Windows browser built around a simple idea: peopl
 
 It keeps familiar browser features like tabs, bookmarks, downloads, saved passwords, a built-in home page, split view, and media tools, but pairs them with stronger local-first defaults, clearer runtime visibility, and a more inspectable project surface.
 
-Version `1.2.160` continues that direction as a browser-polish and privacy-control release that keeps the browser current while preserving its local-first privacy, profile, accessibility, multilingual, and everyday browsing feature set.
+Version `1.2.200` continues that direction as a stream-stability, blocker, and fingerprint-protection update on top of the previous `1.2.160` browser-polish and privacy-control release.
 
 The overall goal is simple:
 
@@ -96,24 +96,20 @@ The overall goal is simple:
 * make sensitive features easier to inspect and control
 * reduce the amount of hidden behavior users have to trust blindly
 
-## What's New In 1.2.160
+## What's New In 1.2.200
 
-* Advanced the packaged browser version to `1.2.160`
-* Updated the bundled `yt-dlp.exe` to `2026.07.05`
-* Refreshed release-facing documentation so the current public docs match the packaged build
-* Fixed Streaming Hub provider connect pages so they no longer open zoomed out
-* Fixed normal website zoom behavior so unrelated pages no longer inherit a stale zoomed-out tab state
-* Added persistent pinned sites with real site icons where available
-* Added a scrollable saved-bookmarks list to the bookmarks menu
-* Added local same-network Send to Device support with no Google account dependency or telemetry, plus clearer setup notes that both devices need BubblesTheDev WebBrowser installed
-* Added Privacy & Security panel improvements, including Secure DNS provider address details and a restart-browser prompt for DNS changes
-* Enabled password breach warnings by default for normalized security settings
-* Added QR code page sharing and a Create Shortcut option for saving the current page as a Windows shortcut
-* Refined the Profile Manager with a larger default window, friendlier wording, and a more polished desktop visual design
-* Refined the main browser toolbar into a cleaner primary row with a round icon-only Tools button and grouped navigation controls
-* Updated the keyboard shortcuts guide with Profile Manager (`Ctrl+Shift+P`), Focus Mode (`F10`), and Windows exit (`Alt+F4`)
+* Advanced the packaged browser version to `1.2.200`
+* Refreshed release-facing documentation so the planned `1.2.200` docs match the packaged build
+* Tuned OBS, Streamlabs, and fullscreen-game detection so browser background checks run less aggressively while streaming
+* Lowered the memory pressure target so inactive background tabs sleep before the browser approaches `1 GB`
+* Slowed Local AI runtime review cadence to reduce background wakeups
+* Avoided GPU counter sampling during heavy game-plus-stream contexts
+* Expanded built-in ad and tracker blocking with broader local rules
+* Added Canvas fingerprint protection with Strict as the default mode, plus Balanced and Off compatibility options in Privacy & Security
+* Reduced JavaScript fingerprinting surfaces for BrowserLeaks-style `navigator`, Client Hints, and `iframe.contentWindow` checks
+* Cleaned vulnerable npm transitive build-tool dependencies so `npm audit` reports zero known vulnerabilities
 
-In practical terms, version `1.2.160` keeps the browser current while improving daily browsing polish, local sharing, and security-setting clarity.
+In practical terms, version `1.2.200` keeps the `1.2.160` feature set in place while improving browser behavior during game streaming and reducing stable browser fingerprinting signals.
 
 ## Main Features
 
@@ -286,7 +282,7 @@ The architecture is intentionally local-first and tries to keep the browser's mo
 
 Installer file name:
 
-`BubblesTheDev Web Browser_Installer_1.2.160.exe`
+`BubblesTheDev Web Browser_Installer_1.2.200.exe`
 
 Platform:
 
