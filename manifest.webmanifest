@@ -1,0 +1,18 @@
+{
+  "name": "BubblesTheDev Web Browser",
+  "short_name": "Bubbles Browser",
+  "description": "A privacy-first browser for Windows 11 with ad and tracker blocking, isolated profiles, safer downloads, split view, accessibility tools, and multilingual support.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f8fbff",
+  "theme_color": "#2563eb",
+  "icons": [
+    {
+      "src": "./icon-1024.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

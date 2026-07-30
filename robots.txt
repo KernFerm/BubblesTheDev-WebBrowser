@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kernferm.github.io/BubblesTheDev-WebBrowser/sitemap.xml
