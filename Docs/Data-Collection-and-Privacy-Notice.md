@@ -1,6 +1,6 @@
 # Data Collection and Privacy Notice
 
-This notice explains the current privacy posture of BubblesTheDev Web Browser version `1.2.212`.
+This notice explains the current privacy posture of BubblesTheDev Web Browser version `1.2.410`.
 
 BubblesTheDev Web Browser is designed to keep ordinary browser data local to the user's device unless the user chooses to browse websites, use search providers, download files, export diagnostics, or enable optional privacy-safe reporting features where supported.
 
@@ -14,7 +14,7 @@ The browser is not designed to automatically send the following as part of built
 
 * browsing history
 * bookmarks
-* saved passwords
+* saved sign-in data
 * ordinary browser settings
 * local AI memory contents
 * accessibility preferences
@@ -30,7 +30,7 @@ Current local browser data may include:
 * browser profile metadata and preferences
 * connected-account identity metadata that the user chooses to link to a profile, such as provider, email, display name, and avatar presentation
 * browsing history and bookmarks
-* saved password metadata and encrypted password storage
+* saved sign-in metadata and encrypted sign-in storage
 * per-site permission settings
 * toolbar and bookmark bar preferences
 * shell theme choice and optional custom theme image path
@@ -41,6 +41,13 @@ Current local browser data may include:
 * supported streaming-session data
 * cached search results and suggestions used by the browser's internal search experience
 * local ad and tracker blocking counters
+* local tab layout, tab group, workspace, and duplicate-tab preferences
+* local per-site privacy report counters for observed blocker and permission events
+* local website app records and shortcut paths created by the user
+* local sidebar preferences
+* local PDF document records, annotation metadata, and edited PDF output paths selected by the user
+* local Picture-in-Picture state, link-safety preferences, and permission-use indicators
+* optional AI Chat settings, selected local model, local chat transcript state, and local Ollama availability state where supported
 * install-linked metadata for custom or external-drive installs
 
 Guest browsing is intended to remain non-persistent. Standard profiles are intended to remain isolated from one another.
@@ -75,6 +82,28 @@ Current behavior includes:
 
 Diagnostic data is intended to remain on-device unless the user explicitly exports it or explicitly enables a supported privacy-safe reporting feature.
 
+## AI Chat
+
+The browser may include an optional AI Chat panel and AI Chat pop-out window for local Ollama chat. AI Chat is designed to use approved local Ollama models on the user's own computer through the local loopback service only.
+
+AI Chat does not require a cloud AI account. The browser does not automatically upload AI Chat content, browser activity, profile data, diagnostics exports, local files, or AI memory to a cloud AI service as part of local AI Chat.
+
+If the user asks the browser to open Ollama, the browser may start a hidden browser-managed local Ollama server process and stop that managed process when the browser quits. Users should not type sensitive personal, account, or browser information into AI Chat.
+
+## Anonymous Feedback
+
+The browser includes an optional anonymous feedback panel. It asks for a category and a plain-text message only. It does not ask for a name, email address, account handle, or contact field.
+
+For support requests that need a reply, users should contact support.bubblesthedev.webbrowser@gmail.com instead of using anonymous feedback.
+
+The message box can show a category-specific example format before the user types. These examples are local placeholder text and are not sent unless the user intentionally types them into the message.
+
+Users can optionally include basic technical details, limited to browser version, Windows major version, CPU architecture, CPU type, RAM, and GPU type. That option is off by default.
+
+Feedback submissions are sent securely by the browser with a minimized payload. Ordinary connection information may still be processed as part of delivering the request. The browser does not attach browser activity, profile data, local files, diagnostics, crash reports, linked identity state, or AI memory to feedback submissions.
+
+Feedback is not stored as a local feedback history. Successful submissions clear the visible form, and failed submissions keep the typed message visible so the user can decide what to do next.
+
 ## Ad And Tracker Blocking
 
 The built-in ad and tracker blocker runs locally in the browser.
@@ -87,9 +116,19 @@ Current behavior includes:
 
 The blocker is not designed to upload visited URLs, browsing history, or page contents to a remote filtering service.
 
+## Local Browser Feature Data
+
+Newer tab organization and browser-tool features are stored with the current browser profile where persistence is supported. This includes vertical-tab layout, tab groups, workspaces, duplicate-tab detection preferences, local website app records, local sidebar settings, local PDF annotation metadata, and local permission-use indicators.
+
+Guest and incognito sessions are treated as temporary. They do not permanently store workspaces, local website apps, or private per-session privacy-report data.
+
+Link-safety inspection runs locally from the URL the user provides or inspects. It does not fetch remote page metadata by default and does not use third-party preview APIs.
+
+PDF editing and redaction verification run locally with packaged libraries. The browser does not upload PDFs to a cloud PDF service. Permanent redaction is only reported as verified when the saved PDF is reopened locally and the target text is absent from local extraction results.
+
 ## Fingerprinting Protection
 
-Version `1.2.212` defaults to Strict Canvas and JavaScript fingerprinting protection. These protections reduce local browser surfaces such as Canvas readouts, Client Hints, Battery Status, Network Information, Web Bluetooth, WebGPU, WebUSB, Web Serial, WebHID, WebXR, plugins, speech voices, Web Audio, and ad-auction APIs where possible.
+Version `1.2.410` defaults to Strict Canvas and JavaScript fingerprinting protection. These protections reduce local browser surfaces such as Canvas readouts, Client Hints, Battery Status, Network Information, Web Bluetooth, WebGPU, WebUSB, Web Serial, WebHID, WebXR, plugins, speech voices, Web Audio, and ad-auction APIs where possible.
 
 Fingerprinting protection runs locally in the browser and is not designed to upload canvas images, page contents, visited URLs, browsing history, or fingerprint values to a remote service. Users can switch to Balanced or Off in Privacy & Security if a site needs more compatibility.
 
@@ -103,6 +142,7 @@ Outbound network traffic can still occur when the user:
 * signs into websites
 * uses built-in or external search features
 * downloads files
+* sends optional anonymous feedback through the browser-owned feedback panel
 * uses passkey or WebAuthn sign-in flows on supported sites
 * signs into supported streaming services
 * checks for or downloads updates where that feature is available
@@ -123,7 +163,7 @@ If a future browser build includes a different replacement certificate, Windows 
 
 Installed update flows are intended to preserve ordinary browser data during normal version replacement.
 
-Current update behavior includes an extra local save pass before a managed update install closes the browser, including normal browser-state persistence, password persistence, profile restore-point capture, and browser-session storage flush attempts.
+Current update behavior includes an extra local save pass before a managed update install closes the browser, including normal browser-state persistence, sign-in data persistence, profile restore-point capture, and browser-session storage flush attempts.
 
 The shipped browser application is also no longer expected to carry a shared client update secret in its public configuration files just to let normal installed users check for updates.
 
@@ -134,8 +174,9 @@ Some browser features involve additional local-only or opt-in handling:
 * supported streaming services use browser-managed isolated sessions
 * the Music Player is local-only and requires explicit user action before scanning a folder
 * the Music Downloader is intentionally restricted and local-first
+* AI Chat is optional and uses local Ollama through local loopback only where supported
 * local AI features are designed to run on-device where supported
-* the `AI & Diagnostics` panel can preserve local draft, preview, summary, and scroll state when the panel is closed and reopened
+* the `AI & Diagnostics` panel and AI Chat surfaces can preserve local draft, preview, summary, transcript, selected-model, and scroll state when the panel is closed and reopened
 * AI memory is intended to remain isolated per profile where supported
 * incognito AI memory is intended to remain non-persistent where supported
 * Local Send to Device is designed for private same-network sharing instead of cloud account sync
@@ -147,7 +188,7 @@ The uninstaller removes the installed application files.
 It may also allow the user to remove selected categories of local data, such as:
 
 * browser profile data
-* saved passwords
+* saved sign-in data
 * diagnostics reports
 
 If a category is not selected for removal, that data may remain on the device for a future reinstall or later use.
