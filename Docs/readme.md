@@ -2,7 +2,7 @@
 
 > A Windows 11 browser for people who want clearer privacy controls, visible project docs, and a more understandable daily browser.
 
-[![Version](https://img.shields.io/badge/version-1.2.212-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
+[![Version](https://img.shields.io/badge/version-1.2.410-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Platform](https://img.shields.io/badge/platform-Windows%2011-0078D6)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Electron](https://img.shields.io/badge/Electron-43-47848F?logo=electron&logoColor=white)](https://www.electronjs.org/)
 
@@ -85,9 +85,9 @@ The result is a browser aimed at real daily use: browsing, managing tabs, separa
 
 BubblesTheDev Web Browser is a Windows browser built around a simple idea: people should be able to use a modern browser without giving up clear control over privacy, profiles, diagnostics, accessibility, and local browser data.
 
-It keeps familiar browser features like tabs, bookmarks, downloads, saved passwords, a built-in home page, split view, and media tools, but pairs them with stronger local-first defaults, clearer runtime visibility, and a more inspectable project surface.
+It keeps familiar browser features like tabs, bookmarks, downloads, saved sign-in data, a built-in home page, split view, and media tools, but pairs them with stronger local-first defaults, clearer runtime visibility, and a more inspectable project surface.
 
-Version `1.2.212` continues that direction as a protected-build JavaScript fingerprint-protection reliability update on top of the previous `1.2.211` migration release.
+Version `1.2.410` continues that direction with local AI Chat improvements, Windows installer dashboard polish, anonymous feedback guidance, local PDF/browser-tool polish, and public documentation cleanup.
 
 The overall goal is simple:
 
@@ -96,16 +96,22 @@ The overall goal is simple:
 * make sensitive features easier to inspect and control
 * reduce the amount of hidden behavior users have to trust blindly
 
-## What's New In 1.2.212
+## What's New In 1.2.410
 
-* Advanced the packaged browser version to `1.2.212`
-* Refreshed release-facing documentation so the planned `1.2.212` docs match the packaged build
-* Updated protected release builds so `browserview_preload.js` is no longer obfuscated
-* Preserved page-injected JavaScript privacy function serialization in packaged installers
-* Fixed the difference between `npm start` behavior and protected installer behavior for JavaScript fingerprint protection
-* Kept the Strict JavaScript fingerprint protection migration from `1.2.211`
+* Advanced the packaged browser version to `1.2.410`
+* Added a standalone AI Chat panel and pop-out window for optional local Ollama chat
+* Added visible model-response status text above the AI Chat prompt
+* Added hidden browser-managed Ollama startup with cleanup on browser quit
+* Added optional official Ollama installer setup with source allowlisting, PE and Authenticode verification, signer checks, fail-closed execution, and safe progress rows
+* Added real model-download progress rows and model-download cancellation for local Ollama pulls
+* Added native NSIS integration for optional Ollama setup through the same narrow verified helper, with Retry or Continue Without AI behavior
+* Improved the Windows installer dashboard so setup progress is shown in readable rows instead of one cramped progress line
+* Added category-specific feedback message placeholder formats
+* Refreshed Markdown documentation for version `1.2.410`
 
-In practical terms, version `1.2.212` keeps the `1.2.211` feature set in place while making BrowserLeaks-style JavaScript privacy reductions work reliably in protected builds.
+In practical terms, version `1.2.410` keeps the local-first browser model in place while making AI Chat, installer setup, feedback, PDF tools, and browser-tool documentation clearer for end users.
+
+The NSIS installer builds with the optional Ollama helper bridge. Manual Windows install checks should still be completed before publishing final end-to-end installer verification.
 
 ## Main Features
 
@@ -119,10 +125,19 @@ In practical terms, version `1.2.212` keeps the `1.2.211` feature set in place w
 * browsing history
 * pinned tabs and persistent pinned sites
 * tab mute controls
+* vertical tabs with profile-scoped layout settings
+* tab groups and saved workspaces
+* tab search with direct mute and close controls
 * split-view browsing
 * full-screen support
 * QR code page sharing
 * Create Shortcut page sharing
+* local website app install records and shortcuts
+* configurable local sidebar
+* local PDF byte-level editing, notes, highlights, simple drawing, form-field updates, and Save Copy support
+* browser-managed Picture-in-Picture controls
+* local link-safety inspection
+* optional anonymous feedback from the Help menu with category-specific message format examples
 * updated keyboard shortcuts guide
 * same-network Send to Device setup notes for Windows 11 PCs, with mobile support coming soon
 
@@ -138,18 +153,27 @@ The everyday browsing layer is meant to stay familiar. You still get a normal br
 * optional profile PIN protection
 * built-in ad and tracker blocking
 * Windows-friendly download protection
-* encrypted saved-password storage
+* encrypted saved sign-in storage
 * encrypted profile secrets and backups
 * Secure DNS controls with visible provider addresses
 * password breach warning controls
 * Privacy & Security panel controls
+* privacy presets for the existing fingerprint-protection settings
+* local per-site privacy report counters for observed blocker and permission events
+* visible permission-use indicators
 * per-site permission controls
 * sandboxed and isolated browser runtime
 * local accessibility and reading controls
 
 The browser tries to keep privacy and security features understandable instead of burying them behind background behavior. Browser data stays local by default, and higher-risk browser actions stay under tighter browser-controlled protection.
 
+PDF tools run locally and use packaged libraries for editing and verification. Visual Cover is a visible cover on the page and is not labeled as permanent redaction. Permanent Redaction is only reported as verified when local text extraction confirms the target text is absent from the saved PDF.
+
+The optional feedback panel is meant for short product feedback without contact fields. It sends the selected category and typed message securely, with basic technical details such as browser version, Windows version, CPU, RAM, and GPU type included only when the user opts in. The browser does not attach browser activity, profile data, local files, diagnostics, crash reports, linked identity state, or AI memory, and it does not keep a local feedback history.
+
 It is not an offline-only browser, and it does not pretend normal web traffic is the same thing as telemetry. The privacy model is local-first, user-controlled, and intentionally more explicit about what stays on-device.
+
+For support requests that need a reply, contact support.bubblesthedev.webbrowser@gmail.com. Do not send sensitive personal, account, payment, or identity information in support messages.
 
 ### Profiles And Recovery
 
@@ -171,6 +195,8 @@ Connected-account identity linking is optional. Where supported, profiles may li
 ### Local AI And Diagnostics
 
 * `AI & Diagnostics` panel in the browser UI
+* standalone AI Chat panel and pop-out window
+* optional local Ollama chat through the local loopback service only
 * offline local summarization
 * isolated local AI runtime worker
 * current-session health monitoring
@@ -181,7 +207,7 @@ Connected-account identity linking is optional. Where supported, profiles may li
 * privacy-safe test reporting
 * optional automatic severe-event reporting when enabled by the user
 
-This part of the browser is intended to stay local-first. The AI layer is used for offline summaries, runtime analysis, and current-session health feedback rather than cloud-based assistant behavior. Standard profiles can keep encrypted AI memory locally, while incognito sessions do not persist that memory across sessions.
+This part of the browser is intended to stay local-first. The AI layer is used for offline summaries, local Ollama chat, runtime analysis, and current-session health feedback rather than cloud-based assistant behavior. Standard profiles can keep encrypted AI memory locally, while incognito sessions do not persist that memory across sessions. When the browser starts Ollama for the user, it manages that local process and stops the managed process when the browser quits.
 
 ### Multilingual Platform
 
@@ -278,7 +304,7 @@ The architecture is intentionally local-first and tries to keep the browser's mo
 
 Installer file name:
 
-`BubblesTheDev Web Browser_Installer_1.2.212.exe`
+`BubblesTheDev Web Browser_Installer_1.2.410.exe`
 
 Platform:
 
