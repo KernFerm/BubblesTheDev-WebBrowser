@@ -1,5 +1,2 @@
 # Ignore all files
 *.
-
-# Local-only files that should not be uploaded to GitHub Pages.
-do-not-upload/
