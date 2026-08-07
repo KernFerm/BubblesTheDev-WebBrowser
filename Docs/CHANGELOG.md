@@ -1,6 +1,76 @@
 # Changelog
 
-This changelog summarizes notable public release changes through version `1.2.212`.
+This changelog summarizes notable public release changes through version `1.2.410`.
+
+## 1.2.410
+
+### Added
+
+- Added a standalone AI Chat panel and AI Chat pop-out window for optional local Ollama chat.
+- Added a visible responding status above the AI Chat prompt that names the local model currently generating an answer.
+- Added optional official Ollama installer setup with HTTPS source allowlisting, DNS/private-network checks, PE validation, Authenticode verification, signer verification, and fail-closed execution.
+- Added safe Ollama setup and model-download progress rows with byte progress where available, retry/failure states, and a model-download cancel action.
+- Added native NSIS integration that invokes the same narrow Ollama setup helper only after optional AI consent, with Retry or Continue Without AI behavior.
+- Added a clearer multi-row Windows installer dashboard for browser setup, optional Ollama setup, skipped model download, and final verification.
+- Added category-specific placeholder formats in the feedback message box for Bug Report, Feature Suggestion, Accessibility Feedback, Privacy Feedback, Performance Feedback, Website Compatibility Issue, General Feedback, and Other.
+- Added disclosure when AI Chat uses an installed local Ollama model tag instead of a recommended starter tag.
+
+### Updated
+
+- Open Ollama now uses a hidden browser-managed local server process when the browser starts Ollama for the user.
+- The browser now stops its managed Ollama process on quit so the browser does not leave its own local AI server process running after close.
+- AI Chat failure messages are shown in the transcript as local notices so users can see what happened.
+- The Windows installer dashboard spacing was adjusted so component rows are easier to read.
+- The Chromium user-agent fallback was refreshed to match the current Electron 43 / Chromium 150 runtime line.
+- The runtime trust manifest was refreshed after the browser runtime update.
+- Feedback documentation now describes the message format examples without adding contact fields or private reporting data.
+- Public Markdown docs now list support.bubblesthedev.webbrowser@gmail.com as the public support email.
+
+### Notes
+
+- Local AI still uses local loopback Ollama only and does not require a cloud AI account or automatic browser-content upload.
+- The NSIS installer builds successfully with the native Ollama helper bridge. Manual Windows install checks should still be completed before publishing final end-to-end installer verification.
+- Feedback remains anonymous from the browser UI perspective and does not attach browser activity, profile data, local files, diagnostics, crash reports, linked identity state, or AI memory.
+
+## 1.2.300
+
+### Added
+
+- Added an optional anonymous feedback panel opened from the Help menu.
+- Added local feedback validation, sensitive-data scanning, local cooldown, honeypot support, and a mocked `npm run test:feedback` verifier.
+
+### Notes
+
+- Feedback does not request a name, email address, reply-to value, or account handle.
+- Feedback does not attach browser activity, profile data, local files, diagnostics, crash reports, linked identity state, or AI memory.
+- Basic browser version, Windows major version, CPU architecture, CPU type, RAM, and GPU type are included only when the user opts in.
+- Feedback is separate from diagnostics, analytics, telemetry, profile backups, and AI memory, and is not stored as a local feedback history.
+
+## 1.2.250
+
+### Added
+
+- Added local profile-scoped tab layout controls for top tabs plus left or right vertical tabs, including a collapsed vertical state.
+- Added local tab groups with naming, colors, collapse/expand controls, tab assignment, group close, and recent group reopen support.
+- Added local saved workspaces for the current profile, including create, rename, duplicate, update, delete, and restore actions.
+- Added local tab search with title, URL, group, workspace, pinned, audio, and active-window context.
+- Added local duplicate-tab detection with a per-profile setting and a switch-or-open prompt.
+- Added privacy presets that apply existing Canvas and JavaScript fingerprint protection settings with confirmation and rollback.
+- Added visible vertical-tab state indicators for loading, audio, muted, sleeping, split-view, Guest, and incognito states with accessible labels.
+- Added a direct tab-search mute/unmute action and a theme-compatible tab-group color picker.
+- Added `npm run test:browser-features` to verify the local tab/workspace/privacy feature wiring, preload APIs, renderer controls, CSS states, and locale keys.
+- Added local per-site privacy reports fed by observed blocker and permission events.
+- Added local website app records with profile-scoped install, launch, shortcut, and uninstall actions.
+- Added a configurable local sidebar profile setting with left/right placement and collapsed mode.
+- Added local PDF byte-level editing through packaged local libraries, including Save As/Save Copy, text, notes, highlights, drawing, simple shapes, page transforms, form-field updates, and local verification support.
+- Added browser-managed Picture-in-Picture controls, local link-safety inspection, and permission-use indicators.
+
+### Notes
+
+- New tab organization and workspace metadata is stored in the existing profile session snapshot path and is not persisted for Guest or incognito windows.
+- No cloud sync, telemetry, analytics, remote workspace service, or organization dashboard was added.
+- Brokered connected-account flows remain disabled unless configured locally, which keeps profile tests aligned with the no-remote-default policy.
+- PDF editing uses `pdf-lib` for local byte updates, `pdf.js-extract` for independent local text verification, and `pdf-to-png-converter` with `@napi-rs/canvas` for rasterized replacement of pages that contain permanent redactions. Visual Cover remains separate from Permanent Redaction. Permanent redaction is verified by local extraction and raster-pixel checks in the PDF test suite.
 
 ## 1.2.212
 
@@ -255,7 +325,7 @@ This changelog summarizes notable public release changes through version `1.2.21
 
 - The browser no longer ships a default shared client update secret in public configuration.
 - Public-facing docs now reflect that ordinary installed browser clients can still check for updates while admin-only release management remains separate.
-- Public-facing docs continue to avoid sensitive operational details and personal information.
+- Public-facing docs continue to focus on user-visible behavior and avoid personal information.
 
 ### Release
 
@@ -545,7 +615,7 @@ This changelog summarizes notable public release changes through version `1.2.21
 ### Security And Privacy
 
 - The browser keeps the local-first profile protections introduced in recent releases.
-- Public documentation for this release continues to avoid sensitive operational details and personal information.
+- Public documentation for this release continues to focus on user-visible behavior and avoid personal information.
 
 ### Release
 
@@ -578,7 +648,7 @@ This changelog summarizes notable public release changes through version `1.2.21
 - Browser profiles now keep more browser state isolated by default instead of relying only on the earlier shared-session model.
 - Guest Mode remains non-persistent and profile secrets remain encrypted in browser-controlled storage.
 - The profile identity flow was refined to keep local profile handling clearer and more isolated.
-- Public documentation for this release continues to avoid sensitive operational details and personal information.
+- Public documentation for this release continues to focus on user-visible behavior and avoid personal information.
 
 ### Performance
 
@@ -1072,7 +1142,7 @@ This changelog summarizes notable public release changes through version `1.2.21
 
 ### Notes
 
-- Existing browser features remain in place, including bookmark bar support, split-view browsing, ad blocking, download protection, saved passwords, passkey compatibility, VPN tools, diagnostics, and the local-only Music Player.
+- Existing browser features remain in place, including bookmark bar support, split-view browsing, ad blocking, download protection, saved sign-in data, passkey compatibility, VPN tools, diagnostics, and the local-only Music Player.
 - The browser continues to follow a local-first privacy approach with no built-in telemetry or analytics services configured.
 
 ## 1.0.65
@@ -1166,8 +1236,8 @@ This changelog summarizes notable public release changes through version `1.2.21
 
 ## What's New In 1.0.17
 
-- Password capture from supported login forms now stores encrypted entries locally and keeps passwords hidden until the user explicitly reveals them.
-- The browser can suggest strong passwords both from the passwords panel and on supported password forms.
+- Sign-in capture from supported login forms now stores encrypted entries locally and keeps saved values hidden until the user explicitly reveals them.
+- The browser can suggest strong sign-in values from the sign-in panel and on supported sign-in forms.
 - Bookmark import now separates consent for browser-path scanning and manual bookmark-file browsing.
 - Extension import scans supported Chromium profile locations and restores imported extensions into the persistent main session.
 - VPN integration now includes installed-client detection, external app launch shortcuts, local Proton profile import, and browser network refresh support.
@@ -1197,8 +1267,8 @@ This changelog summarizes notable public release changes through version `1.2.21
 
 ## What's New In 1.0.15
 
-- Password capture from supported login forms now stores encrypted entries locally and keeps passwords hidden until the user explicitly reveals them.
-- The browser can suggest strong passwords both from the passwords panel and on supported password forms.
+- Sign-in capture from supported login forms now stores encrypted entries locally and keeps saved values hidden until the user explicitly reveals them.
+- The browser can suggest strong sign-in values from the sign-in panel and on supported sign-in forms.
 - Bookmark import now separates consent for browser-path scanning and manual bookmark-file browsing.
 - Extension import scans supported Chromium profile locations and restores imported extensions into the persistent main session.
 - VPN integration now includes installed-client detection, external app launch shortcuts, local Proton profile import, and browser network refresh support.
