@@ -1,6 +1,25 @@
 # Changelog
 
-This changelog summarizes notable public release changes through version `1.2.410`.
+This changelog summarizes notable public release changes through version `1.2.411`.
+
+## 1.2.411
+
+### Fixed
+
+- Removed the unhandled installer dashboard Retry button from the optional Ollama setup view.
+- Clarified the optional Ollama setup failure prompt so Retry runs setup again and Cancel continues installing the browser without AI.
+- Kept optional Ollama setup separate from AI Chat enablement and model downloads.
+
+### Updated
+
+- Updated the Ollama installer verification test so fake dashboard action buttons are rejected.
+- Updated release-facing documentation for version `1.2.411`.
+
+### Notes
+
+- AI Chat remains optional and disabled after install.
+- AI models are still downloaded later from `Tools > AI Chat`, not during installation.
+- The installer-based update workflow remains unchanged.
 
 ## 1.2.410
 
