@@ -4,11 +4,11 @@ This document explains the privacy, security, transparency, and user-control pri
 
 This document is informational only and does not replace legal advice.
 
-Official website and support contact details are published through the project's public release channels rather than embedded in this document.
+Public support contact: support.bubblesthedev.webbrowser@gmail.com.
 
 ## Current Documentation Target
 
-This document is aligned with the current public BubblesTheDev Web Browser documentation for version `1.2.212`.
+This document is aligned with the current public BubblesTheDev Web Browser documentation for version `1.2.410`.
 
 Security fixes are generally provided for the most recent stable release of the browser. Older versions are not supported for current security fixes.
 
@@ -46,7 +46,7 @@ Local browser data may include:
 
 * browser settings and preferences
 * browsing history and bookmarks
-* saved-password metadata and encrypted password storage
+* saved sign-in metadata and encrypted sign-in storage
 * per-site permission settings
 * profile preferences and recovery data
 * one linked connected-account identity per profile where the user chooses to use it, including provider, email, display name, and avatar presentation
@@ -63,11 +63,11 @@ Standard profiles are intended to remain isolated from one another. Guest browsi
 
 Browser-state data is designed to remain local.
 
-Where stronger system-backed protection is available, the browser uses it. Saved-password values are intended to be encrypted before being written to disk.
+Where stronger system-backed protection is available, the browser uses it. Saved sign-in values are intended to be encrypted before being written to disk.
 
 ## Fingerprinting Protection
 
-Version `1.2.212` defaults to Strict Canvas and JavaScript fingerprinting protection. These protections reduce high-entropy browser surfaces locally and can be changed to Balanced or Off by the user for site compatibility.
+Version `1.2.410` defaults to Strict Canvas and JavaScript fingerprinting protection. These protections reduce high-entropy browser surfaces locally and can be changed to Balanced or Off by the user for site compatibility.
 
 The browser does not upload canvas images, page contents, visited URLs, browsing history, or fingerprint values to a remote fingerprinting service.
 
@@ -79,7 +79,7 @@ It is not designed to automatically upload:
 
 * browsing history
 * bookmarks
-* saved passwords
+* saved sign-in data
 * website page content
 * ordinary browser settings
 * local AI memory contents
@@ -136,13 +136,18 @@ Blocked ad and tracker counts are local browser status counters. The blocker is 
 
 Optional local AI features, if included, are intended to support on-device behavior where available.
 
+AI Chat, where included, is an optional local Ollama chat surface. It can run in its own panel or pop-out window and is designed to use approved local Ollama models on the user's own computer through the local loopback service only.
+
 Current public expectations include:
 
 * local AI processing where supported
+* optional AI Chat through local Ollama where supported
+* no cloud AI account required for local AI Chat
+* no automatic upload of AI Chat content, browser activity, profile data, diagnostics exports, local files, or AI memory to a cloud AI service as part of local AI Chat
 * profile-isolated AI memory where supported
 * non-persistent AI memory for incognito or other ephemeral contexts where supported
 * no cloud-sync expectation for AI memory
-* local `AI & Diagnostics` panel state can remain available when that panel is closed and reopened within the browser
+* local `AI & Diagnostics` and AI Chat panel state can remain available when those panels are closed and reopened within the browser
 
 If a current-session AI health or runtime-status feature is present, it should be treated as a browser runtime indicator rather than a permanent user score.
 
@@ -167,7 +172,7 @@ That may include control over:
 * browsing history and bookmarks
 * site permissions
 * downloads
-* saved passwords
+* saved sign-in data
 * supported streaming sessions
 * profile creation, switching, and recovery actions where supported
 * diagnostics export and supported privacy-safe diagnostics controls
@@ -188,4 +193,6 @@ This document should be reviewed when major browser features materially change t
 
 ## Public Contact Notes
 
-Public website and support contact details should be maintained in the project's current public release channels.
+Public support contact: support.bubblesthedev.webbrowser@gmail.com.
+
+Users should not send sensitive personal, account, payment, or identity information in support messages.
