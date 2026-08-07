@@ -9,15 +9,15 @@
 <title>BubblesTheDev Web Browser | Privacy Browser for Windows 11</title>
 <meta
   name="keywords"
-  content="BubblesTheDev Web Browser, Bubbles browser, privacy browser for Windows 11, private browser for Windows, local-first browser, no telemetry browser, privacy-first browser, secure browser for Windows 11, browser with ad blocker, browser with ad and tracker blocker, tracker blocking browser, browser with safer downloads, browser with passkey support, browser with split view, browser with accessibility tools, multilingual browser, browser with local AI, browser with diagnostics tools, browser for gamers and streamers, browser with streaming hub, browser with profile isolation, Chrome alternative for privacy, Edge alternative browser, Firefox alternative browser"
+  content="BubblesTheDev Web Browser, Bubbles browser, privacy browser for Windows 11, private browser for Windows, local-first browser, no telemetry browser, privacy-first browser, secure browser for Windows 11, browser with ad blocker, browser with ad and tracker blocker, tracker blocking browser, browser with safer downloads, browser with passkey support, browser with split view, browser with accessibility tools, multilingual browser, browser with local AI, browser with diagnostics tools, browser with local PDF editor, browser with anonymous feedback, browser with local website apps, browser with permission indicators, browser for gamers and streamers, browser with streaming hub, browser with profile isolation, Chrome alternative for privacy, Edge alternative browser, Firefox alternative browser"
 />
 <meta
   name="description"
-  content="BubblesTheDev Web Browser is a privacy-first browser for Windows 11 with ad and tracker blocking, isolated profiles, safer downloads, split view, passkey support, accessibility tools, and multilingual support. A local-first alternative to Chrome, Edge, and Firefox."
+  content="BubblesTheDev Web Browser is a privacy-first browser for Windows 11 with ad and tracker blocking, isolated profiles, safer downloads, split view, local AI Chat, local PDF tools, anonymous feedback, passkey support, accessibility tools, and multilingual support. A local-first alternative to Chrome, Edge, and Firefox."
 />
 <link rel="canonical" href="https://kernferm.github.io/BubblesTheDev-WebBrowser" />
 <meta property="og:title" content="BubblesTheDev Web Browser | Privacy Browser for Windows 11" />
-<meta property="og:description" content="A privacy-first browser for Windows 11 with ad and tracker blocking, isolated profiles, safer downloads, split view, passkey support, and multilingual support." />
+<meta property="og:description" content="A privacy-first browser for Windows 11 with ad and tracker blocking, isolated profiles, safer downloads, split view, local AI Chat, local PDF tools, passkey support, and multilingual support." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://kernferm.github.io/BubblesTheDev-WebBrowser" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -586,7 +586,7 @@ h1{
 
     <nav aria-label="Primary navigation">
       <a href="#features">Features</a>
-      <a href="#privacy">Privacy</a>
+      <a href="./PrivacyPolicy.html">Privacy</a>
       <a href="#download">Download</a>
       <a href="https://github.com/KernFerm/BubblesTheDev-WebBrowser">GitHub</a>
     </nav>
@@ -601,7 +601,7 @@ h1{
     <div>
 
       <div class="badge">
-        Windows 11 &bull; Version 1.2.212 &bull; Privacy First
+        Windows 11 &bull; Version 1.2.410 &bull; Privacy First
       </div>
 
       <h1>
@@ -625,7 +625,7 @@ h1{
 
       <div class="hero-buttons">
         <a class="btn btn-primary" href="#download">
-          Download v1.2.212 for Windows 11
+          Download v1.2.410 for Windows 11
         </a>
 
         <a class="btn btn-secondary" href="https://github.com/KernFerm/BubblesTheDev-WebBrowser">
@@ -692,17 +692,17 @@ h1{
           </div>
 
           <div class="preview-card">
-            <p><strong>New In Version 1.2.211</strong></p>
-            <h4>Privacy Defaults Upgrade Migration</h4>
+            <p><strong>New In Version 1.2.410</strong></p>
+            <h4>AI Chat, Feedback, And PDF Tools</h4>
             <p>
-              Upgraded PCs with older saved settings now migrate missing JavaScript fingerprint protection to Strict and keep it after restart.
+              Adds standalone local Ollama AI Chat, a clearer installer dashboard, safer optional Ollama setup, model management, feedback message formats, visible local PDF editing and signing tools, and cleaner public documentation.
             </p>
           </div>
 
           <div class="preview-card">
             <h4>Modern Privacy Controls</h4>
             <p>
-          Local-first browsing, no built-in telemetry or analytics, passkey support, safer downloads, stricter fingerprinting protection, ad and tracker blocking, and accessibility-focused features.
+          Local-first browsing, no built-in telemetry or analytics, passkey support, safer downloads, stricter fingerprinting protection, ad and tracker blocking, site privacy reports, permission indicators, and accessibility-focused features.
             </p>
           </div>
 
@@ -790,6 +790,45 @@ h1{
     </div>
 
     <div class="features">
+      <div class="feature">
+        <p><strong>New In Version 1.2.410</strong></p>
+        <h3>AI Chat</h3>
+        <p>
+          Use optional local Ollama AI Chat in its own panel or pop-out window, with responding-model status, local model management, and local loopback-only chat.
+        </p>
+      </div>
+      <div class="feature">
+        <p><strong>New In Version 1.2.410</strong></p>
+        <h3>Installer Dashboard</h3>
+        <p>
+          Follow setup progress in a clearer dashboard-style installer view with readable rows for browser setup, optional AI setup, skipped model downloads, and final verification.
+        </p>
+      </div>
+
+      <div class="feature">
+        <p><strong>New In Version 1.2.410</strong></p>
+        <h3>Ollama Model Management</h3>
+        <p>
+          Install Ollama separately, enable AI Chat from Tools, choose installed local models, download starter models from the browser, and cancel model downloads when needed.
+        </p>
+      </div>
+
+
+      <div class="feature">
+        <p><strong>New In Version 1.2.410</strong></p>
+        <h3>Local PDF Editor</h3>
+        <p>
+          Open PDFs in a visible editor with click-to-place text, notes, highlights, freehand signing, typed signatures, drag-and-resize placement, and Save Copy support.
+        </p>
+      </div>
+
+      <div class="feature">
+        <p><strong>New In Version 1.2.410</strong></p>
+        <h3>Site Privacy Reports</h3>
+        <p>
+          Review local per-site privacy details, observed blocker events, permission behavior, Canvas protection, JavaScript protection, and privacy preset state.
+        </p>
+      </div>
 
       <div class="feature">
         <h3>Streaming Hub</h3>
@@ -827,17 +866,17 @@ h1{
       </div>
 
       <div class="feature">
-        <h3>Local AI & Diagnostics</h3>
+        <h3>Local Diagnostics</h3>
         <p>
-          Use offline local summaries, runtime health feedback, and user-controlled diagnostics that remain local by default unless you explicitly export or enable reporting.
+          Use offline summaries, runtime health feedback, and user-controlled diagnostics that remain local by default unless you explicitly export or enable reporting.
         </p>
       </div>
 
       <div class="feature">
-        <p><strong>Still Enhanced From Version 1.2.200</strong></p>
-        <h3>Stronger Privacy Blocking</h3>
+        <p><strong>Modern Browser Tools</strong></p>
+        <h3>Tabs, Workspaces, And Website Apps</h3>
         <p>
-          Built-in blocking now covers more ad hosts, tracker hosts, beacon paths, error-monitoring scripts, ad assets, and obvious blocked ad shells.
+          Organize vertical tabs, tab groups, saved workspaces, duplicate-tab warnings, local website app shortcuts, and local sidebar preferences per profile.
         </p>
       </div>
       <div class="feature">
@@ -855,10 +894,10 @@ h1{
       </div>
 
       <div class="feature">
-        <p><strong>Updated And Enhanced In Version 1.2.200</strong></p>
-        <h3>Ad & Tracker Blocking</h3>
+        <p><strong>New In Version 1.2.410</strong></p>
+        <h3>Anonymous Feedback</h3>
         <p>
-          Built-in ad and tracker blocking now covers more ad hosts, tracker hosts, beacon paths, error-monitoring scripts, ad assets, and obvious blocked ad shells.
+          Send short product feedback with category-specific message examples, local sensitive-data checks, and optional browser, Windows, CPU, RAM, and GPU details.
         </p>
       </div>
 
@@ -882,7 +921,7 @@ h1{
 
 </section>
 
-<section class="section" id="privacy">
+<section class="section" id="download">
 
   <div class="wrap">
 
@@ -896,8 +935,8 @@ h1{
 
       <div class="download-actions">
 
-        <a class="btn btn-primary" href="https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases/download/V12212-BubblesTheDev-WebBrowser/BubblesTheDev.Web.Browser_Installer_1.2.212.exe">
-          Download v1.2.212
+        <a class="btn btn-primary" href="https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases/download/V12410-BubblesTheDev-WebBrowser/BubblesTheDev.Web.Browser_Installer_1.2.410.exe">
+          Download v1.2.410
         </a>
 
         <a class="btn btn-secondary" href="https://github.com/KernFerm/BubblesTheDev-WebBrowser">
@@ -907,7 +946,7 @@ h1{
       </div>
 
       <p class="download-meta">
-        Installer: <strong>BubblesTheDev Web Browser_Installer_1.2.212.exe</strong> &bull; Platform: <strong>Windows 11 x64</strong>
+        Installer: <strong>BubblesTheDev Web Browser_Installer_1.2.410.exe</strong> &bull; Platform: <strong>Windows 11 x64</strong>
       </p>
 
       <div class="download-notice">
@@ -932,9 +971,9 @@ h1{
 
 </section>
 
-<section class="section" id="download">
+<section class="section" id="everyday-use">
 
-  <div class="wrap">
+<div class="wrap">
 
     <div class="section-head">
       <h2>Built for Real Everyday Windows Use</h2>
@@ -945,6 +984,27 @@ h1{
     </div>
 
     <div class="features">
+      <div class="feature">
+        <p><strong>New In Version 1.2.410</strong></p>
+        <h3>AI Chat</h3>
+        <p>
+          Use optional local Ollama AI Chat in its own panel or pop-out window, with responding-model status, local model management, and local loopback-only chat.
+        </p>
+      </div><div class="feature">
+        <p><strong>New In Version 1.2.410</strong></p>
+        <h3>Local PDF Editor</h3>
+        <p>
+          Open PDFs in a visible editor with click-to-place text, notes, highlights, freehand signing, typed signatures, drag-and-resize placement, and Save Copy support.
+        </p>
+      </div>
+
+      <div class="feature">
+        <p><strong>New In Version 1.2.410</strong></p>
+        <h3>Site Privacy Reports</h3>
+        <p>
+          Review local per-site privacy details, observed blocker events, permission behavior, Canvas protection, JavaScript protection, and privacy preset state.
+        </p>
+      </div>
 
       <div class="feature">
         <p><strong>Everyday Browsing</strong></p>
@@ -971,26 +1031,26 @@ h1{
       </div>
 
       <div class="feature">
-        <p><strong>Still Enhanced From Version 1.2.200</strong></p>
-        <h3>Lower Memory Pressure</h3>
+        <p><strong>Modern Browser Tools</strong></p>
+        <h3>Local PDF Editor</h3>
         <p>
-          Background cleanup now starts earlier, with inactive tabs sleeping sooner and browser caches trimming before memory usage approaches one gigabyte.
+          Open local PDFs in a visible editor with click-to-place text, notes, highlights, freehand signing, typed signatures, drag-and-resize placement, and Save Copy support.
         </p>
       </div>
 
       <div class="feature">
-        <p><strong>Still Enhanced From Version 1.2.211</strong></p>
-        <h3>Strict Privacy Defaults</h3>
+        <p><strong>Privacy Visibility</strong></p>
+        <h3>Site Privacy Reports</h3>
         <p>
-          Existing PCs with older saved browser settings now receive the missing Strict JavaScript fingerprint protection default on first launch after update.
+          Review local per-site privacy information, observed blocker events, permission behavior, Canvas protection mode, JavaScript protection mode, and profile privacy preset state.
         </p>
       </div>
 
       <div class="feature">
-        <p><strong>Still Enhanced From Version 1.2.210</strong></p>
-        <h3>Twitch Stream Controls</h3>
+        <p><strong>Everyday Media Tools</strong></p>
+        <h3>Picture-in-Picture And Link Safety</h3>
         <p>
-          Twitch compatibility was improved so stream modules, pause controls, and volume controls keep working while privacy protection remains enabled.
+          Use browser-managed Picture-in-Picture controls where video is available, plus local link-safety checks before opening suspicious links.
         </p>
       </div>
 
