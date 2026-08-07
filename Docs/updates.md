@@ -1,14 +1,12 @@
 # Project Updates
 
-Project news and community update posts are shared in the official Discord server.
+Project news and community update posts are shared through the project's official public channels.
 
-## Discord Server
+Public support contact: support.bubblesthedev.webbrowser@gmail.com.
 
-[bubblesthedev-webbrowser-channel](https://discord.gg/eYBzdZVbz6)
+## Current Release
 
----
-
-## Planned Release
-
-- Version `1.2.212` is the next planned release.
+- Version `1.2.410` is the current documented release line.
 - Older versions are not supported for current fixes and improvements.
+
+Public update documentation should stay user-facing and focus on release behavior, supported versions, and where users can get help.
