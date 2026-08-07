@@ -4,7 +4,7 @@
 
 This document gives a high-level privacy comparison between BubblesTheDev Web Browser and other mainstream browsers. It is intentionally broad and user-facing.
 
-This document reflects the current privacy posture of BubblesTheDev Web Browser version `1.2.212`.
+This document reflects the current privacy posture of BubblesTheDev Web Browser version `1.2.410`.
 
 The goal is accuracy, not marketing language. The browser does not include built-in telemetry, analytics SDKs, cloud sync, or a fully silent hidden always-on auto-updater client. It still makes normal network requests when the user browses the web, searches, signs into websites, uses supported authentication flows, or downloads files.
 
@@ -46,8 +46,8 @@ This table is intentionally high-level. Mainstream browsers change over time, an
 | Streaming session isolation | Supported services run in isolated browser-managed sessions | No built-in equivalent documented | No built-in equivalent documented | No built-in equivalent documented | No built-in equivalent documented | No built-in equivalent documented | No built-in equivalent documented | No built-in equivalent documented |
 | Streaming sign-in hardening | Browser-managed popup limits and sign-in controls for supported services | No built-in equivalent documented | No built-in equivalent documented | No built-in equivalent documented | No built-in equivalent documented | No built-in equivalent documented | No built-in equivalent documented | No built-in equivalent documented |
 | Per-service session clearing | Supported for built-in streaming sessions | No built-in equivalent documented | No built-in equivalent documented | No built-in equivalent documented | No built-in equivalent documented | No built-in equivalent documented | No built-in equivalent documented | No built-in equivalent documented |
-| AI panel / in-browser AI controls | `AI & Diagnostics` panel | AI features exist, but not as a direct equivalent | AI features exist, but not as a direct equivalent | AI features vary by Brave services | AI features vary by Mozilla services | AI features vary by Apple platform features | No comparable built-in AI panel documented here | No comparable built-in AI panel documented here |
-| Local AI memory model | Encrypted profile-isolated local AI memory where supported | No direct equivalent documented here | No direct equivalent documented here | No direct equivalent documented here | No direct equivalent documented here | No direct equivalent documented here | No direct equivalent documented here | No direct equivalent documented here |
+| AI panel / in-browser AI controls | `AI & Diagnostics` panel plus optional AI Chat panel and pop-out window for local Ollama chat | AI features exist, but not as a direct equivalent | AI features exist, but not as a direct equivalent | AI features vary by Brave services | AI features vary by Mozilla services | AI features vary by Apple platform features | No comparable built-in AI panel documented here | No comparable built-in AI panel documented here |
+| Local AI memory and chat model | Encrypted profile-isolated local AI memory where supported; optional AI Chat uses local Ollama through local loopback only and does not require a cloud AI account | No direct equivalent documented here | No direct equivalent documented here | No direct equivalent documented here | No direct equivalent documented here | No direct equivalent documented here | No direct equivalent documented here | No direct equivalent documented here |
 | Diagnostics surface | In-browser diagnostics and runtime status surfaces | Performance and crash-reporting controls | Performance and browser-management tools | No comparable diagnostics surface documented here | Firefox Task Manager / `about:processes` and troubleshooting tools | Privacy Report, but not the same type of diagnostics surface | No comparable diagnostics surface documented here | No comparable diagnostics surface documented here |
 | Manual diagnostics export | Encrypted manual diagnostics export where supported | Reporting tools vary | Reporting tools vary | Reporting tools vary | Troubleshooting / reporting tools vary | No comparable export flow documented here | Reporting tools vary | Reporting tools vary |
 | Performance controls | Gaming / streaming mode, sleeping tabs, stream-stability tuning, runtime checks | Chrome Performance settings | Sleeping Tabs and Efficiency / Energy Saver controls | Performance tools vary | Performance tools vary | Performance behavior varies | Performance tools vary | Performance tools vary |
@@ -73,11 +73,13 @@ BubblesTheDev Web Browser is designed around a local-first model:
 * Local Send to Device uses same-Wi-Fi or local-network discovery rather than a required Google account or cloud sync dependency
 * Secure DNS settings are user-controlled and show the selected provider's DNS addresses where available
 * local AI features are designed to stay on-device where supported
+* optional AI Chat uses local Ollama through local loopback only where supported, with no cloud AI account required
+* AI Chat content, browser activity, profile data, diagnostics exports, local files, and AI memory are not automatically uploaded to a cloud AI service as part of local AI Chat
 * built-in ad and tracker blocking uses local rules and counters rather than a remote URL-scanning service
 * strict-by-default Canvas and JavaScript fingerprinting protections reduce high-entropy browser surfaces locally
 * guest browsing remains non-persistent
 * update behavior stays browser-controlled and installer-based rather than a hidden always-on patch service
-* normal installed browser clients can reach update-check and client check-in routes without depending on a bundled shared client secret in the shipped app files
+* normal installed browser clients can use the public update-check flow without extra user setup
 * certificate trust prompts can be skipped when the same bundled trusted-root certificate is already present, while new bundled replacement certificates may still require Windows confirmation
 * installed update handoff now performs an extra local save pass before closing so normal browser data is less likely to be lost during update installation
 * the local `AI & Diagnostics` panel now keeps its local draft and preview state when reopened instead of resetting that renderer-side state immediately
@@ -96,6 +98,7 @@ Current local browser behavior includes:
 * local accessibility preferences
 * local diagnostics generation and manual diagnostics export
 * local handling for supported AI features and profile-aware AI memory
+* optional local AI Chat panel and pop-out window for local Ollama chat where supported
 * local performance settings and runtime controls
 
 The browser is designed not to automatically upload ordinary browser-state data as part of a built-in telemetry or analytics system.
@@ -110,6 +113,7 @@ Network activity still occurs when the user:
 * downloads files
 * uses passkey or WebAuthn flows on supported websites
 * uses supported streaming services
+* uses optional AI internet search, if the user enables it and approves a visible query
 * checks for updates or downloads an update when that feature is available
 
 This is normal browser behavior and should not be confused with built-in telemetry.
@@ -131,6 +135,7 @@ Some browser features involve additional local handling:
 
 * the Music Player is local-only and requires user action before scanning a folder
 * the Music Downloader is intentionally restricted and local-first
+* AI Chat is optional and local-Ollama based where supported
 * supported streaming services run in isolated browser-managed sessions
 * profile recovery, accessibility, diagnostics, and language settings are designed to stay local by default
 
