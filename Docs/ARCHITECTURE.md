@@ -2,7 +2,7 @@
 
 ## Architecture Overview
 
-This document explains the high-level runtime shape of BubblesTheDev Web Browser version `1.2.212`.
+This document explains the high-level runtime shape of BubblesTheDev Web Browser version `1.2.410`.
 
 ## Design Goals
 
@@ -36,9 +36,11 @@ The main process owns:
 * installer and update coordination
 * local AI and diagnostics service orchestration
 
+The browser builds its default Chromium-style user agent from Electron's runtime Chromium version when available. The packaged fallback is kept aligned with the current Electron 43 / Chromium 150 release line so browser-owned user-agent strings do not report an older Chromium baseline if runtime version metadata is unavailable.
+
 ## Profile Architecture
 
-Version `1.2.212` keeps the broader browser profile system while keeping the browser local-first.
+Version `1.2.410` keeps the broader browser profile system while keeping the browser local-first.
 
 The current profile runtime includes:
 
@@ -53,6 +55,24 @@ The current profile runtime includes:
 * encrypted session-snapshot handling for restoring profile tabs and selected browsing state
 * profile restore points, integrity checks, repair paths, and safer rollback handling
 * profile backup and restore behavior that stays local and browser-controlled
+
+## Local Browser Feature State
+
+The tab-organization and browser-tool features use the existing profile session snapshot path instead of a parallel cloud or dashboard service.
+
+Profile-scoped browser feature state includes vertical-tab layout, tab groups, saved workspaces, duplicate-tab preferences, privacy preset metadata, local website app records, local sidebar settings, local PDF annotation metadata, Picture-in-Picture state, link-safety preferences, and permission-use indicators.
+
+The local PDF editing service lives in trusted main-process code. It lazy-loads `pdf-lib` for byte-level PDF edits, `pdf.js-extract` for independent local text extraction/verification, and a helper child process using `pdf-to-png-converter` for rasterized permanent redaction. Renderer code can request narrow PDF actions through preload IPC, but it does not receive unrestricted filesystem access or decrypted document bytes.
+
+Guest and incognito windows normalize the same structures for runtime behavior, but their feature data is temporary and is not permanently written as profile state.
+
+## Anonymous Feedback Architecture
+
+The optional feedback panel is browser-owned UI opened from the Help menu. The renderer collects only a selected category, a plain-text message, an unchecked-by-default basic technical-details option, a required privacy confirmation, and an empty honeypot field. The message box uses category-specific placeholder formats as guidance only. The opt-in technical details are limited to browser version, Windows major version, CPU architecture, CPU type, RAM, and GPU type.
+
+The preload bridge exposes a narrow `feedback:submit` IPC call. The main process accepts that call only from the trusted browser renderer, validates the payload shape, scans only the typed message for sensitive-data patterns, applies local cooldown, and sends the minimized submission securely. Redirects are disabled and the response is reduced to generic success or failure state before returning to the renderer.
+
+Feedback is deliberately separate from diagnostics, crash reporting, telemetry, analytics, profile backup, AI memory, linked-account state, browsing history, and open-tab state. Guest and incognito windows use the same transient form behavior and do not persist submitted feedback locally.
 
 ## Import Surfaces
 
@@ -69,11 +89,14 @@ The current import behavior includes:
 
 ## Local AI Architecture
 
-Version `1.2.212` keeps the local AI layer on-device by default while carrying forward the broader accessibility, startup, installer, media-tool, multilingual, and newer profile-system refinements from the earlier `1.1.x` releases.
+Version `1.2.410` keeps the local AI layer on-device by default while carrying forward the broader accessibility, startup, installer, media-tool, multilingual, and newer profile-system refinements from the earlier releases.
+
+AI Chat is a dedicated local chat surface rather than a cloud assistant. It can run in its own browser panel or a pop-out AI Chat window and talks to approved local Ollama models through the local loopback service only.
 
 The current AI runtime includes:
 
 * a main-process AI service that owns settings, worker lifecycle, and runtime insights
+* a dedicated AI Chat panel and AI Chat pop-out window for optional local Ollama chat
 * a dedicated child worker process for offline summarization and runtime analysis
 * worker startup integrity validation
 * authorized bootstrap handshakes between the browser and the AI worker
@@ -82,6 +105,10 @@ The current AI runtime includes:
 * encrypted persistent AI memory for standard profiles
 * non-persistent in-memory AI storage for incognito and other ephemeral contexts
 * profile lock-state validation, quota enforcement, and corruption recovery
+* optional local Ollama chat through the local loopback service only
+* a managed hidden Ollama server process when the browser starts Ollama for the user, with cleanup on browser quit
+* visible model-response status text while the selected model is generating an answer
+* model-selection disclosure when an installed local model tag is used instead of a recommended starter tag
 
 ## Current-Session Health Model
 
@@ -99,7 +126,7 @@ The current session health system:
 
 Diagnostics are generated locally.
 
-Version `1.2.212` includes:
+Version `1.2.410` includes:
 
 * manual encrypted diagnostics export
 * an `AI & Diagnostics` panel
@@ -115,7 +142,7 @@ Version `1.2.212` includes:
 
 ## Accessibility Model
 
-Version `1.2.212` also keeps the expanded browser accessibility layer.
+Version `1.2.410` also keeps the expanded browser accessibility layer.
 
 The current accessibility runtime includes:
 
@@ -127,7 +154,7 @@ The current accessibility runtime includes:
 
 ## Localization Architecture
 
-Version `1.2.212` keeps the centralized localization manager in the main process and now routes the newer profile and auth UI strings through that same protected pipeline.
+Version `1.2.410` keeps the centralized localization manager in the main process and routes newer browser UI strings through that same protected pipeline.
 
 The localization runtime now includes:
 
@@ -177,11 +204,12 @@ Current security-sensitive runtime characteristics include:
 * privacy-safe diagnostics allowlisting and validation
 * pinned bundled-binary verification for local media tools before use
 * browser-controlled installer registration and verified installer update flow
+* runtime trust-manifest checks for the main browser runtime, preload surfaces, local AI services, feedback service, and optional Ollama setup helpers
 * direct provider sign-in by default unless a separate brokered flow is explicitly enabled by the browser operator
 
 ## Ad And Tracker Blocking Model
 
-Version `1.2.212` expands the built-in blocker while keeping it local and lightweight.
+Version `1.2.410` expands the built-in blocker while keeping it local and lightweight.
 
 The blocker currently uses:
 
@@ -196,7 +224,7 @@ The browser does not download remote filter lists or send visited URLs to a bloc
 
 ## Canvas Fingerprint Protection
 
-Version `1.2.212` adds local Canvas fingerprint protection with Strict, Balanced, and Off modes in Privacy & Security. Strict is the default for new users, and users can relax the mode if a canvas-heavy or media-heavy site needs compatibility.
+Version `1.2.410` includes local Canvas fingerprint protection with Strict, Balanced, and Off modes in Privacy & Security. Strict is the default for new users, and users can relax the mode if a canvas-heavy or media-heavy site needs compatibility.
 
 The protection is applied in the browser page preload and wraps Canvas readout methods such as `toDataURL`, `toBlob`, and `getImageData`. Balanced mode keeps normal drawing behavior intact while changing small readout samples per browser session. Strict mode changes more readout samples for stronger testing coverage and may affect canvas-heavy sites such as image editors, games, or design tools. When Canvas protection is not Off, the browser also enables Chromium's canvas-readback blocking at startup, so a restart is required for the strongest engine-level protection to apply.
 
@@ -206,7 +234,7 @@ The same protection mode also reduces JavaScript fingerprinting surfaces exposed
 
 ## Memory Pressure Behavior
 
-Version `1.2.212` lowers the default memory pressure target to about `650 MB` so inactive background tabs are put to sleep before the browser approaches `1 GB` of working set usage. Browser-owned search, suggestion, localization, and session caches are kept smaller or trimmed under pressure.
+Version `1.2.410` keeps the lower default memory pressure target so inactive background tabs are put to sleep before the browser approaches heavier working set usage. Browser-owned search, suggestion, localization, and session caches are kept smaller or trimmed under pressure.
 
 This does not eliminate Chromium's normal per-tab memory cost. Active pages, video, WebGL/WebGPU pages, extensions, and multiple renderer processes can still use substantial memory while they are live.
 
@@ -220,17 +248,18 @@ Current local-first characteristics include:
 * incognito AI memory does not persist across sessions
 * guest profile state does not persist after close
 * diagnostics remain local unless the user exports them or enables privacy-safe reporting
+* optional anonymous feedback sends only the user's chosen feedback fields and does not create a local feedback history
 * no built-in telemetry or analytics systems are part of the normal browser runtime
 * ad and tracker blocking decisions are made locally without uploading browsing activity to a remote filter service
 * local Send to Device traffic is designed for same-Wi-Fi or same-LAN discovery instead of cloud account sync
 * Secure DNS remains user-controlled and requires a browser restart when DNS settings change
 * accessibility preferences stay local by default
 * locale preferences, locale diagnostics, and translation validation stay local by default
-* installed update checks no longer need a bundled shared client secret in the shipped browser files
+* installed update checks use the public update flow without requiring users to configure update credentials
 
 ## Startup And Update Coordination
 
-Version `1.2.212` also keeps the runtime shape where the main window can open sooner while slower background work continues after launch.
+Version `1.2.410` also keeps the runtime shape where the main window can open sooner while slower background work continues after launch.
 
 Current startup and update characteristics include:
 
@@ -242,7 +271,7 @@ Current startup and update characteristics include:
 * user-visible update-note handling that can create or refresh a Desktop folder named `BubblesTheDev - WebBrowser Update Notes` with the bundled release notes for the installed version
 * verified release metadata and installer validation inside the browser-controlled update flow
 * managed-update progress windows for download state, followed by regular installer handoff after the new version is downloaded
-* normal installed browser clients can reach public update-check and check-in routes without requiring an embedded shared client secret
+* normal installed browser clients can use the public update-check flow without extra user setup
 * explicit browser-state, password, profile-restore-point, and session-storage saves before managed update installs close the browser
 * current-user trusted-root certificate inspection that can skip repeated certificate prompts when the same bundled certificate is already trusted, while still surfacing the Windows confirmation step for a newly bundled replacement certificate
 * renderer-side persistence for local `AI & Diagnostics` panel query, preview, summary, and scroll state when the panel is closed and reopened
