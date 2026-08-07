@@ -56,7 +56,7 @@ footer{padding:42px 0 50px}.footer-box{border-top:1px solid rgba(255,255,255,.06
       <div class="badge">Website Policy &bull; Privacy</div>
       <h1>Privacy <span class="gradient">Policy</span></h1>
       <p>BubblesTheDev is committed to protecting user privacy. This page describes the privacy posture for <strong>kernferm.github.io/BubblesTheDev-WebBrowser</strong> and the BubblesTheDev Web Browser materials presented on this website.</p>
-      <p>Last updated: June 11, 2026</p>
+      <p>Last updated: August 7, 2026</p>
     </div>
     <article class="doc-card">
       <section>
@@ -79,45 +79,50 @@ footer{padding:42px 0 50px}.footer-box{border-top:1px solid rgba(255,255,255,.06
       <section>
         <h2>3. Local browser data</h2>
         <p>Normal browser data is intended to remain on the user's device unless the user chooses to interact with external websites, external search providers, downloads, supported streaming services, privacy-safe diagnostics features, update flows, or other third-party services through normal browser use.</p>
-        <p>Local browser data may include settings, history, bookmarks, saved-password metadata, encrypted password storage, browser profile preferences, connected-account identity metadata that the user chooses to link to a profile, per-site permission settings, supported Streaming Hub session data, Music Player settings, Music Downloader state, gaming and streaming performance settings, local AI settings, profile-isolated AI memory where supported, cached internal search suggestions, install-linked path metadata, language preferences, and accessibility preferences.</p>
+        <p>Local browser data may include settings, history, bookmarks, saved sign-in metadata, encrypted sign-in storage, browser profile preferences, connected-account identity metadata that the user chooses to link to a profile, per-site permission settings, supported Streaming Hub session data, Music Player settings, Music Downloader state, gaming and streaming performance settings, local AI settings, optional local Ollama AI Chat settings and transcript state, profile-isolated AI memory where supported, cached internal search suggestions, local website app records, local sidebar preferences, local PDF document records and annotation metadata, local permission-use indicators, install-linked path metadata, language preferences, and accessibility preferences.</p>
         <p>The current profile system supports up to <strong>10</strong> local browser profiles per installation. Each profile can carry one linked connected-account identity for profile name and avatar presentation.</p>
         <p>Connected-account identity linking is optional. Where supported, the browser may allow linked identities from providers such as GitHub, Discord, or Google. Users can generally revoke that provider access later from the provider's own account settings or authorized-applications page.</p>
       </section>
       <section>
         <h2>4. Local AI and diagnostics</h2>
-        <p>The browser may include optional local AI features designed around on-device behavior where supported. Standard profiles may keep encrypted AI memory locally, while incognito or other ephemeral contexts are intended to avoid persistent AI memory.</p>
-        <p>The local <code>AI &amp; Diagnostics</code> panel can also preserve local draft, preview, summary, and scroll state when the panel is closed and reopened.</p>
+        <p>The browser may include optional local AI features designed around on-device behavior where supported. Optional AI Chat uses local Ollama on the local loopback service only, does not require a cloud AI account, and should not be used for sensitive personal, account, or browser information. Standard profiles may keep encrypted AI memory locally, while incognito or other ephemeral contexts are intended to avoid persistent AI memory.</p>
+        <p>The local <code>AI &amp; Diagnostics</code> panel and AI Chat panel can preserve local draft, preview, summary, transcript, selected-model, and scroll state when their panels are closed and reopened.</p>
         <p>Diagnostics are generated locally. Runtime diagnostic entries may be written to a local diagnostics directory. Privacy-safe diagnostics are intended to remain user-controlled, narrower than general browser data collection, and disabled by default unless the user enables them.</p>
       </section>
       <section>
-        <h2>5. Local browsing activity</h2>
+        <h2>5. Anonymous feedback and local PDF tools</h2>
+        <p>The browser may include an optional anonymous feedback panel for short product feedback. It asks for a category and plain-text message, may show category-specific example formats, and can optionally include basic technical details such as browser version, Windows major version, CPU architecture, CPU type, RAM, and GPU type. Feedback does not attach browser activity, profile data, local files, diagnostics exports, crash reports, linked identity state, or AI memory.</p>
+        <p>Local PDF tools are designed to open and edit PDFs on the user's device with browser-controlled file dialogs. PDF document records, notes, annotations, signature placement, and edited output paths may be stored locally where supported. The browser does not upload PDFs to a cloud PDF service.</p>
+      </section>
+      <section>
+        <h2>6. Local browsing activity</h2>
         <p>All browsing activity remains local to the user's device unless the user voluntarily interacts with external websites or third-party services through normal web browsing activity.</p>
         <p>Installed update behavior may also create or refresh a Desktop folder named <code>BubblesTheDev - WebBrowser Update Notes</code> so the current bundled release notes stay visible locally. The browser may still generate normal network traffic when the user opens websites, signs into services, downloads files, uses search features, uses passkeys or WebAuthn, uses update checks, manually sends approved diagnostics, or uses supported online features.</p>
       </section>
       <section>
-        <h2>6. Accessibility and user control</h2>
+        <h2>7. Accessibility and user control</h2>
         <p>The browser may include accessibility-focused features intended to improve reading comfort, visibility, motion reduction, control size, and continuity across sessions. Accessibility preferences are intended to remain local to the user's device by default.</p>
         <p>The browser is designed to give users clearer control over browser settings, downloads, site permissions, diagnostics choices, update behavior, and other local browser features where supported.</p>
       </section>
       <section>
-        <h2>7. Website-side technical information</h2>
+        <h2>8. Website-side technical information</h2>
         <p>This website may still generate standard web hosting or server logs when visited. These logs may include technical information such as IP address, browser type, request path, and request time, depending on your hosting environment.</p>
       </section>
       <section>
-        <h2>8. Website counters and third-party tools</h2>
+        <h2>9. Website counters and third-party tools</h2>
         <p>This website may use third-party visitor counters or similar services. Those services operate under their own privacy practices and may collect visit-related information independently of the browser itself.</p>
       </section>
       <section>
-        <h2>9. Email contact</h2>
+        <h2>10. Email contact</h2>
         <p>If you contact support by email, your email address and the information you send may be used to respond to your message and provide support.</p>
       </section>
       <section>
-        <h2>10. Future changes</h2>
+        <h2>11. Future changes</h2>
         <p>Any future feature that would materially change the browser's privacy posture would be clearly disclosed in updated license, privacy, or release documentation.</p>
       </section>
       <section>
-        <h2>11. Contact</h2>
-        <p>For privacy or support questions, contact <a href="mailto:btdbrowser2026@yahoo.com">btdbrowser2026@yahoo.com</a>.</p>
+        <h2>12. Contact</h2>
+        <p>For privacy or support questions, contact <a href="mailto:support.bubblesthedev.webbrowser@gmail.com">support.bubblesthedev.webbrowser@gmail.com</a>.</p>
       </section>
     </article>
   </div>
