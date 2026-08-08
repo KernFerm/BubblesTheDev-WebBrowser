@@ -2,7 +2,7 @@
 
 > A Windows 11 browser for people who want clearer privacy controls, visible project docs, and a more understandable daily browser.
 
-[![Version](https://img.shields.io/badge/version-1.2.410-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
+[![Version](https://img.shields.io/badge/version-1.2.420-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Platform](https://img.shields.io/badge/platform-Windows%2011-0078D6)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Electron](https://img.shields.io/badge/Electron-43-47848F?logo=electron&logoColor=white)](https://www.electronjs.org/)
 
@@ -87,7 +87,7 @@ BubblesTheDev Web Browser is a Windows browser built around a simple idea: peopl
 
 It keeps familiar browser features like tabs, bookmarks, downloads, saved sign-in data, a built-in home page, split view, and media tools, but pairs them with stronger local-first defaults, clearer runtime visibility, and a more inspectable project surface.
 
-Version `1.2.410` continues that direction with local AI Chat improvements, Windows installer dashboard polish, anonymous feedback guidance, local PDF/browser-tool polish, and public documentation cleanup.
+Version `1.2.420` continues that direction with optional Ollama setup reliability fixes, a clearer compact Windows installer dashboard, stale-uninstaller repair, local AI Chat improvements, anonymous feedback guidance, local PDF/browser-tool polish, and public documentation cleanup.
 
 The overall goal is simple:
 
@@ -96,22 +96,19 @@ The overall goal is simple:
 * make sensitive features easier to inspect and control
 * reduce the amount of hidden behavior users have to trust blindly
 
-## What's New In 1.2.410
+## What's New In 1.2.420
 
-* Advanced the packaged browser version to `1.2.410`
-* Added a standalone AI Chat panel and pop-out window for optional local Ollama chat
-* Added visible model-response status text above the AI Chat prompt
-* Added hidden browser-managed Ollama startup with cleanup on browser quit
-* Added optional official Ollama installer setup with source allowlisting, PE and Authenticode verification, signer checks, fail-closed execution, and safe progress rows
-* Added real model-download progress rows and model-download cancellation for local Ollama pulls
-* Added native NSIS integration for optional Ollama setup through the same narrow verified helper, with Retry or Continue Without AI behavior
-* Improved the Windows installer dashboard so setup progress is shown in readable rows instead of one cramped progress line
-* Added category-specific feedback message placeholder formats
-* Refreshed Markdown documentation for version `1.2.410`
+* Advanced the packaged browser version to `1.2.420`
+* Fixed optional Ollama setup verification in the Windows installer
+* Added safer optional Ollama setup failure reasons in the Retry prompt
+* Moved Ollama Runtime and AI Models near the top of the installer dashboard
+* Compacted the installer dashboard so Accessibility, Localization Files, and Final Verification fit better
+* Added stale missing-uninstaller registry repair for broken previous installs
+* Kept Ollama installer helper files out of protected obfuscation for installer-time reliability
+* Kept AI Chat optional, off after install, and model downloads inside Tools > AI Chat
+* Refreshed Markdown documentation for version `1.2.420`
 
-In practical terms, version `1.2.410` keeps the local-first browser model in place while making AI Chat, installer setup, feedback, PDF tools, and browser-tool documentation clearer for end users.
-
-The NSIS installer builds with the optional Ollama helper bridge. Manual Windows install checks should still be completed before publishing final end-to-end installer verification.
+In practical terms, version `1.2.420` keeps the local-first browser model in place while making optional local AI setup, installer recovery, feedback, PDF tools, and browser-tool documentation clearer for end users.
 
 ## Main Features
 
@@ -304,7 +301,7 @@ The architecture is intentionally local-first and tries to keep the browser's mo
 
 Installer file name:
 
-`BubblesTheDev Web Browser_Installer_1.2.410.exe`
+`BubblesTheDev Web Browser_Installer_1.2.420.exe`
 
 Platform:
 
