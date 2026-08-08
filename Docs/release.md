@@ -1,23 +1,22 @@
-# BubblesTheDev Web Browser 1.2.410
+# BubblesTheDev Web Browser 1.2.420
 
-Release documentation for version `1.2.410`.
+Release documentation for version `1.2.420`.
 
-`1.2.410` focuses on the local AI Chat experience, installer dashboard polish, anonymous feedback guidance, local PDF/browser-tool documentation, and public documentation cleanup.
+`1.2.420` is a Windows installer and optional local AI setup reliability release.
 
 ## Highlights
 
-* The packaged browser version is now `1.2.410`
-* Optional local Ollama AI Chat has a dedicated panel and pop-out window
-* AI Chat shows the responding local model above the prompt while the answer is being generated
-* Open Ollama uses a hidden browser-managed local server process and cleans up the managed process on browser quit
-* The Windows installer uses a clearer multi-row setup dashboard for browser, optional Ollama, skipped model download, and final verification steps
-* The Chromium user-agent fallback has been refreshed for the current Electron 43 / Chromium 150 runtime line
-* Feedback now provides category-specific message format examples inside the message placeholder
-* Public Markdown documentation has been refreshed for the current release
+* The packaged browser version is now `1.2.420`
+* Optional Ollama setup can download, verify, and run the official Ollama setup flow more reliably
+* The installer dashboard has a more compact layout so all component rows fit better
+* Ollama Runtime and AI Models now appear near the top of the dashboard
+* Optional Ollama setup failures show clearer Retry or Cancel guidance
+* The installer can repair stale uninstall registration left by a broken previous install
+* AI Chat remains off after installation and models are still downloaded later from Tools > AI Chat
 
 ## What This Release Means
 
-This is a local-first usability and documentation update. It keeps the existing privacy and profile model while making AI Chat and feedback easier for end users to understand.
+This release keeps the existing browser behavior, privacy model, AI Chat design, and installer-based update model while making optional local AI setup more dependable and easier to understand during installation.
 
 Public support contact: support.bubblesthedev.webbrowser@gmail.com.
 
@@ -33,27 +32,27 @@ Public support contact: support.bubblesthedev.webbrowser@gmail.com.
 * Users may see the normal installer window and Windows UAC prompt during updates depending on their system
 * Local Send to Device still requires both devices to be on the same Wi-Fi or local network with BubblesTheDev WebBrowser installed
 
-## New And Fixed In 1.2.410
+## New And Fixed In 1.2.420
 
-* Updated the package version to `1.2.410`
-* Added AI Chat model-response status text above the prompt
-* Added AI Chat pop-out and model-management controls
-* Added installed-local-model disclosure for local Ollama models
-* Changed browser-started Ollama handling so the managed process is hidden and stopped on browser quit
-* Improved the Windows installer dashboard spacing so setup rows are easier to read
-* Updated the browser runtime trust manifest after refreshing the Chromium fallback
-* Added category-specific feedback message placeholders
-* Updated public Markdown docs for version `1.2.410`
+* Updated the package version to `1.2.420`
+* Fixed the optional Ollama installer verification path so the downloaded installer is checked correctly
+* Added safe failure reasons to the optional Ollama Retry prompt
+* Made the Ollama progress state update more smoothly during installer setup
+* Moved Ollama Runtime and AI Models near the top of the installer dashboard
+* Compacted the installer dashboard layout so rows such as Accessibility, Localization Files, and Final Verification are less likely to be clipped
+* Added stale missing-uninstaller registry repair for broken previous installs
+* Kept Ollama installer helper files out of protected obfuscation so installer-time setup remains reliable
+* Updated public release documentation for version `1.2.420`
 
 ## Previous Release
 
-The broader browser-feature and feedback updates were documented in earlier `1.2.x` entries.
+The broader AI Chat, installer dashboard, feedback, PDF, and browser-tool updates were documented in earlier `1.2.x` entries.
 
 ## Package
 
 Installer:
 
-`BubblesTheDev Web Browser_Installer_1.2.410.exe`
+`BubblesTheDev Web Browser_Installer_1.2.420.exe`
 
 SHA-256:
 
@@ -66,5 +65,6 @@ Published separately with the final release artifact.
 * Local Send to Device discovery is designed for the local network and does not require Google account services
 * Canvas fingerprint protection changes canvas readout data locally and does not upload page contents or browsing history
 * JavaScript privacy patches run locally in page preload and do not send fingerprint values to a remote service
+* Optional AI Chat uses local Ollama on the user's computer when enabled
 * Public documentation avoids private setup details and focuses on what users need to know
 * Public release notes stay focused on visible product behavior
