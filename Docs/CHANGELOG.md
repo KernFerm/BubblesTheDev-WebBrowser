@@ -1,6 +1,27 @@
 # Changelog
 
-This changelog summarizes notable public release changes through version `1.2.411`.
+This changelog summarizes notable public release changes through version `1.2.420`.
+
+## 1.2.420
+
+### Fixed
+
+- Fixed optional Ollama installer verification so the downloaded official Ollama setup file is checked correctly before it is run.
+- Improved optional Ollama setup failure handling so the Retry prompt can show a safe reason for the failure.
+- Repaired the Windows installer path for machines with a stale BubblesTheDev uninstall entry where the old uninstaller file is missing.
+- Reduced installer dashboard clipping by moving Ollama Runtime and AI Models near the top and compacting the row layout.
+
+### Updated
+
+- Kept Ollama installer helper files out of protected obfuscation so installer-time setup remains reliable.
+- Improved live optional Ollama setup progress state updates.
+- Updated release-facing documentation for version `1.2.420`.
+
+### Notes
+
+- AI Chat remains optional and disabled after install.
+- AI models are still downloaded later from `Tools > AI Chat`, not during installation.
+- The installer-based update workflow remains unchanged.
 
 ## 1.2.411
 
