@@ -12,7 +12,7 @@ Security fixes are generally provided for the most recent stable release of the 
 
 | Version | Supported |
 | ------- | --------- |
-| **1.2.410** | Yes |
+| **1.2.420** | Yes |
 | Older versions | No |
 
 Users should run the latest available version of the browser to receive the newest security fixes and improvements.
@@ -132,7 +132,7 @@ Public security documentation is intentionally kept high-level. Detailed impleme
 
 ## Dependency And Runtime Verification
 
-Version `1.2.410` keeps the dependency audit clean with targeted dependency overrides for vulnerable transitive build-tool packages. The current project audit reports zero known npm vulnerabilities.
+Version `1.2.420` keeps the dependency audit clean with targeted dependency overrides for vulnerable transitive build-tool packages. The current project audit reports zero known npm vulnerabilities.
 
 The browser also keeps runtime trust-manifest checks for sensitive runtime files, including the main browser runtime and preload surfaces.
 
@@ -167,3 +167,4 @@ For security matters, use the project's current private security reporting path 
 Community channels should not be used for security reports or for sharing logs that may contain private information.
 
 ---
+
