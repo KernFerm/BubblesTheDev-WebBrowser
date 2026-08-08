@@ -2,7 +2,7 @@
 
 ## Architecture Overview
 
-This document explains the high-level runtime shape of BubblesTheDev Web Browser version `1.2.410`.
+This document explains the high-level runtime shape of BubblesTheDev Web Browser version `1.2.420`.
 
 ## Design Goals
 
@@ -40,7 +40,7 @@ The browser builds its default Chromium-style user agent from Electron's runtime
 
 ## Profile Architecture
 
-Version `1.2.410` keeps the broader browser profile system while keeping the browser local-first.
+Version `1.2.420` keeps the broader browser profile system while keeping the browser local-first.
 
 The current profile runtime includes:
 
@@ -89,7 +89,7 @@ The current import behavior includes:
 
 ## Local AI Architecture
 
-Version `1.2.410` keeps the local AI layer on-device by default while carrying forward the broader accessibility, startup, installer, media-tool, multilingual, and newer profile-system refinements from the earlier releases.
+Version `1.2.420` keeps the local AI layer on-device by default while carrying forward the broader accessibility, startup, installer, media-tool, multilingual, and newer profile-system refinements from the earlier releases.
 
 AI Chat is a dedicated local chat surface rather than a cloud assistant. It can run in its own browser panel or a pop-out AI Chat window and talks to approved local Ollama models through the local loopback service only.
 
@@ -126,7 +126,7 @@ The current session health system:
 
 Diagnostics are generated locally.
 
-Version `1.2.410` includes:
+Version `1.2.420` includes:
 
 * manual encrypted diagnostics export
 * an `AI & Diagnostics` panel
@@ -142,7 +142,7 @@ Version `1.2.410` includes:
 
 ## Accessibility Model
 
-Version `1.2.410` also keeps the expanded browser accessibility layer.
+Version `1.2.420` also keeps the expanded browser accessibility layer.
 
 The current accessibility runtime includes:
 
@@ -154,7 +154,7 @@ The current accessibility runtime includes:
 
 ## Localization Architecture
 
-Version `1.2.410` keeps the centralized localization manager in the main process and routes newer browser UI strings through that same protected pipeline.
+Version `1.2.420` keeps the centralized localization manager in the main process and routes newer browser UI strings through that same protected pipeline.
 
 The localization runtime now includes:
 
@@ -209,7 +209,7 @@ Current security-sensitive runtime characteristics include:
 
 ## Ad And Tracker Blocking Model
 
-Version `1.2.410` expands the built-in blocker while keeping it local and lightweight.
+Version `1.2.420` expands the built-in blocker while keeping it local and lightweight.
 
 The blocker currently uses:
 
@@ -224,7 +224,7 @@ The browser does not download remote filter lists or send visited URLs to a bloc
 
 ## Canvas Fingerprint Protection
 
-Version `1.2.410` includes local Canvas fingerprint protection with Strict, Balanced, and Off modes in Privacy & Security. Strict is the default for new users, and users can relax the mode if a canvas-heavy or media-heavy site needs compatibility.
+Version `1.2.420` includes local Canvas fingerprint protection with Strict, Balanced, and Off modes in Privacy & Security. Strict is the default for new users, and users can relax the mode if a canvas-heavy or media-heavy site needs compatibility.
 
 The protection is applied in the browser page preload and wraps Canvas readout methods such as `toDataURL`, `toBlob`, and `getImageData`. Balanced mode keeps normal drawing behavior intact while changing small readout samples per browser session. Strict mode changes more readout samples for stronger testing coverage and may affect canvas-heavy sites such as image editors, games, or design tools. When Canvas protection is not Off, the browser also enables Chromium's canvas-readback blocking at startup, so a restart is required for the strongest engine-level protection to apply.
 
@@ -234,7 +234,7 @@ The same protection mode also reduces JavaScript fingerprinting surfaces exposed
 
 ## Memory Pressure Behavior
 
-Version `1.2.410` keeps the lower default memory pressure target so inactive background tabs are put to sleep before the browser approaches heavier working set usage. Browser-owned search, suggestion, localization, and session caches are kept smaller or trimmed under pressure.
+Version `1.2.420` keeps the lower default memory pressure target so inactive background tabs are put to sleep before the browser approaches heavier working set usage. Browser-owned search, suggestion, localization, and session caches are kept smaller or trimmed under pressure.
 
 This does not eliminate Chromium's normal per-tab memory cost. Active pages, video, WebGL/WebGPU pages, extensions, and multiple renderer processes can still use substantial memory while they are live.
 
@@ -259,7 +259,7 @@ Current local-first characteristics include:
 
 ## Startup And Update Coordination
 
-Version `1.2.410` also keeps the runtime shape where the main window can open sooner while slower background work continues after launch.
+Version `1.2.420` also keeps the runtime shape where the main window can open sooner while slower background work continues after launch.
 
 Current startup and update characteristics include:
 
@@ -275,3 +275,4 @@ Current startup and update characteristics include:
 * explicit browser-state, password, profile-restore-point, and session-storage saves before managed update installs close the browser
 * current-user trusted-root certificate inspection that can skip repeated certificate prompts when the same bundled certificate is already trusted, while still surfacing the Windows confirmation step for a newly bundled replacement certificate
 * renderer-side persistence for local `AI & Diagnostics` panel query, preview, summary, and scroll state when the panel is closed and reopened
+
