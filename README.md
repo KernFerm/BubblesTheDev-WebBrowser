@@ -353,4 +353,3 @@ If you want more detail, the repo also includes:
 * `Data-Collection-and-Privacy-Notice.md` for the plain-language privacy notice
 * `Browser-Privacy-Comparison.md` for the broader privacy comparison view
 * `CHANGELOG.md` for release-to-release changes
-
