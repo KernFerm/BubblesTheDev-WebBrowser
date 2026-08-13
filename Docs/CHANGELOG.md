@@ -1,6 +1,6 @@
 # Changelog
 
-This changelog summarizes notable public release changes through version `1.2.430`.
+This changelog summarizes notable public release changes through version `1.2.430`. 
 
 ## 1.2.430
 
