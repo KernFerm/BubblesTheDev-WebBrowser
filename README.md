@@ -2,7 +2,7 @@
 
 > A Windows 11 browser for people who want clearer privacy controls, visible project docs, and a more understandable daily browser.
 
-[![Version](https://img.shields.io/badge/version-1.2.420-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
+[![Version](https://img.shields.io/badge/version-1.2.430-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Platform](https://img.shields.io/badge/platform-Windows%2011-0078D6)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Electron](https://img.shields.io/badge/Electron-43-47848F?logo=electron&logoColor=white)](https://www.electronjs.org/)
 
@@ -87,7 +87,7 @@ BubblesTheDev Web Browser is a Windows browser built around a simple idea: peopl
 
 It keeps familiar browser features like tabs, bookmarks, downloads, saved sign-in data, a built-in home page, split view, and media tools, but pairs them with stronger local-first defaults, clearer runtime visibility, and a more inspectable project surface.
 
-Version `1.2.420` continues that direction with optional Ollama setup reliability fixes, a clearer compact Windows installer dashboard, stale-uninstaller repair, local AI Chat improvements, anonymous feedback guidance, local PDF/browser-tool polish, and public documentation cleanup.
+Version `1.2.430` continues that direction with smoother performance behavior for multi-monitor gaming and streaming setups, while keeping the previous hardware acceleration control, optional Ollama setup reliability, local AI Chat, feedback, PDF tools, and browser-tool improvements in place.
 
 The overall goal is simple:
 
@@ -96,19 +96,21 @@ The overall goal is simple:
 * make sensitive features easier to inspect and control
 * reduce the amount of hidden behavior users have to trust blindly
 
-## What's New In 1.2.420
+## What's New In 1.2.430
 
-* Advanced the packaged browser version to `1.2.420`
-* Fixed optional Ollama setup verification in the Windows installer
-* Added safer optional Ollama setup failure reasons in the Retry prompt
-* Moved Ollama Runtime and AI Models near the top of the installer dashboard
-* Compacted the installer dashboard so Accessibility, Localization Files, and Final Verification fit better
-* Added stale missing-uninstaller registry repair for broken previous installs
-* Kept Ollama installer helper files out of protected obfuscation for installer-time reliability
+* Advanced the packaged browser version to `1.2.430`
+* Smoothed browser performance behavior for users running the browser, a game, and OBS or Streamlabs across multiple monitors
+* Kept game and streaming optimization active when the game is running but OBS, Streamlabs, or the browser is focused
+* Expanded local game process detection for more current, EA-published, Steam-distributed, and future-facing PC games
+* Kept Steam and EA App launcher processes from activating game mode unless an actual game process is detected
+* Clarified that gaming support does not bypass anti-cheat, modify games, inject into game processes, or interfere with gaming security systems
+* Reduced duplicate frame-rate, background-throttling, and process-priority work when the browser performance policy has not changed
+* Patched the vulnerable transitive `nanoid` dependency reported by npm audit
+* Kept Disable Hardware Acceleration and Lower GPU Usage Mode available in the Performance panel
 * Kept AI Chat optional, off after install, and model downloads inside Tools > AI Chat
-* Refreshed Markdown documentation for version `1.2.420`
+* Refreshed Markdown documentation for version `1.2.430`
 
-In practical terms, version `1.2.420` keeps the local-first browser model in place while making optional local AI setup, installer recovery, feedback, PDF tools, and browser-tool documentation clearer for end users.
+In practical terms, version `1.2.430` keeps the local-first browser model in place while reducing unnecessary browser-side performance churn during OBS, Streamlabs, game capture, and fullscreen-game use.
 
 ## Main Features
 
@@ -251,6 +253,8 @@ Each supported streaming service is intended to run in its own isolated session 
 ### Performance And Power Features
 
 * gaming and streaming performance mode
+* expanded local game process detection without treating Steam or EA App launchers as games
+* browser-managed gaming optimization that does not hook, patch, or control game processes
 * background tab throttling
 * sleeping tabs under memory pressure
 * stream-stability controls
@@ -301,7 +305,7 @@ The architecture is intentionally local-first and tries to keep the browser's mo
 
 Installer file name:
 
-`BubblesTheDev Web Browser_Installer_1.2.420.exe`
+`BubblesTheDev Web Browser_Installer_1.2.430.exe`
 
 Platform:
 
@@ -353,3 +357,4 @@ If you want more detail, the repo also includes:
 * `Data-Collection-and-Privacy-Notice.md` for the plain-language privacy notice
 * `Browser-Privacy-Comparison.md` for the broader privacy comparison view
 * `CHANGELOG.md` for release-to-release changes
+
