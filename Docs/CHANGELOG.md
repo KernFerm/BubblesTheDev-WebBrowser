@@ -1,6 +1,54 @@
 # Changelog
 
-This changelog summarizes notable public release changes through version `1.2.420`.
+This changelog summarizes notable public release changes through version `1.2.430`.
+
+## 1.2.430
+
+### Added
+
+- Added broader gaming support detection for many current, EA-published, Steam-distributed, and future-facing PC games.
+- Added clearer public gaming-support wording that explains the browser does not bypass anti-cheat, modify games, inject into game processes, or interfere with gaming security systems.
+- Added release-facing documentation for the Performance panel controls that let users disable Chromium hardware acceleration after a browser restart or use Lower GPU Usage Mode during active sessions.
+
+### Fixed
+
+- Smoothed the performance policy flow for multi-monitor users who keep the browser open while Fortnite, OBS, or Streamlabs are running on other monitors.
+- Reduced repeated native frame-rate, background-throttling, and process-priority calls when the browser performance policy has not actually changed.
+- Kept game and streaming detection active when the game is running but OBS, Streamlabs, or the browser is the focused window.
+- Patched the vulnerable transitive `nanoid` dependency resolved by the npm audit report.
+
+### Updated
+
+- Updated the runtime trust manifest after browser runtime performance changes.
+- Updated release-facing documentation for version `1.2.430`.
+
+### Notes
+
+- `npm audit` reports zero known vulnerabilities after this update.
+- Game launchers alone do not activate gaming optimization; a detected game process, fullscreen/borderless game window, or relevant game/streaming context is still required.
+- Gaming support does not bypass anti-cheat, modify games, inject into game processes, or interfere with gaming security systems.
+- Disable Hardware Acceleration and Lower GPU Usage Mode remain available in the Performance panel.
+- AI Chat remains optional and disabled after install.
+
+## 1.2.425
+
+### Added
+
+- Added a visible Disable Hardware Acceleration toggle in the Performance panel for users who stream, record, or play games while the browser is open.
+- Added current-launch hardware acceleration status in the Performance panel so users can see whether Chromium GPU acceleration is currently enabled or disabled.
+- Added restart-required messaging when the saved hardware acceleration choice differs from the current running browser session.
+
+### Updated
+
+- The saved hardware acceleration setting is now applied during startup before browser windows are created.
+- Added a non-sensitive startup fallback for the hardware acceleration preference so the setting can still apply early when the encrypted browser state is not available yet.
+- Updated release-facing documentation for version `1.2.425`.
+
+### Notes
+
+- Hardware acceleration changes require a browser restart.
+- Lower GPU Usage Mode remains available as a separate live performance setting.
+- AI Chat remains optional and disabled after install.
 
 ## 1.2.420
 
