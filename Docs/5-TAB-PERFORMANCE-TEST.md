@@ -81,7 +81,7 @@ Because of that, this test provides a more practical view of browser behavior du
 
 ## Result Summary
 
-In the latest automated run, BubblesTheDev Web Browser remained stable with approximately `2.12 GB` of RAM usage and about `7.6%` CPU usage across browser-owned processes over the post-settle sample window. On the test machine used here, that indicates solid resource handling during a multi-tab browsing session built around heavy public websites.
+The automated run is intended to confirm that the browser remains stable during a multi-tab browsing session built around heavy public websites. Local generated result files can include machine-specific timing, memory, CPU, and URL sample details, so those generated artifacts should stay out of public documentation unless they have been reviewed and intentionally sanitized.
 
 ## Built-In Performance Behavior
 
