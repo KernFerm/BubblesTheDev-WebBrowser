@@ -1,22 +1,25 @@
-# BubblesTheDev Web Browser 1.2.420
+# BubblesTheDev Web Browser 1.2.430
 
-Release documentation for version `1.2.420`.
+Release documentation for version `1.2.430`.
 
-`1.2.420` is a Windows installer and optional local AI setup reliability release.
+`1.2.430` is a maintenance and performance-smoothing release for users who keep the browser open while streaming, recording, or playing games on multiple monitors.
 
 ## Highlights
 
-* The packaged browser version is now `1.2.420`
-* Optional Ollama setup can download, verify, and run the official Ollama setup flow more reliably
-* The installer dashboard has a more compact layout so all component rows fit better
-* Ollama Runtime and AI Models now appear near the top of the dashboard
-* Optional Ollama setup failures show clearer Retry or Cancel guidance
-* The installer can repair stale uninstall registration left by a broken previous install
-* AI Chat remains off after installation and models are still downloaded later from Tools > AI Chat
+* The packaged browser version is now `1.2.430`
+* Multi-monitor game and streaming detection now stays active when the game is running but OBS, Streamlabs, or the browser is focused
+* Repeated frame-rate, background-throttling, and process-priority calls are skipped when the current performance policy has not changed
+* Game detection now covers a wider set of current, EA-published, Steam-distributed, and upcoming PC game process names
+* Steam and EA App launcher processes alone do not activate gaming optimization
+* Gaming support does not bypass anti-cheat, modify games, inject into game processes, or interfere with gaming security systems
+* The vulnerable transitive `nanoid` dependency reported by npm audit has been patched
+* The current project audit reports zero known npm vulnerabilities
+* Disable Hardware Acceleration and Lower GPU Usage Mode remain available in the Performance panel
+* AI Chat remains optional and models are still downloaded later from Tools > AI Chat
 
 ## What This Release Means
 
-This release keeps the existing browser behavior, privacy model, AI Chat design, and installer-based update model while making optional local AI setup more dependable and easier to understand during installation.
+This release keeps the existing browser behavior, privacy model, AI Chat design, and installer-based update model while reducing unnecessary browser-side performance churn during OBS, Streamlabs, game capture, or fullscreen gameplay sessions.
 
 Public support contact: support.bubblesthedev.webbrowser@gmail.com.
 
@@ -31,28 +34,30 @@ Public support contact: support.bubblesthedev.webbrowser@gmail.com.
 * Managed updates continue to use the installer-based update model
 * Users may see the normal installer window and Windows UAC prompt during updates depending on their system
 * Local Send to Device still requires both devices to be on the same Wi-Fi or local network with BubblesTheDev WebBrowser installed
+* Disable Hardware Acceleration requires a browser restart before Chromium GPU acceleration changes
+* Gaming optimization remains browser-managed and does not hook, patch, or control game processes
 
-## New And Fixed In 1.2.420
+## New And Fixed In 1.2.430
 
-* Updated the package version to `1.2.420`
-* Fixed the optional Ollama installer verification path so the downloaded installer is checked correctly
-* Added safe failure reasons to the optional Ollama Retry prompt
-* Made the Ollama progress state update more smoothly during installer setup
-* Moved Ollama Runtime and AI Models near the top of the installer dashboard
-* Compacted the installer dashboard layout so rows such as Accessibility, Localization Files, and Final Verification are less likely to be clipped
-* Added stale missing-uninstaller registry repair for broken previous installs
-* Kept Ollama installer helper files out of protected obfuscation so installer-time setup remains reliable
-* Updated public release documentation for version `1.2.420`
+* Updated the package version to `1.2.430`
+* Smoothed browser performance behavior for multi-monitor gaming and streaming setups
+* Kept game and streaming optimization active when Fortnite or another detected game is running but OBS, Streamlabs, or the browser is focused
+* Expanded supported game process aliases, including additional EA games and future-facing game names
+* Kept launcher-only processes out of gaming optimization triggers so open stores and launchers do not count as active gameplay
+* Skipped duplicate native frame-rate, background-throttling, and process-priority calls when the browser performance policy has not changed
+* Patched the vulnerable transitive `nanoid` dependency reported by npm audit
+* Updated the runtime trust manifest after browser runtime changes
+* Updated public release documentation for version `1.2.430`
 
 ## Previous Release
 
-The broader AI Chat, installer dashboard, feedback, PDF, and browser-tool updates were documented in earlier `1.2.x` entries.
+The hardware acceleration control, broader AI Chat, installer dashboard, feedback, PDF, optional Ollama setup, and browser-tool updates were documented in earlier `1.2.x` entries.
 
 ## Package
 
 Installer:
 
-`BubblesTheDev Web Browser_Installer_1.2.420.exe`
+`BubblesTheDev Web Browser_Installer_1.2.430.exe`
 
 SHA-256:
 
