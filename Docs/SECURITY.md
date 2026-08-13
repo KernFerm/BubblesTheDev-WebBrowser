@@ -12,7 +12,7 @@ Security fixes are generally provided for the most recent stable release of the 
 
 | Version | Supported |
 | ------- | --------- |
-| **1.2.420** | Yes |
+| **1.2.430** | Yes |
 | Older versions | No |
 
 Users should run the latest available version of the browser to receive the newest security fixes and improvements.
@@ -132,9 +132,11 @@ Public security documentation is intentionally kept high-level. Detailed impleme
 
 ## Dependency And Runtime Verification
 
-Version `1.2.420` keeps the dependency audit clean with targeted dependency overrides for vulnerable transitive build-tool packages. The current project audit reports zero known npm vulnerabilities.
+Version `1.2.430` keeps the dependency audit clean with targeted dependency updates and existing overrides for vulnerable transitive packages. The current project audit reports zero known npm vulnerabilities.
 
 The browser also keeps runtime trust-manifest checks for sensitive runtime files, including the main browser runtime and preload surfaces.
+
+The Disable Hardware Acceleration preference is a local performance setting. It is applied during startup before browser windows open and does not send GPU, OBS, game, capture, or browsing information to a remote service.
 
 ## Local AI Security
 
