@@ -12,7 +12,7 @@ Security fixes are generally provided for the most recent stable release of the 
 
 | Version | Supported |
 | ------- | --------- |
-| **1.2.430** | Yes |
+| **1.3.001** | Yes |
 | Older versions | No |
 
 Users should run the latest available version of the browser to receive the newest security fixes and improvements.
@@ -114,6 +114,7 @@ The browser is developed with a reduced-surface approach that emphasizes:
 * local ad and tracker blocking rules that avoid remote URL-scanning services
 * local link-safety inspection that analyzes URLs on-device without fetching third-party previews
 * local website app records and shortcuts validated from normal HTTP and HTTPS page origins
+* Developer Workspace as a browser-owned launcher with allowlisted built-in app definitions, user-selected custom executables, shell execution disabled, protected browser paths blocked, and no website access to app detection or launch IPC
 * local PDF tooling kept behind browser-controlled file dialogs instead of exposing unrestricted file-system access to web content
 * packaged local PDF editing libraries that save edited bytes locally and verify redaction outcomes without uploading document content
 * browser-level permission-use indicators sourced from the existing permission request flow
@@ -132,11 +133,31 @@ Public security documentation is intentionally kept high-level. Detailed impleme
 
 ## Dependency And Runtime Verification
 
-Version `1.2.430` keeps the dependency audit clean with targeted dependency updates and existing overrides for vulnerable transitive packages. The current project audit reports zero known npm vulnerabilities.
+Version `1.3.001` keeps the dependency audit clean with targeted dependency updates and existing overrides for vulnerable transitive packages. The current project audit reports zero known npm vulnerabilities.
 
 The browser also keeps runtime trust-manifest checks for sensitive runtime files, including the main browser runtime and preload surfaces.
 
-The Disable Hardware Acceleration preference is a local performance setting. It is applied during startup before browser windows open and does not send GPU, OBS, game, capture, or browsing information to a remote service.
+The Disable Hardware Acceleration preference is a local performance setting. It is applied during startup before browser windows open and does not send GPU, OBS, game, capture, or browsing information to a remote service. The browser shows a user-visible restart prompt and Restart Browser button when the saved setting is waiting for a restart.
+
+## Developer Workspace Security
+
+Developer Workspace is a secure launcher, not a browser integration bridge.
+
+External developer applications launch outside the browser trust boundary. They are not browser plugins, browser extensions, trusted browser modules, embedded Chromium views, or Electron child UI components.
+
+Developer Workspace does not intentionally provide launched apps with browser cookies, passwords, passkeys, account access data, browsing history, open tabs, current page contents, profile folders, settings files, diagnostics files, AI Chat data, local AI memory, browser IPC, WebContents handles, DevTools control, or internal browser APIs.
+
+Websites loaded in the browser cannot use Developer Workspace to detect installed developer applications, read custom app paths, add apps, launch apps, open local files, open folders, or execute commands.
+
+No command runner, generic shell execution endpoint, remote debugging endpoint, local HTTP control server, WebSocket control channel, named-pipe control channel, process injection, DLL injection, native window reparenting, or app-to-browser command channel was added for Developer Workspace.
+
+Missing-app Install buttons open official download pages in normal browser tabs. They do not download installers, run installers, run winget, run PowerShell scripts, or modify external developer tools automatically.
+
+Introduced for version `1.3.001`, Virtual Machine Center is part of Developer Workspace. It provides VMware Workstation Pro guidance, approved Linux ISO links, local VMware detection, and local ISO SHA-256 calculation. It does not install VMware, run VMware installers, create virtual machines, automate VMware, execute Linux commands, read guest files, read VM memory, disable Windows security, create firewall rules, or expose a VMware or guest-command bridge.
+
+Virtual Machine Center accepts ISO files only through a trusted browser-owned file picker, validates the `.iso` extension, blocks protected browser-controlled paths, and returns only file metadata plus a local SHA-256 hash. It does not return ISO contents.
+
+The `Ctrl+Shift+F` Send Feedback shortcut opens the same trusted browser-owned feedback panel as the Help menu. It does not expose feedback IPC to websites, VMware, Linux guests, or external applications.
 
 ## Local AI Security
 
