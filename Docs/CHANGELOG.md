@@ -1,6 +1,64 @@
 # Changelog
 
-This changelog summarizes notable public release changes through version `1.2.430`. 
+This changelog summarizes notable public release changes through version `1.3.001`.
+
+## 1.3.001
+
+### Added
+
+- Added Virtual Machine Center inside Developer Workspace for beginner VMware Workstation Pro guidance, official Broadcom links, approved Ubuntu 26.04 LTS and Linux Lite 8.0 ISO choices, local host architecture guidance, local ISO SHA-256 calculation, Linux setup instructions, safe VM defaults, storage guidance, and troubleshooting.
+- Added `Tools > Virtual Machine Center` as a direct menu entry so the VM guide can open without going through Developer Workspace first.
+- Added per-ISO-card `Verify ISO` actions with local SHA-256 match / mismatch results where expected hashes are configured.
+- Added visible storage warning guidance for ISO files, VM disks, and snapshot growth.
+- Added pop-out Virtual Machine Center installation guides with an `OK` close button.
+- Added pop-out Linux command lists with OS selection for Ubuntu and Linux Lite commands.
+- Added `Ctrl+Shift+F` as a Send Feedback shortcut.
+- Added the Send Feedback shortcut reminder and feedback button inside Virtual Machine Center.
+
+### Security
+
+- Virtual Machine Center does not install VMware, automate VMware, create virtual machines, execute guest commands, read guest files, read VM memory, disable Windows security, create firewall rules, or expose ISO selection, VMware detection, host architecture, local hashes, or VM details to normal websites.
+- VMware Workstation Pro remains an external Windows application, and Linux guests remain isolated from browser internals.
+- ISO verification runs locally from a user-selected `.iso` file and does not upload ISO contents or hashes.
+- Command Prompt and PowerShell remain removed from Developer Workspace.
+
+### Updated
+
+- Updated the shortcut key guide with the `Ctrl+Shift+F` Send Feedback shortcut.
+- Updated release-facing documentation and EULA wording for version `1.3.001`, including third-party software license guidance.
+- Updated `build/LICENSE.txt` and `docs/EULA.md` so the installer license and docs EULA match.
+- Updated the website copy for version `1.3.001`.
+
+## 1.2.500
+
+### Added
+
+- Added Developer Workspace under `Tools > Browser Features` for launching supported local developer applications and developer websites from trusted browser UI.
+- Added official install-page buttons for supported developer apps that are not found locally. These buttons open the official website and do not silently download or install anything.
+- Added Visual Studio Code actions for opening an explicitly selected file, selected folder, or the normal Downloads folder.
+- Added local custom developer app management with add, rename, remove, and favorite controls.
+- Added Developer Workspace web tools for developer websites such as GitHub, github.dev, vscode.dev, MDN, npm, StackBlitz, CodeSandbox, CodePen, JSFiddle, and Replit.
+- Added `Tools > Browser Features > Toolbar Clock` for choosing local time or UTC and normal 12-hour or military 24-hour time.
+- Added a `Restart Browser` button and restart prompt when Disable Hardware Acceleration has a pending browser restart.
+
+### Fixed
+
+- Fixed main `index.html` startup loading reliability by sanitizing renderer query values and retrying through a trusted fallback load path before showing a load error.
+- Fixed Developer Workspace selected-file and selected-folder launch result handling so the UI receives the completed launch result instead of an unresolved promise.
+- Refined toolbar navigation icon sizing so back, forward, refresh, and home controls are visually closer in size.
+- Removed heavy visible card backgrounds from the toolbar navigation controls and clock.
+
+### Security
+
+- Developer Workspace launches external applications outside the browser trust boundary.
+- Developer Workspace does not expose browser cookies, passwords, profile folders, browsing history, open tabs, page contents, AI Chat data, browser IPC, or browser internals to launched applications.
+- Websites cannot use Developer Workspace to detect installed developer apps or launch local programs.
+- No command runner, shell execution API, remote debugging channel, local browser-control server, process injection, or app-to-browser command channel was added.
+
+### Updated
+
+- Updated release-facing documentation for version `1.2.500`.
+- Updated the runtime trust manifest after browser runtime and preload changes.
 
 ## 1.2.430
 
@@ -19,6 +77,7 @@ This changelog summarizes notable public release changes through version `1.2.43
 
 ### Updated
 
+- Bundled `yt-dlp.exe` was updated to version `2026.07.06`.
 - Updated the runtime trust manifest after browser runtime performance changes.
 - Updated release-facing documentation for version `1.2.430`.
 
