@@ -2,7 +2,7 @@
 
 ## Architecture Overview
 
-This document explains the high-level runtime shape of BubblesTheDev Web Browser version `1.2.430`.
+This document explains the high-level runtime shape of BubblesTheDev Web Browser version `1.3.001`.
 
 ## Design Goals
 
@@ -40,7 +40,7 @@ The browser builds its default Chromium-style user agent from Electron's runtime
 
 ## Profile Architecture
 
-Version `1.2.430` keeps the broader browser profile system while keeping the browser local-first.
+Version `1.3.001` keeps the broader browser profile system while keeping the browser local-first.
 
 The current profile runtime includes:
 
@@ -60,11 +60,31 @@ The current profile runtime includes:
 
 The tab-organization and browser-tool features use the existing profile session snapshot path instead of a parallel cloud or dashboard service.
 
-Profile-scoped browser feature state includes vertical-tab layout, tab groups, saved workspaces, duplicate-tab preferences, privacy preset metadata, local website app records, local sidebar settings, local PDF annotation metadata, Picture-in-Picture state, link-safety preferences, and permission-use indicators.
+Profile-scoped browser feature state includes vertical-tab layout, tab groups, saved workspaces, duplicate-tab preferences, toolbar clock preferences, privacy preset metadata, local website app records, local sidebar settings, local PDF annotation metadata, Picture-in-Picture state, link-safety preferences, and permission-use indicators.
 
 The local PDF editing service lives in trusted main-process code. It lazy-loads `pdf-lib` for byte-level PDF edits, `pdf.js-extract` for independent local text extraction/verification, and a helper child process using `pdf-to-png-converter` for rasterized permanent redaction. Renderer code can request narrow PDF actions through preload IPC, but it does not receive unrestricted filesystem access or decrypted document bytes.
 
 Guest and incognito windows normalize the same structures for runtime behavior, but their feature data is temporary and is not permanently written as profile state.
+
+## Developer Workspace Architecture
+
+Version `1.2.500` added Developer Workspace as a browser-owned launcher for supported external developer applications and developer websites.
+
+Developer Workspace is intentionally a launcher, not a privileged integration bridge. It can detect a bounded allowlist of supported developer applications through known installation paths, safe PATH checks, and user-added custom executable paths. It does not scan the user's entire drive and does not expose application detection results to websites.
+
+Installed applications are launched as normal external Windows applications through direct process launch with shell execution disabled. The browser does not embed external application windows, inject into external processes, create a reverse control channel, or give launched applications browser IPC, cookies, passwords, browsing history, open-tab data, profile folders, AI Chat data, or internal browser APIs.
+
+The only file or folder paths passed to an external app are paths the user explicitly selects from browser-owned dialogs, plus the normal user Downloads folder when the user explicitly chooses that action for Visual Studio Code. Browser profile roots, application roots, diagnostics roots, and other protected browser-controlled locations are blocked from Developer Workspace file and folder actions.
+
+Developer website shortcuts open through the browser's existing tab, Split View, and pop-out browser-window mechanisms. These websites remain ordinary web content and do not receive Node.js, Electron, Developer Workspace IPC, or local filesystem privileges.
+
+Version `1.3.001` extends Developer Workspace with Virtual Machine Center, a browser-owned beginner guide for VMware Workstation Pro and Linux ISO setup. VMware remains an external Windows application launched only after explicit user action. Ubuntu and Linux Lite run only inside VMware, not inside the browser.
+
+The VM Center data is static bundled guide configuration for the approved VMware/Broadcom, Ubuntu, and Linux Lite links. Host architecture and basic local resources are read locally only to help the user choose an ISO. ISO hash calculation is limited to a user-selected `.iso` file from a trusted file picker, blocks protected browser paths, and returns only metadata and a SHA-256 hash.
+
+There is no browser-to-VMware control server, guest command bridge, VM memory access, guest file reader, SSH automation, clipboard injection, firewall modification, Windows-security modification, or automatic VMware installation path.
+
+Virtual Machine Center also surfaces the browser-owned Send Feedback shortcut. `Ctrl+Shift+F` opens the same trusted feedback panel as `Help > Send Feedback`; it does not grant VMware, Linux guests, or websites any feedback IPC access.
 
 ## Anonymous Feedback Architecture
 
@@ -89,7 +109,7 @@ The current import behavior includes:
 
 ## Local AI Architecture
 
-Version `1.2.430` keeps the local AI layer on-device by default while carrying forward the broader accessibility, startup, installer, media-tool, multilingual, and newer profile-system refinements from the earlier releases.
+Version `1.3.001` keeps the local AI layer on-device by default while carrying forward the broader accessibility, startup, installer, media-tool, multilingual, and newer profile-system refinements from the earlier releases.
 
 AI Chat is a dedicated local chat surface rather than a cloud assistant. It can run in its own browser panel or a pop-out AI Chat window and talks to approved local Ollama models through the local loopback service only.
 
@@ -126,7 +146,7 @@ The current session health system:
 
 Diagnostics are generated locally.
 
-Version `1.2.430` includes:
+Version `1.3.001` includes:
 
 * manual encrypted diagnostics export
 * an `AI & Diagnostics` panel
@@ -142,7 +162,7 @@ Version `1.2.430` includes:
 
 ## Accessibility Model
 
-Version `1.2.430` also keeps the expanded browser accessibility layer.
+Version `1.3.001` also keeps the expanded browser accessibility layer.
 
 The current accessibility runtime includes:
 
@@ -154,7 +174,7 @@ The current accessibility runtime includes:
 
 ## Localization Architecture
 
-Version `1.2.430` keeps the centralized localization manager in the main process and routes newer browser UI strings through that same protected pipeline.
+Version `1.3.001` keeps the centralized localization manager in the main process and routes newer browser UI strings through that same protected pipeline.
 
 The localization runtime now includes:
 
@@ -209,7 +229,7 @@ Current security-sensitive runtime characteristics include:
 
 ## Ad And Tracker Blocking Model
 
-Version `1.2.430` expands the built-in blocker while keeping it local and lightweight.
+Version `1.3.001` keeps the expanded built-in blocker while keeping it local and lightweight.
 
 The blocker currently uses:
 
@@ -224,7 +244,7 @@ The browser does not download remote filter lists or send visited URLs to a bloc
 
 ## Canvas Fingerprint Protection
 
-Version `1.2.430` includes local Canvas fingerprint protection with Strict, Balanced, and Off modes in Privacy & Security. Strict is the default for new users, and users can relax the mode if a canvas-heavy or media-heavy site needs compatibility.
+Version `1.3.001` includes local Canvas fingerprint protection with Strict, Balanced, and Off modes in Privacy & Security. Strict is the default for new users, and users can relax the mode if a canvas-heavy or media-heavy site needs compatibility.
 
 The protection is applied in the browser page preload and wraps Canvas readout methods such as `toDataURL`, `toBlob`, and `getImageData`. Balanced mode keeps normal drawing behavior intact while changing small readout samples per browser session. Strict mode changes more readout samples for stronger testing coverage and may affect canvas-heavy sites such as image editors, games, or design tools. When Canvas protection is not Off, the browser also enables Chromium's canvas-readback blocking at startup, so a restart is required for the strongest engine-level protection to apply.
 
@@ -234,15 +254,15 @@ The same protection mode also reduces JavaScript fingerprinting surfaces exposed
 
 ## Memory Pressure Behavior
 
-Version `1.2.430` keeps the lower default memory pressure target so inactive background tabs are put to sleep before the browser approaches heavier working set usage. Browser-owned search, suggestion, localization, and session caches are kept smaller or trimmed under pressure.
+Version `1.3.001` keeps the lower default memory pressure target so inactive background tabs are put to sleep before the browser approaches heavier working set usage. Browser-owned search, suggestion, localization, and session caches are kept smaller or trimmed under pressure.
 
 This does not eliminate Chromium's normal per-tab memory cost. Active pages, video, WebGL/WebGPU pages, extensions, and multiple renderer processes can still use substantial memory while they are live.
 
 ## Hardware Acceleration Control
 
-Version `1.2.430` keeps the user-facing Disable Hardware Acceleration setting in the Performance panel. The setting is stored with the browser's performance settings and is applied during the next app startup before browser windows are created.
+Version `1.3.001` keeps the user-facing Disable Hardware Acceleration setting in the Performance panel. The setting is stored with the browser's performance settings and is applied during the next app startup before browser windows are created.
 
-The Performance panel reports whether hardware acceleration is enabled or disabled for the current launch and shows a restart-required message when the saved setting has changed but has not taken effect yet. This is separate from Lower GPU Usage Mode, which remains a live performance policy for frame-rate and background activity reduction.
+The Performance panel reports whether hardware acceleration is enabled or disabled for the current launch and shows a restart-required message when the saved setting has changed but has not taken effect yet. The browser also includes a dedicated Restart Browser action for that pending state. This is separate from Lower GPU Usage Mode, which remains a live performance policy for frame-rate and background activity reduction.
 
 For multi-monitor gaming and streaming setups, the performance manager also keeps game and streaming optimization active when a detected game is running on one monitor while OBS, Streamlabs, or the browser is focused on another monitor. The runtime skips duplicate frame-rate, background-throttling, and process-priority calls when the active performance policy has not changed.
 
@@ -271,13 +291,14 @@ Current local-first characteristics include:
 
 ## Startup And Update Coordination
 
-Version `1.2.430` also keeps the runtime shape where the main window can open sooner while slower background work continues after launch.
+Version `1.3.001` also keeps the runtime shape where the main window can open sooner while slower background work continues after launch.
 
 Current startup and update characteristics include:
 
 * deferred post-launch initialization for slower background tasks
 * profile compatibility checks and profile-state validation during startup selection
 * a lighter localization startup path that avoids full locale-registry diagnostics before the first usable browser window
+* sanitized main renderer startup query values with a trusted fallback load path before an `index.html` load error is shown
 * installer-based updates rather than a hidden always-on patch service
 * installer registration support for installed builds where available
 * user-visible update-note handling that can create or refresh a Desktop folder named `BubblesTheDev - WebBrowser Update Notes` with the bundled release notes for the installed version
