@@ -2,7 +2,7 @@
 
 > A Windows 11 browser for people who want clearer privacy controls, visible project docs, and a more understandable daily browser.
 
-[![Version](https://img.shields.io/badge/version-1.2.430-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
+[![Version](https://img.shields.io/badge/version-1.3.001-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Platform](https://img.shields.io/badge/platform-Windows%2011-0078D6)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Electron](https://img.shields.io/badge/Electron-43-47848F?logo=electron&logoColor=white)](https://www.electronjs.org/)
 
@@ -87,7 +87,7 @@ BubblesTheDev Web Browser is a Windows browser built around a simple idea: peopl
 
 It keeps familiar browser features like tabs, bookmarks, downloads, saved sign-in data, a built-in home page, split view, and media tools, but pairs them with stronger local-first defaults, clearer runtime visibility, and a more inspectable project surface.
 
-Version `1.2.430` continues that direction with smoother performance behavior for multi-monitor gaming and streaming setups, while keeping the previous hardware acceleration control, optional Ollama setup reliability, local AI Chat, feedback, PDF tools, and browser-tool improvements in place.
+Version `1.3.001` continues that direction with Virtual Machine Center for beginner VMware Workstation Pro and Linux ISO setup guidance, a visible Send Feedback shortcut, and updated third-party license documentation while keeping the previous Developer Workspace, gaming, streaming, AI Chat, PDF, feedback, and privacy-tool improvements in place.
 
 The overall goal is simple:
 
@@ -96,21 +96,21 @@ The overall goal is simple:
 * make sensitive features easier to inspect and control
 * reduce the amount of hidden behavior users have to trust blindly
 
-## What's New In 1.2.430
+## What's New In 1.3.001
 
-* Advanced the packaged browser version to `1.2.430`
-* Smoothed browser performance behavior for users running the browser, a game, and OBS or Streamlabs across multiple monitors
-* Kept game and streaming optimization active when the game is running but OBS, Streamlabs, or the browser is focused
-* Expanded local game process detection for more current, EA-published, Steam-distributed, and future-facing PC games
-* Kept Steam and EA App launcher processes from activating game mode unless an actual game process is detected
-* Clarified that gaming support does not bypass anti-cheat, modify games, inject into game processes, or interfere with gaming security systems
-* Reduced duplicate frame-rate, background-throttling, and process-priority work when the browser performance policy has not changed
-* Patched the vulnerable transitive `nanoid` dependency reported by npm audit
-* Kept Disable Hardware Acceleration and Lower GPU Usage Mode available in the Performance panel
+* Advanced the packaged browser version to `1.3.001`
+* Added Virtual Machine Center from `Tools > Virtual Machine Center`
+* Kept Virtual Machine Center available from `Tools > Browser Features > Developer Workspace`
+* Added VMware Workstation Pro and Linux ISO setup guidance for approved Ubuntu and Linux Lite choices
+* Added local per-card ISO verification with SHA-256 matching where expected hashes are configured
+* Added pop-out Linux installation guides and command lists
+* Added `Ctrl+Shift+F` as the Send Feedback shortcut
+* Added a Feedback Shortcut card inside Virtual Machine Center
+* Updated the EULA with clearer third-party software license guidance
 * Kept AI Chat optional, off after install, and model downloads inside Tools > AI Chat
-* Refreshed Markdown documentation for version `1.2.430`
+* Refreshed Markdown documentation for version `1.3.001`
 
-In practical terms, version `1.2.430` keeps the local-first browser model in place while reducing unnecessary browser-side performance churn during OBS, Streamlabs, game capture, and fullscreen-game use.
+In practical terms, version `1.3.001` keeps the local-first browser model in place while giving users a safer VM setup guide and a faster way to send product feedback.
 
 ## Main Features
 
@@ -136,7 +136,10 @@ In practical terms, version `1.2.430` keeps the local-first browser model in pla
 * local PDF byte-level editing, notes, highlights, simple drawing, form-field updates, and Save Copy support
 * browser-managed Picture-in-Picture controls
 * local link-safety inspection
+* secure Developer Workspace launcher for supported developer apps and developer websites
 * optional anonymous feedback from the Help menu with category-specific message format examples
+* `Ctrl+Shift+F` Send Feedback shortcut
+* Virtual Machine Center for VMware Workstation Pro and Linux ISO setup guidance
 * updated keyboard shortcuts guide
 * same-network Send to Device setup notes for Windows 11 PCs, with mobile support coming soon
 
@@ -261,6 +264,7 @@ Each supported streaming service is intended to run in its own isolated session 
 * built-in Task Manager
 * runtime checks panel
 * Profile Security panel
+* Disable Hardware Acceleration restart button when a restart is pending
 * multiple built-in themes, including an animated `Aurora Drift` option
 * custom local-image banner themes
 These features are aimed at keeping the browser usable during heavier sessions such as gaming, streaming, multitasking, or long browsing runs. The browser can back off more aggressively in the background, reduce unnecessary work, and surface a current-session health view so users can see when the browser is under more pressure.
@@ -271,6 +275,8 @@ These features are aimed at keeping the browser usable during heavier sessions s
 * browser history import support
 * VPN tools and public IP checks
 * passkey compatibility for supported sites
+* Developer Workspace with supported local developer app detection, official install-page links, custom app favorites, and developer website shortcuts
+* Virtual Machine Center for VMware Workstation Pro and Linux virtual machine setup guidance
 * local-only Music Player
 * hardened Music Downloader
 * profile backup, restore, and recovery tools
@@ -305,7 +311,7 @@ The architecture is intentionally local-first and tries to keep the browser's mo
 
 Installer file name:
 
-`BubblesTheDev Web Browser_Installer_1.2.430.exe`
+`BubblesTheDev Web Browser_Installer_1.3.001.exe`
 
 Platform:
 
@@ -355,6 +361,7 @@ If you want more detail, the repo also includes:
 * `ARCHITECTURE.md` for the high-level runtime design
 * `SECURITY.md` for the security policy and reporting path
 * `Data-Collection-and-Privacy-Notice.md` for the plain-language privacy notice
+* `Developer-Workspace.md` for the secure developer launcher behavior and boundaries
 * `Browser-Privacy-Comparison.md` for the broader privacy comparison view
 * `CHANGELOG.md` for release-to-release changes
 
