@@ -6,6 +6,8 @@ The feedback panel is designed for short product feedback only. It does not ask 
 
 The message box shows a category-specific placeholder format for Bug Report, Feature Suggestion, Accessibility Feedback, Privacy Feedback, Performance Feedback, Website Compatibility Issue, General Feedback, and Other. The placeholder is only guidance and disappears when the user starts typing.
 
+Users can open Send Feedback from `Help > Send Feedback` or with `Ctrl+Shift+F`. Virtual Machine Center also shows this shortcut so users can quickly report VM setup issues or suggestions.
+
 For support requests that need a reply, contact support.bubblesthedev.webbrowser@gmail.com instead of using anonymous feedback.
 
 ## Privacy Behavior
