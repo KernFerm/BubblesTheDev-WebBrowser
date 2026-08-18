@@ -8,7 +8,7 @@ Public support contact: support.bubblesthedev.webbrowser@gmail.com.
 
 ## Current Documentation Target
 
-This document is aligned with the current public BubblesTheDev Web Browser documentation for version `1.2.430`.
+This document is aligned with the current public BubblesTheDev Web Browser documentation for version `1.3.001`.
 
 Security fixes are generally provided for the most recent stable release of the browser. Older versions are not supported for current security fixes.
 
@@ -28,6 +28,9 @@ The browser is designed around:
 * browser-controlled installer-based update behavior
 * local ad and tracker blocking without remote URL-scanning telemetry
 * local Canvas and JavaScript fingerprinting protection with Strict as the default mode
+* local Developer Workspace controls for supported developer apps and developer websites
+* local Virtual Machine Center guidance for VMware Workstation Pro and Linux ISO setup
+* browser-owned feedback controls, including the `Ctrl+Shift+F` Send Feedback shortcut
 
 ## EU Digital Rights Principles
 
@@ -63,7 +66,7 @@ The browser is designed to reduce the amount of personal data processed by the b
 
 ## Fingerprinting Protection
 
-Version `1.2.430` defaults to Strict Canvas and JavaScript fingerprinting protection. These protections reduce high-entropy browser surfaces locally and can be relaxed to Balanced or Off by the user for site compatibility.
+Version `1.3.001` defaults to Strict Canvas and JavaScript fingerprinting protection. These protections reduce high-entropy browser surfaces locally and can be relaxed to Balanced or Off by the user for site compatibility.
 
 The browser does not upload canvas images, page contents, visited URLs, browsing history, or fingerprint values to a remote fingerprinting service.
 
@@ -85,6 +88,7 @@ Local browser data may include:
 * local diagnostics data
 * local ad and tracker blocking counters
 * install-linked metadata for custom or external-drive installs
+* toolbar clock preferences and Developer Workspace preferences where the user uses those features
 
 Standard browser profiles are intended to remain isolated from one another. Guest browsing is intended to remain non-persistent.
 
@@ -169,6 +173,14 @@ Current public expectations include:
 * non-persistent AI memory for incognito or other ephemeral contexts where supported
 * no cloud-sync expectation for AI memory
 * local `AI & Diagnostics` and AI Chat panel state can remain available when those panels are closed and reopened within the browser
+
+## Developer Workspace Privacy
+
+Developer Workspace is a local browser tool for opening supported developer applications and developer websites from trusted browser UI.
+
+The browser is not designed to upload installed-app detection results, custom app paths, favorites, selected file or folder paths, or Developer Workspace usage as telemetry. Websites cannot use Developer Workspace to detect installed local apps, read local app paths, launch local programs, or open files and folders.
+
+Developer Workspace install buttons open official app websites for the user to review. They do not silently download installers, run package managers, or install developer tools in the background.
 
 ## Accessibility And Inclusive Use
 
