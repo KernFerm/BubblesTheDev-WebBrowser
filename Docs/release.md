@@ -1,25 +1,25 @@
-# BubblesTheDev Web Browser 1.2.430
+# BubblesTheDev Web Browser 1.3.001
 
-Release documentation for version `1.2.430`.
+Release documentation for version `1.3.001`.
 
-`1.2.430` is a maintenance and performance-smoothing release for users who keep the browser open while streaming, recording, or playing games on multiple monitors.
+`1.3.001` adds Virtual Machine Center for beginner VMware Workstation Pro and Linux ISO setup guidance, adds a visible Send Feedback shortcut, and updates the EULA with clearer third-party software license wording.
 
 ## Highlights
 
-* The packaged browser version is now `1.2.430`
-* Multi-monitor game and streaming detection now stays active when the game is running but OBS, Streamlabs, or the browser is focused
-* Repeated frame-rate, background-throttling, and process-priority calls are skipped when the current performance policy has not changed
-* Game detection now covers a wider set of current, EA-published, Steam-distributed, and upcoming PC game process names
-* Steam and EA App launcher processes alone do not activate gaming optimization
-* Gaming support does not bypass anti-cheat, modify games, inject into game processes, or interfere with gaming security systems
-* The vulnerable transitive `nanoid` dependency reported by npm audit has been patched
-* The current project audit reports zero known npm vulnerabilities
-* Disable Hardware Acceleration and Lower GPU Usage Mode remain available in the Performance panel
-* AI Chat remains optional and models are still downloaded later from Tools > AI Chat
+* The packaged browser version is now `1.3.001`
+* `Tools > Virtual Machine Center` opens the VM guide directly
+* Virtual Machine Center is also reachable from `Tools > Browser Features > Developer Workspace`
+* VMware Workstation Pro remains an external Windows application
+* Ubuntu and Linux Lite run inside VMware, not inside the browser
+* ISO verification runs locally from a user-selected `.iso` file
+* Linux command lists and installation guides open in pop-out windows with an `OK` close button
+* `Ctrl+Shift+F` opens Send Feedback from the browser
+* Virtual Machine Center shows the feedback shortcut for VM setup issues or suggestions
+* The EULA now includes clearer third-party software license guidance
 
 ## What This Release Means
 
-This release keeps the existing browser behavior, privacy model, AI Chat design, and installer-based update model while reducing unnecessary browser-side performance churn during OBS, Streamlabs, game capture, or fullscreen gameplay sessions.
+This release keeps BubblesTheDev Web Browser local-first while adding a beginner-friendly VM setup guide. The browser can explain approved download sources, local host architecture, storage warnings, ISO verification, and basic Linux setup steps, but it does not become a VMware controller.
 
 Public support contact: support.bubblesthedev.webbrowser@gmail.com.
 
@@ -28,36 +28,44 @@ Public support contact: support.bubblesthedev.webbrowser@gmail.com.
 * Standard profiles remain isolated with their own sessions, history, permissions, settings, and restored tabs
 * Guest Mode remains non-persistent
 * Optional profile PIN protection remains available
-* Encrypted profile secrets, restore points, and profile session snapshots remain part of the profile recovery model
-* Local AI processing, privacy-safe diagnostics controls, and accessibility preferences continue to work as part of the current local-first browser model
+* Local AI processing, AI Chat, privacy-safe diagnostics controls, and accessibility preferences continue to work as part of the local-first browser model
 * AI Chat remains optional and local-Ollama based
 * Managed updates continue to use the installer-based update model
-* Users may see the normal installer window and Windows UAC prompt during updates depending on their system
-* Local Send to Device still requires both devices to be on the same Wi-Fi or local network with BubblesTheDev WebBrowser installed
-* Disable Hardware Acceleration requires a browser restart before Chromium GPU acceleration changes
-* Gaming optimization remains browser-managed and does not hook, patch, or control game processes
+* Disable Hardware Acceleration still requires a browser restart before Chromium GPU acceleration changes
+* Developer Workspace remains a launcher, not a command runner or browser-control bridge
+* Virtual Machine Center does not install VMware, create VMs, run Linux commands, or read VM files
 
-## New And Fixed In 1.2.430
+## New And Fixed In 1.3.001
 
-* Updated the package version to `1.2.430`
-* Smoothed browser performance behavior for multi-monitor gaming and streaming setups
-* Kept game and streaming optimization active when Fortnite or another detected game is running but OBS, Streamlabs, or the browser is focused
-* Expanded supported game process aliases, including additional EA games and future-facing game names
-* Kept launcher-only processes out of gaming optimization triggers so open stores and launchers do not count as active gameplay
-* Skipped duplicate native frame-rate, background-throttling, and process-priority calls when the browser performance policy has not changed
-* Patched the vulnerable transitive `nanoid` dependency reported by npm audit
+* Added Virtual Machine Center for VMware Workstation Pro and Linux virtual machine setup guidance
+* Added approved Ubuntu 26.04 LTS and Linux Lite 8.0 ISO cards
+* Added per-card ISO verification buttons with local SHA-256 calculation
+* Added storage warning guidance for ISO files, VM disks, and snapshots
+* Added pop-out installation guides and Linux command lists
+* Added `Ctrl+Shift+F` for Send Feedback
+* Added a feedback shortcut card inside Virtual Machine Center
+* Updated the shortcut key guide with the Send Feedback shortcut
+* Updated the EULA third-party software license section
 * Updated the runtime trust manifest after browser runtime changes
-* Updated public release documentation for version `1.2.430`
+* Updated public release documentation for version `1.3.001`
 
-## Previous Release
+## Virtual Machine Center Security Notes
 
-The hardware acceleration control, broader AI Chat, installer dashboard, feedback, PDF, optional Ollama setup, and browser-tool updates were documented in earlier `1.2.x` entries.
+Virtual Machine Center is a guide, not a virtualization bridge.
+
+* VMware launches only after explicit user action
+* VMware remains outside the browser trust boundary
+* Linux guests do not receive browser cookies, passwords, history, open tabs, profile folders, AI Chat data, or browser IPC access
+* Websites cannot detect VMware through Virtual Machine Center
+* Websites cannot select ISO files, calculate ISO hashes, read local VM files, launch VMware, or execute host or guest commands
+* The browser does not install VMware, run VMware installers, create virtual machines, automate VMware, or disable Windows security
+* ISO hash calculation uses only the user-selected `.iso` file and does not upload ISO contents or hashes
 
 ## Package
 
 Installer:
 
-`BubblesTheDev Web Browser_Installer_1.2.430.exe`
+`BubblesTheDev Web Browser_Installer_1.3.001.exe`
 
 SHA-256:
 
@@ -67,9 +75,6 @@ Published separately with the final release artifact.
 
 * No built-in telemetry or analytics services are part of the normal browser runtime
 * Diagnostics can remain local unless the user explicitly exports them or enables privacy-safe reporting
-* Local Send to Device discovery is designed for the local network and does not require Google account services
-* Canvas fingerprint protection changes canvas readout data locally and does not upload page contents or browsing history
-* JavaScript privacy patches run locally in page preload and do not send fingerprint values to a remote service
 * Optional AI Chat uses local Ollama on the user's computer when enabled
+* Optional anonymous feedback uses only the user's selected category, typed message, and optional basic technical details
 * Public documentation avoids private setup details and focuses on what users need to know
-* Public release notes stay focused on visible product behavior
