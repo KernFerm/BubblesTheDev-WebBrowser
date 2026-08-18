@@ -1,6 +1,6 @@
 # Data Collection and Privacy Notice
 
-This notice explains the current privacy posture of BubblesTheDev Web Browser version `1.2.430`.
+This notice explains the current privacy posture of BubblesTheDev Web Browser version `1.3.001`.
 
 BubblesTheDev Web Browser is designed to keep ordinary browser data local to the user's device unless the user chooses to browse websites, use search providers, download files, export diagnostics, or enable optional privacy-safe reporting features where supported.
 
@@ -42,11 +42,13 @@ Current local browser data may include:
 * cached search results and suggestions used by the browser's internal search experience
 * local ad and tracker blocking counters
 * local tab layout, tab group, workspace, and duplicate-tab preferences
+* toolbar clock preferences for local or UTC time and 12-hour or 24-hour display
 * local per-site privacy report counters for observed blocker and permission events
 * local website app records and shortcut paths created by the user
 * local sidebar preferences
 * local PDF document records, annotation metadata, and edited PDF output paths selected by the user
 * local Picture-in-Picture state, link-safety preferences, and permission-use indicators
+* Developer Workspace preferences, favorites, and user-added custom developer app paths where the user chooses to add them
 * optional AI Chat settings, selected local model, local chat transcript state, and local Ollama availability state where supported
 * install-linked metadata for custom or external-drive installs
 
@@ -118,7 +120,7 @@ The blocker is not designed to upload visited URLs, browsing history, or page co
 
 ## Local Browser Feature Data
 
-Newer tab organization and browser-tool features are stored with the current browser profile where persistence is supported. This includes vertical-tab layout, tab groups, workspaces, duplicate-tab detection preferences, local website app records, local sidebar settings, local PDF annotation metadata, and local permission-use indicators.
+Newer tab organization and browser-tool features are stored with the current browser profile where persistence is supported. This includes vertical-tab layout, tab groups, workspaces, duplicate-tab detection preferences, toolbar clock preferences, local website app records, local sidebar settings, local PDF annotation metadata, Developer Workspace preferences, and local permission-use indicators.
 
 Guest and incognito sessions are treated as temporary. They do not permanently store workspaces, local website apps, or private per-session privacy-report data.
 
@@ -126,9 +128,15 @@ Link-safety inspection runs locally from the URL the user provides or inspects. 
 
 PDF editing and redaction verification run locally with packaged libraries. The browser does not upload PDFs to a cloud PDF service. Permanent redaction is only reported as verified when the saved PDF is reopened locally and the target text is absent from local extraction results.
 
+Developer Workspace is local-first. It does not transmit installed developer application detection results, custom developer app paths, favorite developer tools, selected files, selected folders, project names, or Developer Workspace usage to the browser operator, analytics providers, advertisers, or other remote endpoints. Missing-app Install buttons open official websites only and do not silently download or install software.
+
+Introduced for version `1.3.001`, Virtual Machine Center is part of Developer Workspace. It does not transmit VMware detection, host architecture, RAM, CPU count, selected ISO names, ISO hashes, Linux distribution choices, VM usage, tutorial progress, or terminal-command usage as telemetry. ISO hash calculation is local and uses only a `.iso` file selected by the user through trusted browser UI.
+
+The `Ctrl+Shift+F` Send Feedback shortcut opens the same browser-owned feedback panel as `Help > Send Feedback`. It does not add background collection, telemetry, diagnostics attachment, or Virtual Machine Center data upload.
+
 ## Fingerprinting Protection
 
-Version `1.2.430` defaults to Strict Canvas and JavaScript fingerprinting protection. These protections reduce local browser surfaces such as Canvas readouts, Client Hints, Battery Status, Network Information, Web Bluetooth, WebGPU, WebUSB, Web Serial, WebHID, WebXR, plugins, speech voices, Web Audio, and ad-auction APIs where possible.
+Version `1.3.001` defaults to Strict Canvas and JavaScript fingerprinting protection. These protections reduce local browser surfaces such as Canvas readouts, Client Hints, Battery Status, Network Information, Web Bluetooth, WebGPU, WebUSB, Web Serial, WebHID, WebXR, plugins, speech voices, Web Audio, and ad-auction APIs where possible.
 
 Fingerprinting protection runs locally in the browser and is not designed to upload canvas images, page contents, visited URLs, browsing history, or fingerprint values to a remote service. Users can switch to Balanced or Off in Privacy & Security if a site needs more compatibility.
 
@@ -180,6 +188,7 @@ Some browser features involve additional local-only or opt-in handling:
 * AI memory is intended to remain isolated per profile where supported
 * incognito AI memory is intended to remain non-persistent where supported
 * Local Send to Device is designed for private same-network sharing instead of cloud account sync
+* Developer Workspace launches external developer apps without sharing browser cookies, passwords, browsing history, open tabs, page contents, profile folders, or AI Chat data with those apps
 
 ## Uninstall And Data Retention
 
