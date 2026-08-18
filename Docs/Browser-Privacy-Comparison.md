@@ -4,7 +4,7 @@
 
 This document gives a high-level privacy comparison between BubblesTheDev Web Browser and other mainstream browsers. It is intentionally broad and user-facing.
 
-This document reflects the current privacy posture of BubblesTheDev Web Browser version `1.2.430`.
+This document reflects the current privacy posture of BubblesTheDev Web Browser version `1.3.001`.
 
 The goal is accuracy, not marketing language. The browser does not include built-in telemetry, analytics SDKs, cloud sync, or a fully silent hidden always-on auto-updater client. It still makes normal network requests when the user browses the web, searches, signs into websites, uses supported authentication flows, or downloads files.
 
@@ -48,6 +48,8 @@ This table is intentionally high-level. Mainstream browsers change over time, an
 | Per-service session clearing | Supported for built-in streaming sessions | No built-in equivalent documented | No built-in equivalent documented | No built-in equivalent documented | No built-in equivalent documented | No built-in equivalent documented | No built-in equivalent documented | No built-in equivalent documented |
 | AI panel / in-browser AI controls | `AI & Diagnostics` panel plus optional AI Chat panel and pop-out window for local Ollama chat | AI features exist, but not as a direct equivalent | AI features exist, but not as a direct equivalent | AI features vary by Brave services | AI features vary by Mozilla services | AI features vary by Apple platform features | No comparable built-in AI panel documented here | No comparable built-in AI panel documented here |
 | Local AI memory and chat model | Encrypted profile-isolated local AI memory where supported; optional AI Chat uses local Ollama through local loopback only and does not require a cloud AI account | No direct equivalent documented here | No direct equivalent documented here | No direct equivalent documented here | No direct equivalent documented here | No direct equivalent documented here | No direct equivalent documented here | No direct equivalent documented here |
+| Developer workspace launcher | Local Developer Workspace for supported external developer apps and developer websites, with official install-page links for missing apps and no website access to local app detection or launch controls | No direct equivalent documented here | No direct equivalent documented here | No direct equivalent documented here | No direct equivalent documented here | No direct equivalent documented here | No direct equivalent documented here | No direct equivalent documented here |
+| Virtual Machine Center | Built-in VMware Workstation Pro and Linux VM guidance, official download links, local ISO SHA-256 verification, storage checks, and copy-only Linux command references without running VM commands | No direct equivalent documented here | No direct equivalent documented here | No direct equivalent documented here | No direct equivalent documented here | No direct equivalent documented here | No direct equivalent documented here | No direct equivalent documented here |
 | Diagnostics surface | In-browser diagnostics and runtime status surfaces | Performance and crash-reporting controls | Performance and browser-management tools | No comparable diagnostics surface documented here | Firefox Task Manager / `about:processes` and troubleshooting tools | Privacy Report, but not the same type of diagnostics surface | No comparable diagnostics surface documented here | No comparable diagnostics surface documented here |
 | Manual diagnostics export | Encrypted manual diagnostics export where supported | Reporting tools vary | Reporting tools vary | Reporting tools vary | Troubleshooting / reporting tools vary | No comparable export flow documented here | Reporting tools vary | Reporting tools vary |
 | Performance controls | Gaming / streaming mode, sleeping tabs, stream-stability tuning, runtime checks | Chrome Performance settings | Sleeping Tabs and Efficiency / Energy Saver controls | Performance tools vary | Performance tools vary | Performance behavior varies | Performance tools vary | Performance tools vary |
@@ -75,6 +77,9 @@ BubblesTheDev Web Browser is designed around a local-first model:
 * local AI features are designed to stay on-device where supported
 * optional AI Chat uses local Ollama through local loopback only where supported, with no cloud AI account required
 * AI Chat content, browser activity, profile data, diagnostics exports, local files, and AI memory are not automatically uploaded to a cloud AI service as part of local AI Chat
+* Developer Workspace app detection, favorites, custom app entries, and selected file or folder actions stay local and are not exposed to websites
+* Virtual Machine Center ISO selection, host architecture checks, storage guidance, and SHA-256 hash calculation stay local and are not exposed to websites
+* Virtual Machine Center does not install VMware, automate VMware, create virtual machines, run Linux commands, read guest files, or read VM memory
 * built-in ad and tracker blocking uses local rules and counters rather than a remote URL-scanning service
 * strict-by-default Canvas and JavaScript fingerprinting protections reduce high-entropy browser surfaces locally
 * guest browsing remains non-persistent
@@ -99,6 +104,8 @@ Current local browser behavior includes:
 * local diagnostics generation and manual diagnostics export
 * local handling for supported AI features and profile-aware AI memory
 * optional local AI Chat panel and pop-out window for local Ollama chat where supported
+* local Developer Workspace preferences and custom app entries where the user chooses to add them
+* local Virtual Machine Center guidance, ISO verification, and VM setup notes
 * local performance settings and runtime controls
 
 The browser is designed not to automatically upload ordinary browser-state data as part of a built-in telemetry or analytics system.
@@ -114,6 +121,7 @@ Network activity still occurs when the user:
 * uses passkey or WebAuthn flows on supported websites
 * uses supported streaming services
 * uses optional AI internet search, if the user enables it and approves a visible query
+* opens official VMware, Ubuntu, or Linux Lite download and documentation links from Virtual Machine Center
 * checks for updates or downloads an update when that feature is available
 
 This is normal browser behavior and should not be confused with built-in telemetry.
@@ -136,6 +144,7 @@ Some browser features involve additional local handling:
 * the Music Player is local-only and requires user action before scanning a folder
 * the Music Downloader is intentionally restricted and local-first
 * AI Chat is optional and local-Ollama based where supported
+* Developer Workspace opens supported local developer apps and developer websites from trusted browser UI only
 * supported streaming services run in isolated browser-managed sessions
 * profile recovery, accessibility, diagnostics, and language settings are designed to stay local by default
 
