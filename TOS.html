@@ -1,88 +1,349 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="manifest" href="./manifest.webmanifest" />
-<link rel="apple-touch-icon" href="./icon-1024.png" />
-<link rel="icon" href="./icon-1024.png" type="image/png" />
-<title>Terms of Service | BubblesTheDev Web Browser</title>
-<meta name="description" content="Terms of Service and software use terms for kernferm.github.io/BubblesTheDev-WebBrowser and BubblesTheDev Web Browser." />
-<link rel="canonical" href="https://kernferm.github.io/BubblesTheDev-WebBrowser/TOS.html" />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<style>
-:root{--bg:#060816;--bg2:#0d1328;--panel:rgba(17,24,39,.78);--panelBorder:rgba(255,255,255,.08);--text:#f5f7ff;--muted:#9ca9c7;--blue:#3b82f6;--cyan:#00d4ff;--max:1280px}
-*{box-sizing:border-box;margin:0;padding:0} html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;background:radial-gradient(circle at top left, rgba(59,130,246,.22), transparent 25%),radial-gradient(circle at top right, rgba(124,58,237,.18), transparent 25%),radial-gradient(circle at bottom right, rgba(0,212,255,.14), transparent 20%),linear-gradient(180deg,var(--bg),var(--bg2));color:var(--text);overflow-x:hidden;line-height:1.7}
-body::before{content:"";position:fixed;inset:0;background-image:linear-gradient(rgba(255,255,255,.02) 1px, transparent 1px),linear-gradient(90deg, rgba(255,255,255,.02) 1px, transparent 1px);background-size:40px 40px;pointer-events:none;z-index:-1}
-a{color:#d8e7ff}.wrap{width:min(calc(100% - 40px),var(--max));margin:auto}
-header{position:sticky;top:0;z-index:100;backdrop-filter:blur(20px);background:rgba(6,8,22,.65);border-bottom:1px solid rgba(255,255,255,.05)}
-.navbar{display:flex;justify-content:space-between;align-items:center;padding:18px 0;gap:16px}.logo{font-size:1rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
-.logo span{background:linear-gradient(90deg,var(--blue),var(--cyan));background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-nav{display:flex;gap:14px;flex-wrap:wrap} nav a{text-decoration:none;color:var(--muted);font-weight:600;transition:.25s ease} nav a:hover{color:white}
-.hero{padding:84px 0 60px}.hero-copy{max-width:860px;margin-bottom:32px}
-.badge{display:inline-flex;align-items:center;gap:10px;background:rgba(59,130,246,.12);border:1px solid rgba(59,130,246,.22);padding:10px 16px;border-radius:999px;color:#cfe2ff;font-size:.9rem;font-weight:600}
-h1{margin-top:22px;font-size:clamp(2.8rem,6vw,4.8rem);line-height:.94;letter-spacing:-.08em;max-width:9ch}
-.gradient{background:linear-gradient(90deg,#fff,var(--cyan));background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.hero-copy p{margin-top:20px;max-width:780px;color:var(--muted);font-size:1.05rem}
-.doc-card{background:var(--panel);border:1px solid var(--panelBorder);border-radius:32px;backdrop-filter:blur(20px);box-shadow:0 40px 80px rgba(0,0,0,.28);padding:34px}
-section + section{margin-top:28px} h2{font-size:1.45rem;line-height:1.1;letter-spacing:-.04em;margin-bottom:12px}
-p,li{color:var(--muted)} p + p{margin-top:12px} ul{padding-left:20px;margin-top:12px} li + li{margin-top:8px}
-footer{padding:42px 0 50px}.footer-box{border-top:1px solid rgba(255,255,255,.06);padding-top:26px;color:var(--muted)}
-.footer-links{margin-top:16px;display:flex;gap:18px;flex-wrap:wrap}.footer-links a{color:var(--muted);text-decoration:none}.footer-links a:hover{color:white}
-@media(max-width:760px){.hero{padding:70px 0 44px}.doc-card{padding:24px}h1{max-width:100%}}
-</style>
-<link rel="stylesheet" href="./site-accessibility.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="./icon-1024.png" />
+  <link rel="icon" href="./icon-1024.png" type="image/png" />
+  <title>Terms of Service | BubblesTheDev Web Browser</title>
+  <meta name="description" content="Terms of Service and software use terms for kernferm.github.io/BubblesTheDev-WebBrowser and BubblesTheDev Web Browser." />
+  <link rel="canonical" href="https://kernferm.github.io/BubblesTheDev-WebBrowser/TOS.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #060816;
+      --bg2: #0d1328;
+      --panel: rgba(17, 24, 39, .78);
+      --panelBorder: rgba(255, 255, 255, .08);
+      --text: #f5f7ff;
+      --muted: #9ca9c7;
+      --blue: #3b82f6;
+      --cyan: #00d4ff;
+      --max: 1280px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(59, 130, 246, .22), transparent 25%),
+        radial-gradient(circle at top right, rgba(124, 58, 237, .18), transparent 25%),
+        radial-gradient(circle at bottom right, rgba(0, 212, 255, .14), transparent 20%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+      color: var(--text);
+      overflow-x: hidden;
+      line-height: 1.7;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, .02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, .02) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    a {
+      color: #d8e7ff;
+    }
+
+    .wrap {
+      width: min(calc(100% - 40px), var(--max));
+      margin: auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(20px);
+      background: rgba(6, 8, 22, .65);
+      border-bottom: 1px solid rgba(255, 255, 255, .05);
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+      gap: 16px;
+    }
+
+    .logo {
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .logo span {
+      background: linear-gradient(90deg, var(--blue), var(--cyan));
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    nav {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--muted);
+      font-weight: 600;
+      transition: .25s ease;
+    }
+
+    nav a:hover {
+      color: white;
+    }
+
+    .hero {
+      padding: 84px 0 60px;
+    }
+
+    .hero-copy {
+      max-width: 860px;
+      margin-bottom: 32px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(59, 130, 246, .12);
+      border: 1px solid rgba(59, 130, 246, .22);
+      padding: 10px 16px;
+      border-radius: 999px;
+      color: #cfe2ff;
+      font-size: .9rem;
+      font-weight: 600;
+    }
+
+    h1 {
+      margin-top: 22px;
+      font-size: clamp(2.8rem, 6vw, 4.8rem);
+      line-height: .94;
+      letter-spacing: -.08em;
+      max-width: 9ch;
+    }
+
+    .gradient {
+      background: linear-gradient(90deg, #fff, var(--cyan));
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-copy p {
+      margin-top: 20px;
+      max-width: 780px;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .doc-card {
+      background: var(--panel);
+      border: 1px solid var(--panelBorder);
+      border-radius: 32px;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 40px 80px rgba(0, 0, 0, .28);
+      padding: 34px;
+    }
+
+    section + section {
+      margin-top: 28px;
+    }
+
+    h2 {
+      font-size: 1.45rem;
+      line-height: 1.1;
+      letter-spacing: -.04em;
+      margin-bottom: 12px;
+    }
+
+    p,
+    li {
+      color: var(--muted);
+    }
+
+    p + p {
+      margin-top: 12px;
+    }
+
+    ul {
+      padding-left: 20px;
+      margin-top: 12px;
+    }
+
+    li + li {
+      margin-top: 8px;
+    }
+
+    footer {
+      padding: 42px 0 50px;
+    }
+
+    .footer-box {
+      border-top: 1px solid rgba(255, 255, 255, .06);
+      padding-top: 26px;
+      color: var(--muted);
+    }
+
+    .footer-links {
+      margin-top: 16px;
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      color: white;
+    }
+
+    @media (max-width: 760px) {
+      .hero {
+        padding: 70px 0 44px;
+      }
+
+      .doc-card {
+        padding: 24px;
+      }
+
+      h1 {
+        max-width: 100%;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="./site-accessibility.css">
 </head>
 <body>
-<a class="skip-link" href="#main-content">Skip to content</a>
-<header>
-  <div class="wrap navbar">
-    <div class="logo"><span>BubblesTheDev</span> Web Browser</div>
-    <nav aria-label="Primary navigation">
-      <a href="./">Home</a>
-      <a href="./PrivacyPolicy.html">Privacy Policy</a>
-      <a href="./EULA.html">EULA</a>
-      <a href="https://github.com/KernFerm/BubblesTheDev-WebBrowser">GitHub</a>
-    </nav>
-  </div>
-</header>
-<main id="main-content" class="hero">
-  <div class="wrap">
-    <div class="hero-copy">
-      <div class="badge">Website Terms &bull; Software Use &bull; Legal</div>
-      <h1>Terms of <span class="gradient">Service</span></h1>
-      <p>These Terms of Service apply to <strong>kernferm.github.io/BubblesTheDev-WebBrowser</strong> and to software downloads, installer packages, documentation, and related materials provided through this website for BubblesTheDev Web Browser.</p>
-      <p>Last updated: August 7, 2026</p>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header>
+    <div class="wrap navbar">
+      <div class="logo"><span>BubblesTheDev</span> Web Browser</div>
+      <nav aria-label="Primary navigation">
+        <a href="./">Home</a>
+        <a href="./PrivacyPolicy.html">Privacy Policy</a>
+        <a href="./EULA.html">EULA</a>
+        <a href="https://github.com/KernFerm/BubblesTheDev-WebBrowser">GitHub</a>
+      </nav>
     </div>
-    <article class="doc-card">
-      <section><h2>1. Ownership and intellectual property</h2><p>The BubblesTheDev Web Browser, including but not limited to all source code, object code, compiled binaries, installer packages, architecture, design elements, user interface components, graphics, trademarks, service marks, trade dress, documentation, and all related materials are and shall remain the sole and exclusive property of BubblesTheDev.</p></section>
-      <section><h2>2. Grant of license</h2><p>Subject to compliance with the applicable software license terms, BubblesTheDev grants a limited, non-exclusive, non-transferable, non-sublicensable, and revocable license to install and use the Software solely for lawful personal or internal business purposes on compatible Windows operating systems.</p><p>Use of the Software is also subject to the applicable proprietary license agreement or end user license terms distributed with the installer or release materials.</p></section>
-      <section><h2>3. Restrictions</h2><ul><li>You may not reverse engineer, decompile, disassemble, or otherwise attempt to derive the source code of the Software.</li><li>You may not modify, adapt, translate, or create derivative works based upon the Software.</li><li>You may not distribute, sublicense, lease, rent, lend, sell, or otherwise transfer the Software to any third party without prior written consent.</li><li>You may not remove, alter, or obscure any proprietary notices or labels.</li><li>You may not use the Software or website in violation of any applicable law.</li></ul></section>
-      <section><h2>4. Distribution and redistribution</h2><p>The installer package and any associated files may not be copied, mirrored, redistributed, or hosted on third-party platforms without the prior express written authorization of BubblesTheDev. Official distribution channels shall be determined solely by BubblesTheDev.</p></section>
-      <section><h2>5. Updates, local features, and modifications</h2><p>BubblesTheDev reserves the right, at its sole discretion, to modify, update, suspend, or discontinue the Software or website materials at any time without prior notice.</p><p>Current public website and browser documentation may change over time as features, policies, or supported versions change.</p><p>Optional local features such as AI Chat, optional Ollama setup, local model management, local PDF tools, anonymous feedback, local website apps, Picture-in-Picture controls, link-safety checks, permission indicators, and installer dashboard behavior are provided as browser features and may change between releases.</p></section>
-      <section><h2>6. Disclaimer of warranties</h2><p>THE WEBSITE, THE SOFTWARE, AND RELATED MATERIALS ARE PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTY OF ANY KIND, WHETHER EXPRESS, IMPLIED, STATUTORY, OR OTHERWISE, TO THE MAXIMUM EXTENT PERMITTED BY LAW.</p></section>
-      <section><h2>7. Limitation of liability</h2><p>TO THE MAXIMUM EXTENT PERMITTED BY LAW, BUBBLESTHEDEV SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, EXEMPLARY, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF PROFITS, LOSS OF DATA, LOSS OF BUSINESS OPPORTUNITIES, OR BUSINESS INTERRUPTION, ARISING OUT OF OR RELATED TO THE USE OF THIS WEBSITE OR THE SOFTWARE.</p></section>
-      <section><h2>8. Governing law and venue</h2><p>These terms and any software-related disputes shall be governed by the laws of the State of Michigan, United States, without regard to conflict of law principles. Any dispute shall be brought exclusively in the state or federal courts located within the State of Michigan.</p></section>
-      <section><h2>9. Injunctive relief</h2><p>You acknowledge that unauthorized use, reproduction, or distribution of the Software may cause irreparable harm to BubblesTheDev for which monetary damages would be inadequate. BubblesTheDev may seek injunctive or equitable relief in addition to any other available remedies.</p></section>
-      <section><h2>10. Entire agreement</h2><p>These terms and the applicable software license materials constitute the entire understanding between you and BubblesTheDev regarding the Software and supersede prior or contemporaneous understandings on the same subject.</p><p>If there is a conflict between these website terms and the proprietary software license distributed with the Software, the software license terms control for use of the Software itself.</p></section>
-      <section><h2>11. Contact</h2><p>For website or browser support questions, contact <a href="mailto:support.bubblesthedev.webbrowser@gmail.com">support.bubblesthedev.webbrowser@gmail.com</a>.</p></section>
-    </article>
-  </div>
-</main>
-<footer>
-  <div class="wrap footer-box">
-    <strong>BubblesTheDev Web Browser</strong>
-    <p style="margin-top:12px;">Modern privacy-first browsing for Windows 11.</p>
-    <div class="footer-links">
-      <a href="./PrivacyPolicy.html">Privacy Policy</a>
-      <a href="./EULA.html">EULA</a>
-      <a href="./GlobalUserRights.html">Global User Rights</a>
-      <a href="./EUDigitalRights.html">EU Digital Rights</a>
+  </header>
+
+  <main id="main-content" class="hero">
+    <div class="wrap">
+      <div class="hero-copy">
+        <div class="badge">Website Terms &bull; Software Use &bull; Legal</div>
+        <h1>Terms of <span class="gradient">Service</span></h1>
+        <p>These Terms of Service apply to <strong>kernferm.github.io/BubblesTheDev-WebBrowser</strong> and to software downloads, installer packages, documentation, and related materials provided through this website for BubblesTheDev Web Browser.</p>
+        <p>Last updated: August 7, 2026</p>
+      </div>
+
+      <article class="doc-card">
+        <section>
+          <h2>1. Ownership and intellectual property</h2>
+          <p>The BubblesTheDev Web Browser, including but not limited to all source code, object code, compiled binaries, installer packages, architecture, design elements, user interface components, graphics, trademarks, service marks, trade dress, documentation, and all related materials are and shall remain the sole and exclusive property of BubblesTheDev.</p>
+        </section>
+
+        <section>
+          <h2>2. Grant of license</h2>
+          <p>Subject to compliance with the applicable software license terms, BubblesTheDev grants a limited, non-exclusive, non-transferable, non-sublicensable, and revocable license to install and use the Software solely for lawful personal or internal business purposes on compatible Windows operating systems.</p>
+          <p>Use of the Software is also subject to the applicable proprietary license agreement or end user license terms distributed with the installer or release materials.</p>
+        </section>
+
+        <section>
+          <h2>3. Restrictions</h2>
+          <ul>
+            <li>You may not reverse engineer, decompile, disassemble, or otherwise attempt to derive the source code of the Software.</li>
+            <li>You may not modify, adapt, translate, or create derivative works based upon the Software.</li>
+            <li>You may not distribute, sublicense, lease, rent, lend, sell, or otherwise transfer the Software to any third party without prior written consent.</li>
+            <li>You may not remove, alter, or obscure any proprietary notices or labels.</li>
+            <li>You may not use the Software or website in violation of any applicable law.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>4. Distribution and redistribution</h2>
+          <p>The installer package and any associated files may not be copied, mirrored, redistributed, or hosted on third-party platforms without the prior express written authorization of BubblesTheDev. Official distribution channels shall be determined solely by BubblesTheDev.</p>
+        </section>
+
+        <section>
+          <h2>5. Updates, local features, and modifications</h2>
+          <p>BubblesTheDev reserves the right, at its sole discretion, to modify, update, suspend, or discontinue the Software or website materials at any time without prior notice.</p>
+          <p>Current public website and browser documentation may change over time as features, policies, or supported versions change.</p>
+          <p>Optional local features such as AI Chat, optional Ollama setup, local model management, local PDF tools, anonymous feedback, local website apps, Picture-in-Picture controls, link-safety checks, permission indicators, Virtual Machine Center, Developer Workspace, and installer dashboard behavior are provided as browser features and may change between releases.</p>
+        </section>
+
+        <section>
+          <h2>6. Disclaimer of warranties</h2>
+          <p>THE WEBSITE, THE SOFTWARE, AND RELATED MATERIALS ARE PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTY OF ANY KIND, WHETHER EXPRESS, IMPLIED, STATUTORY, OR OTHERWISE, TO THE MAXIMUM EXTENT PERMITTED BY LAW.</p>
+        </section>
+
+        <section>
+          <h2>7. Limitation of liability</h2>
+          <p>TO THE MAXIMUM EXTENT PERMITTED BY LAW, BUBBLESTHEDEV SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, EXEMPLARY, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF PROFITS, LOSS OF DATA, LOSS OF BUSINESS OPPORTUNITIES, OR BUSINESS INTERRUPTION, ARISING OUT OF OR RELATED TO THE USE OF THIS WEBSITE OR THE SOFTWARE.</p>
+        </section>
+
+        <section>
+          <h2>8. Governing law and venue</h2>
+          <p>These terms and any software-related disputes shall be governed by the laws of the State of Michigan, United States, without regard to conflict of law principles. Any dispute shall be brought exclusively in the state or federal courts located within the State of Michigan.</p>
+        </section>
+
+        <section>
+          <h2>9. Injunctive relief</h2>
+          <p>You acknowledge that unauthorized use, reproduction, or distribution of the Software may cause irreparable harm to BubblesTheDev for which monetary damages would be inadequate. BubblesTheDev may seek injunctive or equitable relief in addition to any other available remedies.</p>
+        </section>
+
+        <section>
+          <h2>10. Entire agreement</h2>
+          <p>These terms and the applicable software license materials constitute the entire understanding between you and BubblesTheDev regarding the Software and supersede prior or contemporaneous understandings on the same subject.</p>
+          <p>If there is a conflict between these website terms and the proprietary software license distributed with the Software, the software license terms control for use of the Software itself.</p>
+        </section>
+
+        <section>
+          <h2>11. Contact</h2>
+          <p>For website or browser support questions, contact <a href="mailto:support.bubblesthedev.webbrowser@gmail.com">support.bubblesthedev.webbrowser@gmail.com</a>.</p>
+        </section>
+      </article>
     </div>
-  </div>
-</footer>
+  </main>
+
+  <footer>
+    <div class="wrap footer-box">
+      <strong>BubblesTheDev Web Browser</strong>
+      <p style="margin-top:12px;">Modern privacy-first browsing for Windows 11.</p>
+      <div class="footer-links">
+        <a href="./PrivacyPolicy.html">Privacy Policy</a>
+        <a href="./EULA.html">EULA</a>
+        <a href="./GlobalUserRights.html">Global User Rights</a>
+        <a href="./EUDigitalRights.html">EU Digital Rights</a>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
