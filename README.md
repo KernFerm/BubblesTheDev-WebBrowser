@@ -2,7 +2,7 @@
 
 > A Windows 11 browser for people who want clearer privacy controls, visible project docs, and a more understandable daily browser.
 
-[![Version](https://img.shields.io/badge/version-1.2.430-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
+[![Version](https://img.shields.io/badge/version-1.3.001-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Platform](https://img.shields.io/badge/platform-Windows%2011-0078D6)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Electron](https://img.shields.io/badge/Electron-43-47848F?logo=electron&logoColor=white)](https://www.electronjs.org/)
 
@@ -87,7 +87,7 @@ BubblesTheDev Web Browser is a Windows browser built around a simple idea: peopl
 
 It keeps familiar browser features like tabs, bookmarks, downloads, saved sign-in data, a built-in home page, split view, and media tools, but pairs them with stronger local-first defaults, clearer runtime visibility, and a more inspectable project surface.
 
-Version `1.2.430` continues that direction with smoother performance behavior for multi-monitor gaming and streaming setups, while keeping the previous hardware acceleration control, optional Ollama setup reliability, local AI Chat, feedback, PDF tools, and browser-tool improvements in place.
+Version `1.3.001` continues that direction with Virtual Machine Center for beginner VMware Workstation Pro and Linux ISO setup guidance, a visible Send Feedback shortcut, and updated third-party license documentation while keeping the previous Developer Workspace, gaming, streaming, AI Chat, PDF, feedback, and privacy-tool improvements in place.
 
 The overall goal is simple:
 
@@ -96,9 +96,17 @@ The overall goal is simple:
 * make sensitive features easier to inspect and control
 * reduce the amount of hidden behavior users have to trust blindly
 
-## What's New In 1.2.430
+## What's New In 1.3.001
 
-* Advanced the packaged browser version to `1.2.430`
+* Advanced the packaged browser version to `1.3.001`
+* Added Virtual Machine Center from `Tools > Virtual Machine Center`
+* Kept Virtual Machine Center available from `Tools > Browser Features > Developer Workspace`
+* Added VMware Workstation Pro and Linux ISO setup guidance for approved Ubuntu and Linux Lite choices
+* Added local per-card ISO verification with SHA-256 matching where expected hashes are configured
+* Added pop-out Linux installation guides and command lists
+* Added `Ctrl+Shift+F` as the Send Feedback shortcut
+* Added a Feedback Shortcut card inside Virtual Machine Center
+* Updated the EULA with clearer third-party software license guidance
 * Smoothed browser performance behavior for users running the browser, a game, and OBS or Streamlabs across multiple monitors
 * Kept game and streaming optimization active when the game is running but OBS, Streamlabs, or the browser is focused
 * Expanded local game process detection for more current, EA-published, Steam-distributed, and future-facing PC games
@@ -108,9 +116,9 @@ The overall goal is simple:
 * Patched the vulnerable transitive `nanoid` dependency reported by npm audit
 * Kept Disable Hardware Acceleration and Lower GPU Usage Mode available in the Performance panel
 * Kept AI Chat optional, off after install, and model downloads inside Tools > AI Chat
-* Refreshed Markdown documentation for version `1.2.430`
+* Refreshed Markdown documentation for version `1.3.001`
 
-In practical terms, version `1.2.430` keeps the local-first browser model in place while reducing unnecessary browser-side performance churn during OBS, Streamlabs, game capture, and fullscreen-game use.
+In practical terms, version `1.3.001` keeps the local-first browser model in place while giving users a safer VM setup guide and a faster way to send product feedback.
 
 ## Main Features
 
@@ -305,7 +313,7 @@ The architecture is intentionally local-first and tries to keep the browser's mo
 
 Installer file name:
 
-`BubblesTheDev Web Browser_Installer_1.2.430.exe`
+`BubblesTheDev Web Browser_Installer_1.3.001.exe`
 
 Platform:
 
