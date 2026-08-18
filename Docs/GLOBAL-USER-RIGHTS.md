@@ -8,7 +8,7 @@ Public support contact: support.bubblesthedev.webbrowser@gmail.com.
 
 ## Current Documentation Target
 
-This document is aligned with the current public BubblesTheDev Web Browser documentation for version `1.2.430`.
+This document is aligned with the current public BubblesTheDev Web Browser documentation for version `1.3.001`.
 
 Security fixes are generally provided for the most recent stable release of the browser. Older versions are not supported for current security fixes.
 
@@ -36,6 +36,9 @@ The browser is designed around user-first principles such as:
 * the right to local-first features where possible
 * the right to understand diagnostics behavior
 * the right to understand local AI behavior
+* the right to understand local Developer Workspace behavior
+* the right to understand local Virtual Machine Center behavior
+* the right to send product feedback from trusted browser UI with `Ctrl+Shift+F`
 * the right to accessibility-focused improvements
 
 ## Local-First Design
@@ -56,6 +59,7 @@ Local browser data may include:
 * local diagnostics data
 * local ad and tracker blocking counters
 * install-linked metadata for custom or external-drive installs
+* toolbar clock preferences and Developer Workspace preferences where the user uses those features
 
 Standard profiles are intended to remain isolated from one another. Guest browsing is intended to remain non-persistent.
 
@@ -67,7 +71,7 @@ Where stronger system-backed protection is available, the browser uses it. Saved
 
 ## Fingerprinting Protection
 
-Version `1.2.430` defaults to Strict Canvas and JavaScript fingerprinting protection. These protections reduce high-entropy browser surfaces locally and can be changed to Balanced or Off by the user for site compatibility.
+Version `1.3.001` defaults to Strict Canvas and JavaScript fingerprinting protection. These protections reduce high-entropy browser surfaces locally and can be changed to Balanced or Off by the user for site compatibility.
 
 The browser does not upload canvas images, page contents, visited URLs, browsing history, or fingerprint values to a remote fingerprinting service.
 
@@ -151,6 +155,18 @@ Current public expectations include:
 
 If a current-session AI health or runtime-status feature is present, it should be treated as a browser runtime indicator rather than a permanent user score.
 
+## Developer Workspace Privacy
+
+Developer Workspace is a local browser-controlled launcher for supported developer applications and developer websites.
+
+Current public expectations include:
+
+* app detection, favorites, and custom app entries stay local
+* selected file or folder actions require explicit user choice
+* missing-app Install buttons open official app websites and do not silently install software
+* websites cannot detect installed developer apps, read local paths, launch programs, or open files and folders through Developer Workspace
+* launched external applications do not receive browser cookies, saved sign-in data, browsing history, open tabs, page contents, profile folders, AI Chat data, or browser IPC access from Developer Workspace
+
 ## Accessibility And Inclusive Use
 
 The browser includes accessibility-focused features intended to make browsing easier to use for more people.
@@ -176,6 +192,7 @@ That may include control over:
 * supported streaming sessions
 * profile creation, switching, and recovery actions where supported
 * diagnostics export and supported privacy-safe diagnostics controls
+* Developer Workspace app favorites, custom app entries, and developer website shortcuts where supported
 * update checks where available
 * uninstall data-removal choices
 
