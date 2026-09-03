@@ -1,6 +1,6 @@
 # Data Collection and Privacy Notice
 
-This notice explains the current privacy posture of BubblesTheDev Web Browser version `1.3.001`.
+This notice explains the current privacy posture of BubblesTheDev Web Browser version `1.3.105`.
 
 BubblesTheDev Web Browser is designed to keep ordinary browser data local to the user's device unless the user chooses to browse websites, use search providers, download files, export diagnostics, or enable optional privacy-safe reporting features where supported.
 
@@ -41,18 +41,27 @@ Current local browser data may include:
 * supported streaming-session data
 * cached search results and suggestions used by the browser's internal search experience
 * local ad and tracker blocking counters
+* profile-local aggregate Privacy Protection Engine counters, such as ads blocked, trackers blocked, and tracking URL parameters removed
+* local privacy filter-list metadata, such as source name, category, rule count, and last successful local cache update time
+* user-requested Local Privacy Summary exports that contain protection settings, aggregate counters, list health, and host-only saved site exceptions
 * local tab layout, tab group, workspace, and duplicate-tab preferences
 * toolbar clock preferences for local or UTC time and 12-hour or 24-hour display
-* local per-site privacy report counters for observed blocker and permission events
+* local per-site privacy report counters and current-tab Privacy Request Inspector details for observed blocker, cleanup, compatibility, cosmetic-filtering, fingerprinting, cookie-protection, and permission events
 * local website app records and shortcut paths created by the user
 * local sidebar preferences
 * local PDF document records, annotation metadata, and edited PDF output paths selected by the user
+* local Subscription Tracker identity details, subscription records, renewal dates, account-email labels, notes, and CSV export choices where the user enables that tool
+* optional local Clipboard History settings and saved plain-text entries where the user enables that tool, with Session only retention keeping items in memory for the active session
+* local scheduled download records and optional destination folders where the user schedules a supported HTTP or HTTPS download
+* local File Converter preferences, selected output paths, and conversion-job status only when the user chooses files and folders through trusted browser UI
+* current-tab media and per-tab volume state used by browser-owned media controls
 * local Picture-in-Picture state, link-safety preferences, and permission-use indicators
 * Developer Workspace preferences, favorites, and user-added custom developer app paths where the user chooses to add them
 * optional AI Chat settings, selected local model, local chat transcript state, and local Ollama availability state where supported
 * install-linked metadata for custom or external-drive installs
 
 Guest browsing is intended to remain non-persistent. Standard profiles are intended to remain isolated from one another.
+Privacy counters and saved privacy exceptions are scoped to the current standard profile. Guest and Incognito privacy counters, temporary per-site controls, and current-tab privacy reports are not written into standard profile storage.
 The current profile system supports up to `10` local browser profiles per installation. Each profile can carry one linked connected-account identity for profile presentation purposes.
 
 Stored browser data is designed to remain local. Where stronger system-backed protection is available, the browser uses it. If that protection is unavailable, the data is still intended to remain on-device.
@@ -84,6 +93,8 @@ Current behavior includes:
 
 Diagnostic data is intended to remain on-device unless the user explicitly exports it or explicitly enables a supported privacy-safe reporting feature.
 
+Runtime diagnostic details are sanitized before storage. Sensitive-looking bearer tokens, authorization or cookie lines, sensitive key-value pairs, sensitive URL parameters, local paths, and error stack text are redacted or reduced before being written into diagnostic records.
+
 ## AI Chat
 
 The browser may include an optional AI Chat panel and AI Chat pop-out window for local Ollama chat. AI Chat is designed to use approved local Ollama models on the user's own computer through the local loopback service only.
@@ -108,15 +119,43 @@ Feedback is not stored as a local feedback history. Successful submissions clear
 
 ## Ad And Tracker Blocking
 
-The built-in ad and tracker blocker runs locally in the browser.
+The built-in ad and tracker blocker runs locally in the browser through the Privacy Protection Engine.
 
 Current behavior includes:
 
-* local request blocking for known ad networks, tracker hosts, error-monitoring collectors, tracking beacon paths, and selected YouTube ad or tracking endpoints
+* bootstrap tracker and advertising entities for offline protection
+* local filter-source metadata for maintained ad, tracker, URL-tracking, security, annoyance, social, and cryptomining lists
+* URLHaus-style host-file parsing for compatible malicious-domain protection lists
+* visible installed-list status with local rule counts and last successful cache timestamps where available
+* profile-local privacy list choices for optional lists
+* local last-update and next-automatic-update status for privacy list updates
+* local request blocking for known ad networks, tracker hosts, error-monitoring collectors, tracking beacon paths, and selected YouTube ad or tracking endpoints while preserving YouTube-owned playback, media, API, thumbnail, and asset requests for compatibility
+* local tracking URL parameter cleanup for known tracking parameters
+* OAuth-safe handling so sign-in and account-connection parameters are preserved
+* local compatibility rules for sign-in, CAPTCHA, payment, streaming, and release-download flows
+* optional profile-local custom allow/block privacy rules created by the user
+* profile-local site exceptions when a user turns protection off for a specific origin
+* profile-local per-site privacy controls for ads, trackers, tracking-parameter cleanup, cookie protection, and cosmetic hiding
+* non-blocking local CNAME tracker alias detection
+* stripping known tracking `Set-Cookie` response headers where the browser can safely identify them
+* current-tab Privacy Request Inspector details that show domains, decisions, categories, matched rules, and source lists without displaying full query strings
+* Privacy & Security dashboard visibility for saved site exceptions and per-site control changes
+* a local export option for a privacy-safe summary of protection settings, aggregate counters, source-list health, and host-only saved site exceptions
+* JavaScript fingerprinting reductions for selected high-entropy browser surfaces, including DNT/GPC headers, media-device labels in Strict mode, screen color depth, OfflineAudioContext, strict-mode timezone reporting, and sensor-style APIs
+* optional profile-local cookie protection modes for allowing cookies, blocking known tracking cookies, blocking third-party cookies, or blocking all non-auth cookies
+* optional WebRTC local IP protection settings that reduce unnecessary local network address exposure
 * local cosmetic hiding for obvious ad slots and blocked banner shells
-* local per-tab and session counters for blocked ads and trackers
+* bounded local cosmetic selector application for supported filter rules
+* local per-tab and session counters for blocked ads, trackers, tracking cookies, CNAME detections, and URL cleanups
+* local counters for malicious-request and cryptomining-request blocks where security and cryptomining lists match
+* local current-page counters for compatibility protections applied
+* local Site Privacy Report details for the current tab, including matched entity, category, reason, and source attribution where available
 
 The blocker is not designed to upload visited URLs, browsing history, or page contents to a remote filtering service.
+
+The toolbar Privacy Protection pop-out displays local aggregate counters inside trusted browser UI. Opening that pop-out does not send counters, page details, browsing history, or privacy report data to BubblesTheDev Web Browser servers.
+
+Downloaded privacy lists are treated as untrusted text. The browser validates list size, source host, supported format, and rule counts locally before activating an updated compiled database.
 
 ## Local Browser Feature Data
 
@@ -134,11 +173,13 @@ Introduced for version `1.3.001`, Virtual Machine Center is part of Developer Wo
 
 The `Ctrl+Shift+F` Send Feedback shortcut opens the same browser-owned feedback panel as `Help > Send Feedback`. It does not add background collection, telemetry, diagnostics attachment, or Virtual Machine Center data upload.
 
+Introduced for version `1.3.005`, Subscription Tracker stores manual recurring-service records in encrypted local profile storage. It is unavailable in Guest and Incognito windows. It does not connect to banks, credit cards, payment accounts, cancellation services, cloud AI analysis, or a remote BubblesTheDev subscription database. Normal Google profile sign-in remains identity-only and does not include Gmail mailbox scopes. Gmail discovery uses a separate explicit Gmail read-only consent flow inside Subscription Tracker, runs only after user action, and places possible matches in a local review queue. The Local Subscription Service Catalog is bundled public provider-reference data used to improve service-name recognition. It does not contain user subscription records, Gmail message contents, prices, renewal dates, notes, or account identifiers.
+
 ## Fingerprinting Protection
 
 Version `1.3.001` defaults to Strict Canvas and JavaScript fingerprinting protection. These protections reduce local browser surfaces such as Canvas readouts, Client Hints, Battery Status, Network Information, Web Bluetooth, WebGPU, WebUSB, Web Serial, WebHID, WebXR, plugins, speech voices, Web Audio, and ad-auction APIs where possible.
 
-Fingerprinting protection runs locally in the browser and is not designed to upload canvas images, page contents, visited URLs, browsing history, or fingerprint values to a remote service. Users can switch to Balanced or Off in Privacy & Security if a site needs more compatibility.
+Fingerprinting protection runs locally in the browser and is not designed to upload canvas images, WebGL renderer details, page contents, visited URLs, browsing history, or fingerprint values to a remote service. Users can switch to Balanced or Off in Privacy & Security if a site needs more compatibility.
 
 ## Network Activity
 
@@ -183,6 +224,7 @@ Some browser features involve additional local-only or opt-in handling:
 * the Music Player is local-only and requires explicit user action before scanning a folder
 * the Music Downloader is intentionally restricted and local-first
 * AI Chat is optional and uses local Ollama through local loopback only where supported
+* Subscription Tracker is optional, profile-local, and manual-first, with Gmail discovery separated from normal Google sign-in
 * local AI features are designed to run on-device where supported
 * the `AI & Diagnostics` panel and AI Chat surfaces can preserve local draft, preview, summary, transcript, selected-model, and scroll state when the panel is closed and reopened
 * AI memory is intended to remain isolated per profile where supported
@@ -216,5 +258,6 @@ In practical terms, that means:
 * supported AI and accessibility features are designed to remain local where supported
 * websites, search providers, streaming services, and download sources still receive normal traffic when the user chooses to use them
 
-If future browser features materially change this privacy posture, the public privacy documentation should be updated accordingly.
+When a user chooses Export Local Privacy Summary, the browser writes a local JSON file selected by the user. That export is meant for troubleshooting privacy settings and list status. It does not include browsing history, full URLs, query strings, cookies, passwords, tokens, page content, tab events, feedback messages, or remote account identifiers.
 
+If future browser features materially change this privacy posture, the public privacy documentation should be updated accordingly.
