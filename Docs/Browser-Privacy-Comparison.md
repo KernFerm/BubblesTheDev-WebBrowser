@@ -4,7 +4,7 @@
 
 This document gives a high-level privacy comparison between BubblesTheDev Web Browser and other mainstream browsers. It is intentionally broad and user-facing.
 
-This document reflects the current privacy posture of BubblesTheDev Web Browser version `1.3.001`.
+This document reflects the current privacy posture of BubblesTheDev Web Browser version `1.3.105`.
 
 The goal is accuracy, not marketing language. The browser does not include built-in telemetry, analytics SDKs, cloud sync, or a fully silent hidden always-on auto-updater client. It still makes normal network requests when the user browses the web, searches, signs into websites, uses supported authentication flows, or downloads files.
 
@@ -35,7 +35,9 @@ This table is intentionally high-level. Mainstream browsers change over time, an
 | Task / process visibility | Built-in Task Manager and runtime surfaces | Chrome Task Manager | Edge Browser Task Manager | No equivalent documented here | Firefox Task Manager / `about:processes` | No comparable built-in task manager documented here | No comparable built-in task manager documented here | No comparable built-in task manager documented here |
 | Local-first browser data | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
 | Built-in telemetry by default | No | Yes | Yes | Limited | Limited | Limited | Limited | Limited |
-| Built-in ad / tracker controls | Built-in local ad and tracker blocking with third-party host, path, beacon, error-monitoring, YouTube, and cosmetic rules | Ad Privacy controls, not a built-in blocker | Tracking Prevention | Brave Shields | Enhanced Tracking Protection | Privacy Report and cross-site tracking protections | Built-in Ad Blocker and Tracker blocker | Built-in Tracker and Ad Blocker |
+| Built-in ad / tracker controls | Built-in local Privacy Protection Engine with ad blocking, tracker blocking, tracker classification, tracking-cookie stripping, CNAME alias learning, tracking URL parameter cleanup, bootstrap entities, profile-local counters, temporary Guest/Incognito site controls, custom rules, site exceptions, and maintained filter-source metadata | Ad Privacy controls, not a built-in blocker | Tracking Prevention | Brave Shields | Enhanced Tracking Protection | Privacy Report and cross-site tracking protections | Built-in Ad Blocker and Tracker blocker | Built-in Tracker and Ad Blocker |
+| Tracking URL parameter cleanup | Removes known tracking parameters locally while preserving OAuth and sign-in parameters | URL cleanup behavior varies by setting/extension | URL cleanup behavior varies by setting/extension | Shields may remove some tracking parameters | Enhanced Tracking Protection and extensions vary | Platform/browser behavior varies | Browser privacy features vary | Browser privacy features vary |
+| Local tracker entity reporting | Site Privacy Report can show current-tab local-only tracker domains, known companies/entities, categories, matched rules, and source attribution where available | No direct equivalent documented here | No direct equivalent documented here | Brave Shields reporting varies | Firefox protections/reporting vary | Privacy Report behavior varies | Browser privacy reporting varies | Browser privacy reporting varies |
 | Fingerprinting controls | Strict-by-default Canvas and JavaScript fingerprinting reductions with Balanced and Off compatibility modes | Standard Chromium behavior unless changed by settings/extensions | Standard Chromium behavior plus Edge privacy features | Brave fingerprinting protections | Firefox privacy/fingerprinting settings vary by mode | Safari anti-fingerprinting behavior varies by platform | Browser privacy features vary | Browser privacy features vary |
 | Per-site permissions | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
 | Passkey / WebAuthn support | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
@@ -50,6 +52,11 @@ This table is intentionally high-level. Mainstream browsers change over time, an
 | Local AI memory and chat model | Encrypted profile-isolated local AI memory where supported; optional AI Chat uses local Ollama through local loopback only and does not require a cloud AI account | No direct equivalent documented here | No direct equivalent documented here | No direct equivalent documented here | No direct equivalent documented here | No direct equivalent documented here | No direct equivalent documented here | No direct equivalent documented here |
 | Developer workspace launcher | Local Developer Workspace for supported external developer apps and developer websites, with official install-page links for missing apps and no website access to local app detection or launch controls | No direct equivalent documented here | No direct equivalent documented here | No direct equivalent documented here | No direct equivalent documented here | No direct equivalent documented here | No direct equivalent documented here | No direct equivalent documented here |
 | Virtual Machine Center | Built-in VMware Workstation Pro and Linux VM guidance, official download links, local ISO SHA-256 verification, storage checks, and copy-only Linux command references without running VM commands | No direct equivalent documented here | No direct equivalent documented here | No direct equivalent documented here | No direct equivalent documented here | No direct equivalent documented here | No direct equivalent documented here | No direct equivalent documented here |
+| Subscription Tracker | Local encrypted manual subscription tracker with dashboard, privacy blur, CSV export, and Gmail discovery separated from normal Google sign-in | No direct equivalent documented here | No direct equivalent documented here | No direct equivalent documented here | No direct equivalent documented here | No direct equivalent documented here | No direct equivalent documented here | No direct equivalent documented here |
+| Local file conversion | File Converter converts supported files locally through trusted browser UI without online conversion uploads | No direct equivalent documented here | No direct equivalent documented here | No direct equivalent documented here | No direct equivalent documented here | No direct equivalent documented here | No direct equivalent documented here | No direct equivalent documented here |
+| Universal media controls | Browser-owned panel for active media tabs with play or pause, mute, per-tab volume, and Go to Tab | Global media controls vary by platform | Global media controls vary by platform | Global media controls vary by platform | Media controls vary by platform | Media controls vary by platform | Media controls vary by platform | Media controls vary by platform |
+| Clipboard History | Optional local Clipboard History that defaults off, supports bounded saved items, Hide Previews, Copy Again, Pin, Delete, and Clear All | Operating-system or extension behavior varies | Operating-system or extension behavior varies | Operating-system or extension behavior varies | Operating-system or extension behavior varies | Operating-system or extension behavior varies | Operating-system or extension behavior varies | Operating-system or extension behavior varies |
+| Download Scheduler | Local HTTP/HTTPS scheduled downloads started through the existing browser download security flow | No direct equivalent documented here | No direct equivalent documented here | No direct equivalent documented here | No direct equivalent documented here | No direct equivalent documented here | No direct equivalent documented here | No direct equivalent documented here |
 | Diagnostics surface | In-browser diagnostics and runtime status surfaces | Performance and crash-reporting controls | Performance and browser-management tools | No comparable diagnostics surface documented here | Firefox Task Manager / `about:processes` and troubleshooting tools | Privacy Report, but not the same type of diagnostics surface | No comparable diagnostics surface documented here | No comparable diagnostics surface documented here |
 | Manual diagnostics export | Encrypted manual diagnostics export where supported | Reporting tools vary | Reporting tools vary | Reporting tools vary | Troubleshooting / reporting tools vary | No comparable export flow documented here | Reporting tools vary | Reporting tools vary |
 | Performance controls | Gaming / streaming mode, sleeping tabs, stream-stability tuning, runtime checks | Chrome Performance settings | Sleeping Tabs and Efficiency / Energy Saver controls | Performance tools vary | Performance tools vary | Performance behavior varies | Performance tools vary | Performance tools vary |
@@ -80,7 +87,19 @@ BubblesTheDev Web Browser is designed around a local-first model:
 * Developer Workspace app detection, favorites, custom app entries, and selected file or folder actions stay local and are not exposed to websites
 * Virtual Machine Center ISO selection, host architecture checks, storage guidance, and SHA-256 hash calculation stay local and are not exposed to websites
 * Virtual Machine Center does not install VMware, automate VMware, create virtual machines, run Linux commands, read guest files, or read VM memory
+* Subscription Tracker stores manual recurring-service records locally in encrypted profile data and does not connect to banks, cards, cancellation services, cloud AI analysis, or a remote subscription database
+* Subscription Tracker's Local Subscription Service Catalog contains public provider-reference data only and does not contain user subscription records
+* normal Google profile sign-in does not request Gmail mailbox scopes for Subscription Tracker
+* File Converter uses local adapters and trusted file pickers instead of uploading files to an online conversion service
+* optional Clipboard History defaults off, keeps bounded local text entries, and is not exposed to websites
+* Universal Media Controls and Per-Tab Volume Mixer operate through trusted browser UI instead of giving websites access to other tabs
+* Download Scheduler keeps schedule records local and starts due downloads through the normal browser download path
 * built-in ad and tracker blocking uses local rules and counters rather than a remote URL-scanning service
+* the Privacy Protection Engine uses bootstrap tracker entities and local filter metadata so basic protection works even before remote lists are updated
+* tracking URL cleanup preserves OAuth and sign-in parameters while removing known tracking parameters
+* custom privacy allow/block rules, privacy counters, and broken-site exceptions remain profile-local for standard profiles
+* Guest and Incognito windows can use temporary broken-site privacy controls without saving permanent profile exceptions
+* CNAME tracker alias learning and known tracking-cookie stripping run locally inside the browser session
 * strict-by-default Canvas and JavaScript fingerprinting protections reduce high-entropy browser surfaces locally
 * guest browsing remains non-persistent
 * update behavior stays browser-controlled and installer-based rather than a hidden always-on patch service
@@ -106,6 +125,8 @@ Current local browser behavior includes:
 * optional local AI Chat panel and pop-out window for local Ollama chat where supported
 * local Developer Workspace preferences and custom app entries where the user chooses to add them
 * local Virtual Machine Center guidance, ISO verification, and VM setup notes
+* local Subscription Tracker records where the user enables that tool
+* local File Converter, Clipboard History, media-control, per-tab volume, and Download Scheduler settings where the user enables those tools
 * local performance settings and runtime controls
 
 The browser is designed not to automatically upload ordinary browser-state data as part of a built-in telemetry or analytics system.
