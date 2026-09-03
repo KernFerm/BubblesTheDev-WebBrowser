@@ -577,8 +577,547 @@ h1{
 }
 
 </style>
-<link rel="stylesheet" href="./site-performance.css">
-<link rel="stylesheet" href="./site-accessibility.css">
+<style id="site-performance-css">
+:root {
+  --bg: #f7f9ff;
+  --bg2: #ffffff;
+  --panel: rgba(255, 255, 255, .82);
+  --panelBorder: rgba(20, 29, 55, .10);
+  --text: #111827;
+  --muted: #5f6b85;
+  --green: #167a42;
+  --greenSoft: #16883f;
+  --blue: #2563eb;
+  --cyan: #0891b2;
+  --purple: #7c3aed;
+  --glow: 0 26px 80px rgba(37, 99, 235, .18);
+  --glowGreen: 0 26px 80px rgba(22, 122, 66, .14);
+  color-scheme: light;
+}
+
+html {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 10% 0%, rgba(66, 133, 244, .22), transparent 28%),
+    radial-gradient(circle at 88% 6%, rgba(255, 113, 91, .18), transparent 26%),
+    radial-gradient(circle at 80% 62%, rgba(251, 188, 5, .18), transparent 24%),
+    linear-gradient(180deg, #f8fbff 0%, #ffffff 44%, #f3f7ff 100%) !important;
+  overscroll-behavior-x: none;
+}
+
+body::before {
+  opacity: .65;
+  background-image:
+    radial-gradient(circle at 12% 24%, rgba(52, 168, 83, .12), transparent 16%),
+    radial-gradient(circle at 88% 34%, rgba(66, 133, 244, .14), transparent 18%),
+    linear-gradient(rgba(17, 24, 39, .035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17, 24, 39, .035) 1px, transparent 1px);
+  background-size: auto, auto, 56px 56px, 56px 56px;
+}
+
+img,
+svg {
+  max-width: 100%;
+}
+
+header {
+  background: rgba(255, 255, 255, .78) !important;
+  border-bottom: 1px solid rgba(17, 24, 39, .08) !important;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, .7) inset;
+}
+
+header.is-scrolled {
+  background: rgba(255, 255, 255, .94) !important;
+  box-shadow: 0 18px 52px rgba(37, 99, 235, .12);
+}
+
+.navbar {
+  padding: 15px 0 !important;
+}
+
+.logo {
+  color: #111827;
+  letter-spacing: .04em !important;
+}
+
+.logo span {
+  background: linear-gradient(90deg, #2563eb, #16a34a, #f59e0b) !important;
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+}
+
+nav a {
+  color: #53617d !important;
+  border-radius: 999px;
+  padding: 9px 12px;
+  transition-property: color, background, border-color, box-shadow, transform;
+}
+
+nav a:hover,
+nav a.is-active {
+  color: #111827 !important;
+  background: rgba(37, 99, 235, .08);
+}
+
+.hero {
+  padding: 118px 0 82px !important;
+}
+
+.hero-grid {
+  grid-template-columns: minmax(0, 1fr) minmax(360px, .86fr) !important;
+  gap: 56px !important;
+}
+
+.badge {
+  color: #184f2d !important;
+  background: rgba(52, 168, 83, .12) !important;
+  border-color: rgba(52, 168, 83, .22) !important;
+  box-shadow: 0 12px 36px rgba(52, 168, 83, .10);
+}
+
+h1 {
+  max-width: 12ch !important;
+  color: #111827;
+  letter-spacing: -.075em !important;
+}
+
+.gradient {
+  background: linear-gradient(90deg, #2563eb 0%, #16a34a 45%, #f59e0b 100%) !important;
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+}
+
+.hero p,
+.section-head p,
+.feature p,
+.trust-card p,
+.download-box p,
+.footer-box {
+  color: #5f6b85 !important;
+}
+
+.trust-link,
+.btn-secondary {
+  color: #1f3a6d !important;
+  background: rgba(255, 255, 255, .72) !important;
+  border: 1px solid rgba(37, 99, 235, .14) !important;
+  box-shadow: 0 12px 32px rgba(37, 99, 235, .08);
+}
+
+.trust-link:hover,
+.btn-secondary:hover {
+  transform: translateY(-2px);
+  color: #0f172a !important;
+  border-color: rgba(37, 99, 235, .34) !important;
+}
+
+.btn,
+.trust-link {
+  transition-property: color, background, border-color, box-shadow, transform;
+}
+
+.btn-primary {
+  color: #fff !important;
+  background: linear-gradient(100deg, #2563eb 0%, #1d9bf0 34%, #16a34a 72%, #f59e0b 100%) !important;
+  box-shadow: 0 14px 34px rgba(37, 99, 235, .22) !important;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px) scale(1.015);
+  box-shadow: 0 18px 42px rgba(37, 99, 235, .28) !important;
+}
+
+.hero-stats,
+.features,
+.trust-grid {
+  align-items: stretch;
+}
+
+.stat,
+.feature,
+.trust-card,
+.preview-card,
+.download-notice {
+  background: rgba(255, 255, 255, .82) !important;
+  border: 1px solid rgba(17, 24, 39, .10) !important;
+  box-shadow: 0 10px 28px rgba(37, 99, 235, .07);
+  color: #111827;
+  content-visibility: auto;
+  contain-intrinsic-size: 280px;
+}
+
+.feature,
+.trust-card,
+.stat,
+.preview-card,
+.download-notice {
+  contain: layout paint style;
+}
+
+.stat h3,
+.feature h3,
+.trust-card h3,
+.preview-card h4 {
+  color: #0f7a3a !important;
+}
+
+.feature:hover,
+.trust-card:hover,
+.preview-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(37, 99, 235, .22) !important;
+  box-shadow: 0 14px 36px rgba(37, 99, 235, .12);
+}
+
+.browser-preview {
+  filter: none;
+}
+
+.glow {
+  background:
+    radial-gradient(circle at 34% 38%, rgba(66, 133, 244, .28), transparent 58%),
+    radial-gradient(circle at 72% 62%, rgba(52, 168, 83, .18), transparent 62%) !important;
+  opacity: .28;
+}
+
+.window {
+  background: rgba(255, 255, 255, .86) !important;
+  border: 1px solid rgba(17, 24, 39, .10) !important;
+  box-shadow: 0 22px 54px rgba(37, 99, 235, .14) !important;
+  content-visibility: auto;
+  contain-intrinsic-size: 520px;
+}
+
+.window-top {
+  background: rgba(248, 250, 252, .92) !important;
+  border-bottom-color: rgba(17, 24, 39, .08) !important;
+}
+
+.dots div:nth-child(1) { background: #ea4335 !important; }
+.dots div:nth-child(2) { background: #fbbc05 !important; }
+.dots div:nth-child(3) { background: #34a853 !important; }
+
+.urlbar {
+  color: #5f6b85 !important;
+  background: #eef3ff !important;
+  border: 1px solid rgba(37, 99, 235, .10);
+}
+
+.section {
+  content-visibility: auto;
+  contain-intrinsic-size: 720px;
+}
+
+.section-head h2,
+.download-box h2 {
+  color: #111827 !important;
+  text-shadow: none !important;
+}
+
+.download-box {
+  background:
+    radial-gradient(circle at top left, rgba(37, 99, 235, .18), transparent 24%),
+    radial-gradient(circle at bottom right, rgba(52, 168, 83, .14), transparent 28%),
+    rgba(255, 255, 255, .90) !important;
+  border: 1px solid rgba(17, 24, 39, .10) !important;
+  box-shadow: 0 18px 48px rgba(37, 99, 235, .12);
+  content-visibility: auto;
+  contain-intrinsic-size: 600px;
+}
+
+.download-meta strong {
+  color: #d97706 !important;
+}
+
+.download-notice,
+.download-notice h3,
+.download-notice p,
+.download-notice li {
+  color: #14532d !important;
+}
+
+footer {
+  background: linear-gradient(180deg, transparent, rgba(37, 99, 235, .06));
+}
+
+.footer-box strong,
+.footer-box p {
+  color: #14532d !important;
+}
+
+.footer-links a,
+.footer-links a:visited {
+  color: #2563eb !important;
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before,
+.hero::after {
+  content: "";
+  position: absolute;
+  border-radius: 999px;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.hero::before {
+  width: 460px;
+  height: 460px;
+  left: -170px;
+  top: 80px;
+  background:
+    radial-gradient(circle at 35% 35%, rgba(66, 133, 244, .36), transparent 42%),
+    radial-gradient(circle at 68% 64%, rgba(52, 168, 83, .24), transparent 44%);
+  opacity: .45;
+}
+
+.hero::after {
+  width: 360px;
+  height: 360px;
+  right: -110px;
+  top: 120px;
+  background:
+    radial-gradient(circle at 42% 35%, rgba(251, 188, 5, .30), transparent 44%),
+    radial-gradient(circle at 62% 64%, rgba(234, 67, 53, .20), transparent 48%);
+  opacity: .42;
+}
+
+h1 {
+  font-size: clamp(4rem, 8.8vw, 7.4rem) !important;
+  line-height: .88 !important;
+}
+
+.hero p {
+  font-size: clamp(1.05rem, 1.45vw, 1.22rem) !important;
+}
+
+.btn-primary,
+.btn-secondary {
+  border-radius: 999px !important;
+}
+
+.btn-primary {
+  padding-inline: 30px !important;
+}
+
+.btn-secondary {
+  padding-inline: 26px !important;
+}
+
+.stat {
+  border-radius: 30px !important;
+  transform: translateZ(0);
+}
+
+.stat h3 {
+  font-size: clamp(1.45rem, 2vw, 2rem) !important;
+}
+
+.feature:nth-child(4n + 1),
+.trust-card:nth-child(4n + 1) {
+  background: linear-gradient(180deg, rgba(232, 240, 254, .92), rgba(255, 255, 255, .86)) !important;
+}
+
+.feature:nth-child(4n + 2),
+.trust-card:nth-child(4n + 2) {
+  background: linear-gradient(180deg, rgba(232, 245, 233, .92), rgba(255, 255, 255, .86)) !important;
+}
+
+.feature:nth-child(4n + 3),
+.trust-card:nth-child(4n + 3) {
+  background: linear-gradient(180deg, rgba(254, 247, 224, .94), rgba(255, 255, 255, .86)) !important;
+}
+
+.feature:nth-child(4n),
+.trust-card:nth-child(4n) {
+  background: linear-gradient(180deg, rgba(253, 237, 235, .92), rgba(255, 255, 255, .86)) !important;
+}
+
+.browser-preview {
+  perspective: 1100px;
+}
+
+.browser-preview::before,
+.browser-preview::after {
+  position: absolute;
+  z-index: 3;
+  padding: 12px 16px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .90);
+  border: 1px solid rgba(17, 24, 39, .10);
+  box-shadow: 0 12px 28px rgba(37, 99, 235, .12);
+  color: #111827;
+  font-weight: 800;
+  letter-spacing: -.02em;
+}
+
+.browser-preview::before {
+  content: "Fast tabs";
+  top: 34px;
+  left: -22px;
+  transform: rotate(-7deg);
+}
+
+.browser-preview::after {
+  content: "Private by default";
+  right: -28px;
+  bottom: -24px;
+  transform: rotate(4deg);
+}
+
+.window {
+  transform: none;
+}
+
+.preview-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.preview-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 5px;
+  background: linear-gradient(180deg, #2563eb, #16a34a, #f59e0b);
+  opacity: .82;
+}
+
+.preview-card:nth-child(2) { transform: translateX(22px); }
+.preview-card:nth-child(3) { transform: translateX(-8px); }
+.preview-card:nth-child(4) { transform: translateX(14px); }
+
+.section-head {
+  text-align: center;
+}
+
+.section-head p {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.section-head h2,
+.download-box h2 {
+  font-size: clamp(2.6rem, 5vw, 4.8rem) !important;
+  letter-spacing: -.075em !important;
+  line-height: .94 !important;
+}
+
+.features,
+.trust-grid {
+  gap: 24px !important;
+}
+
+.feature,
+.trust-card {
+  min-height: 230px;
+}
+
+.feature h3,
+.trust-card h3 {
+  font-size: clamp(1.2rem, 1.8vw, 1.55rem) !important;
+  letter-spacing: -.035em;
+}
+
+.download-box {
+  position: relative;
+  overflow: hidden;
+}
+
+.download-box::before {
+  content: "";
+  position: absolute;
+  inset: -90px -80px auto auto;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 40% 40%, rgba(66, 133, 244, .22), transparent 54%),
+    radial-gradient(circle at 70% 70%, rgba(52, 168, 83, .18), transparent 58%);
+  pointer-events: none;
+}
+
+.download-actions,
+.download-meta,
+.download-notice {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 1000px) {
+  .hero-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .window { transform: none; }
+  .browser-preview::before,
+  .browser-preview::after { display: none; }
+}
+
+@media (max-width: 1180px) {
+  .browser-preview::after {
+    right: 14px;
+    bottom: -30px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 1ms !important;
+  }
+}
+
+</style>
+<style id="site-accessibility-css">
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: 12px;
+  z-index: 1000;
+  transform: translateY(-160%);
+  border-radius: 999px;
+  background: #ffffff;
+  color: #111827;
+  padding: 10px 14px;
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: 0 12px 28px rgba(17, 24, 39, .18);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid #f59e0b;
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+  }
+}
+
+</style>
 <script src="./site.js" defer></script>
 </head>
 
@@ -616,11 +1155,11 @@ h1{
       </h1>
 
       <p>
-        BubblesTheDev Web Browser is a Windows 11 browser with a cleaner feel, local-first privacy, stronger ad and tracker blocking, safer downloads, split view, profiles, accessibility tools, local file conversion, media controls, Clipboard History, Download Scheduler, Subscription Tracker, Privacy Protection Engine, Virtual Machine Center, local AI Chat, and smoother performance for gaming and streaming.
+        BubblesTheDev Web Browser is a Windows 11 browser built for everyday use with local-first privacy, stronger ad and tracker blocking, isolated profiles, safer downloads, Split View, accessibility tools, local utilities, and performance features for gaming and streaming.
       </p>
 
       <p>
-        It is made to feel familiar like the browsers people already know, while giving users clearer control over data, permissions, diagnostics, recovery, and the features they use every day.
+        It keeps the familiar browser experience people already know while giving users clearer control over privacy, permissions, diagnostics, profiles, recovery, and everyday browser features.
       </p>
 
       <div class="trust-links">
@@ -1024,128 +1563,7 @@ h1{
 
 </section>
 
-<section class="section" id="everyday-use">
 
-  <div class="wrap">
-
-    <div class="section-head">
-      <h2>Built for Real Everyday Windows Use</h2>
-
-      <p>
-        Designed for people who want a practical Windows browser with clearer controls, local-first privacy, and visible project documentation.
-      </p>
-    </div>
-
-    <div class="features">
-      <div class="feature">
-        <p><strong>New In Version 1.3.105</strong></p>
-        <h3>Download Scheduler</h3>
-        <p>
-          Schedule supported public HTTP and HTTPS downloads locally, choose optional destination folders, reschedule, cancel, remove, or start downloads now.
-        </p>
-      </div>
-      <div class="feature">
-        <p><strong>New In Version 1.3.105</strong></p>
-        <h3>Developer Workspace</h3>
-        <p>
-          Launch supported developer tools and trusted developer websites from one browser workspace, save favorites, and open Virtual Machine Center when setup guidance is needed.
-        </p>
-      </div>
-      <div class="feature">
-        <p><strong>New In Version 1.3.105</strong></p>
-        <h3>Per-Tab Volume Mixer</h3>
-        <p>
-          Set individual tab volume levels from 0 to 100 percent without changing Windows master volume or unrelated apps.
-        </p>
-      </div>
-      <div class="feature">
-        <p><strong>New In Version 1.3.045</strong></p>
-        <h3>Privacy Request Inspector</h3>
-        <p>
-          Review recent current-tab privacy decisions, compatibility allow rules, tracking-parameter cleanup, cookie protections, source lists, and matched rules locally.
-        </p>
-      </div>
-      <div class="feature">
-        <p><strong>New In Version 1.3.005</strong></p>
-        <h3>Local Service Catalog</h3>
-        <p>
-          Improve subscription name recognition with bundled public provider-reference data while keeping the tool local-first.
-        </p>
-      </div>
-      <div class="feature">
-        <p><strong>Local AI</strong></p>
-        <h3>AI Chat</h3>
-        <p>
-          Use optional local Ollama AI Chat in its own panel or pop-out window, with responding-model status, local model management, local loopback-only chat, and improved installer setup visibility.
-        </p>
-      </div>
-
-      <div class="feature">
-        <p><strong>PDF Tools</strong></p>
-        <h3>Local PDF Editor</h3>
-        <p>
-          Open PDFs in a visible editor with click-to-place text, notes, highlights, freehand signing, typed signatures, drag-and-resize placement, and Save Copy support.
-        </p>
-      </div>
-
-      <div class="feature">
-        <p><strong>Privacy Tools</strong></p>
-        <h3>Site Privacy Reports</h3>
-        <p>
-          Review local per-site privacy details, observed blocker events, permission behavior, Canvas protection, JavaScript protection, and privacy preset state.
-        </p>
-      </div>
-
-      <div class="feature">
-        <p><strong>Everyday Browsing</strong></p>
-        <h3>Browser Profiles</h3>
-        <p>
-          Create and manage up to 10 local browser profiles with isolated sessions and smoother profile switching.
-        </p>
-      </div>
-
-      <div class="feature">
-        <p><strong>Everyday Browsing</strong></p>
-        <h3>Connected Account Identity</h3>
-        <p>
-          Profiles can show clearer local profile-card names and avatars for easier profile switching.
-        </p>
-      </div>
-
-      <div class="feature">
-        <p><strong>Everyday Browsing</strong></p>
-        <h3>Guest Mode & Recovery</h3>
-        <p>
-          Use Guest Mode for temporary browsing and benefit from stronger local profile recovery, restore, and profile-security controls.
-        </p>
-      </div>
-
-      <div class="feature">
-        <p><strong>Modern Browser Tools</strong></p>
-        <h3>Local PDF Editor</h3>
-        <p>
-          Open local PDFs in a visible editor with click-to-place text, notes, highlights, freehand signing, typed signatures, drag-and-resize placement, and Save Copy support.
-        </p>
-      </div>
-
-      <div class="feature">
-        <p><strong>Privacy Visibility</strong></p>
-        <h3>Site Privacy Reports</h3>
-        <p>
-          Review local per-site privacy information, observed blocker events, permission behavior, Canvas protection mode, JavaScript protection mode, and profile privacy preset state.
-        </p>
-      </div>
-
-      <div class="feature">
-        <p><strong>Everyday Media Tools</strong></p>
-        <h3>Picture-in-Picture And Link Safety</h3>
-        <p>
-          Use browser-managed Picture-in-Picture controls where video is available, plus local link-safety checks before opening suspicious links.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
 </main>
 <footer>
 
