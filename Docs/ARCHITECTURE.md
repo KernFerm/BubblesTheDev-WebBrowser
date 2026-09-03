@@ -2,7 +2,7 @@
 
 ## Architecture Overview
 
-This document explains the high-level runtime shape of BubblesTheDev Web Browser version `1.3.001`.
+This document explains the high-level runtime shape of BubblesTheDev Web Browser version `1.3.105`.
 
 ## Design Goals
 
@@ -29,18 +29,66 @@ The main process owns:
 * profile lifecycle and profile partition management
 * downloads and diagnostics windows
 * performance-management policy
-* ad and tracker request classification
+* ad, tracker, fingerprinting, tracking-parameter, and privacy-report request classification
 * Streaming Hub isolation
 * Secure DNS preference normalization and restart prompting
 * local-network Send to Device discovery and delivery
 * installer and update coordination
 * local AI and diagnostics service orchestration
 
-The browser builds its default Chromium-style user agent from Electron's runtime Chromium version when available. The packaged fallback is kept aligned with the current Electron 43 / Chromium 150 release line so browser-owned user-agent strings do not report an older Chromium baseline if runtime version metadata is unavailable.
+The browser builds its default Chromium-style user agent from Electron's runtime Chromium version when available. The packaged fallback is kept aligned with the current Electron 44 / Chromium 152 release line so browser-owned user-agent strings do not report an older Chromium baseline if runtime version metadata is unavailable.
+
+The browser-owned QR code sharing flow uses a local Chromium-style QR generator with medium error correction, version and format bits, data block interleaving, and mask scoring. QR generation happens inside the browser runtime and does not call a remote QR service.
+
+## Privacy Protection Engine
+
+The main process owns a centralized Privacy Protection Engine used by normal browser sessions. The engine loads a bundled bootstrap tracker/entity database first so basic protection works offline before any maintained lists are cached locally.
+
+The engine supports local filter-source metadata for maintained privacy lists such as EasyList, EasyPrivacy, AdGuard filters, Peter Lowe's list, DuckDuckGo Tracker Radar, URLHaus, optional Fanboy lists, and NoCoin-compatible cryptomining protection sources. Filter data is treated as untrusted text, parsed with bounded Adblock Plus-style rule support, deduplicated, and designed to load the current compiled cache, then the previous known-good compiled cache, then bundled bootstrap protection instead of disabling protection when a list update fails.
+
+Security-focused sources can also use host-file style entries such as URLHaus domain lines. URLHaus-derived rules are classified as malicious-request protection, and NoCoin-compatible rules are classified as cryptomining protection. Ordinary per-site ad or tracker relaxations do not bypass those security categories.
+
+Privacy source choices are profile-local. Default protection lists remain enabled automatically, while optional annoyance and social lists can be turned on or off from Privacy & Security and then applied during the next privacy-list update.
+
+Privacy counters are also profile-local for standard profiles. The runtime keeps separate profile counter buckets for ads blocked, trackers blocked, fingerprinting attempts blocked, tracking URL parameters removed, known tracking cookies blocked, CNAME tracker detections, compatibility protections, cosmetic rules, malicious requests, and cryptomining requests. Privacy & Security shows Today, 7 Days, 30 Days, and All Time ranges for the active profile without storing full request history.
+
+Before a downloaded list can replace the current compiled cache, the engine checks approved HTTPS source hosts, file size, supported filter structure, per-source rule count, and total compiled-rule count. Suspicious or malformed list updates are rejected and the previous working database remains active.
+
+Supported cosmetic rules are compiled separately from network rules. The main process derives a bounded selector list for the current page, rejects unsafe selector text, and applies the result with browser-owned CSS injection after page load. Cosmetic CSS keys are cleared on navigation so rules from one site are not carried into another page.
+
+Request classification happens in the main-process `webRequest` path. It identifies the target domain, first-party or third-party context, resource type, known tracker entity, matched rule, source attribution, high-confidence heuristic signals, and tracking URL parameters. Full browsing history, cookies, OAuth tokens, query contents, and page content are not uploaded as part of this system.
+
+Diagnostics use redaction before storing structured details. Sensitive-looking bearer tokens, authorization or cookie lines, sensitive key-value pairs, sensitive URL parameters, local paths, and error stack text are reduced or replaced before being written into runtime diagnostic records.
+
+The engine also includes a narrow browser-maintained compatibility allowlist for common fragile flows such as sign-in, CAPTCHA, payment checkout, streaming media delivery, and release downloads. These rules run locally before broad tracker blocking so normal website workflows can keep working without disabling global protection.
+
+Tracking URL cleanup only removes known tracking parameters and explicitly preserves OAuth/OpenID and sign-in parameters such as `state`, `code`, `client_id`, `redirect_uri`, `nonce`, and PKCE fields. Authentication hosts and callback-style URLs stay compatible with Discord, Google, GitHub, and other normal sign-in providers.
+
+Advanced custom allow/block rules are stored as profile-local browser feature state, parsed through the same bounded network-rule parser, and rejected before saving if they cannot be parsed. Guest and incognito sessions do not save permanent custom rules.
+
+Per-site privacy exceptions are also profile-local and origin-scoped. The Site Privacy Report can add an exception or reload the current site without protection when the user needs to recover a broken site. It also exposes origin-scoped controls for ad blocking, tracker blocking, tracking-parameter cleanup, cookie protection, and cosmetic ad-placeholder hiding. Exceptions and per-site controls do not turn off global privacy protection for other sites and are not exposed to normal websites.
+
+Guest and incognito windows can apply those same site controls temporarily for the current window when a page needs broken-site recovery. Those temporary controls are not written into profile storage and disappear with the private session.
+
+CNAME tracker detection runs as a non-blocking background DNS check after eligible third-party requests. Learned aliases are cached locally and can classify later requests without delaying the original page load. Tracking-cookie protection strips known tracker `Set-Cookie` response headers through the browser-owned session response hook.
+
+Cookie protection is profile-local and supports allow cookies, block known tracking cookies, block third-party cookies, and block all non-auth cookies. Authentication pages keep targeted compatibility so normal sign-in, OAuth, and account connection flows are not broken by stronger cookie settings.
+
+WebRTC local IP protection is part of the security settings model. The recommended mode asks Chromium to use the default public interface only, while Strict mode disables non-proxied UDP. This reduces unnecessary local IP exposure without fully removing WebRTC APIs that voice, video, conferencing, and streaming sites may need. WebRTC policy changes require a browser restart because they are applied through Chromium startup switches.
+
+JavaScript fingerprint protection also normalizes or removes selected high-entropy browser surfaces. The browser can send DNT and Global Privacy Control request headers while JavaScript fingerprint protection is enabled, mask exact WebGL renderer details, reduce media-device enumeration labels in Strict mode, normalize screen color depth, remove OfflineAudioContext in Strict mode, normalize strict-mode timezone reporting, and hide selected sensor-style APIs. Balanced mode keeps more compatibility-sensitive APIs available for media-heavy sites.
+
+Site Privacy Report uses in-memory current-tab details for local UI only. It can group observed protection events by known tracking company, domain, category, reason, and matched rule so users can understand what was blocked without creating a permanent browsing-history database. Privacy Request Inspector reuses that same current-tab report data for a more detailed local view of recent request decisions, compatibility allow rules, tracking-parameter cleanup, cookie protections, cosmetic filtering, fingerprinting protections, matched rules, and source lists without displaying full query strings. Privacy & Security shows profile-local or temporary-session counter ranges for Today, 7 Days, 30 Days, and All Time without storing full request history, page contents, cookies, or query contents.
+
+The toolbar protection indicator shows current-page ad and tracker blocking counts. Clicking it toggles a small browser-owned Privacy Protection pop-out anchored below the protection pill. The pop-out shows local profile or temporary-session counters for ads, trackers, fingerprinting attempts, tracking-parameter cleanup, tracking cookies, CNAME detections, malicious requests, cryptomining requests, and compatibility protections. It can hand off to the full Site Privacy Report or Privacy & Security panel through trusted browser UI, and ordinary websites cannot read or control that pop-out.
+
+Privacy reporting exposes the loaded compatibility-rule count and current-page compatibility relaxations so users can see when protection preserved an expected site workflow instead of silently weakening all protection.
+
+Privacy & Security also includes Reset Privacy Protection Settings. That action clears profile-local privacy exceptions and custom privacy rules, resets the related privacy preset state, and leaves unrelated browser data such as bookmarks, passwords, profiles, downloads, accounts, and normal browser settings in place.
 
 ## Profile Architecture
 
-Version `1.3.001` keeps the broader browser profile system while keeping the browser local-first.
+Version `1.3.005` keeps the broader browser profile system while keeping the browser local-first.
 
 The current profile runtime includes:
 
@@ -60,11 +108,35 @@ The current profile runtime includes:
 
 The tab-organization and browser-tool features use the existing profile session snapshot path instead of a parallel cloud or dashboard service.
 
-Profile-scoped browser feature state includes vertical-tab layout, tab groups, saved workspaces, duplicate-tab preferences, toolbar clock preferences, privacy preset metadata, local website app records, local sidebar settings, local PDF annotation metadata, Picture-in-Picture state, link-safety preferences, and permission-use indicators.
+Profile-scoped browser feature state includes vertical-tab layout, tab groups, saved workspaces, duplicate-tab preferences, toolbar clock preferences, privacy preset metadata, Privacy Protection Engine settings, saved site exceptions, per-site privacy controls, local website app records, local sidebar settings, local PDF annotation metadata, local Subscription Tracker records, Clipboard History settings and saved items where enabled, scheduled download records where supported, Picture-in-Picture state, link-safety preferences, and permission-use indicators.
+
+## End-User Utility Tools
+
+Version `1.3.105` adds five browser-owned utility tools: File Converter, Universal Media Controls, Clipboard History, Per-Tab Volume Mixer, and Download Scheduler.
+
+File Converter uses trusted OS file and folder pickers. The renderer receives selected file summaries and invokes bounded conversions through narrow IPC. For mixed batches, the UI exposes only output formats shared by every supported selected file. Supported local adapters handle common image, text, markup, XML, YAML, RTF, CSV, TSV, DOCX text-extraction, ODT text-extraction, XLSX text/table extraction, ODS text/table extraction, and ZIP/TAR/TGZ/GZIP archive manifest conversions directly. Audio/video and additional image output conversion uses the bundled local ffmpeg binary when it is available, including user-controlled bitrate, sample rate, audio channels, frame rate, scale, and rotation options where applicable. Conversion jobs expose queued, converting, completed, failed, and cancelled progress through trusted browser IPC, and completed results can be revealed with a narrow file-manager `Show File` IPC action. Original files are not overwritten by default, active conversion jobs are capped, generated outputs are verified to remain inside the selected output folder, metadata removal is described as best effort where supported, unsafe archive entry paths are rejected, archive contents are not extracted or executed, and unsupported file types show a clear unsupported message.
+
+Universal Media Controls and Per-Tab Volume Mixer share the same tab media state. The main process builds the media list from browser-owned tab records, webContents audio state, and site-provided media-session metadata from the current page where available, then applies user-requested play, pause, mute, tab focus, reset-to-100, and 0-100% tab volume changes to the selected tab only. Ordinary web pages cannot enumerate other tabs or call these controls, and trusted renderer requests are rate-limited per media action.
+
+Clipboard History defaults off and the UI explains that copied text appears only after the local tool is enabled. When enabled, it stores bounded plain-text clipboard entries in the active profile's encrypted local storage, with session-only behavior for temporary contexts and for the Session only retention choice. Sensitive-looking values such as passwords, passcodes, card-like numbers, private keys, and tokens are excluded where detectable, and copy events from password-style fields suppress capture.
+
+Download Scheduler stores scheduled public HTTP and HTTPS download records in encrypted profile-local storage for standard profiles. Guest and Incognito windows cannot persist scheduled downloads. Optional destination folders are validated locally and used only as the suggested save location when the download starts. Local file URLs, localhost, private IP addresses, and DNS results that resolve to private/local addresses are blocked for scheduled/background download actions. Scheduler state changes are limited to known local status values, persisted records that became due while the browser was closed are picked up when the scheduler starts again, and scheduled records are updated from Chromium download completion, cancellation, or failure events. Immediate and scheduled starts both use Chromium's normal download path so the existing filename handling, Mark-of-the-Web behavior, and download protection pipeline still apply.
 
 The local PDF editing service lives in trusted main-process code. It lazy-loads `pdf-lib` for byte-level PDF edits, `pdf.js-extract` for independent local text extraction/verification, and a helper child process using `pdf-to-png-converter` for rasterized permanent redaction. Renderer code can request narrow PDF actions through preload IPC, but it does not receive unrestricted filesystem access or decrypted document bytes.
 
-Guest and incognito windows normalize the same structures for runtime behavior, but their feature data is temporary and is not permanently written as profile state.
+Subscription Tracker uses a dedicated encrypted profile-data bucket instead of the connected-account secret bundle. This keeps recurring-service records separate from OAuth identity data and prevents tracker deletion from clearing the existing Google, Discord, or GitHub profile connection.
+
+The Subscription Tracker renderer panel talks to the main process through narrow preload IPC methods only. Normal websites do not receive tracker IPC access. The main process rejects Guest, Incognito, locked-profile, and untrusted-renderer access before reading or writing tracker data.
+
+Manual subscription records work without Gmail. Gmail discovery uses a separate explicit Gmail read-only consent flow and is not part of the normal Google profile identity flow. Gmail scanning is bounded, manual, and uses deterministic local classification before adding possible matches to the review queue.
+
+Subscription Tracker also uses a bundled Local Subscription Service Catalog for service-name recognition. The catalog is data-only public provider reference information, is schema-validated before use, and is included in runtime trust-manifest checks. If catalog validation fails, the tracker falls back to the existing local detector instead of disabling manual records or Gmail scanning.
+
+Guest and incognito windows normalize the same structures for runtime behavior, but their feature data is temporary and is not permanently written as profile state. Their privacy counters, temporary per-site controls, and current-tab privacy reports remain private-window state instead of being added to a standard profile snapshot.
+
+Privacy & Security can export a Local Privacy Summary through trusted browser IPC. The export is user-requested, saved to a user-selected JSON file, and contains protection settings, aggregate counters, source-list health, and host-only saved site exceptions. It is not a browsing-history export and does not include full URLs, query strings, cookies, page content, tab events, feedback messages, or account secrets.
+
+Privacy-list updates use chunked async parsing for maintained lists, then compile supported rules into domain maps, indexed network rules, and bounded cosmetic rules. Duplicate network and cosmetic rules are merged into one internal representation while retaining source attribution, so the browser can show which lists contributed to a match without storing redundant copies of identical rules.
 
 ## Developer Workspace Architecture
 
@@ -234,7 +306,7 @@ Version `1.3.001` keeps the expanded built-in blocker while keeping it local and
 The blocker currently uses:
 
 * main-process network request classification before web content loads
-* static local host and path rules for common ad networks, tracker hosts, error-monitoring collectors, and YouTube ad or tracking endpoints
+* static local host and path rules for common ad networks, tracker hosts, error-monitoring collectors, and selected YouTube ad or tracking endpoints, with YouTube-owned playback/media/API/thumbnail/asset requests preserved for compatibility
 * third-party request checks so broad tracker and ad rules are less likely to break normal first-party site resources
 * resource-type guarded ad asset rules for obvious banner, advertising, and ad-size image or embedded-object paths
 * renderer-side cosmetic rules for obvious ad containers and blocked banner shells
@@ -251,6 +323,8 @@ The protection is applied in the browser page preload and wraps Canvas readout m
 Canvas protection runs locally and does not upload page contents, canvas images, browsing history, or visited URLs to a remote service.
 
 The same protection mode also reduces JavaScript fingerprinting surfaces exposed through `window`, `navigator`, and same-origin `iframe.contentWindow` checks. When enabled, the browser reports generic CPU and memory values, enables local GPC/DNT signals, normalizes Client Hints in Balanced mode, and hides high-entropy APIs such as Battery Status, Network Information, Web Bluetooth, WebGPU, WebHID, WebUSB, Web Serial, WebXR, plugins, MIME types, speech voices, app badges, protocol handlers, scheduling APIs, storage bucket APIs, and Protected Audience ad-auction APIs where possible. Strict mode also hides or blanks additional optional surfaces such as Web Audio constructors and several heavier browser integration APIs.
+
+WebGL fingerprint protection is installed through the same browser-view preload path. It masks exact vendor and renderer values with generic Chromium-style values and hides `WEBGL_debug_renderer_info` so pages cannot read the precise GPU renderer string through that debug extension.
 
 ## Memory Pressure Behavior
 
@@ -301,11 +375,11 @@ Current startup and update characteristics include:
 * sanitized main renderer startup query values with a trusted fallback load path before an `index.html` load error is shown
 * installer-based updates rather than a hidden always-on patch service
 * installer registration support for installed builds where available
-* user-visible update-note handling that can create or refresh a Desktop folder named `BubblesTheDev - WebBrowser Update Notes` with the bundled release notes for the installed version
+* user-visible update-note handling that opens a local `bubbles://whats-new` tab once after a newly installed version launches, using the bundled release notes without creating Desktop folders
+* a manual `Menu Bar > What's New` command for reopening the same local release-note page later
 * verified release metadata and installer validation inside the browser-controlled update flow
 * managed-update progress windows for download state, followed by regular installer handoff after the new version is downloaded
 * normal installed browser clients can use the public update-check flow without extra user setup
 * explicit browser-state, password, profile-restore-point, and session-storage saves before managed update installs close the browser
 * current-user trusted-root certificate inspection that can skip repeated certificate prompts when the same bundled certificate is already trusted, while still surfacing the Windows confirmation step for a newly bundled replacement certificate
 * renderer-side persistence for local `AI & Diagnostics` panel query, preview, summary, and scroll state when the panel is closed and reopened
-
