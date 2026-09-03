@@ -1,6 +1,150 @@
 # Changelog
 
-This changelog summarizes notable public release changes through version `1.3.001`.
+This changelog summarizes notable public release changes through version `1.3.105`.
+
+## 1.3.105
+
+### Added
+
+- Added `Tools > File Converter` for local file conversion with file picker access, detected file families, valid shared output format choices for mixed batches, output-folder selection, batch-safe limits, visible queued/converting/completed/failed/cancelled progress, cancellation, image width/height resize, quality and bitrate options, metadata-removal guidance, transparency warnings for JPG output, local text, markup, XML, YAML, RTF, CSV, TSV, DOCX text-extraction, and ODT text-extraction conversion, ffmpeg-backed audio/video conversion where the bundled local converter is available, local PDF copy handling, and unsupported-file messaging.
+- Expanded File Converter support with local XLSX and ODS text/table extraction outputs, plus ZIP archive manifest conversion to TXT or JSON without extracting or executing archive contents.
+- Expanded File Converter archive inspection with TAR, TGZ, and GZIP manifest output, and added ffmpeg-backed image output choices for WebP, BMP, GIF, TIFF, AVIF, and ICO where the bundled local converter supports them.
+- Added File Converter controls for sample rate, audio channels, frame rate, and rotation options for applicable local media conversions.
+- Added a per-result File Converter `Show File` action so users can reveal a completed converted file directly in the operating system file manager.
+- Added `Tools > Media Controls` as a browser-owned Universal Media Controls panel for active media tabs with local tab title/site display, site-provided media title/artist where available, play or pause, previous/next where supported, mute, per-tab volume, and Go to Tab.
+- Added per-tab volume controls through the shared media state system and tab context menu, including 0-100% levels, visible slider and numeric percentage controls, reset to 100%, mute/unmute behavior, and session-lifetime volume state without changing Windows master volume.
+- Added `Tools > Clipboard History` with Off, 10 item, 25 item, and 50 item modes, Session only, 1 hour, 24 hours, 7 days, and Keep until removed retention choices, local profile storage where persistence is allowed, Copy Again, Pin, Delete, Clear All, and Hide Clipboard Previews for streaming or screen-sharing privacy.
+- Added clearer Clipboard History off-state guidance and a one-click Turn On action so users understand that copied text is saved only after the local tool is enabled.
+- Added `Tools > Download Scheduler` for local scheduled HTTP/HTTPS downloads with URL, local scheduled time, optional destination folder, Download Now, status, Start Now, Reschedule, Cancel Schedule, and Remove actions.
+- Added Download Scheduler quick time choices and custom per-item reschedule date/time controls.
+- Added verification coverage for missed scheduled downloads so persisted due items are picked up after the scheduler service restarts.
+- Added focused `npm run test:end-user-utilities` verification coverage for the new end-user utilities.
+- Added broader automated verification for Clipboard History limits, pinned entries, profile isolation, Guest and Incognito non-persistence, Download Scheduler profile isolation, File Converter batch limits, oversized-file handling, malformed document handling, safe output naming, and original-file preservation.
+
+### Security
+
+- File Converter uses trusted OS file and folder pickers, bounded batch size, bounded source-file size, safe output naming, and local conversion only.
+- File Converter now limits excessive active conversion jobs and verifies generated output paths remain inside the selected output folder.
+- ZIP archive handling rejects unsafe archive entry paths and only writes a local manifest/list output.
+- TAR/TGZ archive handling also rejects unsafe archive entry paths and writes a manifest/list only.
+- Clipboard History defaults off, excludes sensitive-looking clipboard text where detectable, and suppresses capture from password-style fields observed by the browser preload.
+- Download Scheduler stores schedules locally in encrypted profile data, validates optional local destination folders, is unavailable in Guest and Incognito windows, rejects non-HTTP(S) source URLs, blocks localhost/private-network background download targets, and starts scheduled downloads through Chromium's existing browser download path.
+- Download Scheduler only accepts known schedule states, rejects arbitrary status values, updates scheduled records when Chromium reports completed, cancelled, or failed downloads, and keeps cancelled or removed records local to the active browser profile.
+- Media Controls, per-tab volume controls, Clipboard History, File Converter, and Download Scheduler now use per-tool IPC rate limits in addition to trusted browser UI checks.
+- Media Controls and per-tab volume controls are exposed only through trusted browser UI and narrow IPC, so ordinary websites cannot enumerate other tabs, read other tab titles, or control another tab.
+- The new utility preload bridge does not expose generic shell, command, eval, arbitrary file read, or arbitrary file write APIs.
+- YouTube playback compatibility was tightened so YouTube-owned playback, media, API, thumbnail, and asset requests are preserved while obvious ad-network blocking remains separate.
+
+### Updated
+
+- Replaced Desktop update-note folder creation with a local in-browser `bubbles://whats-new` tab that opens once after a newly installed version launches.
+- Added a manual `Menu Bar > What's New` entry so users can reopen bundled release notes later without creating Desktop folders or extra note files.
+- Updated runtime trust-manifest coverage for the new utility service and changed browser runtime/preload surfaces.
+- Expanded end-user utility verification for safe text-format conversion, clipboard retention pruning, scheduler cancel/remove behavior, unsupported conversion failures, local-only profile isolation, temporary-context behavior, and File Converter failure safety.
+- Updated release-facing documentation for version `1.3.105`.
+
+## 1.3.045
+
+### Added
+
+- Added a centralized local Privacy Protection Engine for ad blocking, tracker blocking, tracker classification, tracking URL parameter cleanup, source metadata, bootstrap tracker entities, and privacy-report details.
+- Added local filter-source metadata for EasyList, EasyPrivacy, AdGuard filters, Peter Lowe's list, DuckDuckGo Tracker Radar, URLHaus, Fanboy optional lists, and NoCoin-compatible cryptomining protection sources.
+- Added URLHaus-style host-file parsing and dedicated malicious-request and cryptomining-request counters for security and NoCoin-compatible sources.
+- Added chunked async parsing for maintained privacy-list updates so large list compilation can yield back to the app instead of blocking the UI for one long parse.
+- Added network-rule and cosmetic-rule deduplication with source attribution preserved when the same rule appears in multiple lists.
+- Added non-sensitive engine diagnostics for duplicate rules merged, last compilation time, and compiled database size.
+- Added OAuth-safe tracking parameter cleanup so known tracking parameters can be removed without stripping legitimate sign-in parameters such as `state`, `code`, `client_id`, `redirect_uri`, `nonce`, or PKCE values.
+- Added a narrow browser compatibility allowlist for sign-in, CAPTCHA, payment, streaming, and release-download flows so privacy blocking is less likely to break common sites.
+- Added a Privacy & Security Ad & Tracker Protection status card showing loaded protection rules, tracker entities, configured source lists, and local aggregate privacy counters.
+- Added local privacy counter ranges for Today, 7 Days, 30 Days, and All Time without storing full browsing history.
+- Added profile-local privacy counter storage so each standard browser profile keeps its own ad, tracker, fingerprinting, cookie, cleanup, CNAME, cosmetic, compatibility, malicious-request, and cryptomining totals.
+- Added visible privacy counter scope in Privacy & Security so users can tell whether counters are saved for the current profile or temporary for the current private window.
+- Added profile-local privacy list controls so optional lists can be enabled or disabled from Privacy & Security before the next list update.
+- Added privacy update status fields for last successful update, next automatic update, and update interval.
+- Added bounded cosmetic filtering so supported `domain##selector` rules can hide obvious ad containers locally after page load.
+- Added WebRTC local IP protection settings with recommended and strict modes, plus restart handling for Chromium's WebRTC IP policy.
+- Added WebGL vendor/renderer masking and `WEBGL_debug_renderer_info` protection inside the existing JavaScript fingerprinting protection path.
+- Added advanced JavaScript fingerprinting reductions for DNT/GPC request headers, media-device enumeration labels, screen color depth, OfflineAudioContext, strict-mode timezone normalization, and sensor-style browser APIs.
+- Added profile-local cookie protection modes: allow cookies, block known tracking cookies, block third-party cookies, or block all non-auth cookies.
+- Added custom local privacy allow/block rules for advanced users.
+- Added per-site privacy exceptions with a Reload Without Protection action for broken-site recovery.
+- Added temporary Guest and Incognito site privacy controls so a broken page can be relaxed for the current private window without saving a permanent profile exception.
+- Added per-site privacy controls for ads, trackers, tracking-parameter cleanup, cookie protection, and cosmetic ad-placeholder hiding.
+- Added grouped Known Tracking Companies details in Site Privacy Report with local request counts, domains, categories, reasons, and matched rules.
+- Added a local Privacy Request Inspector for the current tab so users can review recent blocked requests, compatibility allow rules, tracking-parameter cleanup, cookie protections, cosmetic filtering, fingerprinting protections, matched rules, and source lists without displaying full query strings.
+- Added first-party or third-party labels, rule-priority labels, and local risk labels to Privacy Request Inspector entries so users can understand why a request was handled.
+- Added a local Protection Self-Test in Privacy & Security for checking ad blocking, tracker blocking, tracking-parameter cleanup, and OAuth compatibility without browsing to or uploading test URLs.
+- Upgraded the toolbar protection indicator into an anchored browser-owned Privacy Protection pop-out with local profile or temporary-session counters and direct access to Site Privacy Report and Privacy & Security.
+- Added Chromium-style local QR code generation for page sharing with medium error correction, version and format bits, data block interleaving, and mask scoring.
+- Added Export Local Privacy Summary in Privacy & Security so users can save a privacy-safe JSON summary of local protection settings, counters, list health, and host-only site exceptions.
+- Added a Saved Site Exceptions And Controls dashboard in Privacy & Security so users can see which local site exceptions or per-site control changes are saved for the current profile.
+- Added Clear Site Exceptions And Controls for removing only saved per-site privacy relaxations without deleting custom privacy rules, counters, bookmarks, passwords, profiles, downloads, accounts, or other browser data.
+- Added visible compatibility-rule counts and compatibility-protection counters in privacy reporting.
+- Added non-blocking CNAME tracker alias detection and local tracking-cookie stripping for known tracker responses.
+- Added Reset Privacy Protection Settings so a profile can clear custom privacy rules and site exceptions without deleting bookmarks, passwords, profiles, downloads, accounts, or other browser data.
+
+### Security
+
+- Privacy Protection Engine data remains local-first and does not upload browsing history, URLs, tracker detections, cookies, user identifiers, OAuth data, or privacy statistics to BubblesTheDev Web Browser servers.
+- Filter parsing treats list data as untrusted text, ignores unsupported rules safely, avoids code execution, limits list size, deduplicates domain rules, and falls back to bootstrap protection when no cache is available.
+- Runtime diagnostics redaction now covers sensitive-looking bearer tokens, authorization/cookie lines, sensitive key-value pairs, sensitive URL parameters, and error stack text before diagnostic details are stored.
+- Downloaded privacy lists are sanity-checked before activation, including maximum size, maximum rule count, supported-rule ratio, approved HTTPS source host, and total compiled-rule limits.
+- Security and cryptomining protection rules are not bypassed by ordinary per-site ad or tracker relaxations.
+- Cosmetic selectors are filtered for unsafe selector text and capped per page before browser-owned CSS injection is used.
+- WebRTC protection uses Chromium's IP handling policy instead of fully disabling WebRTC, so calls and conferencing can remain usable.
+- WebGL protection returns generic Chromium-style renderer details instead of exact GPU strings.
+- Strict JavaScript fingerprint protection normalizes or removes high-entropy browser surfaces while Balanced keeps compatibility-sensitive APIs more available.
+- Privacy list loading now tries the current compiled cache, then the previous known-good compiled cache, then the bundled bootstrap protection list.
+- Cookie protection keeps authentication compatibility so normal sign-in flows can continue working.
+- Per-site privacy controls are origin-scoped, profile-local, and do not expose site-control choices to normal websites.
+- Site Privacy Report now shows richer local-only protection details such as domain, known entity, category, decision, reason, matched rule, and source list where available.
+- Privacy Request Inspector uses current-tab in-memory report data and does not upload request details or create a permanent request-history database.
+- Protection Self-Test uses built-in sample requests locally and does not browse, download, upload, or contact those sample sites.
+- Local Privacy Summary export does not include browsing history, full URLs, query strings, cookies, passwords, tokens, page content, tab events, or feedback messages.
+- Saved site-control dashboard entries show host-level information only and stay inside the current browser profile.
+- Guest and Incognito windows do not save permanent custom privacy rules, permanent site exceptions, privacy counters, or request-report history.
+- Temporary Guest and Incognito site-control changes remain available only for the current private window and are not written into standard profile storage.
+
+### Updated
+
+- Updated runtime trust-manifest and security verification coverage for the Privacy Protection Engine and privacy filter source metadata.
+- Updated the Chromium runtime fallback metadata to the Electron 44 / Chromium 152 release line.
+- Updated toolbar protection verification coverage for the anchored Privacy Protection pop-out toggle flow.
+- Updated QR code verification coverage for the local Chromium-style QR generator.
+- Updated Privacy & Security verification coverage for local privacy summary export and saved site-control clearing.
+- Updated Privacy & Security verification coverage for the local protection self-test and richer inspector labels.
+- Added `npm run test:privacy-engine` verification coverage.
+
+## 1.3.005
+
+### Added
+
+- Added `Tools > Subscription Tracker` for local recurring-service tracking.
+- Added encrypted profile-local manual subscription records with service name, category, status, price, currency, billing frequency, renewal date, trial end date, account email, manage URL, website, and notes.
+- Added dashboard counts for active subscriptions, trials, upcoming renewals, price changes, possible duplicates, and estimated monthly/yearly costs by currency.
+- Added subscription search, status filtering, category filtering, sorting, editing, deletion, privacy blur, and CSV export.
+- Added a visible optional Gmail discovery section that keeps Gmail read access separate from normal Google profile identity sign-in.
+- Added a separate Gmail read-only OAuth flow for Subscription Tracker.
+- Added bounded manual Gmail scanning with local deterministic classification and a user review queue.
+- Added multiple email-address management and selected-subscription savings calculation.
+- Added a bundled Local Subscription Service Catalog that improves service-name recognition with public provider-reference data.
+
+### Security
+
+- Subscription Tracker data is stored in a dedicated encrypted profile-data bucket instead of the OAuth connected-account secret bundle.
+- Subscription Tracker is blocked in Guest, Incognito, locked-profile, and untrusted-renderer contexts.
+- Normal Google profile sign-in does not request Gmail mailbox scopes.
+- Gmail discovery remains behind a separate explicit Gmail read-only consent requirement.
+- Gmail tokens remain in encrypted profile storage and are not exposed to renderer-facing APIs.
+- Subscription Tracker does not connect to banks, credit cards, payment services, cancellation services, cloud AI analysis, or a remote BubblesTheDev subscription database.
+- The Local Subscription Service Catalog contains public service metadata only and is not a user subscription database.
+
+### Updated
+
+- Added Subscription Tracker documentation.
+- Added Subscription Tracker verification coverage.
+- Added Local Subscription Service Catalog validation coverage.
+- Updated runtime security checks for Subscription Tracker IPC, encrypted storage, Gmail-scope separation, and catalog integrity.
 
 ## 1.3.001
 
