@@ -2,9 +2,9 @@
 
 > A Windows 11 browser for people who want clearer privacy controls, visible project docs, and a more understandable daily browser.
 
-[![Version](https://img.shields.io/badge/version-1.3.001-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
+[![Version](https://img.shields.io/badge/version-1.3.105-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Platform](https://img.shields.io/badge/platform-Windows%2011-0078D6)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
-[![Electron](https://img.shields.io/badge/Electron-43-47848F?logo=electron&logoColor=white)](https://www.electronjs.org/)
+[![Electron](https://img.shields.io/badge/Electron-44-47848F?logo=electron&logoColor=white)](https://www.electronjs.org/)
 
 ## Why Choose BubblesTheDev Web Browser?
 
@@ -27,6 +27,7 @@ The browser emphasizes:
 * no behavioral profiling
 * no selling user data
 * local-first browser data handling
+* local ad, tracker, tracking-cookie, CNAME alias, fingerprinting, and tracking-parameter protections
 * isolated browser profiles
 * user-controlled diagnostics
 * Local AI and Diagnostics
@@ -69,7 +70,7 @@ It includes:
 * multi-tab browsing
 * bookmarks and history
 * Split View
-* built-in ad and tracker blocking
+* built-in local Privacy Protection Engine for ad blocking, tracker blocking, tracker classification, URLHaus-style security host rules, cryptomining protection categories, compatibility rules, cosmetic filtering, WebRTC local IP protection, WebGL fingerprint masking, advanced JavaScript fingerprinting reductions, cookie protection modes, optional list controls, installed-list status, current-tab Privacy Request Inspector, local privacy summary export, custom rules, per-site controls, site exceptions, and tracking URL cleanup
 * up to 10 isolated profiles
 * Local AI & Diagnostics
 * Streaming Hub
@@ -87,7 +88,7 @@ BubblesTheDev Web Browser is a Windows browser built around a simple idea: peopl
 
 It keeps familiar browser features like tabs, bookmarks, downloads, saved sign-in data, a built-in home page, split view, and media tools, but pairs them with stronger local-first defaults, clearer runtime visibility, and a more inspectable project surface.
 
-Version `1.3.001` continues that direction with Virtual Machine Center for beginner VMware Workstation Pro and Linux ISO setup guidance, a visible Send Feedback shortcut, and updated third-party license documentation while keeping the previous Developer Workspace, gaming, streaming, AI Chat, PDF, feedback, and privacy-tool improvements in place.
+Version `1.3.105` continues that direction with File Converter, Universal Media Controls, Clipboard History, Per-Tab Volume Mixer, and Download Scheduler while keeping Privacy Protection, Subscription Tracker, Virtual Machine Center, Developer Workspace, gaming, streaming, AI Chat, PDF, feedback, and other browser tools in place.
 
 The overall goal is simple:
 
@@ -95,6 +96,48 @@ The overall goal is simple:
 * keep more browser data local by default
 * make sensitive features easier to inspect and control
 * reduce the amount of hidden behavior users have to trust blindly
+
+## What's New In 1.3.105
+
+* Advanced the packaged browser version to `1.3.105`
+* Added `Tools > File Converter` for local file conversion with detected file families, shared valid output choices for mixed batches, visible progress, cancellation, width, height, quality, bitrate, sample-rate, channel, frame-rate, and rotation controls, text/markup/XML/YAML/RTF/CSV/TSV handling, DOCX, ODT, XLSX, and ODS text/table extraction, ZIP/TAR/TGZ/GZIP manifest output, ffmpeg-backed media/image output where available, and metadata-removal guidance
+* Added `Tools > Media Controls` for active media tabs, playback actions, mute, per-tab volume with slider/numeric/reset controls, and Go to Tab
+* Added per-tab volume control from the shared media controls system and tab context menu
+* Added `Tools > Clipboard History` with Off, 10, 25, and 50 item modes, clear Turn On guidance, Session only, 1 hour, 24 hours, 7 days, and Keep until removed retention choices, local storage, Copy Again, Pin, Delete, Clear All, and Hide Clipboard Previews
+* Added `Tools > Download Scheduler` for immediate or scheduled local HTTP/HTTPS downloads with optional destination folders that use the existing browser download security path
+* Replaced Desktop update-note folder creation with a local What's New tab that opens once after a newly installed version launches and can be reopened from `Menu Bar > What's New`
+* Added focused end-user utility verification coverage for local-only behavior, profile isolation, temporary-context behavior, safe File Converter output handling, and Download Scheduler restart behavior
+
+In practical terms, version `1.3.105` adds everyday tools that stay local-first and profile-aware instead of uploading files, clipboard history, media state, volume choices, or download schedules.
+
+## What's New In 1.3.045
+
+* Advanced the packaged browser version to `1.3.045`
+* Added a centralized local Privacy Protection Engine for ad blocking, tracker blocking, tracker classification, tracking URL cleanup, and richer current-tab privacy reporting
+* Added maintained privacy-list metadata, bootstrap tracker entities, URLHaus-style malicious-domain support, NoCoin-compatible cryptomining categories, optional list controls, and local list health details
+* Added OAuth-safe tracking URL cleanup so sign-in parameters are preserved while known tracking parameters are removed
+* Added profile-local privacy counters for Today, 7 Days, 30 Days, and All Time, with visible counter scope in Privacy & Security
+* Added temporary Guest and Incognito per-site privacy controls for broken-page recovery without saving permanent profile exceptions
+* Added Privacy Request Inspector, Known Tracking Companies grouping, local Protection Self-Test, Local Privacy Summary export, and saved site-control management
+* Added WebRTC local IP protection, WebGL renderer masking, DNT/GPC headers, media-device label reduction, strict-mode timezone normalization, OfflineAudioContext reduction, and selected sensor API protections
+* Added profile-local cookie protection modes and profile-local custom privacy allow/block rules
+* Updated privacy documentation and verification coverage for profile-local and temporary private-window behavior
+
+In practical terms, version `1.3.045` adds stronger local privacy protection without creating a remote browsing-history, tracker-detection, or privacy-statistics service.
+
+## What's New In 1.3.005
+
+* Advanced the packaged browser version to `1.3.005`
+* Added `Tools > Subscription Tracker`
+* Added encrypted profile-local manual subscription records
+* Added active, trial, upcoming-renewal, price-change, duplicate, and estimated-cost dashboard views
+* Added subscription search, filtering, sorting, editing, deletion, privacy blur, and CSV export
+* Added a separate Gmail discovery consent gate so normal Google profile sign-in does not receive Gmail mailbox scopes
+* Added a local public-service catalog to improve recognized subscription service names without uploading user records
+* Blocked Subscription Tracker in Guest and Incognito windows
+* Added Subscription Tracker documentation and verification coverage
+
+In practical terms, version `1.3.005` adds subscription awareness without adding a remote BubblesTheDev subscription database, bank aggregation, card aggregation, cloud AI analysis, or automatic cancellation service.
 
 ## What's New In 1.3.001
 
@@ -129,12 +172,18 @@ In practical terms, version `1.3.001` keeps the local-first browser model in pla
 * tab search with direct mute and close controls
 * split-view browsing
 * full-screen support
-* QR code page sharing
+* Chromium-style local QR code page sharing
 * Create Shortcut page sharing
+* local File Converter
+* Universal Media Controls
+* optional local Clipboard History
+* Per-Tab Volume Mixer
+* local Download Scheduler
 * local website app install records and shortcuts
 * configurable local sidebar
 * local PDF byte-level editing, notes, highlights, simple drawing, form-field updates, and Save Copy support
 * browser-managed Picture-in-Picture controls
+* local Subscription Tracker with encrypted profile records, privacy blur, and CSV export
 * local link-safety inspection
 * secure Developer Workspace launcher for supported developer apps and developer websites
 * optional anonymous feedback from the Help menu with category-specific message format examples
@@ -331,7 +380,7 @@ Instead:
 * installed builds can keep browser-controlled update registration support where available
 * installed builds download updates first and then open the regular installer so the user can complete the installer prompts
 * installed builds can perform an extra local save and session-flush pass before update installation closes the browser
-* installed update behavior can create or refresh a Desktop folder named `BubblesTheDev - WebBrowser Update Notes` so the current bundled release notes stay visible locally
+* installed update behavior can open a local `bubbles://whats-new` tab after a newly installed version launches so current bundled release notes are visible without creating Desktop folders, and users can reopen the same local page later from `Menu Bar > What's New`
 * the public browser package does not need to ship a shared client update secret just to let normal users receive updates
 
 That means updates are still browser-controlled and installer-based instead of behaving like a hidden background patch service. The browser can help with background update checks, automatic downloads where supported, visible progress, and regular installer handoff while still relying on the packaged installer model underneath.
