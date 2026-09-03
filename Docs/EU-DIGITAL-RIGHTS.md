@@ -8,7 +8,7 @@ Public support contact: support.bubblesthedev.webbrowser@gmail.com.
 
 ## Current Documentation Target
 
-This document is aligned with the current public BubblesTheDev Web Browser documentation for version `1.3.001`.
+This document is aligned with the current public BubblesTheDev Web Browser documentation for version `1.3.105`.
 
 Security fixes are generally provided for the most recent stable release of the browser. Older versions are not supported for current security fixes.
 
@@ -27,9 +27,11 @@ The browser is designed around:
 * accessibility-focused improvements
 * browser-controlled installer-based update behavior
 * local ad and tracker blocking without remote URL-scanning telemetry
+* profile-local privacy counters and temporary Guest/Incognito privacy controls
 * local Canvas and JavaScript fingerprinting protection with Strict as the default mode
 * local Developer Workspace controls for supported developer apps and developer websites
 * local Virtual Machine Center guidance for VMware Workstation Pro and Linux ISO setup
+* local utility tools such as File Converter, Universal Media Controls, Clipboard History, Per-Tab Volume Mixer, and Download Scheduler
 * browser-owned feedback controls, including the `Ctrl+Shift+F` Send Feedback shortcut
 
 ## EU Digital Rights Principles
@@ -66,7 +68,7 @@ The browser is designed to reduce the amount of personal data processed by the b
 
 ## Fingerprinting Protection
 
-Version `1.3.001` defaults to Strict Canvas and JavaScript fingerprinting protection. These protections reduce high-entropy browser surfaces locally and can be relaxed to Balanced or Off by the user for site compatibility.
+Version `1.3.105` defaults to Strict Canvas and JavaScript fingerprinting protection. These protections reduce high-entropy browser surfaces locally and can be relaxed to Balanced or Off by the user for site compatibility.
 
 The browser does not upload canvas images, page contents, visited URLs, browsing history, or fingerprint values to a remote fingerprinting service.
 
@@ -86,11 +88,14 @@ Local browser data may include:
 * optional Music Player and Music Downloader settings
 * language and accessibility preferences
 * local diagnostics data
-* local ad and tracker blocking counters
+* profile-local ad and tracker blocking counters
 * install-linked metadata for custom or external-drive installs
 * toolbar clock preferences and Developer Workspace preferences where the user uses those features
+* optional Clipboard History settings and entries where the user enables that tool
+* local Download Scheduler records where supported
+* File Converter, Universal Media Controls, and Per-Tab Volume Mixer preferences where supported
 
-Standard browser profiles are intended to remain isolated from one another. Guest browsing is intended to remain non-persistent.
+Standard browser profiles are intended to remain isolated from one another. Guest browsing is intended to remain non-persistent. Guest and Incognito privacy counters, temporary per-site controls, and current-tab privacy reports are not written into standard profile storage.
 
 Stored browser data is designed to remain local. Where stronger system-backed protection is available, the browser uses it.
 
