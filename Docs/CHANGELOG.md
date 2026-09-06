@@ -1,6 +1,22 @@
 # Changelog
 
-This changelog summarizes notable public release changes through version `1.3.105`.
+This changelog summarizes notable public release changes through version `1.3.110`.
+
+## 1.3.110
+
+### Security
+
+- Completed a Snyk Code cleanup pass for the current source tree; static analysis now reports zero open issues.
+- Hardened local browser page rendering against DOM XSS by avoiding unsafe HTML insertion for user-controlled location and search data.
+- Hardened Send to Device private-LAN routing, mobile share page rendering, and same-network destination validation.
+- Hardened OAuth desktop loopback callback handling with stricter localhost host checks and state validation.
+- Hardened Privacy Protection rule compilation against unsafe object-key use from downloaded or bundled rule data.
+- Hardened optional Ollama setup helpers with safer temporary-file path validation and guarded loopback-only readiness checks.
+- Updated runtime trust-manifest hashes for the changed security-sensitive runtime files.
+
+### Updated
+
+- Updated public documentation for the current supported `1.3.110` line while keeping personal, local-machine, token, and account details out of release docs.
 
 ## 1.3.105
 
@@ -23,6 +39,8 @@ This changelog summarizes notable public release changes through version `1.3.10
 
 ### Security
 
+- Added `npm run security:scan` as a single local scan command for dependency audit plus browser feature security verification.
+- Updated transitive dependency overrides so the current npm audit reports zero known vulnerabilities.
 - File Converter uses trusted OS file and folder pickers, bounded batch size, bounded source-file size, safe output naming, and local conversion only.
 - File Converter now limits excessive active conversion jobs and verifies generated output paths remain inside the selected output folder.
 - ZIP archive handling rejects unsafe archive entry paths and only writes a local manifest/list output.
