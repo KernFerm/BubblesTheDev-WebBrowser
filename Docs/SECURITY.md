@@ -11,7 +11,7 @@ Security fixes are generally provided for the most recent stable release of the 
 
 | Version | Supported |
 | ------- | --------- |
-| **1.3.105** | Yes |
+| **1.3.110** | Yes |
 | Older versions | No |
 
 Users should run the latest available version of the browser to receive the newest security fixes and improvements.
@@ -160,9 +160,21 @@ Public security documentation is intentionally kept high-level. Detailed impleme
 
 ## Dependency And Runtime Verification
 
-Version `1.3.005` keeps the dependency audit clean with targeted dependency updates and existing overrides for vulnerable transitive packages. The current project audit reports zero known npm vulnerabilities.
+Version `1.3.110` keeps the dependency audit clean with targeted dependency updates and security hardening for recent browser features. The current project audit reports zero known npm vulnerabilities.
 
 The browser also keeps runtime trust-manifest checks for sensitive runtime files, including the main browser runtime and preload surfaces.
+
+Maintainers can run the local security scan with:
+
+```powershell
+npm run security:scan
+```
+
+That scan runs the npm dependency audit plus the local browser security verification checks for runtime hardening, Privacy Protection, end-user utility tools, Subscription Tracker, Subscription Service Catalog, AI/Ollama, installer progress safety, and feedback handling.
+
+Recent static security review also verifies clean for the current source tree. The cleanup included DOM XSS hardening for local browser pages, prototype-pollution-safe privacy rule compilation, safer temporary-file handling for optional Ollama setup helpers, sandboxed pop-out windows, guarded loopback OAuth callbacks, guarded local Ollama loopback access, and private-LAN checks for Send to Device.
+
+Some features intentionally use local HTTP in limited desktop-browser contexts: OAuth loopback callbacks stay on localhost, Ollama access stays on loopback, and Send to Device is restricted to private same-network destinations. These are not used for normal public web traffic.
 
 The Disable Hardware Acceleration preference is a local performance setting. It is applied during startup before browser windows open and does not send GPU, OBS, game, capture, or browsing information to a remote service. The browser shows a user-visible restart prompt and Restart Browser button when the saved setting is waiting for a restart.
 
@@ -227,3 +239,5 @@ For general support, contact support.bubblesthedev.webbrowser@gmail.com.
 For security matters, use the project's current private security reporting path rather than public channels. If a security report must start by email, use a clear security-related subject line and do not include unredacted private data in the first message.
 
 Community channels should not be used for security reports or for sharing logs that may contain private information.
+
+---
