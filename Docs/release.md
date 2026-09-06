@@ -1,12 +1,13 @@
-# BubblesTheDev Web Browser 1.3.105
+# BubblesTheDev Web Browser 1.3.110
 
-Release documentation for version `1.3.105`.
+Release documentation for version `1.3.110`.
 
-`1.3.105` adds File Converter, Universal Media Controls, Local Clipboard History, Per-Tab Volume Mixer, and Download Scheduler while keeping Privacy Protection, Subscription Tracker, Virtual Machine Center, Send Feedback, AI Chat, and Developer Workspace.
+`1.3.110` includes File Converter, Universal Media Controls, Local Clipboard History, Per-Tab Volume Mixer, and Download Scheduler while keeping Privacy Protection, Subscription Tracker, Virtual Machine Center, Send Feedback, AI Chat, and Developer Workspace.
 
 ## Highlights
 
-* The packaged browser version is now `1.3.105`
+* The packaged browser version is now `1.3.110`
+* Security verification was refreshed for the current source tree, including dependency audit checks, local browser security checks, and Snyk Code static analysis with zero open issues
 * File Converter is available from Tools > File Converter for local file conversion with detected file types, shared valid output choices for mixed batches, output-folder selection, visible progress, cancellation, width, height, quality, bitrate, sample-rate, channel, frame-rate, and rotation controls, batch-safe limits, active-job limits, output-folder containment checks, metadata-removal guidance, transparency warnings, text/markup/XML/YAML/RTF/CSV/TSV handling, DOCX, ODT, XLSX, and ODS text/table extraction, ZIP/TAR/TGZ/GZIP manifest output, ffmpeg-backed media/image output where available, and local adapters
 * Universal Media Controls are available from Tools > Media Controls for active media tabs, site-provided media title or artist where available, play or pause, previous/next where supported, mute, per-tab volume, and Go to Tab
 * Per-tab volume control supports 0-100% tab volume with slider, numeric percentage, reset-to-100, and no Windows master-volume changes
@@ -96,7 +97,7 @@ Public support contact: support.bubblesthedev.webbrowser@gmail.com.
 * Privacy cache corruption does not disable all protection because the previous compiled cache and bundled bootstrap list remain available
 * Runtime diagnostics redaction covers sensitive-looking bearer tokens, authorization and cookie lines, sensitive key-value pairs, sensitive URL parameters, and error stack text
 
-## New And Fixed In 1.3.105
+## New And Fixed In 1.3.110
 
 * Added Tools > File Converter
 * Added visible File Converter progress and cancellation status for queued, converting, completed, failed, and cancelled jobs
@@ -222,7 +223,7 @@ Subscription Tracker is a local profile tool.
 
 Installer:
 
-`BubblesTheDev Web Browser_Installer_1.3.105.exe`
+`BubblesTheDev Web Browser_Installer_1.3.110.exe`
 
 SHA-256:
 
