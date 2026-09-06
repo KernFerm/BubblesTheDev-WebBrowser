@@ -2,7 +2,7 @@
 
 ## Architecture Overview
 
-This document explains the high-level runtime shape of BubblesTheDev Web Browser version `1.3.105`.
+This document explains the high-level runtime shape of BubblesTheDev Web Browser version `1.3.110`.
 
 ## Design Goals
 
@@ -112,7 +112,7 @@ Profile-scoped browser feature state includes vertical-tab layout, tab groups, s
 
 ## End-User Utility Tools
 
-Version `1.3.105` adds five browser-owned utility tools: File Converter, Universal Media Controls, Clipboard History, Per-Tab Volume Mixer, and Download Scheduler.
+Version `1.3.110` includes five browser-owned utility tools: File Converter, Universal Media Controls, Clipboard History, Per-Tab Volume Mixer, and Download Scheduler.
 
 File Converter uses trusted OS file and folder pickers. The renderer receives selected file summaries and invokes bounded conversions through narrow IPC. For mixed batches, the UI exposes only output formats shared by every supported selected file. Supported local adapters handle common image, text, markup, XML, YAML, RTF, CSV, TSV, DOCX text-extraction, ODT text-extraction, XLSX text/table extraction, ODS text/table extraction, and ZIP/TAR/TGZ/GZIP archive manifest conversions directly. Audio/video and additional image output conversion uses the bundled local ffmpeg binary when it is available, including user-controlled bitrate, sample rate, audio channels, frame rate, scale, and rotation options where applicable. Conversion jobs expose queued, converting, completed, failed, and cancelled progress through trusted browser IPC, and completed results can be revealed with a narrow file-manager `Show File` IPC action. Original files are not overwritten by default, active conversion jobs are capped, generated outputs are verified to remain inside the selected output folder, metadata removal is described as best effort where supported, unsafe archive entry paths are rejected, archive contents are not extracted or executed, and unsupported file types show a clear unsupported message.
 
