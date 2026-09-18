@@ -1,6 +1,21 @@
 # Changelog
 
-This changelog summarizes notable public release changes through version `1.3.110`.
+This changelog summarizes notable public release changes through version `1.3.120`.
+
+## 1.3.120
+
+### Updated
+
+- Refreshed dependency metadata for the current packaged build.
+- Refreshed the Electron dependency line to the current Electron 44 line used by this build.
+- Refreshed the local dependency audit state; `npm audit` reports zero known vulnerabilities.
+- No new headline browser feature is included in this maintenance update.
+
+## 1.3.115
+
+### Updated
+
+- Updated public documentation and release-facing version references for the `1.3.115` line.
 
 ## 1.3.110
 
@@ -16,7 +31,7 @@ This changelog summarizes notable public release changes through version `1.3.11
 
 ### Updated
 
-- Updated public documentation for the current supported `1.3.110` line while keeping personal, local-machine, token, and account details out of release docs.
+- Updated public documentation for the `1.3.110` release line while keeping personal, local-machine, token, and account details out of release docs.
 
 ## 1.3.105
 
