@@ -10,6 +10,8 @@ This changelog summarizes notable public release changes through version `1.3.13
 - Updated DOMPurify to `3.4.16`.
 - Updated JavaScript Obfuscator to `5.8.0`.
 - Updated `tldts` to `7.4.15`.
+- Updated the bundled FFmpeg and ffprobe tools to `9.0.2`.
+- Updated the bundled yt-dlp tool to `2026.08.19`.
 - Refreshed package-lock dependency metadata for the current build.
 - No new browser features are included in this dependency maintenance update.
 
