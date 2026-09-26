@@ -1,6 +1,17 @@
 # Changelog
 
-This changelog summarizes notable public release changes through version `1.3.120`.
+This changelog summarizes notable public release changes through version `1.3.130`.
+
+## 1.3.130
+
+### Updated
+
+- Updated Electron to `44.4.5`.
+- Updated DOMPurify to `3.4.16`.
+- Updated JavaScript Obfuscator to `5.8.0`.
+- Updated `tldts` to `7.4.15`.
+- Refreshed package-lock dependency metadata for the current build.
+- No new browser features are included in this dependency maintenance update.
 
 ## 1.3.120
 
