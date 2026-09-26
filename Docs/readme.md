@@ -2,7 +2,7 @@
 
 > **A privacy-focused Windows 11 browser with local-first data handling, isolated profiles, accessibility tools, local AI, built-in privacy protection, and practical everyday features.**
 
-[![Version](https://img.shields.io/badge/version-1.3.120-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
+[![Version](https://img.shields.io/badge/version-1.3.130-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Platform](https://img.shields.io/badge/platform-Windows%2011-0078D6)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Electron](https://img.shields.io/badge/Electron-44-47848F?logo=electron&logoColor=white)](https://www.electronjs.org/)
 [![Downloads](https://img.shields.io/github/downloads/KernFerm/BubblesTheDev-WebBrowser/total?label=downloads)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
@@ -10,7 +10,7 @@
 
 ## Download
 
-**Current Version:** `1.3.120`  
+**Current Version:** `1.3.130`  
 **Platform:** `Windows 11 x64`
 
 Download the latest release:
@@ -378,23 +378,16 @@ Extension import supports:
 - scanning installed Opera profiles
 - manually selecting an extension `manifest.json` file
 
-## What's New In 1.3.120
+## What's New In 1.3.130
 
-Version `1.3.120` is a dependency maintenance update. It includes:
+Version `1.3.130` is a dependency maintenance update. It includes:
 
-- `Tools > File Converter`
-- `Tools > Media Controls`
-- per-tab volume controls
-- `Tools > Clipboard History`
-- `Tools > Download Scheduler`
-- local What's New page
-- focused verification coverage for local-only behavior
-- profile-isolation verification
-- temporary-context verification
-- safe File Converter output handling verification
-- Download Scheduler restart-behavior verification
-- Snyk Code static analysis cleanup with zero open issues in the current source tree
-- additional hardening for local browser pages, Privacy Protection rules, OAuth loopback handling, Send to Device, and optional Ollama helpers
+- Electron `44.4.5`
+- DOMPurify `3.4.16`
+- JavaScript Obfuscator `5.8.0`
+- `tldts` `7.4.15`
+- refreshed package-lock dependency metadata
+- no new browser features
 
 The local What's New page replaces the previous Desktop update-note folder behavior and can be reopened from:
 
