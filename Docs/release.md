@@ -1,16 +1,21 @@
-# BubblesTheDev Web Browser 1.3.130
+# BubblesTheDev Web Browser 1.3.140
 
-Release documentation for version `1.3.130`.
+Release documentation for version `1.3.140`.
 
-`1.3.130` is a dependency maintenance update. It refreshes the packaged dependency metadata while keeping the existing browser feature set in place.
+`1.3.140` is a dependency and security maintenance update. It refreshes packaged components and removes vulnerable dependency paths while keeping the existing browser feature set in place.
 
 ## Highlights
 
-* The packaged browser version is now `1.3.130`
-* Electron was updated to `44.4.5`
+* The packaged browser version is now `1.3.140`
+* Electron was updated to `44.5.1`
 * DOMPurify was updated to `3.4.16`
-* JavaScript Obfuscator was updated to `5.8.0`
-* `tldts` was updated to `7.4.15`
+* JavaScript Obfuscator was updated to `5.9.0`
+* sanitize-html was updated to `2.18.0`
+* `tldts` was updated to `7.4.16`
+* The unused vulnerable node-forge dependency was removed
+* Electron Builder now resolves through `@electron/get 5.1.0`, removing the vulnerable transitive `sprintf-js` chain
+* Bundled FFmpeg and ffprobe were updated to `9.0.2`
+* Bundled yt-dlp was updated to `2026.08.19`
 * Package-lock dependency metadata was refreshed for the current packaged build
 * The local npm dependency audit reports zero known vulnerabilities
 * No new headline browser feature is included in this maintenance update
@@ -52,7 +57,7 @@ Public support contact: support.bubblesthedev.webbrowser@gmail.com.
 
 ## Carried Forward From Earlier 1.3.x Releases
 
-These features remain available in `1.3.130`, but they were introduced in earlier releases:
+These features remain available in `1.3.140`, but they were introduced in earlier releases:
 
 * File Converter, Universal Media Controls, Clipboard History, Per-Tab Volume Mixer, and Download Scheduler
 * Privacy Protection Engine, Privacy Request Inspector, local privacy counters, tracking-parameter cleanup, cookie protections, CNAME tracker detection, malicious-request protection, and cryptomining protection
@@ -91,7 +96,7 @@ Subscription Tracker is a local profile tool.
 
 Installer:
 
-`BubblesTheDev Web Browser_Installer_1.3.130.exe`
+`BubblesTheDev Web Browser_Installer_1.3.140.exe`
 
 SHA-256:
 
