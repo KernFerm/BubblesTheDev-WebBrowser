@@ -1,6 +1,19 @@
 # Changelog
 
-This changelog summarizes notable public release changes through version `1.3.130`.
+This changelog summarizes notable public release changes through version `1.3.140`.
+
+## 1.3.140
+
+### Updated
+
+- Updated Electron to `44.5.1`.
+- Updated JavaScript Obfuscator to `5.9.0`.
+- Updated sanitize-html to `2.18.0`.
+- Updated `tldts` to `7.4.16`.
+- Removed the unused vulnerable node-forge dependency.
+- Updated Electron Builder's download dependency path to `@electron/get 5.1.0`, removing the vulnerable transitive `sprintf-js` chain.
+- Refreshed package-lock dependency metadata; `npm audit` reports zero known vulnerabilities.
+- No new browser features are included in this dependency and security maintenance update.
 
 ## 1.3.130
 
