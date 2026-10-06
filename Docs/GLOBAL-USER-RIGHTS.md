@@ -8,7 +8,7 @@ Public support contact: support.bubblesthedev.webbrowser@gmail.com.
 
 ## Current Documentation Target
 
-This document is aligned with the current public BubblesTheDev Web Browser documentation for version `1.3.130`.
+This document is aligned with the current public BubblesTheDev Web Browser documentation for version `1.3.140`.
 
 Security fixes are generally provided for the most recent stable release of the browser. Older versions are not supported for current security fixes.
 
