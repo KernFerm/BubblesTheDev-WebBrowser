@@ -2,7 +2,7 @@
 
 > **A privacy-focused Windows 11 browser with local-first data handling, isolated profiles, accessibility tools, local AI, built-in privacy protection, and practical everyday features.**
 
-[![Version](https://img.shields.io/badge/version-1.3.140-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
+[![Version](https://img.shields.io/badge/version-1.3.145-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Platform](https://img.shields.io/badge/platform-Windows%2011-0078D6)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Electron](https://img.shields.io/badge/Electron-44-47848F?logo=electron&logoColor=white)](https://www.electronjs.org/)
 [![Downloads](https://img.shields.io/github/downloads/KernFerm/BubblesTheDev-WebBrowser/total?label=downloads)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
@@ -10,7 +10,7 @@
 
 ## Download
 
-**Current Version:** `1.3.140`  
+**Current Version:** `1.3.145`
 **Platform:** `Windows 11 x64`
 
 Download the latest release:
@@ -378,16 +378,13 @@ Extension import supports:
 - scanning installed Opera profiles
 - manually selecting an extension `manifest.json` file
 
-## What's New In 1.3.140
+## What's New In 1.3.145
 
-Version `1.3.140` is a dependency and security maintenance update. It includes:
+Version `1.3.145` is a dependency maintenance update. It includes:
 
-- Electron `44.5.1`
-- DOMPurify `3.4.16`
-- JavaScript Obfuscator `5.9.0`
-- sanitize-html `2.18.0`
-- `tldts` `7.4.16`
-- removal of unused vulnerable dependencies and vulnerable build-time dependency paths
+- Electron `44.7.0`
+- Axios `1.20.0`
+- `tldts` `7.4.18`
 - refreshed package-lock dependency metadata
 - no new browser features
 
