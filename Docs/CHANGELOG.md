@@ -1,6 +1,16 @@
 # Changelog
 
-This changelog summarizes notable public release changes through version `1.3.140`.
+This changelog summarizes notable public release changes through version `1.3.145`.
+
+## 1.3.145
+
+### Updated
+
+- Updated Electron to `44.7.0`.
+- Updated Axios to `1.20.0`.
+- Updated `tldts` to `7.4.18`.
+- Refreshed package-lock dependency metadata for the current build.
+- No new browser features are included in this dependency maintenance update.
 
 ## 1.3.140
 
