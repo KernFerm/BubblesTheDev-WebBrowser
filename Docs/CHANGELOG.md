@@ -1,6 +1,16 @@
 # Changelog
 
-This changelog summarizes notable public release changes through version `1.3.145`.
+This changelog summarizes notable public release changes through version `1.3.150`.
+
+## 1.3.150
+
+### Updated
+
+- Updated Electron to `44.7.1`.
+- Updated Electron Builder to `26.17.0`.
+- Updated DOMPurify to `3.4.17`.
+- Refreshed package-lock dependency metadata for the current build.
+- No new browser features are included in this general maintenance update.
 
 ## 1.3.145
 
