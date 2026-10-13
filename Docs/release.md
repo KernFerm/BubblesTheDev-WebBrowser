@@ -1,15 +1,15 @@
-# BubblesTheDev Web Browser 1.3.145
+# BubblesTheDev Web Browser 1.3.150
 
-Release documentation for version `1.3.145`.
+Release documentation for version `1.3.150`.
 
-`1.3.145` is a dependency maintenance update. It refreshes packaged components while keeping the existing browser feature set in place.
+`1.3.150` is a general maintenance update. It refreshes packaged components while keeping the existing browser feature set in place.
 
 ## Highlights
 
-* The packaged browser version is now `1.3.145`
-* Electron was updated to `44.7.0`
-* Axios was updated to `1.20.0`
-* `tldts` was updated to `7.4.18`
+* The packaged browser version is now `1.3.150`
+* Electron was updated to `44.7.1`
+* Electron Builder was updated to `26.17.0`
+* DOMPurify was updated to `3.4.17`
 * Package-lock dependency metadata was refreshed for the current packaged build
 * No new headline browser feature is included in this maintenance update
 
@@ -50,7 +50,7 @@ Public support contact: support.bubblesthedev.webbrowser@gmail.com.
 
 ## Carried Forward From Earlier 1.3.x Releases
 
-These features remain available in `1.3.145`, but they were introduced in earlier releases:
+These features remain available in `1.3.150`, but they were introduced in earlier releases:
 
 * File Converter, Universal Media Controls, Clipboard History, Per-Tab Volume Mixer, and Download Scheduler
 * Privacy Protection Engine, Privacy Request Inspector, local privacy counters, tracking-parameter cleanup, cookie protections, CNAME tracker detection, malicious-request protection, and cryptomining protection
@@ -89,7 +89,7 @@ Subscription Tracker is a local profile tool.
 
 Installer:
 
-`BubblesTheDev Web Browser_Installer_1.3.145.exe`
+`BubblesTheDev Web Browser_Installer_1.3.150.exe`
 
 SHA-256:
 
