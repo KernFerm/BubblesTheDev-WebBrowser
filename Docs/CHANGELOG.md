@@ -1,6 +1,17 @@
 # Changelog
 
-This changelog summarizes notable public release changes through version `1.3.150`.
+This changelog summarizes notable public release changes through version `1.4.10`.
+
+## 1.4.10
+
+### Updated
+
+- Updated Electron to `45.0.0` and aligned browser-owned Chromium fallback metadata with the Chromium 156 release line.
+- Updated sanitize-html to `2.18.1` and tldts to `7.4.19`.
+- Refreshed package-lock dependency metadata for the current build.
+- Verified the bundled FFmpeg `9.0.2`, ffprobe `9.0.2`, and yt-dlp `2026.08.19` Windows tools and refreshed their local integrity records.
+- Confirmed the current source tree reports zero issues in Snyk Code static analysis.
+- No new browser features are included in this general maintenance update.
 
 ## 1.3.150
 
