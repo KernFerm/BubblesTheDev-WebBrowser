@@ -1,6 +1,15 @@
 # Changelog
 
-This changelog summarizes notable public release changes through version `1.4.10`.
+This changelog summarizes notable public release changes through version `1.4.25`.
+
+## 1.4.25
+
+### Updated
+
+- Updated Electron Builder to `26.18.0`.
+- Applied available transitive dependency fixes for `ip-address` and `undici` and removed the obsolete vulnerable `zod` dependency chain.
+- Refreshed package-lock dependency metadata; `npm audit` reports zero known vulnerabilities.
+- Kept the existing browser feature set in place with no new headline browser features.
 
 ## 1.4.10
 
