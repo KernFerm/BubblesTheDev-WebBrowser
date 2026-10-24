@@ -10,8 +10,8 @@
 
 ## Download
 
-**Current Version:** `1.4.25`
-**Platform:** `Windows 11 x64`
+- **Current Version:** `1.4.30`
+- **Platform:** `Windows 11 x64`
 
 Download the latest release:
 
