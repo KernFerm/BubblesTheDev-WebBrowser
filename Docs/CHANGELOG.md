@@ -1,6 +1,14 @@
 # Changelog
 
-This changelog summarizes notable public release changes through version `1.4.25`.
+This changelog summarizes notable public release changes through version `1.4.30`.
+
+## 1.4.30
+
+### Fixed
+
+- Restored automatic update checks while the welcome and Profile Manager screen is open.
+- Kept slower profile-only background services deferred until a profile is selected, preserving responsive profile startup.
+- Added a security verification check to prevent update initialization from moving behind profile selection again.
 
 ## 1.4.25
 
