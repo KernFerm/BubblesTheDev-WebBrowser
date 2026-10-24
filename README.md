@@ -2,7 +2,7 @@
 
 > **A privacy-focused Windows 11 browser with local-first data handling, isolated profiles, accessibility tools, local AI, built-in privacy protection, and practical everyday features.**
 
-[![Version](https://img.shields.io/badge/version-1.4.10-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
+[![Version](https://img.shields.io/badge/version-1.4.30-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Platform](https://img.shields.io/badge/platform-Windows%2011-0078D6)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Electron](https://img.shields.io/badge/Electron-45-47848F?logo=electron&logoColor=white)](https://www.electronjs.org/)
 [![Downloads](https://img.shields.io/github/downloads/KernFerm/BubblesTheDev-WebBrowser/total?label=downloads)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
@@ -10,7 +10,7 @@
 
 ## Download
 
-**Current Version:** `1.4.10`
+**Current Version:** `1.4.30`
 **Platform:** `Windows 11 x64`
 
 Download the latest release:
@@ -378,16 +378,19 @@ Extension import supports:
 - scanning installed Opera profiles
 - manually selecting an extension `manifest.json` file
 
-## What's New In 1.4.10
+## What's New In 1.4.30
 
-Version `1.4.10` is a general maintenance update. It includes:
+Version `1.4.30` is a reliability maintenance update. It includes:
 
+- restored automatic update checks on the welcome and Profile Manager screen
+- profile-only background services remain deferred until a profile is selected
 - Electron `45.0.0`
-- Electron Builder `26.17.0`
+- Electron Builder `26.18.0`
 - DOMPurify `3.4.17`
 - sanitize-html `2.18.1`
 - tldts `7.4.19`
 - refreshed package-lock dependency metadata
+- patched transitive dependencies with zero known npm audit vulnerabilities
 - refreshed integrity records for the bundled media tools
 - no new browser features
 
