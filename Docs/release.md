@@ -1,18 +1,19 @@
-# BubblesTheDev Web Browser 1.4.10
+# BubblesTheDev Web Browser 1.4.25
 
-Release documentation for version `1.4.10`.
+Release documentation for version `1.4.25`.
 
-`1.4.10` is a general maintenance update. It refreshes packaged components while keeping the existing browser feature set in place.
+`1.4.25` is a dependency and security maintenance update. It refreshes packaged components while keeping the existing browser feature set in place.
 
 ## Highlights
 
-* The packaged browser version is now `1.4.10`
+* The packaged browser version is now `1.4.25`
 * Electron was updated to `45.0.0`
-* Electron Builder was updated to `26.17.0`
+* Electron Builder was updated to `26.18.0`
 * DOMPurify was updated to `3.4.17`
 * sanitize-html was updated to `2.18.1`
 * tldts was updated to `7.4.19`
 * Package-lock dependency metadata was refreshed for the current packaged build
+* Available transitive dependency security fixes were applied; the local npm audit reports zero known vulnerabilities
 * Bundled media-tool integrity records were refreshed after version and checksum verification
 * No new headline browser feature is included in this maintenance update
 
@@ -53,7 +54,7 @@ Public support contact: support.bubblesthedev.webbrowser@gmail.com.
 
 ## Carried Forward From Earlier 1.3.x Releases
 
-These features remain available in `1.4.10`, but they were introduced in earlier releases:
+These features remain available in `1.4.25`, but they were introduced in earlier releases:
 
 * File Converter, Universal Media Controls, Clipboard History, Per-Tab Volume Mixer, and Download Scheduler
 * Privacy Protection Engine, Privacy Request Inspector, local privacy counters, tracking-parameter cleanup, cookie protections, CNAME tracker detection, malicious-request protection, and cryptomining protection
@@ -92,7 +93,7 @@ Subscription Tracker is a local profile tool.
 
 Installer:
 
-`BubblesTheDev Web Browser_Installer_1.4.10.exe`
+`BubblesTheDev Web Browser_Installer_1.4.25.exe`
 
 SHA-256:
 
