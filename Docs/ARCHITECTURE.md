@@ -2,7 +2,7 @@
 
 ## Architecture Overview
 
-This document explains the high-level runtime shape of BubblesTheDev Web Browser version `1.4.25`.
+This document explains the high-level runtime shape of BubblesTheDev Web Browser version `1.4.30`.
 
 ## Design Goals
 
