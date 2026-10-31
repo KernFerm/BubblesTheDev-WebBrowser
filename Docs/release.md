@@ -1,21 +1,20 @@
-# BubblesTheDev Web Browser 1.4.30
+# BubblesTheDev Web Browser 1.4.60
 
-Release documentation for version `1.4.30`.
+Release documentation for version `1.4.60`.
 
-`1.4.30` is a reliability maintenance update. It restores update checks on the welcome and Profile Manager screen while keeping the existing browser feature set in place.
+`1.4.60` is a dependency-security and reliability maintenance update. It refreshes packaged components while keeping the existing browser feature set in place.
 
 ## Highlights
 
-* The packaged browser version is now `1.4.30`
-* Automatic update checks now begin while the welcome and Profile Manager screen is open
-* Profile-only background services remain deferred until a profile is selected
-* Electron was updated to `45.0.0`
+* The packaged browser version is now `1.4.60`
+* Electron was updated to `45.2.1`
 * Electron Builder was updated to `26.18.0`
+* JavaScript Obfuscator was updated to `5.9.0`
 * DOMPurify was updated to `3.4.17`
 * sanitize-html was updated to `2.18.1`
 * tldts was updated to `7.4.19`
 * Package-lock dependency metadata was refreshed for the current packaged build
-* Available transitive dependency security fixes were applied; the local npm audit reports zero known vulnerabilities
+* Available transitive dependency security fixes were applied without dependency downgrades; the local npm audit reports zero known vulnerabilities
 * Bundled media-tool integrity records were refreshed after version and checksum verification
 * No new headline browser feature is included in this maintenance update
 
@@ -35,7 +34,7 @@ Release documentation for version `1.4.30`.
 
 ## What This Release Means
 
-This release restores reliable update detection before a profile is selected without changing the main user-facing feature set.
+This release keeps browser dependencies current and resolves reported package vulnerabilities without changing the main user-facing feature set.
 
 Public support contact: support.bubblesthedev.webbrowser@gmail.com.
 
@@ -56,7 +55,7 @@ Public support contact: support.bubblesthedev.webbrowser@gmail.com.
 
 ## Carried Forward From Earlier 1.3.x Releases
 
-These features remain available in `1.4.30`, but they were introduced in earlier releases:
+These features remain available in `1.4.60`, but they were introduced in earlier releases:
 
 * File Converter, Universal Media Controls, Clipboard History, Per-Tab Volume Mixer, and Download Scheduler
 * Privacy Protection Engine, Privacy Request Inspector, local privacy counters, tracking-parameter cleanup, cookie protections, CNAME tracker detection, malicious-request protection, and cryptomining protection
@@ -95,7 +94,7 @@ Subscription Tracker is a local profile tool.
 
 Installer:
 
-`BubblesTheDev Web Browser_Installer_1.4.30.exe`
+`BubblesTheDev Web Browser_Installer_1.4.60.exe`
 
 SHA-256:
 
