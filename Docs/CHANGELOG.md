@@ -1,6 +1,16 @@
 # Changelog
 
-This changelog summarizes notable public release changes through version `1.4.30`.
+This changelog summarizes notable public release changes through version `1.4.60`.
+
+## 1.4.60
+
+### Security And Maintenance
+
+- Updated Electron to `45.2.1`.
+- Updated vulnerable transitive dependencies, including `follow-redirects`, `glob`, `minimatch`, and `brace-expansion`, without downgrading Electron Builder or JavaScript Obfuscator.
+- Refreshed package-lock dependency metadata; `npm audit` reports zero known vulnerabilities.
+- Verified the security, privacy protection, end-user utility, packaging, ASAR, and obfuscation dependency paths.
+- Kept the existing browser feature set in place with no new headline browser features.
 
 ## 1.4.30
 
