@@ -2,7 +2,7 @@
 
 > **A privacy-focused Windows 11 browser with local-first data handling, isolated profiles, accessibility tools, local AI, built-in privacy protection, and practical everyday features.**
 
-[![Version](https://img.shields.io/badge/version-1.4.60-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
+[![Version](https://img.shields.io/badge/version-1.4.65-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Platform](https://img.shields.io/badge/platform-Windows%2011-0078D6)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Electron](https://img.shields.io/badge/Electron-45-47848F?logo=electron&logoColor=white)](https://www.electronjs.org/)
 [![Downloads](https://img.shields.io/github/downloads/KernFerm/BubblesTheDev-WebBrowser/total?label=downloads)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
@@ -10,7 +10,7 @@
 
 ## Download
 
-**Current Version:** `1.4.60`
+**Current Version:** `1.4.65`
 **Platform:** `Windows 11 x64`
 
 Download the latest release:
@@ -378,20 +378,15 @@ Extension import supports:
 - scanning installed Opera profiles
 - manually selecting an extension `manifest.json` file
 
-## What's New In 1.4.60
+## What's New In 1.4.65
 
-Version `1.4.60` is a dependency-security and reliability maintenance update. It includes:
+Version `1.4.65` is a website-compatibility and Privacy Protection reliability update. It includes:
 
-- Electron `45.2.1`
-- Electron Builder `26.18.0`
-- JavaScript Obfuscator `5.9.0`
-- DOMPurify `3.4.17`
-- sanitize-html `2.18.1`
-- tldts `7.4.19`
-- refreshed package-lock dependency metadata
-- patched transitive dependencies without downgrades and with zero known npm audit vulnerabilities
-- refreshed integrity records for the bundled media tools
-- no new browser features
+- fixed Cloudflare human-verification pages that could remain stuck
+- native Canvas and browser signals while a security challenge is active
+- automatic restoration of the selected privacy protections after verification
+- fixed active-tab ad and tracker counters on Electron 45
+- preserved Chromium-generated Client Hints for better website compatibility
 
 The local What's New page replaces the previous Desktop update-note folder behavior and can be reopened from:
 
