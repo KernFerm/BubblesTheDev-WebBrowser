@@ -11,7 +11,7 @@ Security fixes are generally provided for the most recent stable release of the 
 
 | Version | Supported |
 | ------- | --------- |
-| **1.4.60** | Yes |
+| **1.4.65** | Yes |
 | Older versions | No |
 
 Users should run the latest available version of the browser to receive the newest security fixes and improvements.
@@ -151,6 +151,7 @@ The browser is developed with a reduced-surface approach that emphasizes:
 * AI web retrieval limited to approved public HTTPS search, DNS-verified public destinations, private-link blocking, response-size and content-type limits, and untrusted-source handling
 * local Canvas fingerprint protection modes that change canvas readouts without remote telemetry
 * local JavaScript fingerprinting reductions for high-entropy browser APIs with Strict as the default mode
+* narrow security-verification compatibility that temporarily preserves native Canvas, browser headers, challenge scripts, and required cookies without disabling normal-site protection
 * visible, user-controlled, browser-controlled installer update behavior with progress visibility and regular installer handoff rather than a hidden always-on updater model
 * direct provider sign-in by default unless a separate brokered flow is explicitly enabled by the browser operator
 
@@ -160,7 +161,7 @@ Public security documentation is intentionally kept high-level. Detailed impleme
 
 ## Dependency And Runtime Verification
 
-Version `1.4.60` keeps the dependency set current through routine maintenance.
+Version `1.4.65` keeps the dependency set current and includes website-verification compatibility hardening.
 
 The browser also keeps runtime trust-manifest checks for sensitive runtime files, including the main browser runtime and preload surfaces.
 
