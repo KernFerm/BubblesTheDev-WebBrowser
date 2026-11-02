@@ -1,12 +1,16 @@
-# BubblesTheDev Web Browser 1.4.60
+# BubblesTheDev Web Browser 1.4.65
 
-Release documentation for version `1.4.60`.
+Release documentation for version `1.4.65`.
 
-`1.4.60` is a dependency-security and reliability maintenance update. It refreshes packaged components while keeping the existing browser feature set in place.
+`1.4.65` is a website-compatibility and Privacy Protection reliability update. It fixes Cloudflare verification handling and active-tab protection counters while keeping the existing browser feature set in place.
 
 ## Highlights
 
-* The packaged browser version is now `1.4.60`
+* The packaged browser version is now `1.4.65`
+* Cloudflare Challenge and Turnstile traffic receives a narrow security-verification compatibility exception
+* Security verification pages use native Canvas and Chromium browser signals while the challenge is active
+* Normal pages continue using the selected Canvas and JavaScript fingerprint protection modes
+* Electron 45 web-request metadata is normalized so blocked ad and tracker events update the correct tab counters
 * Electron was updated to `45.2.1`
 * Electron Builder was updated to `26.18.0`
 * JavaScript Obfuscator was updated to `5.9.0`
@@ -34,7 +38,7 @@ Release documentation for version `1.4.60`.
 
 ## What This Release Means
 
-This release keeps browser dependencies current and resolves reported package vulnerabilities without changing the main user-facing feature set.
+This release improves security-verification compatibility and Privacy Protection counter reliability without changing the main user-facing feature set.
 
 Public support contact: support.bubblesthedev.webbrowser@gmail.com.
 
@@ -55,7 +59,7 @@ Public support contact: support.bubblesthedev.webbrowser@gmail.com.
 
 ## Carried Forward From Earlier 1.3.x Releases
 
-These features remain available in `1.4.60`, but they were introduced in earlier releases:
+These features remain available in `1.4.65`, but they were introduced in earlier releases:
 
 * File Converter, Universal Media Controls, Clipboard History, Per-Tab Volume Mixer, and Download Scheduler
 * Privacy Protection Engine, Privacy Request Inspector, local privacy counters, tracking-parameter cleanup, cookie protections, CNAME tracker detection, malicious-request protection, and cryptomining protection
@@ -94,7 +98,7 @@ Subscription Tracker is a local profile tool.
 
 Installer:
 
-`BubblesTheDev Web Browser_Installer_1.4.60.exe`
+`BubblesTheDev Web Browser_Installer_1.4.65.exe`
 
 SHA-256:
 
