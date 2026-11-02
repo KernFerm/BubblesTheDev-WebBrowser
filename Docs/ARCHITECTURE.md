@@ -2,7 +2,7 @@
 
 ## Architecture Overview
 
-This document explains the high-level runtime shape of BubblesTheDev Web Browser version `1.4.60`.
+This document explains the high-level runtime shape of BubblesTheDev Web Browser version `1.4.65`.
 
 ## Design Goals
 
@@ -112,7 +112,7 @@ Profile-scoped browser feature state includes vertical-tab layout, tab groups, s
 
 ## End-User Utility Tools
 
-Version `1.4.60` includes five browser-owned utility tools: File Converter, Universal Media Controls, Clipboard History, Per-Tab Volume Mixer, and Download Scheduler.
+Version `1.4.65` includes five browser-owned utility tools: File Converter, Universal Media Controls, Clipboard History, Per-Tab Volume Mixer, and Download Scheduler.
 
 File Converter uses trusted OS file and folder pickers. The renderer receives selected file summaries and invokes bounded conversions through narrow IPC. For mixed batches, the UI exposes only output formats shared by every supported selected file. Supported local adapters handle common image, text, markup, XML, YAML, RTF, CSV, TSV, DOCX text-extraction, ODT text-extraction, XLSX text/table extraction, ODS text/table extraction, and ZIP/TAR/TGZ/GZIP archive manifest conversions directly. Audio/video and additional image output conversion uses the bundled local ffmpeg binary when it is available, including user-controlled bitrate, sample rate, audio channels, frame rate, scale, and rotation options where applicable. Conversion jobs expose queued, converting, completed, failed, and cancelled progress through trusted browser IPC, and completed results can be revealed with a narrow file-manager `Show File` IPC action. Original files are not overwritten by default, active conversion jobs are capped, generated outputs are verified to remain inside the selected output folder, metadata removal is described as best effort where supported, unsafe archive entry paths are rejected, archive contents are not extracted or executed, and unsupported file types show a clear unsupported message.
 
@@ -318,7 +318,7 @@ The browser does not download remote filter lists or send visited URLs to a bloc
 
 Version `1.3.001` includes local Canvas fingerprint protection with Strict, Balanced, and Off modes in Privacy & Security. Strict is the default for new users, and users can relax the mode if a canvas-heavy or media-heavy site needs compatibility.
 
-The protection is applied in the browser page preload and wraps Canvas readout methods such as `toDataURL`, `toBlob`, and `getImageData`. Balanced mode keeps normal drawing behavior intact while changing small readout samples per browser session. Strict mode changes more readout samples for stronger testing coverage and may affect canvas-heavy sites such as image editors, games, or design tools. When Canvas protection is not Off, the browser also enables Chromium's canvas-readback blocking at startup, so a restart is required for the strongest engine-level protection to apply.
+The protection is applied per document in the browser page preload and wraps Canvas readout methods such as `toDataURL`, `toBlob`, and `getImageData`. Balanced mode keeps normal drawing behavior intact while changing small readout samples per browser session. Strict mode changes more readout samples for stronger testing coverage and may affect canvas-heavy sites such as image editors, games, or design tools. Security verification pages can temporarily use native Canvas behavior through a narrow compatibility path, and the selected protection mode is restored for the destination page after verification.
 
 Canvas protection runs locally and does not upload page contents, canvas images, browsing history, or visited URLs to a remote service.
 
