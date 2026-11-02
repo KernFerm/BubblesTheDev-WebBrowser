@@ -1,6 +1,17 @@
 # Changelog
 
-This changelog summarizes notable public release changes through version `1.4.60`.
+This changelog summarizes notable public release changes through version `1.4.65`.
+
+## 1.4.65
+
+### Fixed
+
+- Fixed Cloudflare Challenge and Turnstile pages that could remain stuck after human verification.
+- Replaced the global Chromium Canvas-readback block with per-document Canvas protection so security verification pages can temporarily use native browser signals.
+- Added a narrow Cloudflare verification compatibility rule that preserves required challenge scripts, request headers, and cookies.
+- Preserved Chromium-generated Client Hints instead of independently spoofing values that could conflict with the page's JavaScript environment.
+- Normalized Electron 45 web-request metadata so blocked ads and trackers are assigned to the correct active-tab Privacy Protection counters.
+- Updated runtime trust-manifest hashes and regression checks for the compatibility changes.
 
 ## 1.4.60
 
