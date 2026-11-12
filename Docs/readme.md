@@ -2,7 +2,7 @@
 
 > **A privacy-focused Windows 11 browser with local-first data handling, isolated profiles, accessibility tools, local AI, built-in privacy protection, and practical everyday features.**
 
-[![Version](https://img.shields.io/badge/version-1.4.65-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
+[![Version](https://img.shields.io/badge/version-1.5.02-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Platform](https://img.shields.io/badge/platform-Windows%2011-0078D6)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Electron](https://img.shields.io/badge/Electron-45-47848F?logo=electron&logoColor=white)](https://www.electronjs.org/)
 [![Downloads](https://img.shields.io/github/downloads/KernFerm/BubblesTheDev-WebBrowser/total?label=downloads)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
@@ -10,7 +10,7 @@
 
 ## Download
 
-**Current Version:** `1.4.65`
+**Current Version:** `1.5.02`
 **Platform:** `Windows 11 x64`
 
 Download the latest release:
@@ -378,15 +378,15 @@ Extension import supports:
 - scanning installed Opera profiles
 - manually selecting an extension `manifest.json` file
 
-## What's New In 1.4.65
+## What's New In 1.5.02
 
-Version `1.4.65` is a website-compatibility and Privacy Protection reliability update. It includes:
+Version `1.5.02` is a runtime, dependency, and browser-home maintenance update. It includes:
 
-- fixed Cloudflare human-verification pages that could remain stuck
-- native Canvas and browser signals while a security challenge is active
-- automatic restoration of the selected privacy protections after verification
-- fixed active-tab ad and tracker counters on Electron 45
-- preserved Chromium-generated Client Hints for better website compatibility
+- Electron `45.3.1` and refreshed Chromium 156 compatibility metadata
+- updated JavaScript Obfuscator, sanitize-html, and tldts dependencies
+- a compact Android app promotion on the Bubbles Search Engine page
+- a direct link to the official Bubbles Browser Google Play listing
+- refreshed runtime trust-manifest and security verification
 
 The local What's New page replaces the previous Desktop update-note folder behavior and can be reopened from:
 
