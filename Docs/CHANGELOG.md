@@ -1,6 +1,21 @@
 # Changelog
 
-This changelog summarizes notable public release changes through version `1.4.65`.
+This changelog summarizes notable public release changes through version `1.5.02`.
+
+## 1.5.02
+
+### Updated
+
+- Updated Electron to `45.3.1` and aligned browser-owned Chromium fallback metadata with its Chromium 156 runtime.
+- Updated JavaScript Obfuscator to `5.10.1`, sanitize-html to `2.18.2`, and tldts to `7.4.28`.
+- Added a compact, dismissible Bubbles Browser for Android promotion to the Bubbles Search Engine page using the official Google Play listing.
+- Kept the app promotion local to the browser profile and configured its store link to omit referrer information.
+- Refreshed runtime trust-manifest hashes and security verification for the current runtime files.
+
+### Still In Place
+
+- Retained the Cloudflare verification compatibility fixes and active-tab Privacy Protection counter handling from `1.4.65`.
+- Kept the existing local-first privacy, profile, utility, accessibility, and optional local AI features.
 
 ## 1.4.65
 
