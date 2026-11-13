@@ -1,6 +1,17 @@
 # Changelog
 
-This changelog summarizes notable public release changes through version `1.5.02`.
+This changelog summarizes notable public release changes through version `1.5.04`.
+
+## 1.5.04
+
+### Fixed
+
+- Fixed the bundled Bubbles Browser icon not loading in the Android promotion on the Bubbles Search Engine page.
+- Removed the close button and dismissal behavior from the Android promotion.
+- Kept the official Google Play destination and no-referrer link behavior in place.
+- Fixed Google Play Store app icons and screenshots being blocked after opening the Android listing.
+- Corrected ABP host-plus-path rule handling so path-specific tracker rules no longer block an entire content-delivery domain.
+- Added regression coverage confirming legitimate Google Play images load while matching tracker paths remain blocked.
 
 ## 1.5.02
 
