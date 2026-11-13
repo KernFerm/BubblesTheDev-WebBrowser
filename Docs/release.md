@@ -1,19 +1,22 @@
-# BubblesTheDev Web Browser 1.5.02
+# BubblesTheDev Web Browser 1.5.04
 
-Release documentation for version `1.5.02`.
+Release documentation for version `1.5.04`.
 
-`1.5.02` is a runtime, dependency, and browser-home maintenance update that keeps the existing browser feature set in place.
+`1.5.04` is a focused Bubbles Search Engine and Google Play compatibility update that keeps the existing browser feature set in place.
 
 ## Highlights
 
-* The packaged browser version is now `1.5.02`
+* The packaged browser version is now `1.5.04`
 * Electron was updated to `45.3.1`
 * Browser-owned Chromium fallback metadata remains aligned with the Chromium 156 runtime used by Electron 45
 * JavaScript Obfuscator was updated to `5.10.1`
 * sanitize-html was updated to `2.18.2`
 * tldts was updated to `7.4.28`
 * The Bubbles Search Engine page now includes a compact Bubbles Browser for Android promotion linked to the official Google Play listing
-* The mobile-app promotion can be dismissed locally without sending browsing data to a BubblesTheDev service
+* The bundled Bubbles Browser icon now loads correctly in the Android promotion
+* The Android promotion no longer includes a close button
+* Google Play Store app icons and screenshots now load after opening the official Android listing from Bubbles Search
+* Path-specific privacy-list rules remain limited to their intended paths instead of affecting an entire content-delivery domain
 * Cloudflare Challenge and Turnstile traffic receives a narrow security-verification compatibility exception
 * Security verification pages use native Canvas and Chromium browser signals while the challenge is active
 * Normal pages continue using the selected Canvas and JavaScript fingerprint protection modes
@@ -39,7 +42,7 @@ Release documentation for version `1.5.02`.
 
 ## What This Release Means
 
-This release keeps the browser runtime current, adds a lightweight path to the Android edition from Bubbles Search, and preserves the existing local-first feature set.
+This release corrects the Android promotion and Google Play image loading while preserving the existing local-first feature set.
 
 Public support contact: support.bubblesthedev.webbrowser@gmail.com.
 
@@ -60,7 +63,7 @@ Public support contact: support.bubblesthedev.webbrowser@gmail.com.
 
 ## Carried Forward From Earlier 1.3.x Releases
 
-These features remain available in `1.5.02`, but they were introduced in earlier releases:
+These features remain available in `1.5.04`, but they were introduced in earlier releases:
 
 * File Converter, Universal Media Controls, Clipboard History, Per-Tab Volume Mixer, and Download Scheduler
 * Privacy Protection Engine, Privacy Request Inspector, local privacy counters, tracking-parameter cleanup, cookie protections, CNAME tracker detection, malicious-request protection, and cryptomining protection
@@ -99,7 +102,7 @@ Subscription Tracker is a local profile tool.
 
 Installer:
 
-`BubblesTheDev Web Browser_Installer_1.5.02.exe`
+`BubblesTheDev Web Browser_Installer_1.5.04.exe`
 
 SHA-256:
 
