@@ -1,19 +1,19 @@
-# BubblesTheDev Web Browser 1.5.04
+# BubblesTheDev Web Browser 1.5.10
 
-Release documentation for version `1.5.04`.
+Release documentation for version `1.5.10`.
 
-`1.5.04` is a focused Bubbles Search Engine and Google Play compatibility update that keeps the existing browser feature set in place.
+`1.5.10` is a focused installed-build asset and browser-runtime update that keeps the existing browser feature set in place.
 
 ## Highlights
 
-* The packaged browser version is now `1.5.04`
-* Electron was updated to `45.3.1`
+* The packaged browser version is now `1.5.10`
+* Electron was updated to `45.3.2`
 * Browser-owned Chromium fallback metadata remains aligned with the Chromium 156 runtime used by Electron 45
 * JavaScript Obfuscator was updated to `5.10.1`
 * sanitize-html was updated to `2.18.2`
 * tldts was updated to `7.4.28`
 * The Bubbles Search Engine page now includes a compact Bubbles Browser for Android promotion linked to the official Google Play listing
-* The bundled Bubbles Browser icon now loads correctly in the Android promotion
+* The Bubbles Browser icon used by the Android promotion is now included as a packaged runtime asset
 * The Android promotion no longer includes a close button
 * Google Play Store app icons and screenshots now load after opening the official Android listing from Bubbles Search
 * Path-specific privacy-list rules remain limited to their intended paths instead of affecting an entire content-delivery domain
@@ -42,7 +42,7 @@ Release documentation for version `1.5.04`.
 
 ## What This Release Means
 
-This release corrects the Android promotion and Google Play image loading while preserving the existing local-first feature set.
+This release corrects the Android promotion icon in installed builds and keeps the browser runtime current while preserving the existing local-first feature set.
 
 Public support contact: support.bubblesthedev.webbrowser@gmail.com.
 
@@ -63,7 +63,7 @@ Public support contact: support.bubblesthedev.webbrowser@gmail.com.
 
 ## Carried Forward From Earlier 1.3.x Releases
 
-These features remain available in `1.5.04`, but they were introduced in earlier releases:
+These features remain available in `1.5.10`, but they were introduced in earlier releases:
 
 * File Converter, Universal Media Controls, Clipboard History, Per-Tab Volume Mixer, and Download Scheduler
 * Privacy Protection Engine, Privacy Request Inspector, local privacy counters, tracking-parameter cleanup, cookie protections, CNAME tracker detection, malicious-request protection, and cryptomining protection
@@ -102,7 +102,7 @@ Subscription Tracker is a local profile tool.
 
 Installer:
 
-`BubblesTheDev Web Browser_Installer_1.5.04.exe`
+`BubblesTheDev Web Browser_Installer_1.5.10.exe`
 
 SHA-256:
 
