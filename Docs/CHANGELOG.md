@@ -1,6 +1,15 @@
 # Changelog
 
-This changelog summarizes notable public release changes through version `1.5.04`.
+This changelog summarizes notable public release changes through version `1.5.10`.
+
+## 1.5.10
+
+### Fixed And Updated
+
+- Added the Android promotion icon as a packaged root runtime asset so it loads in installed and protected builds.
+- Verified the promotion HTML and icon are present together in the protected release stage.
+- Updated Electron to `45.3.2`.
+- Kept the Google Play image compatibility and path-specific privacy-rule correction from `1.5.04`.
 
 ## 1.5.04
 
