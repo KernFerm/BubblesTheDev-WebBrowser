@@ -1,14 +1,14 @@
-# BubblesTheDev Web Browser 1.5.10
+# BubblesTheDev Web Browser 1.5.20
 
-Release documentation for version `1.5.10`.
+Release documentation for version `1.5.20`.
 
-`1.5.10` is a focused installed-build asset and browser-runtime update that keeps the existing browser feature set in place.
+`1.5.20` is a focused browser-runtime maintenance update that keeps the existing browser feature set in place.
 
 ## Highlights
 
-* The packaged browser version is now `1.5.10`
-* Electron was updated to `45.3.2`
-* Browser-owned Chromium fallback metadata remains aligned with the Chromium 156 runtime used by Electron 45
+* The packaged browser version is now `1.5.20`
+* Electron was updated to `45.4.1`
+* Browser-owned Chromium fallback metadata is aligned with Chromium `156.0.8078.100`
 * JavaScript Obfuscator was updated to `5.10.1`
 * sanitize-html was updated to `2.18.2`
 * tldts was updated to `7.4.28`
@@ -42,7 +42,7 @@ Release documentation for version `1.5.10`.
 
 ## What This Release Means
 
-This release corrects the Android promotion icon in installed builds and keeps the browser runtime current while preserving the existing local-first feature set.
+This release keeps the browser runtime current while preserving the existing local-first feature set.
 
 Public support contact: support.bubblesthedev.webbrowser@gmail.com.
 
@@ -63,7 +63,7 @@ Public support contact: support.bubblesthedev.webbrowser@gmail.com.
 
 ## Carried Forward From Earlier 1.3.x Releases
 
-These features remain available in `1.5.10`, but they were introduced in earlier releases:
+These features remain available in `1.5.20`, but they were introduced in earlier releases:
 
 * File Converter, Universal Media Controls, Clipboard History, Per-Tab Volume Mixer, and Download Scheduler
 * Privacy Protection Engine, Privacy Request Inspector, local privacy counters, tracking-parameter cleanup, cookie protections, CNAME tracker detection, malicious-request protection, and cryptomining protection
@@ -102,7 +102,7 @@ Subscription Tracker is a local profile tool.
 
 Installer:
 
-`BubblesTheDev Web Browser_Installer_1.5.10.exe`
+`BubblesTheDev Web Browser_Installer_1.5.20.exe`
 
 SHA-256:
 
