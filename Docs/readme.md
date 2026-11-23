@@ -2,7 +2,7 @@
 
 > **A privacy-focused Windows 11 browser with local-first data handling, isolated profiles, accessibility tools, local AI, built-in privacy protection, and practical everyday features.**
 
-[![Version](https://img.shields.io/badge/version-1.5.10-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
+[![Version](https://img.shields.io/badge/version-1.5.20-blue)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Platform](https://img.shields.io/badge/platform-Windows%2011-0078D6)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
 [![Electron](https://img.shields.io/badge/Electron-45-47848F?logo=electron&logoColor=white)](https://www.electronjs.org/)
 [![Downloads](https://img.shields.io/github/downloads/KernFerm/BubblesTheDev-WebBrowser/total?label=downloads)](https://github.com/KernFerm/BubblesTheDev-WebBrowser/releases)
@@ -10,7 +10,7 @@
 
 ## Download
 
-**Current Version:** `1.5.10`
+**Current Version:** `1.5.20`
 **Platform:** `Windows 11 x64`
 
 Download the latest release:
@@ -378,14 +378,14 @@ Extension import supports:
 - scanning installed Opera profiles
 - manually selecting an extension `manifest.json` file
 
-## What's New In 1.5.10
+## What's New In 1.5.20
 
-Version `1.5.10` is a focused installed-build asset and browser-runtime update. It includes:
+Version `1.5.20` is a focused browser-runtime maintenance update. It includes:
 
-- a packaged Bubbles Browser icon that loads correctly in the Android promotion after installation
-- Electron `45.3.2`
-- the same direct link to the official Bubbles Browser Google Play listing
-- the Google Play image compatibility correction from `1.5.04`
+- Electron `45.4.1`
+- Chromium fallback metadata aligned with `156.0.8078.100`
+- refreshed runtime trust-manifest hashes and security verification
+- the existing local-first browser features and privacy controls
 
 The local What's New page replaces the previous Desktop update-note folder behavior and can be reopened from:
 
