@@ -1,6 +1,14 @@
 # Changelog
 
-This changelog summarizes notable public release changes through version `1.5.10`.
+This changelog summarizes notable public release changes through version `1.5.20`.
+
+## 1.5.20
+
+### Updated
+
+- Updated Electron to `45.4.1` and aligned browser-owned Chromium fallback metadata with Chromium `156.0.8078.100`.
+- Refreshed runtime trust-manifest hashes and security verification for the current runtime files.
+- Kept the existing browser feature set and local-first privacy controls in place.
 
 ## 1.5.10
 
